@@ -1,0 +1,19 @@
+/* partie photo*/
+.div_photo{
+    width: 30%;
+    height: 100%;
+    border-radius: 15px;
+    background: url("/public/images/ordi.png") no-repeat;
+    background-size: 100%;
+}
+.boutons_photo{
+    background-color: #FF8802;
+    color: white;
+    border-radius: 10px;
+    margin-top: 125px;
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 20px;
+    width: 60px;
+
+}

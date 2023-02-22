@@ -1,0 +1,166 @@
+
+/* PARTIE : photo + nom */
+.div_photo_nom{
+    background: url("/public/images/valise_fermé.png") no-repeat;
+    background-size: 100%;
+    margin-top: 70px;
+    height: 250px;
+    min-width: 920px;
+    color: #ebebeb;
+    padding-left: 10px ;
+}
+
+.text{
+    line-height: 2px;
+}
+
+/* PARTIE : input de recherche géneral*/
+.div_recherche{
+    height: 75px;
+    min-width: 920px;
+}
+
+.b_type_voyage{
+    color: #FF8802;
+    height: 42px;
+    width: 145px;
+    padding: 13px ;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px 0 #63B7E7, 0 2px 2px 0 #63B7E7;
+    border-radius: 5px;
+    background: white;
+}
+#span_bouton{
+    margin-left: 7px;
+    margin-right: 7px;
+}
+.titre_Recherche{
+    color: #FF8802;
+    height: 42px;
+    width: 300px;
+    padding-left: 10px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    box-shadow: 2px 0 10px 0 #63B7E7, 0 2px 2px 0 #63B7E7;
+    border-radius: 0px 0px 0px 0;
+}
+.titre_depart{
+    color: #FF8802;
+    height: 42px;
+    width: 215px;
+    padding-left: 7px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px 0 #63B7E7, 0 2px 2px 0 #63B7E7;
+    border-right: none;
+}
+
+.titre_arrive{
+    color: #FF8802;
+    height: 42px;
+    width: 215px;
+    padding-left: 5px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    box-shadow: 2px 0 10px 0 #63B7E7, 0 2px 2px 0 #63B7E7;
+    border-right: none;
+}
+
+#depart {
+    border-radius:  5px 0px 0px 5px;
+}
+.div_recherche{
+    padding-left: 20px;
+}
+.div_recherche .input_recherche{
+    width: 85%;
+    border-radius: 0px 0px 0px 0px;
+    box-shadow: none;
+    border: none;
+    margin: 0px 0px;
+}
+.div_recherche .input_départ {
+    width: 150px;
+    border-radius: 0px 0px 0px 0px;
+    box-shadow: none;
+    border: none;
+    margin: 0px 0px;
+}
+
+.div_recherche .input_arrivé {
+    width: 150px;
+    border-radius: 0px 0px 0px 0px;
+    box-shadow: none;
+    border: none;
+    margin: 0px 0px;
+}
+
+.div_recherche .input_recherche:focus{
+    outline: none;
+    box-shadow: none;
+    margin: 0px 0px;
+}
+
+.div_recherche .input_arrivé:focus{
+    outline: none;
+    box-shadow: none;
+    margin: 0px 0px;
+}
+
+.div_recherche .input_départ:focus{
+    outline: none;
+    box-shadow: none;
+    margin: 0px 0px;
+}
+/* PARTIE : reste de la page */
+.div_annonces_produit{
+    min-width: 620px;
+    display: flex;
+
+}
+/* SOUS-PARTIE : choix multiple affiner la recherche*/
+.div_affiner_recherhce{
+    padding-left: 20px;
+    width: 20%;
+    height: 350px;
+}
+.titre_recherche_gauche{
+    line-height : 0px;
+}
+.table_recherche{
+    color: black;
+}
+.table_recherche td{
+    height: 15px;
+}
+
+.input_number{
+    width: 40px;
+    border-radius: 5px;
+}
+.radio_input{
+    margin-left: 10px;
+}
+/* SOUS-PARTIE : listes des Annonces */
+/* Annonces normals */
+.div_annonces_lamda{
+    width: 45%;
+    min-height: 500px;
+    min-width: 550px;
+    padding: 8px;
+}
+
+/* Annonces urgentes*/
+.div_annonces_urgentes{
+    border: solid;
+    width: 33%;
+    min-height: 500px;
+}

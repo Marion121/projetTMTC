@@ -1,0 +1,41 @@
+/* partie prix */
+.div_prix{
+    width: 17%;
+    border-left: dashed;
+    padding-left: 5px;
+}
+.div_contrepartie{
+    box-shadow: 0 0 5px 0 #999999, 0 2px 2px 0 #9a9a9a;
+    border-radius: 0px 5px 0px 5px;
+    width: 80px;
+    height: 40px;
+    margin-top: 7px;
+    padding-top: 1px;
+    padding-left: 3px;
+}
+.text_contrepartie{
+    font-size: x-small;
+    line-height: 1px;
+}
+.text_prix{
+    font-size: small;
+    line-height: 1px;
+    margin-left: 25px;
+}
+/* prix tot*/
+.div_cout_tot{
+    box-shadow: 0 0 10px 0 #999999, 0 2px 2px 0 #9a9a9a;
+    background-color: #FF8802;
+    color: white;
+    border-radius: 0px 5px 0px 5px;
+    width: 80px;
+    height: 40px;
+    margin-top: 7px;
+    padding-top: 1px;
+    padding-left: 3px;
+}
+.text_prix_tot{
+    font-size: small;
+    line-height: 1px;
+    margin-left: 10%;
+}

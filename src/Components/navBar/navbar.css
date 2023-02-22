@@ -1,0 +1,341 @@
+/*toute la nav bar*/
+/*
+.bar {
+    height: 70px;
+    min-width: 620px;
+    background-color: #3B9DD3;
+    align-items: center;
+    position: relative;
+    display: flex;
+}
+
+/* Logo en haut a gache*/
+/*
+.Logo{
+    height: 65px;
+    width: 180px;
+    padding-bottom: 5px;
+}
+
+.imageLogo{
+    height: 65px;
+}
+
+/*groupes de bouttons*/
+/*
+.nav{
+    width: 450px;
+    height: 70px;
+    position: absolute;
+    right: 0px;
+}
+
+.nav button{
+    color: white;
+}
+
+
+/* BOUTON ajouter une annonce*/
+/*
+.div_creerAnnonce{
+    padding-top: 10px;
+    height: 57px;
+    width: 110px;
+    position: absolute;
+    right: 330px;
+}
+.creerAnnonce{
+    width: 110px;
+    height: 3.4em;
+    font-weight: bold;
+    background-color: #FF8802;
+    display: flex;
+}
+
+.addAnnonce{
+    margin-top: 5px;
+    margin-left: 3px;
+}
+
+.text_add_annonce{
+    margin-top: 7px;
+    margin-left: 2px;
+    margin-right: 3px;
+}
+/* gestion des tailles incons*/
+/*
+.logo_annonce{
+    font-size: xx-large;
+}
+
+/* BOUTON voir annonce*/
+/*
+.div_annonces{
+    padding-top: 20px;
+    height: 48px;
+    width: 115px;
+    right: 205px;
+    position: absolute;
+}
+.annonces{
+    width: 110px;
+    background-color:transparent;
+}
+
+.fleche{
+    margin-left: 6px;
+    transition: transform 200ms;
+}
+
+/* BOUTON Profil */
+/*
+.div_profil{
+    padding-left: 15px;
+    padding-top: 10px;
+    height: 58px;
+    width:  130px;
+    position: absolute;
+    right: 60px;
+}
+
+.profil{
+    height: 50px ;
+    width: 80px;
+    display: flex;
+    background-color:transparent;
+    border: solid;
+}
+.profil:hover{
+    height: 80px ;
+    width: 120px;
+    background-color: white;
+    border-radius: 10px;
+    padding-left: 0;
+    margin: 0;
+}
+.profil:hover .div_profil{
+    padding-left: 0;
+}
+.profil:hover .flecheProfil{
+    transform: rotate(180deg);
+    color: black;
+}
+
+.arriere_plan_profil{
+    border-radius: 99999px;
+    background-color: #FF8802;
+    height: 50px;
+    width: 50px;
+}
+
+.flecheProfil{
+    margin-left: 6px;
+    margin-top: 20px;
+    transition: transform 200ms;
+}
+/* gestion des tailles incons*/
+/*
+.logo_profil{
+    margin-top: 9px;
+    font-size: xx-large;
+}
+
+/* BOUTON mail*/
+/*
+.div_mail{
+    height: 67px;
+    width: 65px;
+    position: absolute;
+    right: 0;
+}
+.message{
+    height: 3em;
+    width: 3em;
+    background-color:transparent;
+    margin-top: 15px;
+}
+/* gestion des tailles incons*/
+/*
+.logo_message{
+    font-size: xx-large;
+}
+ */
+
+/*toute la nav bar*/
+.bar {
+    height: 70px;
+    min-width: 620px;
+    background-color: #3B9DD3;
+    align-items: center;
+    position: relative;
+    display: flex;
+}
+
+/* Logo en haut a gache*/
+.Logo{
+    height: 65px;
+    width: 180px;
+    padding-bottom: 5px;
+}
+
+.imageLogo{
+    height: 65px;
+}
+
+/*groupes de bouttons*/
+.nav{
+    width: 450px;
+    height: 70px;
+    position: absolute;
+    right: 0px;
+}
+
+.nav button{
+    color: white;
+}
+
+
+/* BOUTON ajouter une annonce*/
+.div_creerAnnonce{
+    padding-top: 10px;
+    height: 57px;
+    width: 110px;
+    position: absolute;
+    right: 330px;
+}
+.creerAnnonce{
+    width: 110px;
+    height: 3.4em;
+    font-weight: bold;
+    background-color: #FF8802;
+    display: flex;
+}
+
+.addAnnonce{
+    margin-top: 5px;
+    margin-left: 3px;
+}
+
+.text_add_annonce{
+    margin-top: 7px;
+    margin-left: 2px;
+    margin-right: 3px;
+}
+/* gestion des tailles incons*/
+.logo_annonce{
+    font-size: xx-large;
+}
+
+/* BOUTON voir annonce*/
+.div_annonces{
+    padding-top: 20px;
+    height: 48px;
+    width: 115px;
+    right: 205px;
+    position: absolute;
+}
+.annonces{
+    width: 110px;
+    background-color:transparent;
+}
+
+.fleche{
+    margin-left: 6px;
+    transition: transform 200ms;
+}
+
+/* BOUTON profil */
+.div_profil{
+    padding-left: 15px;
+    padding-top: 10px;
+    height: 58px;
+    width:  130px;
+    position: absolute;
+    right: 60px;
+}
+
+.profil{
+    height: 50px ;
+    width: 80px;
+    display: flex;
+    background-color:transparent;
+}
+.profil:hover{
+    height: 80px ;
+    width: 120px;
+    background-color: white;
+    border-radius: 10px;
+    padding-left: 0;
+    margin: 0;
+}
+.profil:hover .div_profil{
+    padding-left: 0;
+}
+.profil:hover .flecheProfil{
+    transform: rotate(180deg);
+    color: black;
+}
+
+.arriere_plan_profil{
+    border-radius: 99999px;
+    background-color: #FF8802;
+    height: 50px;
+    width: 50px;
+}
+
+.flecheProfil{
+    margin-left: 6px;
+    margin-top: 20px;
+    transition: transform 200ms;
+}
+/* gestion des tailles incons*/
+.logo_profil{
+    margin-top: 9px;
+    font-size: xx-large;
+}
+
+/* BOUTON mail*/
+.div_mail{
+    height: 67px;
+    width: 65px;
+    position: absolute;
+    right: 0;
+}
+.message{
+    height: 3em;
+    width: 3em;
+    background-color:transparent;
+    margin-top: 15px;
+}
+/* gestion des tailles incons*/
+.logo_message{
+    font-size: xx-large;
+}
+
+/*ajout*/
+.dropdown-content button {
+    text-align: left;
+    color:black;
+    text-decoration: none;
+    background: white;
+    height: 30px;
+    width: 100%;
+}
+.dropdown-content button:hover{
+    background: #f1f1f1;
+}
+.dropdown-content{
+    display: none;
+    position:absolute;
+    top: 70px;
+    /*padding-left: 5px;*/
+    border:solid;
+    width: 110px;
+    margin: 0;
+}
+
+
+.profil:hover .dropdown-content{
+    display: block;
+
+}

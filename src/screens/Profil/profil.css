@@ -1,0 +1,125 @@
+.block_general{
+    padding: 15px;
+    margin-top: 70px;
+}
+/* PARTIE : bouton retour */
+.Bretour{
+    background: transparent;
+    font-weight: bold;
+    height: 50px;
+    width: 100px;
+    padding: 0px;
+}
+.fontRetour{
+    background-color: #23445c;
+    color: #ebebeb;
+    padding: 7px;
+    width: 20px;
+    border-radius: 70%;
+    margin-right: 5px;
+}
+
+/* PARTIE :  espace photo & nom & gain tot */
+.block_photo_nom_tot{
+    width: 60%;
+    min-width: 590px;
+    height: 150px;
+    margin: auto;
+    display: flex;
+}
+.photo_nom{
+    display: flex;
+    margin: 5px;
+    /*padding-left: 45px;*/
+}
+/* sous partie : photo */
+.PhotoProfil{
+    border-radius: 100%;
+    padding: 5px;
+    border: solid;
+    height: 130px;
+    width: 130px;
+}
+
+.b_modif_photo{
+    position: absolute;
+    margin-top: 100px;
+    margin-left: 100px;
+}
+
+
+/* sous partie : nom */
+.nom_prenom{
+    margin-top: 60px;
+    margin-left: 15px;
+    width: 250px;
+    font-weight: bold;
+}
+
+/* sous partie : somme total gangé*/
+
+.tot_gangne{
+    width: 105px;
+    height: 50px;
+    padding: 0px 5px 0px 5px ;
+    margin-top: 50px;
+    margin-left: 55px;
+    border: solid #ebebeb;
+    border-radius: 7% ;
+    color: #1a3c55;
+
+}
+
+.tot_text{
+    font-size: small;
+    line-height: 3px;
+}
+
+.tot_valeur{
+    font-weight: bold ;
+    line-height: 3px;
+    margin-left: 25px;
+}
+
+/* PARTIE :  information personelle */
+.block_info_modif{
+    width: 470px ;
+    margin: auto;
+}
+
+
+h3{
+    font-size: large;
+    line-height: 2px;
+}
+.info{
+    line-height: 2px;
+    font-size: x-large;
+    font-weight: normal;
+    margin-right: 15px;
+}
+
+/* BOUTON MODIFIER*/
+.B_modif{
+    color: #23445c;
+    border: solid #ebebeb;
+    background-color: white;
+    height: 40px;
+    width: 40px;
+    border-radius: 50% ;
+    text-align: center;
+    padding: 2px;
+    font-size: x-large;
+}
+
+.B_info{
+    font-size: large;
+    padding: 2px;
+    height: 30px;
+    width: 30px;
+}
+
+
+
+
+
