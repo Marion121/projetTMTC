@@ -21,7 +21,7 @@ root.render(
                 <Route path='/Inscription' element={<Inscription />} />
                 <Route path='/Annonces' element={<Annonces />} />
                 <Route path='/monProfil' element={<Profil />} />
-
+                <Route path='/mesAchatsEtVoyages' element={<MesAchatsEtVoyages />} />
             </Routes>
 
         </BrowserRouter>

@@ -25,7 +25,7 @@ function NavBar() {
     }
 
     function goAnnonces() {
-        navigate('/Annonces')
+        navigate('/mesAchatsEtVoyages')
     }
 
     const [isHover, setIsHover] = useState(false);
