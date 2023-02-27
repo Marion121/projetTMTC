@@ -8,13 +8,14 @@ function Accueil() {
 
     let navigate = useNavigate();
 
-    function goConnexion(){
+    function goConnexion() {
         navigate('/Connexion');
     }
 
-    function goInscription(){
+    function goInscription() {
         navigate('/Inscription');
     }
+
     return (
         <div className='page'>
             <div className='zone_navBar'>
@@ -24,35 +25,39 @@ function Accueil() {
                 <div className="block">
                     <div className='slogan'>
                         <table className='tab_slogan'>
-                            <tr>
-                                <td className="sloganBleuCiel">     Achetez   </td>
-                                <td className="point"> <i className="fa-solid fa-circle"></i> </td>
-                                <td className="sloganBleuCiel">   Voyagez   </td>
-                                <td className="point"> <i className="fa-solid fa-circle"></i> </td>
-                                <td className="sloganBleuMarine">   Recevez   </td>
-                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td className="sloganBleuCiel"> Achetez</td>
+                                    <td className="point"><i className="fa-solid fa-circle"></i></td>
+                                    <td className="sloganBleuCiel"> Voyagez</td>
+                                    <td className="point"><i className="fa-solid fa-circle"></i></td>
+                                    <td className="sloganBleuMarine"> Recevez</td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                     <div className="inscription_connecter">
-                        <table>
-                            <tr>
-                                <td className={"boutonInscriptionPosition"}>
-                                    <button className='inscription' onClick={goInscription}>
-                                        Inscription
-                                    </button>
-                                </td>
-                                <td className={"seConnecterPosition"}>
-                                    <button className='seConnecter' onClick={goConnexion}>
-                                        Se connecter
-                                    </button>
-                                </td>
-                            </tr>
+                        <table id={"table_inscription_connexion"}>
+                            <tbody>
+                                <tr>
+                                    <td className={"boutonInscriptionPosition"}>
+                                        <button className='inscription' onClick={goInscription}>
+                                            Inscription
+                                        </button>
+                                    </td>
+                                    <td className={"seConnecterPosition"}>
+                                        <button className='seConnecter' onClick={goConnexion}>
+                                            Se connecter
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                 </div>
             </div>
             <div className='zone3'>
-                <div >
+                <div>
                     Texte
                 </div>
                 <img className="ImageBas" src='/../../images/schemaAccueil.jpeg' alt='Schémas'/>

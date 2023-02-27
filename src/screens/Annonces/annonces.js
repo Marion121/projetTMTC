@@ -2,10 +2,14 @@ import '../css_general.css'
 import './annonces.css'
 import NavBar from '../../Components/navBar/navbar'
 import Annonces_vu_voyageur from "../../Components/annonces_vue_voyageur/annonces_vue_voyageur";
+import Annonces_urgentes from "../../Components/annonces_urgentes/annonces_urgentes";
 
 function Annonces() {
 
-    const data = [{key:1 , titre:"annonces1"},{key:2,titre:"annonces2"},{key:3,titre:"annonces3"},{key:4,titre:"annonces4"}, ]
+    const data = [{key:1 , titre:"annonces1", lVente : "Paris, France", lAchat : "Madrid, Espagne", description : "super ordi topito", profil : "Leo Comte", Prix1 : "40,00 €", PrixV : "60,00 €", coutTot : "3670,00 €"},
+        {key:2,titre:"annonces2",lVente : "Paris, France", lAchat : "Madrid, Espagne", description : "super ordi topito", profil : "Leo Comte", Prix1 : "40,00 €", PrixV : "60,00 €", coutTot : "3670,00 €"},
+        {key:3,titre:"annonces3",lVente : "Paris, France", lAchat : "Madrid, Espagne", description : "super ordi topito", profil : "Leo Comte", Prix1 : "40,00 €", PrixV : "60,00 €", coutTot : "3670,00 €"},
+        {key:4,titre:"annonces4", lVente : "Paris, France", lAchat : "Madrid, Espagne", description : "super ordi topito", profil : "Leo Comte", Prix1 : "40,00 €", PrixV : "60,00 €", coutTot : "3670,00 €"} ]
 
     return (
         <div className='page'>
@@ -86,11 +90,10 @@ function Annonces() {
                     <br/>
                 </div>
                 <div className={"div_annonces_lamda"}>
-                    {data.map(dataprop => <Annonces_vu_voyageur titre={dataprop.titre}></Annonces_vu_voyageur>)}
-                    {/*<Annonces_vu_voyageur titre = {"c est ok "}></Annonces_vu_voyageur>*/}
-
+                    {data.map(dataprop => <Annonces_vu_voyageur titre={dataprop.titre} lVente={dataprop.lVente} lAchat={dataprop.lAchat} description={dataprop.description} profil={dataprop.profil}  prix1={dataprop.Prix1}  prixV={dataprop.PrixV}  coutTot={dataprop.coutTot} ></Annonces_vu_voyageur>)}
                 </div>
                 <div className={"div_annonces_urgentes"}>
+                    <Annonces_urgentes/>
                 </div>
             </div>
         </div>

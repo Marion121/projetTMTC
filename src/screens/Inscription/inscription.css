@@ -1,6 +1,5 @@
 .container_form_inscription{
     margin: 0 auto;
-    position: relative;
     top: 10%;
     width: 80%;
     margin-top: 80px;
@@ -8,7 +7,6 @@
 
 .form_inscription{
     display: flex;
-    flex: space-around;
     flex-wrap: wrap;
     padding: 4%;
     border: none;

@@ -130,6 +130,7 @@
 .div_affiner_recherhce{
     padding-left: 20px;
     width: 20%;
+    min-width: 200px;
     height: 350px;
 }
 .titre_recherche_gauche{
@@ -162,5 +163,6 @@
 .div_annonces_urgentes{
     border: solid;
     width: 33%;
+    min_width: 390px;
     min-height: 500px;
 }

@@ -1,0 +1,8 @@
+.annonces_u_div_general{
+    height: 150px;
+    width: 380px;
+    border-radius: 15px;
+    display: flex;
+    box-shadow: 0 0 15px 0 #999999, 0 2px 2px 0 #9a9a9a;
+    margin-bottom: 15px;
+}
