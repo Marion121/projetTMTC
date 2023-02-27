@@ -260,14 +260,23 @@
     display: flex;
     background-color:transparent;
 }
+
+.bouttonProfil{
+    background-color:transparent;
+    border: none;
+    border-radius: 6px;
+}
+
 .profil:hover{
-    height: 80px ;
+    height: 130px;
     width: 120px;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 30px 10px 10px 10px;
     padding-left: 0;
     margin: 0;
 }
+
+
 .profil:hover .div_profil{
     padding-left: 0;
 }
@@ -293,6 +302,20 @@
     margin-top: 9px;
     font-size: xx-large;
 }
+
+.PhotoProfilNavBar{
+        border-radius: 100%;
+        padding: 5px;
+        border: solid;
+        height: 38px;
+        width: 38px;
+        margin-top: px;
+}
+
+.fondConnecte{
+    background: transparent;
+}
+
 
 /* BOUTON mail*/
 .div_mail{
@@ -337,5 +360,5 @@
 
 .profil:hover .dropdown-content{
     display: block;
-
 }
+

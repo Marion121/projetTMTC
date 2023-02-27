@@ -9,6 +9,7 @@ import Annonces from "./screens/Annonces/annonces";
 import Connexion from './screens/Connexion/connexion';
 import {BrowserRouter,Routes,Route} from "react-router-dom";
 import Inscription from './screens/Inscription/inscription.js';
+import MesAchatsEtVoyages from './screens/MesAchatsEtVoyages/mesAchatsEtVoyages.js'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
