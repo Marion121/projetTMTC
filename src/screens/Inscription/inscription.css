@@ -3,12 +3,16 @@
     top: 10%;
     width: 80%;
     margin-top: 80px;
+
+}
+
+.container_form_inscription h1{
+    margin-left: 135px;
 }
 
 .form_inscription{
-    display: flex;
     flex-wrap: wrap;
-    padding: 4%;
+    padding: 2% 4%;
     border: none;
     background: #fff;
     box-shadow: none;
@@ -18,6 +22,9 @@
     font-size: 35px;
 }
 
+.form_inscription table{
+    margin: 0 auto;
+}
 td{
     padding: 8px 30px 0px 30px;
     width: 50%;

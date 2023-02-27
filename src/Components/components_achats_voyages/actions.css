@@ -1,0 +1,24 @@
+.actions{
+    width: 35%;
+    height: 100%;
+    padding: 3px 15px;
+}
+.pratique2{
+    padding-top: 1px;
+}
+
+.logoCheck{
+    color: #6FB9F3;
+    margin-right: 6px;
+}
+
+
+p span{
+    background: #6FB9F3;
+    margin-right: 5px;
+    border-radius: 9999999px;
+    width: 10px;
+}
+.logo{
+    color: white;
+}

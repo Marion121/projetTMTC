@@ -1,10 +1,20 @@
 import NavBar from '../../Components/navBar/navbar';
 import './inscription.css'
 import '../css_general.css'
-
-import {useNavigate} from 'react-router-dom';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAppStore } from '../../donness';
 
 function Inscription() {
+    const [password, setPassword] = useState("");
+    const setIsConnecte = useAppStore((state)=>(state.setIsConnecte));
+    let navigate = useNavigate();
+
+    function goAnnonces() {
+        setIsConnecte(true);
+        navigate('/Annonces');
+    }
+
     return (
         <div className='page'>
             <div className='zone_navBar'>
@@ -12,9 +22,9 @@ function Inscription() {
             </div>
             <div className='reste'>
                 <div className="container_form_inscription">
-
-                    <form className='form_inscription' method="POST">
-                        <h1>Inscription</h1>
+                <h1>Inscription </h1>
+                    <form className='form_inscription' method="POST" onSubmit={goAnnonces}>
+                    
                         <table>
                             <tr>
                                 <td>
@@ -39,11 +49,11 @@ function Inscription() {
                             <tr>
                                 <td>
                                     <label>Mot de passe</label>
-                                    <input className="Input" type="password" placeholder="Entrer le mot de passe" name="password" required></input>
+                                    <input className="Input" type="password" placeholder="Entrer le mot de passe" minlength="8" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required></input>
                                 </td>
                                 <td>
                                     <label>Confirmation de mot de passe</label>
-                                    <input className="Input" type="password" placeholder="Confirmer votre mot de passe" name="passwordConfirm" required></input>
+                                    <input className="Input" type="password" placeholder="Confirmer votre mot de passe" name="passwordConfirm" pattern={password} required></input>
                                 </td>
                             </tr>
                             <tr>
@@ -78,11 +88,11 @@ function Inscription() {
                                 </td>
                             </tr>
                             <tfoot>
-                            <tr>
-                                <td className="submitBouton"colspan="2">
-                                    <input type="submit" id='submit' value='LOGIN'></input>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td className="submitBouton" colspan="2">
+                                        <input type="submit" id='submit' value='LOGIN'></input>
+                                    </td>
+                                </tr>
                             </tfoot>
                         </table>
                     </form>
