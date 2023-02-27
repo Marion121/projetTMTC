@@ -5,15 +5,16 @@
     border-radius: 15px;
     background: url("/public/images/ordi.png") no-repeat;
     background-size: 100%;
+    BORDER : solid;
 }
 .boutons_photo{
     background-color: #FF8802;
     color: white;
     border-radius: 10px;
-    margin-top: 125px;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-top: 75% ;
+    margin-left: 7%;
+    margin-right: 7%;
     height: 20px;
-    width: 60px;
+    min-width: 30px;
 
 }
