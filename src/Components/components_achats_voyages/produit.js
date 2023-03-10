@@ -8,9 +8,11 @@ function Produit() {
 
     return (
         <div className="produit_container">
-            <Photo_annonces style="border : solid;" />
+            <div id='div_autour_photo'>
+                <Photo_annonces taille="boutons_photo" style="border : solid;" />
+            </div>
             <div id='description_achatsVoyages'>
-                <h3>Produit</h3>
+                <h3 id={"titre_profil"}>Produit</h3>
                 <div className='informationProduits'>
                     <span>
                         <img className="PhotoProfilComponentProduit" src={photo} alt='Schémas' />
@@ -21,9 +23,9 @@ function Produit() {
                     <p className={'text_lieu'}><i className="logo_lieu_vente fa-solid fa-bag-shopping"></i> Lieu de vente</p>
                     <p className={'text_lieu'}><i className="logo_achat fa-solid fa-plane-departure"></i> Lieu d'achat</p>
                 </div>
-                <div className='nomsActeurs'>
-                    <h3 className='nomAcheteur'><i class="fa-solid fa-bag-shopping"></i> Moi </h3>
-                    <h3 className='nomTransporteur'><i class="fa-solid fa-plane-departure"></i> Carine </h3>
+                <div className='div_nomsActeur'>
+                    <h3 className='titre_nom'><i class="fa-solid fa-bag-shopping"></i> <u>Moi</u> </h3>
+                    <h3 className='titre_nom'><i class="fa-solid fa-plane-departure"></i> <u>Carine</u> </h3>
                 </div>
             </div>
         </div>

@@ -28,6 +28,10 @@ function NavBar() {
         navigate('/Annonces')
     }
 
+    function goMesAchats() {
+        navigate('/MesAchatsEtVoyages');
+    }
+
     const [isHover, setIsHover] = useState(false);
 
     const handleMouseEnter = () => {
@@ -74,7 +78,7 @@ function NavBar() {
                         </button>
                     </div>
                     <div className='div_mail'>
-                        <button className='message'>
+                        <button className='message' onClick={goMesAchats}>
                             <i class="logo_message fa-regular fa-envelope"></i>
                         </button>
                     </div>
@@ -102,7 +106,7 @@ function NavBar() {
                         </button>
                     </div>
                     <div className='div_annonces'>
-                        <button className='annonces'>
+                        <button className='annonces' onClick={goAnnonces}>
                             Annonces
                             <i class="fleche fa-solid fa-angle-down"></i>
                         </button>
