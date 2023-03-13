@@ -7,7 +7,67 @@
     margin-bottom: 15px;
 }
 
+#colone_droite{
+    height: 150px;
+    width: 125px;
+}
+
+#div_profil{
+    margin-left: 15px;
+    margin-top: 15px;
+    height: 20px;
+}
+
 #autour_photo{
     height: 115px;
     width: 125px;
+}
+
+#titre{
+    font-size: large;
+    line-height: 5px;
+}
+.text_lieu_urgente{
+    line-height: 1px;
+}
+
+.text_contrepartie_urgente{
+    font-size: xx-small;
+    line-height: 1px;
+}
+
+.text_prix_urgente{
+    font-size: small;
+    line-height: 1px;
+    margin-left: 25px;
+}
+
+.text_lieu_urgente i{
+    font-size: small;
+    line-height: 10px;
+}
+#div_description{
+    line-height: 2px;
+    font-size: small;
+    margin-left: 15px;
+}
+#profil{
+    font-size: xx-small;
+    line-height: 1px;
+}
+
+#div_cout_urgent{
+    box-shadow: 0 0 10px 0 #999999, 0 2px 2px 0 #9a9a9a;
+    background-color: #f53422;
+    color: white;
+    border-radius: 0px 5px 0px 5px;
+    width: 80px;
+    height: 40px;
+    padding-top: 1px;
+    padding-left: 3px;
+}
+
+.text_contrepartie{
+    font-size: xx-small;
+    line-height: 1px;
 }

@@ -153,6 +153,7 @@
 /* SOUS-PARTIE : listes des Annonces */
 /* Annonces normals */
 .div_annonces_lamda{
+    margin-top: 20px;
     width: 45%;
     min-height: 500px;
     min-width: 550px;
@@ -161,8 +162,17 @@
 
 /* Annonces urgentes*/
 .div_annonces_urgentes{
-    border: solid;
     width: 33%;
     min_width: 390px;
     min-height: 500px;
+}
+#titre_A_urgentes{
+    line-height: 1px;
+    margin-top: 4px;
+    margin-left: 15px;
+}
+
+#div_annonces_u_border{
+    border-left: solid;
+    padding-left: 10px;
 }

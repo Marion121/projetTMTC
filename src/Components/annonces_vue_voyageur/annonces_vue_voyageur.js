@@ -11,7 +11,7 @@ function Annonces_vu_voyageur(props) {
                 <Photo_annonces taille={"boutons_photo"}/>
             </div>
             <Description_annonces titre={props.titre} lVente={props.lVente} lAchat={props.lAchat} description={props.description} profil={props.profil}  ></Description_annonces>
-            <Prix_annonces  prix1={props.prix1}  prixV={props.prixV}  coutTot={props.coutTot}  ></Prix_annonces>
+            <Prix_annonces typeContrepartie={props.typeContrepartie} prix1={props.prix1}  prixV={props.prixV}  coutTot={props.coutTot}  ></Prix_annonces>
         </div>
     );
 }
