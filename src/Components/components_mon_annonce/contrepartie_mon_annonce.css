@@ -1,0 +1,26 @@
+.contrepartie{
+    width: 20%;
+    border-right: dashed;
+    padding: 3px 10px;
+    min-width: 140px;
+}
+.contrepartie h1{
+    font-size: x-large;
+}
+
+
+
+.logo1{
+    margin-right: 10px;
+    margin-left: 6px;
+}
+.logo2{
+    margin-right: 7px;
+}
+
+.active{
+    color: #035583;
+}
+.desactive{
+    color: #B6B6B6;
+}
