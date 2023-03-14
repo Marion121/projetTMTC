@@ -10,6 +10,9 @@ import Connexion from './screens/Connexion/connexion';
 import {BrowserRouter,Routes,Route} from "react-router-dom";
 import Inscription from './screens/Inscription/inscription.js';
 import MesAchatsEtVoyages from './screens/MesAchatsEtVoyages/mesAchatsEtVoyages.js'
+import CreerUneAnnonce from './screens/CreerUneAnnonce/creerUneAnnonce';
+import CreerUneAnnonce2 from './screens/CreerUneAnnonce/2creerUneAnnonce';
+import CreerUneAnnonce3 from './screens/CreerUneAnnonce/3creerUneAnnonce';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -22,6 +25,9 @@ root.render(
                 <Route path='/Annonces' element={<Annonces />} />
                 <Route path='/monProfil' element={<Profil />} />
                 <Route path='/mesAchatsEtVoyages' element={<MesAchatsEtVoyages />} />
+                <Route path='/creerUneAnnonce' element={<CreerUneAnnonce />} />
+                <Route path='/creerUneAnnonce2' element={<CreerUneAnnonce2 />} />
+                <Route path='/creerUneAnnonce3' element={<CreerUneAnnonce3 />} />
             </Routes>
 
         </BrowserRouter>

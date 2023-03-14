@@ -1,0 +1,85 @@
+.pageCreeruneAnnonce3{
+    display: flex;
+}
+
+#wrapperPageCreationAnnonce3{
+    padding-top: 90px;
+    padding-left: 70px;
+    width: 80%;
+}
+
+#wrapperPageCreationAnnonce3 h1{
+    margin-left: 12%;
+}
+
+
+
+#divPremierePartieRecapitulatif{
+    height: 200px;
+    width: 90%;
+    display: flex;
+}
+#divTitreDestination{
+    height: 100%;
+    width: 45%;
+}
+
+#divTitreDestination div{
+    margin-bottom: 15px;
+}
+
+#divPremierePartieRecapitulatif p{
+    margin-bottom: 0;
+}
+
+#divPhotoPrix{
+    height: 100%;
+    width: 45%;
+}
+
+#divPrixAnnonce{
+    padding-top: 0;
+    margin-top: 0;
+}
+
+#divDescription{
+    height: 90px;
+    width: 90%;
+    margin-top: 5px;
+}
+
+#divCommission{
+    height: 70px;
+    width: 90%;
+    display: flex;
+}
+
+#divCommission div{
+    width: 33%;
+    height: 100%;
+}
+
+#divPrixTotal{
+    width: 90%;
+    height: 70px;
+}
+
+#divNote{
+    width: 90%;
+    height: 70px;
+}
+
+#divPhotoAnnonce{
+    width: 130px;
+    height: 130px;
+    margin-left: 10%;
+    margin-bottom: 0;
+    padding: 0;
+    border-radius: 6px;
+}
+
+.imageAnonce{
+    width: 128px;
+    height: 128px;
+    border-radius: 6px;
+}

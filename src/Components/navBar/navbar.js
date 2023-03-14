@@ -19,6 +19,10 @@ function NavBar() {
         navigate('/monProfil');
     }
 
+    function goCreerAnnonce() {
+        navigate('/creerUneAnnonce');
+    }
+
     function goAccueil() {
         setIsConnecte(false);
         navigate('/');
@@ -48,7 +52,7 @@ function NavBar() {
                 </div>
                 <div className='nav'>
                     <div className='div_creerAnnonce'>
-                        <button className='creerAnnonce'>
+                        <button className='creerAnnonce' onClick={goCreerAnnonce}>
                             <span class="addAnnonce">
                                 <i class="logo_annonce fa-regular fa-file-lines"></i>
                             </span>

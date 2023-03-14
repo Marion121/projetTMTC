@@ -1,0 +1,141 @@
+.pageCreeruneAnnonce2{
+    display: flex;
+}
+
+#wrapperPageCreationAnnonce2{
+    padding-top: 90px;
+    width: 80%;
+}
+
+#wrapperPageCreationAnnonce2 h1{
+    margin-left: 8%;
+}
+
+#sousWrapperPageCreationAnnonce2{
+    margin-bottom: 20px;
+}
+
+#wrapperPageCreationAnnonce2 label{
+    font-weight: bold;
+}
+
+#divPrixDevise{
+    height: 120px;
+    width: 80%;
+    margin-top: 10px;
+    margin-left: 15%;
+    padding: 5px;
+    margin-top: 10px;
+    padding-left: 15px;
+    display: flex;
+}
+
+#divPrixDevise input{
+    margin-top: 12px;
+}
+
+#divPrixDevise select:focus{
+    margin-left: 0;
+}
+
+
+#divDevise{
+    width: 40%;
+}
+
+#divPrix{
+    width: 50%;
+}
+
+#acheminementProduit{
+    margin-top: 10px;
+}
+
+#acheminementProduit label{
+    margin-left: 20%;
+    font-size: 22px;
+}
+
+#acheminementProduit label span{
+    font-size: 12px;
+}
+
+#divAcheteur, #divVoyageur{
+    height: 130px;
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 25px;
+    display: flex;
+    padding: 0;
+    cursor: pointer;
+}
+
+#divVoyageur{
+    margin-top: 40px;
+}
+
+.divImageGauche{
+    width: 10%;
+}
+
+.divDetail{
+    width: 70%;
+    border-right: dashed;
+    padding: 10px;
+}
+
+.divContrepartie{
+    padding: 10px;
+    width: 20%;
+}
+
+.divPrixContrepartie{
+    font-weight: bold;
+    font-size: 38px;
+    margin-left: 50%;
+    margin-top: 15%;
+}
+
+.divPaysDetail{
+    font-weight: bold;
+    font-size: 38px;
+    margin-left: 10%;
+    margin-top: 1.5%;
+}
+
+.divPaysDetail2{
+    font-weight: bold;
+    font-size: 22px;
+    margin-left: 6%;
+    display: flex;
+}
+
+.logo_fleche{
+    margin-top: 40px;
+    margin-right: 10px;
+}
+
+#PpaysDepart{
+    margin-right: 10px;
+}
+
+.logoImageGauche1{
+    margin-top: 45%;
+    margin-left: 25%;
+    font-size: 40px;
+}
+
+.logoImageGauche2{
+    margin-top: 45%;
+    margin-left: 20%;
+    font-size: 40px;
+}
+
+.divClicked{
+    outline: none;
+    box-shadow: 0 0 15px 0 #559cc6, 0 2px 2px 0 #559cc6;
+    margin: 12px 0;
+    transform: translate(0px,5px);
+    -webkit-transform: translate(0px,5px);
+    border-bottom: 1px solid;
+}

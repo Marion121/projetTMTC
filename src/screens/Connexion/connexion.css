@@ -12,7 +12,7 @@
     display: block;
 }
 
-form {
+#formConnexion {
     margin-top: 110px;
     width: 90%;
     padding: 5%;
@@ -31,7 +31,7 @@ form {
     width: 100%;
 }
 
-input[type=submit] {
+.submitConnexion {
     background-color: #FF8802;
     color: white;
     padding: 14px 20px;
@@ -40,11 +40,4 @@ input[type=submit] {
     cursor: pointer;
     width: 100%;
     border-radius: 5px;
-}
-
-input[type=submit]:hover {
-    background-color: white;
-    color: #FF8802;
-    border: 1px solid #FF8802;
-    transition: 150ms;
 }

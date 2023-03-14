@@ -1,0 +1,137 @@
+#wrapperPageCreationAnnonce1{
+    display: flex;
+}
+
+#wrapperPageCreationAnnonce1 label{
+    font-weight: bold;
+}
+
+#wrapperFormCreationAnnonce1{
+    width: 80%;
+}
+
+.lieuAchatReception{
+    height: 180px;
+    width: 90%;
+    margin: 10px;
+    padding: 5px;
+    margin-top: 80px;
+    margin-bottom: 0;
+    padding-left: 15px;
+}
+.lieuAchatReception table{
+    width: 90%;
+}
+
+
+.detailsDuProduit{
+    height: 400px;
+    width: 90%;
+    margin: 0 10px;
+    padding: 5px;
+    padding-left: 15px;
+}
+
+.lieuAchatReception h1, .detailsDuProduit h1{
+    font-size: 24px;
+}
+
+.lieuAchatReception label{
+    margin-left: 15px;
+}
+
+.lieuAchatReception input{
+    margin-left: 40px;
+    width: 70%;
+    margin-top: 14px;
+}
+
+.detailsDuProduit label, .detailsDuProduit input, .detailsDuProduit select{
+    margin-left: 20px;
+}
+
+.detailsDuProduit input, .detailsDuProduit select{
+    margin-top: 14px;
+}
+
+.logoGauche{
+    margin-right: 10px;
+}
+
+.detailsDuProduit input:focus{
+    margin:  12px 0 12px 20px;
+}
+
+.lieuAchatReception input:focus{
+    margin:  12px 0 12px 40px;
+}
+
+select{
+    width: 80%;
+}
+
+select:focus{
+    outline: none;
+    box-shadow: 0 0 15px 0 #559cc6, 0 2px 2px 0 #559cc6;
+    margin:  12px 0 12px 20px;
+}
+
+#drop-zone{
+    height: 120px;
+    width: 120px;
+	padding: 20px;
+	text-align: center;
+	font-size: 18px;
+    font-weight: bold;
+    margin-left: 24px;
+    margin-top: 10px;
+    margin-right: 140px;
+}
+
+.drag-over{
+    box-shadow: 0 0 15px 0 #30dc95, 0 2px 2px 0 #30dc95;
+}
+
+.divImageDeposee{
+    height: 120px;
+    width: 120px;
+    padding: 0;
+    margin-top: 31px;
+}
+.imageDeposee{
+    height: 120px;
+    width: 120px;
+    border-radius: 6px;
+}
+
+#avancement{
+    width: 20%;
+    float: right;
+}
+
+.divZoneImage{
+    display: flex;
+    width: 50%;
+    margin-left: 12px;
+}
+
+#sousDivDetailsDuProduit{
+    display: flex;
+}
+
+#divPoidEtTitre{
+    width: 50%;
+}
+
+#divPoidEtTitre input{
+    width: 80%;
+}
+
+#textareaDescription{
+    resize: none;
+    margin-left: 38px;
+}
+
+#labelDescription{
+    margin-left: 32px;
+}

@@ -86,7 +86,7 @@ input[type=email], input[type=password], input[type=text],input[type = date], in
     border-radius: 5px;
 }
 
-input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, input[type=date]:focus, input[type=tel]:focus{
+input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, input[type=date]:focus, input[type=tel]:focus, textarea:focus{
     outline: none;
     box-shadow: 0 0 15px 0 #559cc6, 0 2px 2px 0 #559cc6;
     margin: 12px 0;
@@ -98,4 +98,41 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
     display: flex;
     box-shadow: 0 0 15px 0 #999999, 0 2px 2px 0 #9a9a9a;
     margin-bottom: 15px;
+}
+
+.contour_bleu{
+    padding: 12px 20px;
+    margin: 10px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px 0 #63B7E7, 0 2px 2px 0 #63B7E7;
+    border-radius: 5px;
+}
+
+.boutonSuivant{
+    height: 45px;
+    width: 80px;
+    margin-left: 5%;
+    border-radius: 24px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    border: none;
+}
+
+.boutonPrecedent{
+    height: 45px;
+    width: 80px;
+    margin-left: 40%;
+    border-radius: 24px;
+    border: 1px solid #f1f1f1;
+    background: #fff;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+input[type=submit]:hover {
+    background-color: white;
+    color: #FF8802;
+    border: 1px solid #FF8802;
+    transition: 150ms;
+    cursor: pointer;
 }

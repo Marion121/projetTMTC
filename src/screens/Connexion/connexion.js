@@ -19,7 +19,7 @@ function Connexion() {
                 <NavBar />
             </div>
             <div className="container_form">
-                <form method="POST" onSubmit={goAnnonces}>
+                <form id="formConnexion" method="POST" onSubmit={goAnnonces}>
                     <h1>Connexion</h1>
 
                     <label>E-mail</label>
@@ -28,7 +28,7 @@ function Connexion() {
                     <label>Mot de passe</label>
                     <input className="Input" type="password" placeholder="Entrer le mot de passe" autoComplete="current-password" name="password" required></input>
 
-                    <input type="submit" id='submit' value='LOGIN'></input>
+                    <input type="submit" className="submitConnexion" value='LOGIN'></input>
                 </form>
 
             </div>

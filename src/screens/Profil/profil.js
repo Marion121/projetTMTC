@@ -73,7 +73,7 @@ function Profil() {
 
 function Bmodif(props) {
 
-    const updateTest = useAppStore((state) => state.updateTest)
+    const updateTest = useAppStore((state) => state.updateTest);
 
     let valeur;
     let nomIDSpan = "B_" + props.name;
