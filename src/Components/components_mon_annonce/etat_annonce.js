@@ -58,6 +58,7 @@ function payement() {
         padding: '4em',
         color: '#664acb',
     })
+    
 
 }
 
