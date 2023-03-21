@@ -129,7 +129,7 @@
 /* SOUS-PARTIE : choix multiple affiner la recherche*/
 .div_affiner_recherhce{
     padding-left: 20px;
-    width: 20%;
+    width: 18%;
     min-width: 200px;
     height: 350px;
 }
@@ -153,7 +153,8 @@
 /* SOUS-PARTIE : listes des Annonces */
 /* Annonces normals */
 .div_annonces_lamda{
-    width: 45%;
+    margin-top: 20px;
+    width: 48%;
     min-height: 500px;
     min-width: 550px;
     padding: 8px;
@@ -161,8 +162,17 @@
 
 /* Annonces urgentes*/
 .div_annonces_urgentes{
-    border: solid;
-    width: 33%;
+    width: 30%;
     min_width: 390px;
     min-height: 500px;
+}
+#titre_A_urgentes{
+    line-height: 1px;
+    margin-top: 4px;
+    margin-left: 15px;
+}
+
+#div_annonces_u_border{
+    border-left: solid;
+    padding-left: 10px;
 }

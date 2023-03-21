@@ -6,10 +6,10 @@ import Annonces_urgentes from "../../Components/annonces_urgentes/annonces_urgen
 
 function Annonces() {
 
-    const data = [{key:1 , titre:"annonces1", lVente : "Paris, France", lAchat : "Madrid, Espagne", description : "super ordi topito", profil : "Leo Comte", Prix1 : "40,00 €", PrixV : "60,00 €", coutTot : "3670,00 €"},
-        {key:2,titre:"annonces2",lVente : "Paris, France", lAchat : "Madrid, Espagne", description : "super ordi topito", profil : "Leo Comte", Prix1 : "40,00 €", PrixV : "60,00 €", coutTot : "3670,00 €"},
-        {key:3,titre:"annonces3",lVente : "Paris, France", lAchat : "Madrid, Espagne", description : "super ordi topito", profil : "Leo Comte", Prix1 : "40,00 €", PrixV : "60,00 €", coutTot : "3670,00 €"},
-        {key:4,titre:"annonces4", lVente : "Paris, France", lAchat : "Madrid, Espagne", description : "super ordi topito", profil : "Leo Comte", Prix1 : "40,00 €", PrixV : "60,00 €", coutTot : "3670,00 €"} ]
+    const data = [{key:1 , titre:"annonces1", lVente : "Paris, France", lAchat : "Madrid, Espagne", description : "super ordi topito", profil : "Leo Comte", typeContrepartie : "div_contrepartie", Prix1 : "40,00 €", PrixV : "60,00 €", coutTot : "3670,00 €"},
+        {key:2,titre:"annonces2",lVente : "Paris, France", lAchat : "Madrid, Espagne", description : "super ordi topito", profil : "Leo Comte", typeContrepartie : "div_contrepartie_1", Prix1 : "40,00 €", PrixV : "60,00 €", coutTot : "3670,00 €"},
+        {key:3,titre:"annonces3",lVente : "Paris, France", lAchat : "Madrid, Espagne", description : "super ordi topito", profil : "Leo Comte", typeContrepartie : "div_contrepartie_2", Prix1 : "40,00 €", PrixV : "60,00 €", coutTot : "3670,00 €"},
+        {key:4,titre:"annonces4", lVente : "Paris, France", lAchat : "Madrid, Espagne", description : "super ordi topito", profil : "Leo Comte", typeContrepartie : "div_contrepartie", Prix1 : "40,00 €", PrixV : "60,00 €", coutTot : "3670,00 €"} ]
 
     return (
         <div className='page'>
@@ -90,10 +90,13 @@ function Annonces() {
                     <br/>
                 </div>
                 <div className={"div_annonces_lamda"}>
-                    {data.map(dataprop => <Annonces_vu_voyageur titre={dataprop.titre} lVente={dataprop.lVente} lAchat={dataprop.lAchat} description={dataprop.description} profil={dataprop.profil}  prix1={dataprop.Prix1}  prixV={dataprop.PrixV}  coutTot={dataprop.coutTot} ></Annonces_vu_voyageur>)}
+                    {data.map(dataprop => <Annonces_vu_voyageur titre={dataprop.titre} lVente={dataprop.lVente} lAchat={dataprop.lAchat} description={dataprop.description} profil={dataprop.profil} typeContrepartie={dataprop.typeContrepartie} prix1={dataprop.Prix1}  prixV={dataprop.PrixV}  coutTot={dataprop.coutTot} ></Annonces_vu_voyageur>)}
                 </div>
                 <div className={"div_annonces_urgentes"}>
-                    <Annonces_urgentes/>
+                    <h4 id={"titre_A_urgentes"}>Annonces urgentes</h4>
+                    <div id={"div_annonces_u_border"}>
+                        {data.map(dataprop => <Annonces_urgentes  profil={dataprop.profil} titre={dataprop.titre} lVente={dataprop.lVente} lAchat={dataprop.lAchat} prixV={dataprop.PrixV} ></Annonces_urgentes>)}
+                    </div>
                 </div>
             </div>
         </div>

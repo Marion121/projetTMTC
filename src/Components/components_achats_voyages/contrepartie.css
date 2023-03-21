@@ -2,13 +2,32 @@
     width: 20%;
     border-right: dashed;
     padding: 3px 10px;
+    min-width: 140px;
+}
+#pratique{
+    padding-top: 8px;
 }
 .contrepartie h1{
     font-size: x-large;
 }
-
-
-
+.div_boutton_text{
+    display: flex;
+    height: 35px;
+    margin-bottom: 15px;
+}
+.bouton_logo_c{
+    border-radius: 50%;
+    color: #fcfcfc;
+    padding: 0px;
+    padding-left: 3px;
+    height: 30px;
+    width: 30px;
+    background-color: #035583;
+}
+.prixContrepartie{
+    margin-left: 15px;
+    line-height: 0px;
+}
 .logo1{
     margin-right: 10px;
     margin-left: 6px;

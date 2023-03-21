@@ -3,22 +3,43 @@
     height: 100%;
     padding: 3px 15px;
 }
-.pratique2{
+.div_conteneur_golbal{
     padding-top: 1px;
 }
-
 .logoCheck{
     color: #6FB9F3;
     margin-right: 6px;
 }
-
-
-p span{
-    background: #6FB9F3;
-    margin-right: 5px;
-    border-radius: 9999999px;
-    width: 10px;
+#bouton_3pt{
+    border-radius: 50px;
+    background-color: #6FB9F3;
+    color: white;
+    padding-top: 0;
+    padding-bottom: 1px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-top: 10px;
 }
+#bouton_valide{
+    border-radius: 50px;
+    background-color: #6FB9F3;
+    color: white;
+    padding-top: 4;
+    padding-bottom: 1px;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-top: 10px;
+}
+.text_option{
+    margin-left: 15px;
+    line-height: 5px;
+}
+.div_ligne{
+    display: flex;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
 .logo{
     color: white;
 }
