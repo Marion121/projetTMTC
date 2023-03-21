@@ -1,0 +1,81 @@
+.actions{
+    width: 27%;
+    min-width: 300px;
+    height: 100%;
+    padding: 3px 25px;
+}
+/* manque voyageur */
+#text_manque_voyageur{
+    font-size: large;
+}
+/* manque payement*/
+#text_payement{
+    font-size: small;
+    line-height: 5px;
+}
+#text_attente_payement{
+    font-size: large;
+    line-height: 10px;
+    margin-top: 8px;
+    margin-bottom: 35px;
+}
+#div_bouton_payement{
+    height: 40px;
+    padding-top: 5px;
+}
+.bouton_payement{
+    color: #1a3c55;
+    height: 35px;
+    width: 110px;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    box-shadow: 0 0 5px 0 #63B7E7, 0 2px 2px 0 #63B7E7;
+    border-radius: 15px;
+    margin-right: 15px;
+}
+/* etat en cour d'acheminement*/
+.div_ligne{
+    display: flex;
+    height: 30px;
+    margin-bottom: 6px;
+}
+
+.bouton_3pt {
+    border-radius: 50px;
+    border: solid #6FB9F3;
+    background-color: white;
+    color: #6FB9F3;
+    margin-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 4px;
+    padding-left: 4px;
+    box-shadow: 1px 0 8px 0 #70aace, 0 1px 1px 0 #70aace;
+}
+.bouton_vide{
+    border-radius: 50px;
+    border : solid #6FB9F3;
+    background-color: white;
+    color: #6FB9F3;
+    margin-top: 12px;
+    margin-bottom: 2px;
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-left: 3px;
+    box-shadow: 1px 0 8px 0 #70aace, 0 1px 1px 0 #70aace;
+
+}
+.bouton_valide{
+    border-radius: 50px;
+    background-color: #6FB9F3;
+    color: white;
+    font-size: x-small;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-top: 10px;
+    margin-bottom: 3px;
+    margin-left: 3px;
+    box-shadow: 1px 0 8px 0 #097ec4, 0 1px 1px 0 #097ec3;
+}

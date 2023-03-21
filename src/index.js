@@ -10,6 +10,7 @@ import Connexion from './screens/Connexion/connexion';
 import {BrowserRouter,Routes,Route} from "react-router-dom";
 import Inscription from './screens/Inscription/inscription.js';
 import MesAchatsEtVoyages from './screens/MesAchatsEtVoyages/mesAchatsEtVoyages.js'
+import MesAnnonces from './screens/MesAnnonces/mesAnnonces.js'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -21,7 +22,8 @@ root.render(
                 <Route path='/Inscription' element={<Inscription />} />
                 <Route path='/Annonces' element={<Annonces />} />
                 <Route path='/monProfil' element={<Profil />} />
-
+                <Route path='/MesAchatsEtVoyages' element={<MesAchatsEtVoyages />} />
+                <Route path='/MesAnnonces' element={<MesAnnonces/>} />
             </Routes>
 
         </BrowserRouter>

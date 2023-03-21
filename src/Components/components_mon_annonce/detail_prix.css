@@ -1,0 +1,65 @@
+.contrepartie{
+    width: 21%;
+    border-right: dashed;
+    padding: 3px 20px;
+    min-width: 200px;
+}
+
+#div_prix_global{
+    width: 120px;
+}
+#div_détails_du_prix{
+    height: 110px;
+    display: flex;
+}
+#div_prix_tot{
+    height: 30px;
+    width: 90px;
+    margin-top: 65px;
+}
+#titre_prix_tot{
+    line-height: 5px;
+    margin-top: 3px;
+    font-size: small;
+}
+#text_val_prix_tot{
+    line-height: 5px;
+    margin-top: 3px;
+
+}
+.div_prix_annonces{
+    display: flex;
+    height: 20px;
+    margin-bottom: 3px;
+}
+.div_prix_annonces #bouton_valise_2{
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+.text_prix{
+    line-height: 0px;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+.icon_question{
+    color: #FF8802;
+    font-size: small;
+    margin-top: 7px;
+}
+/*.bouton_question{
+    border-radius: 70%;
+    color: #fcfcfc;
+    background-color: #e7802b;
+    font-size: xx-small;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-left: 0px;
+
+}*/
+
+

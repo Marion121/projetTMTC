@@ -1,44 +1,4 @@
-/*nav bar*/
-/*.zone_navBar{
-    height: 70px;
-    margin: 0;
-    position: fixed;
-    width: 100%;
-    top: 0px;
-}
 
-/*input*//*
-input[type=email], input[type=password], input[type=text],input[type = date] {
-    width: 60%;
-    padding: 12px 20px;
-    margin: 10px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    box-shadow: 0 0 10px 0 #63B7E7, 0 2px 2px 0 #63B7E7;
-    border-radius: 5px;
-}
-
-input[type=email]:focus{
-    outline: none;
-    box-shadow: 0 0 15px 0 #559cc6, 0 2px 2px 0 #559cc6;
-    margin: 12px 0;
-}
-input[type=password]:focus{
-    outline: none;
-    box-shadow: 0 0 15px 0 #559cc6, 0 2px 2px 0 #559cc6;
-    margin: 12px 0;
-}
-input[type=text]:focus {
-    outline: none;
-    box-shadow: 0 0 15px 0 #559cc6, 0 2px 2px 0 #559cc6;
-    margin: 12px 0;
-}
-input[type=date]:focus{
-    outline: none;
-    box-shadow: 0 0 15px 0 #559cc6, 0 2px 2px 0 #559cc6;
-    margin: 12px 0;
-}*/
 
 body {
     margin: 0;
@@ -98,4 +58,25 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
     display: flex;
     box-shadow: 0 0 15px 0 #999999, 0 2px 2px 0 #9a9a9a;
     margin-bottom: 15px;
+}
+
+/* bouton achatetvoyage & mes annonces */
+.bouton_logo{
+    border-radius: 50%;
+    color: #fcfcfc;
+    background-color: #035583;
+}
+.bouton_logo_petit{
+    border-radius: 50%;
+    color: #fcfcfc;
+    background-color: #035583;
+    font-size: x-small;
+    padding-top: 3px;
+    padding-bottom: 4px;
+}
+/* titre sous partie mes annonces */
+.titre_element_annonces{
+    margin-top: 10px;
+    line-height: 10px;
+    margin-bottom: 10px;
 }
