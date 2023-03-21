@@ -8,12 +8,65 @@ import { useAppStore } from '../../donness';
 function Inscription() {
     const [password, setPassword] = useState("");
     const setIsConnecte = useAppStore((state)=>(state.setIsConnecte));
+    
     let navigate = useNavigate();
+    const [email, setEmail] = useState("");
+    const [dateBirth, setDateBirth] = useState("");
+    const [nom, setNom] = useState("");
+    const [prenom, setPrenom] = useState("");
+    const [adresse, setAdresse] = useState("");
+    const [ville, setVille] = useState("");
+    const [pays, setPays] = useState("");
+    const [telephone, setTelephone] = useState("");
+    const [message, setMessage] = useState("");
 
     function goAnnonces() {
         setIsConnecte(true);
         navigate('/Annonces');
     }
+
+    let handleSubmit = async (e) => {
+        e.preventDefault();
+        //useEffect()
+        try {
+            let res = await fetch("http://localhost:8080/api/user", {
+                method: "POST",
+                headers: {    
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*' },
+                body: JSON.stringify({
+                    email: email,
+                    dateBirth: dateBirth,
+                    nom: nom,
+                    prenom : prenom,
+                    password : password,
+                    adresse : adresse,
+                    ville : ville,
+                    pays : pays,
+                    telephone: telephone,
+                    codePostal: 92220,
+                }),
+            });
+            let resJson = await res.json();
+            if (res.status === 200) {
+                setEmail("");
+                setDateBirth("");
+                setNom("");
+                setPrenom("");
+                setPassword("");
+                setAdresse("");
+                setPays("");
+                setTelephone("");
+                setMessage("User created successfully");
+            } else {
+                setMessage("Some error occured");
+            }
+            console.log(message);
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
     return (
         <div className='page'>
