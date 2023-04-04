@@ -9,7 +9,12 @@ function Accueil() {
     let navigate = useNavigate();
 
     function goConnexion() {
-        navigate('/Connexion');
+        if(localStorage.getItem("User") != null){
+            navigate('/Annonces');
+        }else{
+            navigate('/Connexion');
+        }
+       
     }
 
     function goInscription() {

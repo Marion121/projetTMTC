@@ -21,6 +21,7 @@ function Inscription() {
     const [message, setMessage] = useState("");
 
     function goAnnonces() {
+        console.log(dateBirth);
         setIsConnecte(true);
         navigate('/Annonces');
     }
@@ -28,6 +29,7 @@ function Inscription() {
     let handleSubmit = async (e) => {
         e.preventDefault();
         //useEffect()
+        console.log(dateBirth.type);
         try {
             let res = await fetch("http://localhost:8080/api/user", {
                 method: "POST",
@@ -59,6 +61,7 @@ function Inscription() {
                 setPays("");
                 setTelephone("");
                 setMessage("User created successfully");
+                navigate('/Annonces');
             } else {
                 setMessage("Some error occured");
             }
@@ -66,6 +69,7 @@ function Inscription() {
         } catch (err) {
             console.log(err);
         }
+        
     };
 
     return (
@@ -76,33 +80,33 @@ function Inscription() {
             <div className='reste'>
                 <div className="container_form_inscription">
                 <h1>Inscription </h1>
-                    <form className='form_inscription' method="POST" onSubmit={goAnnonces}>
+                    <form className='form_inscription' method="POST" onSubmit={handleSubmit}>
                     
                         <table>
                             <tr>
                                 <td>
                                     <label>E-mail</label>
-                                    <input className="Input" type="email" placeholder="Entrer votre e-mail" name="email" required></input>
+                                    <input className="Input" type="email" placeholder="Entrer votre e-mail" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required></input>
                                 </td>
                                 <td>
                                     <label>Date de naissance</label>
-                                    <input className="Input" type="date" placeholder="Entrer votre date de naissance" name="dateBirth" required></input>
+                                    <input className="Input" type="date" placeholder="Entrer votre date de naissance" name="dateBirth"  value={dateBirth} onChange={(e) => setDateBirth(e.target.value)} required></input>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <label>Nom</label>
-                                    <input className="Input" type="text" placeholder="Entrer votre nom" name="nom" required></input>
+                                    <input className="Input" type="text" placeholder="Entrer votre nom" name="nom" value={nom} onChange={(e) => setNom(e.target.value)} required></input>
                                 </td>
                                 <td>
                                     <label>Prenom</label>
-                                    <input className="Input" type="text" placeholder="Entrer votre prenom" name="nom" required></input>
+                                    <input className="Input" type="text" placeholder="Entrer votre prenom" name="prenom" value={prenom} onChange={(e) => setPrenom(e.target.value)} required></input>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <label>Mot de passe</label>
-                                    <input className="Input" type="password" placeholder="Entrer le mot de passe" minlength="8" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required></input>
+                                    <input className="Input" type="password" placeholder="Entrer le mot de passe"  name="password" value={password} onChange={(e) => setPassword(e.target.value)} required></input>
                                 </td>
                                 <td>
                                     <label>Confirmation de mot de passe</label>
@@ -112,21 +116,21 @@ function Inscription() {
                             <tr>
                                 <td>
                                     <label>Adresse</label>
-                                    <input className="Input" type="text" placeholder="Entrer votre adresse" name="adress" required></input>
+                                    <input className="Input" type="text" placeholder="Entrer votre adresse" name="adress" value={adresse} onChange={(e) => setAdresse(e.target.value)} required></input>
                                 </td>
                                 <td>
                                     <label>Ville</label>
-                                    <input className="Input" type="text" placeholder="Entrer votre ville" name="ville" required></input>
+                                    <input className="Input" type="text" placeholder="Entrer votre ville" name="ville" value={ville} onChange={(e) => setVille(e.target.value)} required></input>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <label>Pays</label>
-                                    <input className="Input" type="text" placeholder="Entrer votre pays" name="pays" required></input>
+                                    <input className="Input" type="text" placeholder="Entrer votre pays" name="pays" value={pays} onChange={(e) => setPays(e.target.value)} required></input>
                                 </td>
                                 <td>
                                     <label>Numéros de téléhone</label>
-                                    <input className="Input" type="tel" placeholder="Entrer votre numéros de téléphone" name="phoneNumber" required></input>
+                                    <input className="Input" type="tel" placeholder="Entrer votre numéros de téléphone" name="phoneNumber" value={telephone} onChange={(e) => setTelephone(e.target.value)} required></input>
                                 </td>
                             </tr>
                             <tr>

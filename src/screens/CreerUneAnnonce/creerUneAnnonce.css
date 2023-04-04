@@ -1,5 +1,7 @@
 #wrapperPageCreationAnnonce1{
     display: flex;
+    
+
 }
 
 #wrapperPageCreationAnnonce1 label{
@@ -8,6 +10,7 @@
 
 #wrapperFormCreationAnnonce1{
     width: 80%;
+    min-width: 900px;
 }
 
 .lieuAchatReception{
@@ -121,6 +124,7 @@ select:focus{
 
 #divPoidEtTitre{
     width: 50%;
+    padding-left: 25px;
 }
 
 #divPoidEtTitre input{
@@ -134,4 +138,8 @@ select:focus{
 
 #labelDescription{
     margin-left: 32px;
+}
+
+#avancement3{
+    min-width: 250px;
 }

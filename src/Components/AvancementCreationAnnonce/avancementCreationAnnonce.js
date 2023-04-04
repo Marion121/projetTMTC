@@ -6,7 +6,7 @@ function AvancementCreationAnnonce(props){
         return(
             <div className='wrapperGeneralAvancement'>
                 <div id='etape1' className='wrapperAvancement'>
-                    <button className='buttonAvancement'>...</button><h2>Detail du Produit</h2>
+                    <button className='buttonAvancement troisPoints'><strong>...</strong></button><h2>Detail du Produit</h2>
                 </div>
                 <div id='etape2' className='wrapperAvancement'>
                     <button className='buttonAvancement'></button><h2>Prix d'acheminement du Produit</h2>
@@ -24,7 +24,7 @@ function AvancementCreationAnnonce(props){
                     <h2><i class="logoAvancementGood logoCheck fa-solid fa-circle-check"></i>Detail du Produit</h2>
                 </div>
                 <div id='etape2' className='wrapperAvancement'>
-                    <button className='buttonAvancement'>...</button><h2>Prix d'acheminement du Produit</h2>
+                    <button className='buttonAvancement troisPoints'><strong>...</strong></button><h2>Prix d'acheminement du Produit</h2>
                 </div>
                 <div id='etape3' className='wrapperAvancement'>
                     <button className='buttonAvancement'></button><h2>Recapitulatif de votre annonce</h2>

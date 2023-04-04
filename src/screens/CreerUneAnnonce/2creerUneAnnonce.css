@@ -5,6 +5,7 @@
 #wrapperPageCreationAnnonce2{
     padding-top: 90px;
     width: 80%;
+    min-width: 850px;
 }
 
 #wrapperPageCreationAnnonce2 h1{
@@ -49,11 +50,13 @@
 
 #acheminementProduit{
     margin-top: 10px;
+    min-width: 600px;
 }
 
 #acheminementProduit label{
     margin-left: 20%;
     font-size: 22px;
+    min-width: 400px;
 }
 
 #acheminementProduit label span{
@@ -61,13 +64,16 @@
 }
 
 #divAcheteur, #divVoyageur{
-    height: 130px;
+    height: 140px;
+    min-height: 120px;
     width: 60%;
+    min-width: 620px;
     margin-left: 20%;
     margin-top: 25px;
     display: flex;
     padding: 0;
     cursor: pointer;
+    
 }
 
 #divVoyageur{
@@ -76,10 +82,12 @@
 
 .divImageGauche{
     width: 10%;
+    margin-right: 5px;
 }
 
 .divDetail{
     width: 70%;
+    min-width: 370px;
     border-right: dashed;
     padding: 10px;
 }
@@ -92,7 +100,8 @@
 .divPrixContrepartie{
     font-weight: bold;
     font-size: 38px;
-    margin-left: 50%;
+    margin-left: 45px;
+    
     margin-top: 15%;
 }
 
@@ -138,4 +147,8 @@
     transform: translate(0px,5px);
     -webkit-transform: translate(0px,5px);
     border-bottom: 1px solid;
+}
+
+#avancement2{
+    min-width: 250px;
 }

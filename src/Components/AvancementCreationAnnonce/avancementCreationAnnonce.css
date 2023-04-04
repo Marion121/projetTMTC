@@ -1,30 +1,29 @@
-.wrapperGeneralAvancement{
+.wrapperGeneralAvancement {
     background-color: #ffc583;
     padding: 10%;
     height: 100vh;
 }
 
-.wrapperAvancement{
+.wrapperAvancement {
     height: 100px;
     width: 100%;
     display: flex;
 }
 
-#etape1{
-    border: solid;
-    margin-top: 180px;
+#etape1 {
+
+    margin-top: 200px;
 }
 
-#etape2{
-    border: solid;
-    margin-top: 50px;
-}
-#etape3{
-    border: solid;
-    margin-top: 50px;
+#etape2 {
+    margin-top: 15px;
 }
 
-.buttonAvancement{
+#etape3 {
+    margin-top: 60px;
+}
+
+.buttonAvancement {
     border-radius: 9999px;
     background-color: white;
     border: solid #FF8802;
@@ -35,7 +34,7 @@
     box-shadow: 5px black;
 }
 
-.buttonAvancement2{
+.buttonAvancement2 {
     border-radius: 9999px;
     background-color: white;
     border: solid #FF8802;
@@ -47,19 +46,31 @@
     box-shadow: 5px black;
 }
 
-.logoAvancementGood{
+.logoAvancementGood {
     color: #FF8802;
     background-color: white;
     border-radius: 999999px;
 }
 
-.logoAvancementGood2{
+.logoAvancementGood2 {
     width: 100%;
     height: 100%;
     color: #FF8802;
     margin: 0;
 }
 
-.icon3points{
+.icon3points {
     color: #FF8802;
+}
+
+.troisPoints {
+    color: #FF8802;
+    padding: 0;
+    padding-bottom: 10px;
+    font-size: 12px;
+}
+
+#etape2 .troisPoints {
+    width: 20px;
+    padding: 0 5px;
 }

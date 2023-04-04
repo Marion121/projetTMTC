@@ -12,6 +12,7 @@ function Profil() {
     const Pays = useAppStore((state) => state.User.Pays);
     const CoordonnéesBancaires = useAppStore((state) => state.User.CoordonnéesBancaires);
     const photo = useAppStore((state) => state.User.photo);
+    const utilisateur = JSON.parse(localStorage.getItem("User"));
 
     return (
         <div className='page'>
@@ -34,7 +35,7 @@ function Profil() {
                             <Bmodif isActive={false} name="image" type_I='image'></Bmodif>
                         </div>
                         <div className="nom_prenom">
-                            <span id={"text_nom_prenom"}>{test}</span>
+                            <span id={"text_nom_prenom"}>{utilisateur.Nom} {utilisateur.Prenom}</span>
                             <Bmodif isActive={false} name="text_nom_prenom" type_I='text'></Bmodif>
                         </div>
                         <div className="tot_gangne">
@@ -45,7 +46,7 @@ function Profil() {
                 </div>
                 <div className="block_info_modif">
                         <h3>Mail</h3>
-                        <span className="info" id={"text_mail"}>{Mail}</span>
+                        <span className="info" id={"text_mail"}>{utilisateur.Email}</span>
                         <span id={"B_text_mail"}>
                             <Bmodif  isActive={true} name="text_mail" type_I='email'></Bmodif>
                         </span>
@@ -55,12 +56,12 @@ function Profil() {
                             <Bmodif  isActive={true} name="text_date" type_I='date'></Bmodif>
                         </span>
                         <h3>Pays de résidence</h3>
-                        <span className="info" id={"text_pays"}>{Pays} </span>
-                        <span id={"B_text_pays"}>
-                            <Bmodif  isActive={true} name="text_pays" type_I='text'></Bmodif>
+                        <span className="info" id={"Pays"}>{utilisateur.Pays} </span>
+                        <span id={"B_Pays"}>
+                            <Bmodif  isActive={true} name="Pays" type_I='text'></Bmodif>
                         </span>
                         <h3>Coordonées banquaires</h3>
-                        <span className="info" id={"text_cb"}>{CoordonnéesBancaires}</span>
+                        <span className="info" id={"text_cb"}>{utilisateur.CoordonneesBancaires}</span>
                         <span id={"B_text_cb"}>
                             <Bmodif className={"b_modif_info"} isActive={true} name="text_cb" type_I='text'></Bmodif>
                         </span>
@@ -72,7 +73,7 @@ function Profil() {
 
 
 function Bmodif(props) {
-
+    const utilisateur = JSON.parse(localStorage.getItem("User"));
     const updateTest = useAppStore((state) => state.updateTest);
 
     let valeur;
@@ -100,10 +101,9 @@ function Bmodif(props) {
     const test = useAppStore((state) => state.test);
 
     function valider() {
-        
+        const name = props.name;
         valeur = document.getElementById("input_" + props.name).value
         document.getElementById(props.name).innerHTML = valeur;
-        updateTest(valeur);
         document.getElementById(nomID).style.display = "inline"
         document.getElementById(nomIDBV).style.display = "none"
         document.getElementById(nomIDBR).style.display = "none"

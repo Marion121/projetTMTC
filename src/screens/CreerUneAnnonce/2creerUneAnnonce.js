@@ -7,24 +7,23 @@ import { useAppStore } from '../../donness';
 import AvancementCreationAnnonce from '../../Components/AvancementCreationAnnonce/avancementCreationAnnonce';
 
 function CreerUneAnnonce2() {
-    const paysDepart = useAppStore((state) => state.CreationAnnonce.paysDepart);
-    const villeArrivee = useAppStore((state) => state.CreationAnnonce.villeArrivee);
-    const image = useAppStore((state) => state.CreationAnnonce.photo);
-    const poids = useAppStore((state) => state.CreationAnnonce.poids);
-    const titre = useAppStore((state) => state.CreationAnnonce.titre);
-    const description = useAppStore((state) => state.CreationAnnonce.description);
+    const CreationAnnonce = useAppStore((state)=>state.CreationAnnonce);
     const setCreationAnnonce = useAppStore((state) => state.setCreationAnnonce);
 
     const navigate = useNavigate();
 
-    const [prix, setPrix] = useState("");
-    const [devise, setDevise] = useState("€");
-    const [clickedAcheteur, setClickedAcheteur] = useState(false);
-    const [clickedVoyageur, setClickedVoyageur] = useState(false);
+    const [prix, setPrix] = useState(CreationAnnonce.prixAchats);
+    const [devise, setDevise] = useState(CreationAnnonce.devise);
+    const [clickedAcheteur, setClickedAcheteur] = useState(CreationAnnonce.besoinAcheteur);
+    const [clickedVoyageur, setClickedVoyageur] = useState(CreationAnnonce.besoinVoyageur);
 
 
     function goCreerAnnonce3() {
         navigate('/creerUneAnnonce3');
+    }
+
+    function goCreerAnnonce() {
+        navigate('/creerUneAnnonce');
     }
 
     function handleClickAcheteur(){
@@ -45,16 +44,16 @@ function CreerUneAnnonce2() {
 
     function saveDataCreationAnnonce() {
         setCreationAnnonce({
-            paysDepart: paysDepart,
-            villeArrivee: villeArrivee,
-            photo: image,
-            poids: poids,
-            titre: titre,
-            description: description,
+            paysDepart: CreationAnnonce.paysDepart,
+            villeArrivee: CreationAnnonce.villeArrivee,
+            photo: CreationAnnonce.photo,
+            poids: CreationAnnonce.poids,
+            titre: CreationAnnonce.titre,
+            description: CreationAnnonce.description,
             prixAchats: prix,
             devise: devise,
-            besoinAcheteur: false,
-            besoinVoyageur: false,
+            besoinAcheteur: clickedAcheteur,
+            besoinVoyageur: clickedVoyageur,
         });
         goCreerAnnonce3();
     }
@@ -73,11 +72,11 @@ function CreerUneAnnonce2() {
                     <div id='divPrixDevise'>
                         <div id='divPrix'>
                             <label>Prix d'achat du produit</label><br />
-                            <input className="Input" type="text" placeholder="8888.88" name="prixAchats" onChange={handleChangePrix} required></input>
+                            <input className="Input" type="text" placeholder="8888.88" name="prixAchats" value={prix} onChange={handleChangePrix} required></input>
                         </div>
                         <div id='divDevise'>
                             <label>Devise</label><br />
-                            <select className='contour_bleu' onChange={handleChangeDevise}>
+                            <select className='contour_bleu' value={devise} onChange={handleChangeDevise} >
                                 <option>€</option>
                                 <option>$</option>
                                 <option>£</option>
@@ -134,12 +133,12 @@ function CreerUneAnnonce2() {
                         </div>
                     </div>
                 </div>
-                <button className='boutonPrecedent' >Precedent</button>
+                <button className='boutonPrecedent' onClick={goCreerAnnonce}>Precedent</button>
                 <input type="submit" className='boutonSuivant btn_orange' onClick={saveDataCreationAnnonce} value="Suivant"></input>
                 
 
             </div>
-            <div id='avancement'>
+            <div id='avancement2'>
                 <AvancementCreationAnnonce etatAvancement={2} />
             </div>
         </div>

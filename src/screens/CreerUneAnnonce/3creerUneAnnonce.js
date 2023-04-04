@@ -8,15 +8,75 @@ import AvancementCreationAnnonce from '../../Components/AvancementCreationAnnonc
 
 function CreerUneAnnonce3() {
     const CreationAnnonce = useAppStore((state) => state.CreationAnnonce);
-    const paysDepart = useAppStore((state) => state.CreationAnnonce.paysDepart);
-    const villeArrivee = useAppStore((state) => state.CreationAnnonce.villeArrivee);
-    const image = useAppStore((state) => state.CreationAnnonce.photo);
-    const poids = useAppStore((state) => state.CreationAnnonce.poids);
-    const titre = useAppStore((state) => state.CreationAnnonce.titre);
-    const description = useAppStore((state) => state.CreationAnnonce.description);
-    const prix = useAppStore((state) => state.CreationAnnonce.prixAchats);
-    const devise = useAppStore((state) => state.CreationAnnonce.devise);
+    const setCreationAnnonce = useAppStore((state) => state.setCreationAnnonce)
+    const User = useAppStore((state) => state.User);
+    const [message, setMessage] = useState("");
 
+    const navigate = useNavigate();
+
+    function goCreerAnnonce2() {
+        navigate('/creerUneAnnonce2');
+    }
+
+    let finaliserCreationAnnonce = async (e) => {
+        const annoncesEnvoyee = {
+            description: CreationAnnonce.description,
+            devise: CreationAnnonce.devise,
+            image: "CreationAnnonce.photo",
+            ville : CreationAnnonce.villeArrivee,
+            pays : {
+                id : 2,
+                nom : CreationAnnonce.paysDepart
+            },
+            ville : CreationAnnonce.villeArrivee,
+            user : User,
+            titre : CreationAnnonce.titre,
+            prix : parseInt(CreationAnnonce.prixAchats),
+            poids : 3,
+            categorie : "categorie", // ??
+            codePostal : "92220", //sert a rien
+            degreImportance : "1",  // ??
+            typeLivraison : "rapide", // voyageur = main propre, sinon poste
+            validite : true,
+            id : 0
+        };
+        console.log(annoncesEnvoyee);
+        e.preventDefault();
+        try {
+            let res = await fetch("http://localhost:8080/api/annonce", {
+                method: "POST",
+                headers: {    
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*' },
+                body: JSON.stringify(annoncesEnvoyee),
+            });
+            let resJson = await res.json();
+            if (res.OK) {
+                setCreationAnnonce({
+                    paysDepart: "",
+                    villeArrivee: "",
+                    photo: null,
+                    poids: "",
+                    titre: "",
+                    description: "",
+                    prixAchats: "",
+                    devise: "",
+                    besoinAcheteur: false,
+                    besoinVoyageur: false,
+                });
+                setMessage("User created successfully");
+                navigate('/Annonces');
+            } else {
+                setMessage("Some error occured");
+            }
+            console.log(message);
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    
 
     return (
         <div className='pageCreeruneAnnonce3'>
@@ -30,30 +90,30 @@ function CreerUneAnnonce3() {
                     <div id='divTitreDestination'>
                         <div id='divTitreAnnonce'>
                             <h3>Titre de l'annonce</h3>
-                            <p>{titre}</p>
+                            <p>{CreationAnnonce.titre}</p>
                         </div>
                         <div id='divPaysAchat'>
                             <h3>Pays d'achat</h3>
-                            <p>{paysDepart}</p>
+                            <p>{CreationAnnonce.paysDepart}</p>
                         </div>
                         <div id='divVilleLivraison'>
                             <h3>Ville de livraison</h3>
-                            <p>{villeArrivee}</p>
+                            <p>{CreationAnnonce.villeArrivee}</p>
                         </div>
                     </div>
                     <div id='divPhotoPrix'>
                         <div id='divPhotoAnnonce' className='contour_bleu'>
-                            <img className='imageAnonce' src={image} alt="image" name='imageAnnonce' />
+                            <img className='imageAnonce' src={CreationAnnonce.photo} alt="image" name='imageAnnonce' />
                         </div>
                         <div id='divPrixAnnonce'>
                             <h3>Prix du produit</h3>
-                            <p>{prix}{devise}</p>
+                            <p>{CreationAnnonce.prixAchats} {CreationAnnonce.devise}</p>
                         </div>
                     </div>
                 </div>
                 <div id='divDescription'>
                     <h3>Description</h3>
-                    <p>{description}</p>
+                    <p>{CreationAnnonce.description}</p>
                 </div>
                 <div id='divCommission'>
                     <div id='divCommissionAcheteur'>
@@ -76,8 +136,8 @@ function CreerUneAnnonce3() {
                     Cette somme sera à régler ...
                 </div>
 
-                <button className='boutonPrecedent' >Precedent</button>
-                <input type="submit" className='boutonSuivant btn_orange' value="Valider" ></input>
+                <button className='boutonPrecedent' onClick={goCreerAnnonce2}>Precedent</button>
+                <input type="submit" className='boutonSuivant btn_orange' value="Valider" onClick={finaliserCreationAnnonce}></input>
             </div>
             <div id='avancement'>
                 <AvancementCreationAnnonce etatAvancement={3} />

@@ -4,7 +4,7 @@ import '../css_general.css'
 import { useNavigate } from 'react-router-dom';
 import { useAppStore } from "../../donness";
 import { useState } from "react";
-import axios from 'axios';
+
 
 function Connexion() {
     const setIsConnecte = useAppStore((state) => (state.setIsConnecte));
@@ -12,32 +12,42 @@ function Connexion() {
     const [message, setMessage] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
-
-    function goAnnonces() {
-        setIsConnecte(true);
-        navigate('/Annonces');
-    }
+    const setUser = useAppStore((state) => state.setUser);
+    const User = useAppStore((state) => state.User);
+    var myHeaders = new Headers();
+    var myInit = { method: 'GET',
+               headers: myHeaders,
+               mode: 'no-cors',
+               cache: 'default' };
 
     let handleSubmit = async (e) => {
         e.preventDefault();
-    
-        try {
-            let res = await fetch(`http://localhost:8080/api/user/connexion?id=${1}`, {
-                method: "GET",
-            });
-            let resJson = await res.json();
-            if (res.status === 200) {
-                setEmail("");
-                setPassword("");
-                setMessage("User found");
-            } else {
-                setMessage("Some error occured");
+        let res = await fetch(`http://localhost:8080/api/user/connexion?email=${email}&password=${password}` )
+            .then(response => response.json())
+            .then(data => {
+                setUser({
+                    Email: data.email,
+                    Nom: data.nom,
+                    Prenom: data.prenom,
+                    DateNaissance: data.dateNaissance,
+                    Ville: data.ville,
+                    Pays: data.pays,
+                    CoordonneesBancaires: "1234 1234 1234 1234",
+                    photo: data.photo,
+                    adresse: data.adresse,
+                    telephone: data.telephone,
+                    ci: data.ci,
+                })
+                localStorage.setItem("User", JSON.stringify(User));
+                navigate('/Annonces');
             }
-            console.log(message);
-        } catch (err) {
-            console.log(err);
-        }
+            )
+            .catch(error => console.error(error));
+            const utilisateur = JSON.parse(localStorage.getItem("User"));
+            console.log(utilisateur);
+            utilisateur.Pays = "ESPAGNE";
+            console.log(utilisateur.Pays);
+            
     };
 
     return (

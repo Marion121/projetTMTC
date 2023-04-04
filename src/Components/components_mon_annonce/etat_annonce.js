@@ -1,5 +1,5 @@
 import './etat_annonce.css'
-const Swal = require('sweetalert2')
+//const Swal = require('sweetalert2')
 
 function Etat_annonce(props) {
     if(props.typeEtat =="manqueVoyageur"){
@@ -17,7 +17,7 @@ function Etat_annonce(props) {
                 <p id={"text_attente_payement"}><strong>En attente du payement...</strong></p>
                 <p id={"text_payement"}><strong>Mode de payement</strong></p>
                 <div id={"div_bouton_payement"}>
-                    <button className={"bouton_payement"} onClick={payement()}><i className="fa-regular fa-credit-card"></i> Par carte</button>
+                    <button className={"bouton_payement"} ><i className="fa-regular fa-credit-card"></i> Par carte</button>
                     <button className={"bouton_payement"}><i className="fa-solid fa-money-bill-1-wave"></i> En espéces</button>
                 </div>
             </div>
@@ -49,7 +49,7 @@ function Etat_annonce(props) {
 
 
 }
-
+/*
 function payement() {
     Swal.fire({
         title: "Payement de votre annonce",
@@ -60,6 +60,6 @@ function payement() {
     })
     
 
-}
+}*/
 
 export default Etat_annonce;

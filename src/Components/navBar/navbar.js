@@ -24,6 +24,8 @@ function NavBar() {
     }
 
     function goAccueil() {
+        localStorage.removeItem('User');
+        console.log(localStorage.getItem("User"));
         setIsConnecte(false);
         navigate('/');
     }
@@ -51,7 +53,7 @@ function NavBar() {
 
     const style = {height : isHover ? "20px" : '98px'};
 
-    if (isConnecte) {
+    if (localStorage.getItem("User") != null) {
         return (
             <div className='bar'>
                 <div className="Logo">
