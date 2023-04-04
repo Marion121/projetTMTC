@@ -13,8 +13,8 @@ button{
     background-size: 100%;
     margin-top: 70px;
     height: 65vh;
-    min-width: 687px;
-    min-height: 400px;
+    min-width: 857px;
+    min-height: 500px;
     display: flex;
 }
 .block {
