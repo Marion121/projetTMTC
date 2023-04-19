@@ -65,7 +65,7 @@ function Connexion() {
                     <label>Mot de passe</label>
                     <input className="Input" type="password" placeholder="Entrer le mot de passe" autoComplete="current-password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required></input>
 
-                    <input type="submit" className="submitConnexion" value='LOGIN'></input>
+                    <input type="submit" value='LOGIN'></input>
                 </form>
 
             </div>

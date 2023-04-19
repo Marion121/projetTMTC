@@ -5,6 +5,7 @@ import Annonces_vu_voyageur from "../../Components/annonces_vue_voyageur/annonce
 import Annonces_urgentes from "../../Components/annonces_urgentes/annonces_urgentes";
 
 function Annonces() {
+    const utilisateur = JSON.parse(localStorage.getItem("User"));
 
     const data = [{key:1 , titre:"annonces1", lVente : "Paris, France", lAchat : "Madrid, Espagne", description : "super ordi topito", profil : "Leo Comte", typeContrepartie : "div_contrepartie", Prix1 : "40,00 €", PrixV : "60,00 €", coutTot : "3670,00 €"},
         {key:2,titre:"annonces2",lVente : "Paris, France", lAchat : "Madrid, Espagne", description : "super ordi topito", profil : "Leo Comte", typeContrepartie : "div_contrepartie_1", Prix1 : "40,00 €", PrixV : "60,00 €", coutTot : "3670,00 €"},
@@ -17,7 +18,7 @@ function Annonces() {
                 <NavBar/>
             </div>
             <div className={"div_photo_nom"}>
-                <h1> Bonjour PrénomPco</h1>
+                <h1> Bonjour {utilisateur.Nom}  {utilisateur.Prenom}</h1>
                 <br/>
                 <br/>
                 <br/>

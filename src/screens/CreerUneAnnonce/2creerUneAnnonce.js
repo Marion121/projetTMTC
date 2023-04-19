@@ -32,6 +32,7 @@ function CreerUneAnnonce2() {
 
     function handleClickVoyageur(){
         setClickedVoyageur(!clickedVoyageur);
+        
     }
 
     function handleChangePrix(e) {

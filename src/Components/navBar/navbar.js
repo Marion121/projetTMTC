@@ -23,6 +23,10 @@ function NavBar() {
         navigate('/creerUneAnnonce');
     }
 
+    function goMesAchats() {
+        navigate('/mesAchatsEtVoyages');
+    }
+
     function goAccueil() {
         localStorage.removeItem('User');
         console.log(localStorage.getItem("User"));
@@ -31,7 +35,7 @@ function NavBar() {
     }
 
     function goAnnonces() {
-        navigate('/mesAchatsEtVoyages')
+        navigate('/annonces')
     }
 
     function goMesAchats() {
@@ -71,7 +75,7 @@ function NavBar() {
                         </button>
                     </div>
                     <div className='div_annonces'>
-                        <button className='annonces'  onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
+                        <button className='annonces persone_co'  onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
                             <span id={"arriere_plan_annonces"}>Annonces <i
                                 className="flecheAnnonces fa-solid fa-angle-down"></i>
                             </span>
@@ -80,6 +84,7 @@ function NavBar() {
                                     Annonces <i className="flecheAnnonces fa-solid fa-angle-down"></i>
                                 </div>
                                 <button onClick={goMesAnnonces}>Mes annonces </button>
+                                <button onClick={goMesAchats}>Mes achats </button>
                                 <button onClick={goAnnonces}>Les annonces </button>
                             </div>
                         </button>

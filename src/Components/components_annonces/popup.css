@@ -1,0 +1,27 @@
+
+
+.boutonAnnuler{
+    background-color: #727171;
+    color: #e5e1e1;
+    font-size: large;
+    border-radius: 30px;
+    position: center;
+    height: 40px;
+    width: 90px;
+    margin-top: 10px;
+    margin-left: 30px;
+    border: none;
+}
+
+.boutonValider{
+    background-color: #FF8802;
+    color: white;
+    font-size: large;
+    border-radius: 30px;
+    position: center;
+    height: 40px;
+    width: 90px;
+    margin-top: 10px;
+    margin-left: 33%;
+    border: none;
+}

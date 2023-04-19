@@ -5,8 +5,14 @@ const Swal = require('sweetalert2')
 
 
 function Etat_annonce(props) {
+    const comAcheteur = 35 ;
+    const comBwob = 10 ;
+    const comVoyageur = 45 ;
+    const coutProduit = 1278 ;
+    const totalCom = comAcheteur + comBwob +  comVoyageur;
+    const totalDiffere= 1278 ;
+    const total =  totalCom + totalDiffere ;
 
-    const [open,setOpen]=useState(false);
 
     if (props.typeEtat == "manqueVoyageur") {
         return (
@@ -66,29 +72,29 @@ function Etat_annonce(props) {
                 '<b id="text_detail">Détail des modalité de payement</b> ' +
                 '<div id="div_1" class="conteur_pop_up">' +
                 '<p class="texte">Commission de l\'acheteur</p>' +
-                '<p class="prix"><strong>45.00 €</strong></p>' +
+                `<p class="prix"><strong>${comAcheteur}  €</strong></p>` +
                 '<p class="texte">Remboursement de l\'acheteur</p>' +
-                '<p class="prix"><strong>1245.00 €</strong></p>' +
+                `<p class="prix"><strong>${coutProduit} €</strong></p>` +
                 '<ul class ="liste">' +
-                '<li> <i class="check_icon fa-solid fa-circle-check"></i> Par carte bancaire</li>' +
-                '<li class="messagre_grisé"> <i class="fa-solid fa-circle"></i> En especes</li>' +
+                '<li> <input type="checkbox"> Par carte bancaire </input></li>' +
+                '<li class="messagre_grisé"> <i class="fa-solid fa-square"></i> En especes</li>' +
                 '</ul>' +
                 '<p class="texte_info">Paiment en espèces impossible, vous ne serez pas amené à croiser l\'acheteur</p>' +
                 '</div>' +
                 '<div id="div_2" class="conteur_pop_up">' +
                 '<p class="texte">Commission du voyageur</p>' +
-                '<p class="prix"><strong>45.00 €</strong></p>' +
+                `<p class="prix"><strong>${comVoyageur} €</strong></p>` +
                 '<ul class ="liste">' +
-                '<li> <i class="check_icon fa-solid fa-circle-check"></i> Par carte bancaire</li>' +
-                '<li > <i class="fa-sharp fa-regular fa-circle"></i> En especes</li>' +
+                '<li> <input type="checkbox" name="myRadioGroup"> Par carte bancaire</input> </li>' +
+                '<li > <input type="checkbox" name="myRadioGroup"> En especes</input> </li>' +
                 '</ul>' +
                 '</div>' +
                 '<div id="div_3" class="conteur_pop_up">' +
                 '<p class="texte">Commission de BWoB</p>' +
-                '<p class="prix"><strong>45.00 €</strong></p>' +
+                `<p class="prix"><strong>${comBwob} €</strong></p>` +
                 '<ul class ="liste">' +
-                '<li> <i class="check_icon fa-solid fa-circle-check"></i> Par carte bancaire</li>' +
-                '<li class="messagre_grisé"> <i class="fa-solid fa-circle"></i> En especes</li>' +
+                '<li> <input type="checkbox"> Par carte bancaire </input></li>' +
+                '<li class="messagre_grisé"> <i class="fa-solid fa-square"></i> En especes</li>' +
                 '</ul>' +
                 '<p class="texte_info">Paiment en espèces impossible, concernant la comission BWoB</p>' +
                 '</div>' +
@@ -129,28 +135,28 @@ function Etat_annonce(props) {
                         '<p class="grand_titre"><strong>Montant a régler</strong></p>' +
                         '<div class="div_ligne_prix">' +
                         '<span class="span_text">Commission de l\'acheteur</span>' +
-                        '<span class="span_prix">34.00 €</span>' +
+                        `<span class="span_prix">${comAcheteur} €</span>` +
                         '</div>' +
                         '<div class="div_ligne_prix">' +
                         '<span class="span_text">Commission de BWob</span>' +
-                        '<span class="span_prix">10.00 €</span>' +
+                        `<span class="span_prix">${comBwob} €</span>` +
                         '</div>' +
                         '<div class="div_ligne_prix">' +
                         '<span class="span_text">Commission du voyageur</span>' +
-                        '<span class="span_prix">48.00 €</span>' +
+                        `<span class="span_prix">${comVoyageur} €</span>` +
                         '</div>' +
                         '<p class="grand_titre"><strong>Montant prélevé en différé <i class="fa-regular fa-circle-question"></i></strong></p>' +
                         '<div id="souligner" class="div_ligne_prix">' +
                         '<span class="span_text">Coût de votre produit</span>' +
-                        '<span class="span_prix">1430.00 €</span>' +
+                        `<span class="span_prix">${coutProduit} €</span>` +
                         '</div>' +
                         '<div class="div_ligne_prix_fin">' +
                         '<span class="span_text_small"><strong>Total a régler : </strong></span>' +
-                        '<span class="span_prix_big">10.00 €</span>' +
+                        `<span class="span_prix_big">${totalCom} €</span>` +
                         '</div>' +
                         '<div class="div_ligne_prix_fin">' +
-                        '<span class="span_text_small"><strong>Montanr prélevé en différé : </strong></span>' +
-                        '<span class="span_prix_big">1032.00 €</span>' +
+                        '<span class="span_text_small"><strong>Montant prélevé en différé : </strong></span>' +
+                        `<span class="span_prix_big">${totalDiffere} €</span>` +
                         '</div>' +
                         '</div>' +
                         '</div>',
@@ -161,7 +167,7 @@ function Etat_annonce(props) {
                     showCloseButton: true,
                     showConfirmButton: true,
                     confirmButtonColor: '#32c570',
-                    confirmButtonText: '<strong>Payer 1 526.00 €</strong>',
+                    confirmButtonText: `<strong>Payer ${total} €</strong>`,
                     confirmButtonmarginbottom : '10px'
                 })
             }

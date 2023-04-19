@@ -1,4 +1,4 @@
-import NavBar from '../../Components/navBar/navbar';
+  import NavBar from '../../Components/navBar/navbar';
 import './creerUneAnnonce.css'
 import '../css_general.css'
 import { useState } from 'react';
