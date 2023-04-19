@@ -48,8 +48,8 @@
     color: #6FB9F3;
     margin-top: 8px;
     padding-bottom: 8px;
-    padding-right: 4px;
-    padding-left: 4px;
+    padding-right: 2px;
+    padding-left: 2px;
     box-shadow: 1px 0 8px 0 #70aace, 0 1px 1px 0 #70aace;
 }
 .bouton_vide{
@@ -57,10 +57,10 @@
     border : solid #6FB9F3;
     background-color: white;
     color: #6FB9F3;
-    margin-top: 12px;
-    margin-bottom: 2px;
-    padding-left: 6px;
-    padding-right: 6px;
+    margin-top: 11px;
+    margin-bottom: 1px;
+    padding-left: 7px;
+    padding-right: 7px;
     margin-left: 3px;
     box-shadow: 1px 0 8px 0 #70aace, 0 1px 1px 0 #70aace;
 
