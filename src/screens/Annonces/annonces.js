@@ -28,21 +28,23 @@ function Annonces() {
                 <p className="text">Postulez si vous avez de la place dans votre valise ! </p>
             </div>
             <div className={"div_recherche"}>
-                <span className={"titre_Recherche"} id={"depart"}><i className="fa-solid fa-magnifying-glass"></i>
+                <div className={"titre_Recherche"} id={"depart"}><i className="fa-solid fa-magnifying-glass"></i>
                     <input className={"input_recherche"} type={"text"} placeholder={"Chercher des mots clés"}></input>
-                </span>
-                <button className={"b_type_voyage"}>
-                    <i className="fa-sharp fa-solid fa-plane-up"></i>
-                    <span id={"span_bouton"}> Aller simple </span>
-                    <i className="fa-solid fa-angle-down"></i>
-                </button>
-                <span className={"titre_depart"} id={"depart"}> Départ :
+                </div>
+                <select name="combobox" id="voyage-select" className={"b_type_voyage"} >
+                    <option value="allez simple"> Allez simple</option>
+                    <option value="allez retour"> Allez retour</option>
+                </select>
+                <div className={"titre_depart"} id={"depart"}><span classeName={"p_titre"}> Départ : </span>
                     <input className={"input_départ"} type={"text"} placeholder={"Votre ville, Pays"}></input>
-                </span>
+                </div>
 
-                <span className={"titre_arrive"}> Arrivée :
+                <div className={"titre_arrive"}><span classeName={"p_titre"}> Arrivée :</span>
                     <input className={"input_arrivé"} type={"text"} placeholder={"Madrid, Espagne"}></input>
-                </span>
+                </div>
+                <button className={"boutonChercher"} >
+                    Chercher
+                </button>
             </div>
             <div className={"div_annonces_produit"}>
                 <div className={"div_affiner_recherhce"}>

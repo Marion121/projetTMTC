@@ -32,7 +32,7 @@ function Etat_annonce(props) {
                     <button className={"bouton_payement"} id="myBtn" onClick={()=>{payement()}}><i
                         className="fa-regular fa-credit-card"></i> Par carte
                     </button>
-                    <button className={"bouton_payement"}>
+                    <button className={"bouton_payement"} onClick={()=>{payement()}} >
                         <i className="fa-solid fa-money-bill-1-wave"></i> En espéces
                     </button>
                 </div>
