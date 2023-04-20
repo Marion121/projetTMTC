@@ -3,57 +3,86 @@ import './annonces.css'
 import NavBar from '../../Components/navBar/navbar'
 import Annonces_vu_voyageur from "../../Components/annonces_vue_voyageur/annonces_vue_voyageur";
 import Annonces_urgentes from "../../Components/annonces_urgentes/annonces_urgentes";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'
 
 function Annonces() {
     const utilisateur = JSON.parse(localStorage.getItem("User"));
 
+    let navigate = useNavigate();
+    const [dataAnnonces, setDataAnnonces] = useState([]);
     const [voyage, setVoyage] = useState(false);
     const [achat, setAchat] = useState(false);
     const [max, setMax] = useState();
     const [min, setMin] = useState();
     const [devise, setDevise] = useState();
 
-    function handleVoyageChange(event){
+    function handleVoyageChange(event) {
         setVoyage(event.target.checked);
     }
 
-    function handleAchatChange(event){
+    function handleAchatChange(event) {
         setAchat(event.target.checked);
     }
 
-    function handleMinChange(e){
+    function handleMinChange(e) {
         setMin(e.target.value);
     }
 
-    function handleMaxChange(e){
+    function handleMaxChange(e) {
         setMax(e.target.value);
     }
 
-    function handleDeviseChange(e){
+    function handleDeviseChange(e) {
         setDevise(e.target.value);
+    }
+
+    function goDetails() {
+        navigate('/detailsAnnonce')
     }
 
     const data = [{ key: 1, titre: "annonces1", lVente: "Paris, France", lAchat: "Madrid, Espagne", description: "super ordi topito", profil: "Leo Comte", typeContrepartie: "div_contrepartie", Prix1: "40,00 €", PrixV: "60,00 €", coutTot: "3670,00 €" },
     { key: 2, titre: "annonces2", lVente: "Paris, France", lAchat: "Madrid, Espagne", description: "super ordi topito", profil: "Leo Comte", typeContrepartie: "div_contrepartie_1", Prix1: "40,00 €", PrixV: "60,00 €", coutTot: "3670,00 €" },
     { key: 3, titre: "annonces3", lVente: "Paris, France", lAchat: "Madrid, Espagne", description: "super ordi topito", profil: "Leo Comte", typeContrepartie: "div_contrepartie_2", Prix1: "40,00 €", PrixV: "60,00 €", coutTot: "3670,00 €" },
     { key: 4, titre: "annonces4", lVente: "Paris, France", lAchat: "Madrid, Espagne", description: "super ordi topito", profil: "Leo Comte", typeContrepartie: "div_contrepartie", Prix1: "40,00 €", PrixV: "60,00 €", coutTot: "3670,00 €" }]
+    /*
+        if (document.readyState === 'complete') {
+            let res = fetch(`http://localhost:8080/api/annonce/recherche` ,{
+                method: "POST",
+                headers: {    
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*' },
+                body: JSON.stringify({
+                        devise : "€",
+                    }),
+                });
+    
+    
+            console.log("here we are");
+        }*/
 
-    if (document.readyState === 'complete') {
-        let res = fetch(`http://localhost:8080/api/annonce/recherche` ,{
-            method: "POST",
-            headers: {    
+    useEffect(() => {
+        async function fetchDetails() {
+            const response = await fetch(`http://localhost:8080/api/annonce/recherche`, {
+                method: "POST",
+                headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*' },
-            body: JSON.stringify({
-                    devise : "€",
-                }),
+                'Access-Control-Allow-Origin': '*'},
+                body: JSON.stringify({
+                    offset: 0,
+                    limit:10,
+                    typeImportance: "classic"
+                })
             });
-
-
-        console.log("here we are");
-    }
+            const data = await response.json();
+            console.log(data);
+            setDataAnnonces(data);
+            console.log(dataAnnonces);
+        }
+        fetchDetails();
+    }, []);
 
     return (
         <div className='page'>
@@ -62,12 +91,12 @@ function Annonces() {
             </div>
             <div className={"div_photo_nom"}>
 
-                <h1> Bonjour {utilisateur.Nom}  {utilisateur.Prenom}</h1>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
+                <h1> Bonjour  {utilisateur.prenom} {utilisateur.nom}</h1>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
                 <p className="text">Retrouvez si dessous l'ensemble des annonces postées ! </p>
                 <p className="text">Postulez si vous avez de la place dans votre valise ! </p>
             </div>
@@ -127,15 +156,15 @@ function Annonces() {
                         </tr>
                     </table>
                     <p className={"titre_recherche_gauche"}><strong>Devise</strong></p>
-                    <input type="radio" className={"checkbox_input"} id="Euros" name='devise' value="euro" onChange={handleDeviseChange}/>
+                    <input type="radio" className={"checkbox_input"} id="Euros" name='devise' value="euro" onChange={handleDeviseChange} />
                     <label htmlFor="Euros">Euros</label>
                     <br />
-                    <input type="radio" className={"checkbox_input"} id="USD" name='devise' value="usd" onChange={handleDeviseChange}/>
+                    <input type="radio" className={"checkbox_input"} id="USD" name='devise' value="usd" onChange={handleDeviseChange} />
                     <label htmlFor="USD">USD</label>
                     <br />
                 </div>
                 <div className={"div_annonces_lamda"}>
-                    {data.map(dataprop => <Annonces_vu_voyageur titre={dataprop.titre} lVente={dataprop.lVente} lAchat={dataprop.lAchat} description={dataprop.description} profil={dataprop.profil} typeContrepartie={dataprop.typeContrepartie} prix1={dataprop.Prix1} prixV={dataprop.PrixV} coutTot={dataprop.coutTot} ></Annonces_vu_voyageur>)}
+                    {data.map(dataprop => <Annonces_vu_voyageur id={dataprop.key} titre={dataprop.titre} lVente={dataprop.lVente} lAchat={dataprop.lAchat} description={dataprop.description} profil={dataprop.profil} typeContrepartie={dataprop.typeContrepartie} prix1={dataprop.Prix1} prixV={dataprop.PrixV} coutTot={dataprop.coutTot} onClick={goDetails}></Annonces_vu_voyageur>)}
                 </div>
                 <div className={"div_annonces_urgentes"}>
                     <h4 id={"titre_A_urgentes"}>Annonces urgentes</h4>

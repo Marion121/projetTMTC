@@ -35,16 +35,7 @@ button{
 }
 
 /*input*/
-input[type=email], input[type=password], input[type=text],input[type = date], input[type = tel]{
-    width: 60%;
-    padding: 12px 20px;
-    margin: 10px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    box-shadow: 0 0 10px 0 #63B7E7, 0 2px 2px 0 #63B7E7;
-    border-radius: 5px;
-}
+
 
 input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, input[type=date]:focus, input[type=tel]:focus, textarea:focus{
     outline: none;
@@ -79,6 +70,15 @@ input[type=email]:focus, input[type=password]:focus, input[type=text]:focus, inp
     border: none;
 }
 
+.boutonSuivantAnnonce{
+    height: 45px;
+    width: 80px;
+    margin-left: 5%;
+    border-radius: 24px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    border: none;
+}
+
 .boutonPrecedent{
     height: 45px;
     width: 80px;
@@ -97,7 +97,7 @@ input[type=submit]:hover {
     cursor: pointer;
 }
 
-input[type=submit]{
+.connexion{
     background-color: #FF8802;
     color: white;
     padding: 14px 20px;

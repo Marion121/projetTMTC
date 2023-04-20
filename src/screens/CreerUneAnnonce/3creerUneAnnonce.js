@@ -138,7 +138,7 @@ function CreerUneAnnonce3() {
                 </div>
 
                 <button className='boutonPrecedent' onClick={goCreerAnnonce2}>Precedent</button>
-                <input type="submit" className='boutonSuivant btn_orange' value="Valider" onClick={finaliserCreationAnnonce}></input>
+                <input type="submit" className='boutonSuivantAnnonce btn_orange' value="Valider" onClick={finaliserCreationAnnonce}></input>
             </div>
             <div id='avancement'>
                 <AvancementCreationAnnonce etatAvancement={3} />

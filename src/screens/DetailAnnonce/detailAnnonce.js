@@ -1,9 +1,26 @@
 import NavBar from '../../Components/navBar/navbar';
 import "./detailAnnonce.css";
-import "../css_general.css"
+import "../css_general.css";
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 function DetailAnnonce() {
     const utilisateur = JSON.parse(localStorage.getItem("User"));
+    const [annonce, setAnnonce] = useState([]);
+    const { id } = useParams();
+
+    useEffect(() => {
+        async function fetchDetails() {
+            const response = await fetch(`http://localhost:8080/api/annonce?id=${id}`);
+            const data = await response.json();
+            console.log(data);
+            setAnnonce(data);
+            console.log(annonce);
+        }
+
+        fetchDetails();
+    }, []);
+
 
     return (
         <div id='divPageDetail'>
@@ -13,7 +30,7 @@ function DetailAnnonce() {
             <div id='divWrapperDetail'>
                 <div id='divEnteteDetail'>
                     <div id='divTitre'>
-                        <h1>Mac Book air M1 13,3"</h1>
+                        <h1>{annonce.titre}</h1>
                     </div>
                     <div id='divNomDate'>
                         <div id='divNom'>
@@ -41,7 +58,7 @@ function DetailAnnonce() {
                             </div>
                             <div id='divContrepartie3' className='div_contrepartie_detailAnnonce'>
                                 <p className={"text_contrepartie_detailAnnonce"}><strong>Coût du produit</strong> <br />
-                                  <strong>600€</strong></p>
+                                    <strong>{annonce.prix}</strong></p>
                             </div>
 
                         </div>

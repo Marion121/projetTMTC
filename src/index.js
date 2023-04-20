@@ -34,7 +34,7 @@ root.render(
                 <Route path='/creerUneAnnonce3' element={<CreerUneAnnonce3 />} />
                 <Route path='/MesAchatsEtVoyages' element={<MesAchatsEtVoyages />} />
                 <Route path='/MesAnnonces' element={<MesAnnonces/>} />
-                <Route path='/detailsAnnonce' element={<DetailAnnonce />} />
+                <Route path='/detailsAnnonce/:id' element={<DetailAnnonce />} />
             </Routes>
 
         </BrowserRouter>

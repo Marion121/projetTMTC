@@ -88,7 +88,7 @@ function CreerUneAnnonce2() {
                         <div id='divPrixDevise'>
                             <div id='divPrix'>
                                 <label>Prix d'achat du produit</label><br />
-                                <input className="Input" type="text" placeholder="8888.88" name="prixAchats" value={prix} onChange={handleChangePrix} required></input>
+                                <input className="contour_bleu" type="text" placeholder="8888.88" name="prixAchats" value={prix} onChange={handleChangePrix} required></input>
                             </div>
                             <div id='divDevise'>
                                 <label>Devise</label><br />
@@ -155,7 +155,7 @@ function CreerUneAnnonce2() {
                         </div>
                     </div>
                     <button className='boutonPrecedent' onClick={goCreerAnnonce}>Precedent</button>
-                    <input type="submit" className='boutonSuivant btn_orange' value="Suivant"></input>
+                    <input type="submit" className='boutonSuivantAnnonce btn_orange' value="Suivant"></input>
 
                 </form>
             </div>
