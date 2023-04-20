@@ -14,6 +14,11 @@ function Profil() {
     const photo = useAppStore((state) => state.User.photo);
     const utilisateur = JSON.parse(localStorage.getItem("User"));
 
+
+    if (document.readyState === 'complete') {
+        console.log(utilisateur.Nom);
+    }
+
     return (
         <div className='page'>
             <div className='zone_navBar'>
@@ -30,12 +35,12 @@ function Profil() {
                 <div className="block_photo_nom_tot">
 
                     <div className="photo_nom">
-                        <img className="PhotoProfil" src={photo} alt='Schémas'/>
+                        <img className="PhotoProfil" src={utilisateur.photo} alt='Schémas'/>
                         <div className="b_modif_photo">
                             <Bmodif isActive={false} name="image" type_I='image'></Bmodif>
                         </div>
                         <div className="nom_prenom">
-                            <span id={"text_nom_prenom"}>{utilisateur.Nom} {utilisateur.Prenom}</span>
+                            <span id={"text_nom_prenom"}>{utilisateur.nom} {utilisateur.prenom}</span>
                             <Bmodif isActive={false} name="text_nom_prenom" type_I='text'></Bmodif>
                         </div>
                         <div className="tot_gangne">
@@ -46,7 +51,7 @@ function Profil() {
                 </div>
                 <div className="block_info_modif">
                         <h3>Mail</h3>
-                        <span className="info" id={"text_mail"}>{utilisateur.Email}</span>
+                        <span className="info" id={"text_mail"}>{utilisateur.email}</span>
                         <span id={"B_text_mail"}>
                             <Bmodif  isActive={true} name="text_mail" type_I='email'></Bmodif>
                         </span>
@@ -56,7 +61,7 @@ function Profil() {
                             <Bmodif  isActive={true} name="text_date" type_I='date'></Bmodif>
                         </span>
                         <h3>Pays de résidence</h3>
-                        <span className="info" id={"Pays"}>{utilisateur.Pays} </span>
+                        <span className="info" id={"Pays"}>{utilisateur.pays} </span>
                         <span id={"B_Pays"}>
                             <Bmodif  isActive={true} name="Pays" type_I='text'></Bmodif>
                         </span>

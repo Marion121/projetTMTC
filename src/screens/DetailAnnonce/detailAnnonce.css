@@ -1,0 +1,237 @@
+#divWrapperDetail{
+    padding-left: 20px;
+}
+
+
+#divEnteteDetail{
+    margin-top: 85px;
+    height: 100px;
+    width: 40%;
+}
+
+#divTitre{
+    height: 55px;
+    width: 100%;
+    min-width: 350px;
+    line-height: 65px;
+}
+
+#divNomDate{
+    height: 30px;
+    width: 60%;
+    display: flex;
+    padding-bottom: 1px;
+}
+
+#divNom, #divDate{
+    height: 100%;
+    width: 50%;
+    padding-left: 4px;
+    padding-top: 0px;
+}
+
+#divDate{
+    padding-top: 1.8px;
+    min-width: 120px;
+}
+
+#divNom{
+    position: relative;
+    min-width: 150px;
+}
+
+#spanNom{
+    position: absolute;
+    top: 2.3px;
+}
+
+#divInfosOffre {
+    height: 250px;
+    width: 70%;
+    margin-top: 20px;
+    padding: 5px;
+    display: flex;
+    margin-top: 3px;
+}
+
+#divImage{
+    height: 240px;
+    width: 40%;
+    min-width: 250px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 0 #999999, 0 2px 2px 0 #9a9a9a;
+}
+
+#divImage img{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+#divPrixDescription{
+    height: 240px;
+    width: 58%;
+    margin-left: 15px;
+    padding-left: 10px;
+}
+
+#divPrix{
+    height: 94px;
+    width: 100%;
+    min-width: 460px;
+    display: flex;
+}
+
+#divContrepartie1, #divContrepartie2, #divContrepartie3{
+    height: 68px;
+    width: 26%;
+    min-width: 160px;
+    padding-left: 12px;
+    font-size: 20px;
+}
+
+#divContrepartie1, #divContrepartie2{
+    margin-right: 22px;
+}
+
+#divContrepartie1 .text_contrepartie_detailAnnonce, #divContrepartie2 .text_contrepartie_detailAnnonce{
+    margin-top: 10px;
+}
+
+#divContrepartie3 .text_contrepartie_detailAnnonce{
+    line-height: 28px;
+    margin-top: 6px;
+}
+
+#divDescription{
+    height: 128px;
+    width: 100%;
+    min-width: 420px;
+}
+
+#divDescription p{
+    margin: 0;
+    height: 98%;
+}
+
+#divAction{
+    margin-top: 5px;
+    height: 80px;
+    width: 55%;
+    display: flex;
+}
+
+#divAcheterLivre{
+    width: 45%;
+}
+
+#divCoutProduit{
+    padding-top: 5px;
+}
+
+#divContrepartie3 {
+    padding-bottom: 0;
+}
+
+
+.div_contrepartie_detailAnnonce{
+    box-shadow: 0 0 5px 0 #999999, 0 2px 2px 0 #9a9a9a;
+    border-radius: 0px 5px 0px 5px;
+    padding-top: 1px;
+    font-size: 18px;
+    padding-left: 6px;
+}
+
+.text_contrepartie_detailAnnonce{
+    line-height: 1px;
+}
+.text_prix_detailAnnonce{
+    line-height: 1px;
+    margin-left: 25px;
+}
+
+.text_prix_tot_detailAnnonce{
+    line-height: 1px;
+    margin-left: 10%;
+}
+
+#divAcheterLivre{
+    background-color: #FF8802;
+    color: white;
+    border: none;
+    min-width: 350px;
+}
+
+#divAcheterLivre .logoGauche{
+    margin-left: 8%;
+    margin-right: 16px;
+}
+
+.logoGauche{
+    margin-left: 10%;
+    margin-right: 12px;
+}
+
+.logoDroite{
+    margin-right: 12px;
+}
+#divAcheter, #divLivrer{
+    width: 25%;
+    margin-left: 16px;
+    min-width: 180px;
+}
+
+#divAcheterLivre, #divAcheter, #divLivrer{
+    margin-top: 8px;
+    height: 35px;
+    border-radius: 30px;
+    padding-top: 8px;
+    margin-right: 5px;
+}
+
+#divAstuce{
+    margin-top: 0px;
+    height: 120px;
+    width: 30%;
+    min-width: 250px;
+    border-radius: 12px;
+    background-color: #d5e9f9;
+    opacity: 0.95;
+    padding-left: 6px;
+    padding-top: 5px;
+}
+
+#divTitreAstuce{
+    color: #57B5FF;
+    font-size: 25px;
+    height: 30px;
+}
+
+#divTextAstuce{
+    height: 60px;
+    padding-top: 5px;
+}
+
+
+.photoDetailAnnonce{
+    margin-top: 3px;
+    margin-right: 10px;
+}
+
+#spanNom{
+    margin-bottom: 5px;
+}
+
+.div_photo{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background: url("/public/images/ordi.png") no-repeat;
+    background-size: 100%;
+}
+
+.bordure{
+    border: 1px solid #f1f1f1;
+    background: #fff;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}

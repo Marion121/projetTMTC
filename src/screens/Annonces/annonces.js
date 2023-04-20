@@ -3,26 +3,69 @@ import './annonces.css'
 import NavBar from '../../Components/navBar/navbar'
 import Annonces_vu_voyageur from "../../Components/annonces_vue_voyageur/annonces_vue_voyageur";
 import Annonces_urgentes from "../../Components/annonces_urgentes/annonces_urgentes";
+import { useState } from 'react';
 
 function Annonces() {
 
-    const data = [{key:1 , titre:"annonces1", lVente : "Paris, France", lAchat : "Madrid, Espagne", description : "super ordi topito", profil : "Leo Comte", typeContrepartie : "div_contrepartie", Prix1 : "40,00 €", PrixV : "60,00 €", coutTot : "3670,00 €"},
-        {key:2,titre:"annonces2",lVente : "Paris, France", lAchat : "Madrid, Espagne", description : "super ordi topito", profil : "Leo Comte", typeContrepartie : "div_contrepartie_1", Prix1 : "40,00 €", PrixV : "60,00 €", coutTot : "3670,00 €"},
-        {key:3,titre:"annonces3",lVente : "Paris, France", lAchat : "Madrid, Espagne", description : "super ordi topito", profil : "Leo Comte", typeContrepartie : "div_contrepartie_2", Prix1 : "40,00 €", PrixV : "60,00 €", coutTot : "3670,00 €"},
-        {key:4,titre:"annonces4", lVente : "Paris, France", lAchat : "Madrid, Espagne", description : "super ordi topito", profil : "Leo Comte", typeContrepartie : "div_contrepartie", Prix1 : "40,00 €", PrixV : "60,00 €", coutTot : "3670,00 €"} ]
+    const [voyage, setVoyage] = useState(false);
+    const [achat, setAchat] = useState(false);
+    const [max, setMax] = useState();
+    const [min, setMin] = useState();
+    const [devise, setDevise] = useState();
+
+    function handleVoyageChange(event){
+        setVoyage(event.target.checked);
+    }
+
+    function handleAchatChange(event){
+        setAchat(event.target.checked);
+    }
+
+    function handleMinChange(e){
+        setMin(e.target.value);
+    }
+
+    function handleMaxChange(e){
+        setMax(e.target.value);
+    }
+
+    function handleDeviseChange(e){
+        setDevise(e.target.value);
+    }
+
+    const data = [{ key: 1, titre: "annonces1", lVente: "Paris, France", lAchat: "Madrid, Espagne", description: "super ordi topito", profil: "Leo Comte", typeContrepartie: "div_contrepartie", Prix1: "40,00 €", PrixV: "60,00 €", coutTot: "3670,00 €" },
+    { key: 2, titre: "annonces2", lVente: "Paris, France", lAchat: "Madrid, Espagne", description: "super ordi topito", profil: "Leo Comte", typeContrepartie: "div_contrepartie_1", Prix1: "40,00 €", PrixV: "60,00 €", coutTot: "3670,00 €" },
+    { key: 3, titre: "annonces3", lVente: "Paris, France", lAchat: "Madrid, Espagne", description: "super ordi topito", profil: "Leo Comte", typeContrepartie: "div_contrepartie_2", Prix1: "40,00 €", PrixV: "60,00 €", coutTot: "3670,00 €" },
+    { key: 4, titre: "annonces4", lVente: "Paris, France", lAchat: "Madrid, Espagne", description: "super ordi topito", profil: "Leo Comte", typeContrepartie: "div_contrepartie", Prix1: "40,00 €", PrixV: "60,00 €", coutTot: "3670,00 €" }]
+
+    if (document.readyState === 'complete') {
+        let res = fetch(`http://localhost:8080/api/annonce/recherche` ,{
+            method: "POST",
+            headers: {    
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*' },
+            body: JSON.stringify({
+                    devise : "€",
+                }),
+            });
+
+
+        console.log("here we are");
+    }
 
     return (
         <div className='page'>
             <div className='zone_navBar'>
-                <NavBar/>
+                <NavBar />
             </div>
             <div className={"div_photo_nom"}>
                 <h1> Bonjour PrénomPco</h1>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
                 <p className="text">Retrouvez si dessous l'ensemble des annonces postées ! </p>
                 <p className="text">Postulez si vous avez de la place dans votre valise ! </p>
             </div>
@@ -46,22 +89,22 @@ function Annonces() {
             <div className={"div_annonces_produit"}>
                 <div className={"div_affiner_recherhce"}>
                     <p className={"titre_recherche_gauche"}><strong>Produit</strong></p>
-                    <input type="radio" className={"radio_input"} id="Electronique"/>
+                    <input type="checkbox" className={"checkbox_input"} id="Electronique" />
                     <label htmlFor="Electronique">Electronique</label>
-                    <br/>
-                    <input type="radio" className={"radio_input"} id="Comestible"/>
+                    <br />
+                    <input type="checkbox" className={"checkbox_input"} id="Comestible" />
                     <label htmlFor="Comestible">Comestible</label>
-                    <br/>
-                    <input type="radio" className={"radio_input"} id="Liquide"/>
+                    <br />
+                    <input type="checkbox" className={"checkbox_input"} id="Liquide" />
                     <label htmlFor="Liquide">Liquide</label>
-                    <br/>
+                    <br />
                     <p className={"titre_recherche_gauche"}><strong>Type d'annonce</strong></p>
-                    <input type="radio" className={"radio_input"} id="Achat"/>
+                    <input type="checkbox" className={"checkbox_input"} id="Achat" checked={achat} onChange={handleAchatChange} />
                     <label htmlFor="Achat">Achat</label>
-                    <br/>
-                    <input type="radio" className={"radio_input"} id="Voyage"/>
+                    <br />
+                    <input type="checkbox" className={"checkbox_input"} id="Voyage" checked={voyage} onChange={handleVoyageChange} />
                     <label htmlFor="Voyage">Voyage</label>
-                    <br/>
+                    <br />
                     <p className={"titre_recherche_gauche"}><strong>Rétribution</strong></p>
                     <table className={"table_recherche"}>
                         <tr>
@@ -74,28 +117,28 @@ function Annonces() {
                         </tr>
                         <tr>
                             <td>
-                                <input className={"input_number"} type={"number"}></input>
+                                <input className={"input_number"} type={"number"} onChange={handleMinChange}></input>
                             </td>
                             <td>
-                                <input className={"input_number"}type={"number"}></input>
+                                <input className={"input_number"} type={"number"} onChange={handleMaxChange}></input>
                             </td>
                         </tr>
                     </table>
                     <p className={"titre_recherche_gauche"}><strong>Devise</strong></p>
-                    <input type="radio" className={"radio_input"} id="Euros"/>
+                    <input type="radio" className={"checkbox_input"} id="Euros" name='devise' value="euro" onChange={handleDeviseChange}/>
                     <label htmlFor="Euros">Euros</label>
-                    <br/>
-                    <input type="radio" className={"radio_input"} id="USD"/>
+                    <br />
+                    <input type="radio" className={"checkbox_input"} id="USD" name='devise' value="usd" onChange={handleDeviseChange}/>
                     <label htmlFor="USD">USD</label>
-                    <br/>
+                    <br />
                 </div>
                 <div className={"div_annonces_lamda"}>
-                    {data.map(dataprop => <Annonces_vu_voyageur titre={dataprop.titre} lVente={dataprop.lVente} lAchat={dataprop.lAchat} description={dataprop.description} profil={dataprop.profil} typeContrepartie={dataprop.typeContrepartie} prix1={dataprop.Prix1}  prixV={dataprop.PrixV}  coutTot={dataprop.coutTot} ></Annonces_vu_voyageur>)}
+                    {data.map(dataprop => <Annonces_vu_voyageur titre={dataprop.titre} lVente={dataprop.lVente} lAchat={dataprop.lAchat} description={dataprop.description} profil={dataprop.profil} typeContrepartie={dataprop.typeContrepartie} prix1={dataprop.Prix1} prixV={dataprop.PrixV} coutTot={dataprop.coutTot} ></Annonces_vu_voyageur>)}
                 </div>
                 <div className={"div_annonces_urgentes"}>
                     <h4 id={"titre_A_urgentes"}>Annonces urgentes</h4>
                     <div id={"div_annonces_u_border"}>
-                        {data.map(dataprop => <Annonces_urgentes  profil={dataprop.profil} titre={dataprop.titre} lVente={dataprop.lVente} lAchat={dataprop.lAchat} prixV={dataprop.PrixV} ></Annonces_urgentes>)}
+                        {data.map(dataprop => <Annonces_urgentes profil={dataprop.profil} titre={dataprop.titre} lVente={dataprop.lVente} lAchat={dataprop.lAchat} prixV={dataprop.PrixV} ></Annonces_urgentes>)}
                     </div>
                 </div>
             </div>

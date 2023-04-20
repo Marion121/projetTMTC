@@ -48,6 +48,7 @@ function Inscription() {
                     pays : pays,
                     telephone: telephone,
                     codePostal: 92220,
+                    photo : '../../ImagesUser/profilUserLeo.jpg'
                 }),
             });
             let resJson = await res.json();
@@ -61,7 +62,7 @@ function Inscription() {
                 setPays("");
                 setTelephone("");
                 setMessage("User created successfully");
-                navigate('/Annonces');
+                navigate('/');
             } else {
                 setMessage("Some error occured");
             }

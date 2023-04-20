@@ -16,6 +16,7 @@ import CreerUneAnnonce2 from './screens/CreerUneAnnonce/2creerUneAnnonce';
 import CreerUneAnnonce3 from './screens/CreerUneAnnonce/3creerUneAnnonce';
 
 import MesAnnonces from './screens/MesAnnonces/mesAnnonces.js'
+import DetailAnnonce from './screens/DetailAnnonce/detailAnnonce';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -33,6 +34,7 @@ root.render(
                 <Route path='/creerUneAnnonce3' element={<CreerUneAnnonce3 />} />
                 <Route path='/MesAchatsEtVoyages' element={<MesAchatsEtVoyages />} />
                 <Route path='/MesAnnonces' element={<MesAnnonces/>} />
+                <Route path='/detailsAnnonce' element={<DetailAnnonce />} />
             </Routes>
 
         </BrowserRouter>

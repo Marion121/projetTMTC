@@ -25,20 +25,21 @@ function CreerUneAnnonce3() {
             image: "CreationAnnonce.photo",
             ville : CreationAnnonce.villeArrivee,
             pays : {
-                id : 2,
+                id : 1,
                 nom : CreationAnnonce.paysDepart
             },
             ville : CreationAnnonce.villeArrivee,
-            user : User,
+            user : JSON.parse(localStorage.getItem("User")),
             titre : CreationAnnonce.titre,
             prix : parseInt(CreationAnnonce.prixAchats),
             poids : 3,
             categorie : "categorie", // ??
             codePostal : "92220", //sert a rien
             degreImportance : "1",  // ??
-            typeLivraison : "rapide", // voyageur = main propre, sinon poste
+            typeLivraison : (CreationAnnonce.clickedVoyageur) ? "main propre" : "poste", // voyageur = main propre, sinon poste
             validite : true,
-            id : 0
+            id : "",
+            date : ""
         };
         console.log(annoncesEnvoyee);
         e.preventDefault();

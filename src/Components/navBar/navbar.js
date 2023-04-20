@@ -5,8 +5,7 @@ import { useAppStore } from '../../donness.js'
 import { useState } from 'react';
 
 function NavBar() {
-
-    const photo = useAppStore((state) => state.User.photo);
+    const utilisateur = JSON.parse(localStorage.getItem("User"));
     const isConnecte = useAppStore((state) => state.isConnecte);
     const setIsConnecte = useAppStore((state) => state.setIsConnecte)
 
@@ -31,7 +30,7 @@ function NavBar() {
     }
 
     function goAnnonces() {
-        navigate('/mesAchatsEtVoyages')
+        navigate('/Annonces')
     }
 
     function goMesAchats() {
@@ -86,7 +85,7 @@ function NavBar() {
                     </div>
                     <div className='div_profil'>
                         <button className='profil'>
-                            <span class="arriere_plan_profil fondConnecte"><img className="PhotoProfilNavBar" src={photo} alt='Schémas' /></span>
+                            <span class="arriere_plan_profil fondConnecte"><img className="PhotoProfilNavBar" src={utilisateur.photo} alt='Schémas' /></span>
                             <i class="flecheProfil fa-solid fa-angle-down"></i>
                             <div class="dropdown-content">
                                 <button onClick={goProfil}>Mon profil</button>
