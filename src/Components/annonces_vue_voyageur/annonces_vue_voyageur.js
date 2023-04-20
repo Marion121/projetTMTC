@@ -8,7 +8,7 @@ function Annonces_vu_voyageur(props) {
     return (
         <div className='annonces_div_general'>
             <div id={"div_autour_photo_1"}>
-                <Photo_annonces taille={"boutons_photo"}/>
+                <Photo_annonces taille={"boutons_photo"} titre={props.titre} lVente={props.lVente} lAchat={props.lAchat} prix1={props.prix1}  prixV={props.prixV}  coutTot={props.coutTot}  />
             </div>
             <Description_annonces titre={props.titre} lVente={props.lVente} lAchat={props.lAchat} description={props.description} profil={props.profil}  ></Description_annonces>
             <Prix_annonces typeContrepartie={props.typeContrepartie} prix1={props.prix1}  prixV={props.prixV}  coutTot={props.coutTot}  ></Prix_annonces>

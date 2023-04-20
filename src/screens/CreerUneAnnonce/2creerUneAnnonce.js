@@ -42,7 +42,6 @@ function CreerUneAnnonce2() {
         }else{
             alert("Il doit y avoir au moins un acheteur ou un voyageur");
         }
-        
     }
 
     function handleChangePrix(e) {

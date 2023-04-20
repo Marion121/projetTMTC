@@ -6,6 +6,7 @@ import Annonces_urgentes from "../../Components/annonces_urgentes/annonces_urgen
 import { useState } from 'react';
 
 function Annonces() {
+    const utilisateur = JSON.parse(localStorage.getItem("User"));
 
     const [voyage, setVoyage] = useState(false);
     const [achat, setAchat] = useState(false);
@@ -60,12 +61,13 @@ function Annonces() {
                 <NavBar />
             </div>
             <div className={"div_photo_nom"}>
-                <h1> Bonjour PrénomPco</h1>
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
+
+                <h1> Bonjour {utilisateur.Nom}  {utilisateur.Prenom}</h1>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
                 <p className="text">Retrouvez si dessous l'ensemble des annonces postées ! </p>
                 <p className="text">Postulez si vous avez de la place dans votre valise ! </p>
             </div>

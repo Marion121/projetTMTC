@@ -66,7 +66,6 @@ function Inscription() {
             } else {
                 setMessage("Some error occured");
             }
-            console.log(message);
         } catch (err) {
             console.log(err);
         }
