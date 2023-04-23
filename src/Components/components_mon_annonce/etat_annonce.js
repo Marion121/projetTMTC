@@ -32,7 +32,7 @@ function Etat_annonce(props) {
                     <button className={"bouton_payement"} id="myBtn" onClick={()=>{payement()}}><i
                         className="fa-regular fa-credit-card"></i> Par carte
                     </button>
-                    <button className={"bouton_payement"}>
+                    <button className={"bouton_payement"} onClick={()=>{payement()}} >
                         <i className="fa-solid fa-money-bill-1-wave"></i> En espéces
                     </button>
                 </div>
@@ -50,7 +50,7 @@ function Etat_annonce(props) {
                 </div>
                 <div className={"div_ligne"}>
                     <button className={"bouton_3pt"}>
-                        <strong>...</strong>
+                        <i className="fa-solid fa-ellipsis"></i>
                     </button>
                     <p className='text_option'><strong>En cours d'acheminement</strong></p>
                 </div>
@@ -59,6 +59,30 @@ function Etat_annonce(props) {
 
                     </button>
                     <p className='text_option'> Livré </p>
+                </div>
+            </div>
+        );
+    } else if (props.typeEtat == "acheminementLivré") {
+        return (
+            <div className="actions">
+                <h4 className={"titre_element_annonces"}>Etat</h4>
+                <div className={"div_ligne"}>
+                    <button className={"bouton_valide"}>
+                        <i className="fa-solid fa-check"></i>
+                    </button>
+                    <p className='text_option'>Produit acheté </p>
+                </div>
+                <div className={"div_ligne"}>
+                    <button className={"bouton_valide"}>
+                        <i className="fa-solid fa-check"></i>
+                    </button>
+                    <p className='text_option'>En cours d'acheminement</p>
+                </div>
+                <div className={"div_ligne"}>
+                    <button className={"bouton_valide"}>
+                        <i className="fa-solid fa-check"></i>
+                    </button>
+                    <p className='text_option'><strong>Livré</strong></p>
                 </div>
             </div>
         );
@@ -85,8 +109,8 @@ function Etat_annonce(props) {
                 '<p class="texte">Commission du voyageur</p>' +
                 `<p class="prix"><strong>${comVoyageur} €</strong></p>` +
                 '<ul class ="liste">' +
-                '<li> <input type="checkbox" name="myRadioGroup"> Par carte bancaire</input> </li>' +
-                '<li > <input type="checkbox" name="myRadioGroup"> En especes</input> </li>' +
+                '<li> <input type="radio" name="myRadioGroup"> Par carte bancaire</input> </li>' +
+                '<li > <input type="radio" name="myRadioGroup"> En especes</input> </li>' +
                 '</ul>' +
                 '</div>' +
                 '<div id="div_3" class="conteur_pop_up">' +

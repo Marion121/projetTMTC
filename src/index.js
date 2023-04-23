@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import Admin from './screens/Admin/admin';
 import Accueil from './screens/Accueil/accueil.js';
 import reportWebVitals from './reportWebVitals';
 import Profil from './screens/Profil/profil';
@@ -27,6 +28,7 @@ root.render(
                 <Route path='/Connexion' element={<Connexion />} />
                 <Route path='/Inscription' element={<Inscription />} />
                 <Route path='/Annonces' element={<Annonces />} />
+                <Route path='/Admin' element={<Admin />} />
                 <Route path='/monProfil' element={<Profil />} />
                 <Route path='/mesAchatsEtVoyages' element={<MesAchatsEtVoyages />} />
                 <Route path='/creerUneAnnonce' element={<CreerUneAnnonce />} />

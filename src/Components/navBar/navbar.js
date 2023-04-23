@@ -22,6 +22,10 @@ function NavBar() {
         navigate('/creerUneAnnonce');
     }
 
+    function goAdmin() {
+        navigate('/Admin');
+    }
+
     function goMesAchats() {
         navigate('/mesAchatsEtVoyages');
     }
@@ -100,7 +104,7 @@ function NavBar() {
                         </button>
                     </div>
                     <div className='div_mail'>
-                        <button className='message' onClick={goMesAchats}>
+                        <button className='message' onClick={goAdmin}>
                             <i class="logo_message fa-regular fa-envelope"></i>
                         </button>
                     </div>

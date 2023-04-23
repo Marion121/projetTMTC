@@ -20,11 +20,19 @@ function Photo_annonces(props){
 
     const handlePopup = () => {
         setIsOpen(!isOpen);
+        setIsChecked(false);
+        setClickedAcheteur(false);
+        setClickedVoyageur(false);
+        setprix(0);
     }
 
     const handlePopupValidate = () => {
         // sauvegarder les choix retenu
         setIsOpen(!isOpen);
+        setIsChecked(false);
+        setClickedAcheteur(false);
+        setClickedVoyageur(false);
+        setprix(0);
     }
 
     function handleClickAcheteur(){
@@ -50,7 +58,12 @@ function Photo_annonces(props){
 
         return (
             <div className={'div_photo'}>
-                <button className={props.taille}>Achat</button>
+                <input
+                    className={props.taille}
+                    type="button"
+                    value="Achat"
+                    onClick={handlePopup}
+                />
                 <input
                     className={props.taille}
                     type="button"
