@@ -6,6 +6,7 @@ import { useAppStore } from "../../donness";
 import { useState } from "react";
 
 
+
 function Connexion() {
     const setIsConnecte = useAppStore((state) => (state.setIsConnecte));
     let navigate = useNavigate();
@@ -22,6 +23,10 @@ function Connexion() {
         mode: 'no-cors',
         cache: 'default'
     };
+
+    function goInscription() {
+        navigate('/Inscription');
+    }
 
     let handleSubmit = async (e) => {
         e.preventDefault();
@@ -56,20 +61,20 @@ function Connexion() {
             <div className="zone_navBar">
                 <NavBar />
             </div>
-            <div className="container_form">
-                <form id="formConnexion" method="GET" onSubmit={handleSubmit}>
+            <div className="container_form contour_bleu">
+                <form id="formConnexion contour_bleu " method="GET" onSubmit={handleSubmit}>
                     <h1>Connexion</h1>
 
                     <label>E-mail</label>
-                    <input className="Input" type="email" placeholder="Entrer votre e-mail" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required></input>
+                    <input className="Input contour_bleu " type="email" placeholder="Entrer votre e-mail" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required></input>
 
                     <label>Mot de passe</label>
-                    <input className="Input" type="password" placeholder="Entrer le mot de passe" autoComplete="current-password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required></input>
+                    <input className="Input contour_bleu " type="password" placeholder="Entrer le mot de passe" autoComplete="current-password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required></input>
 
-                    <input type="submit" value='LOGIN'></input>
+                    <input type="submit" className={"boutonOK"} id={"bouton_valider_co"}  value='LOGIN'></input>
                 </form>
-
             </div>
+            <button className={"boutonOK"} id={"inscription_de_co"} onClick={goInscription}> S' inscrire </button>
         </div>
     );
 }

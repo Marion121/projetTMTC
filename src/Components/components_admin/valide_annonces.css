@@ -1,27 +1,3 @@
-.boutonOK{
-    background-color: #FF8802;
-    color: white;
-    font-size: large;
-    border-radius: 30px;
-    height: 40px;
-    width: 90px;
-    margin-top: 10px;
-    margin-left: 10px;
-    border: none;
-}
-
-.boutonRefuser{
-    background-color: #727171;
-    color: #e5e1e1;
-    font-size: large;
-    border-radius: 30px;
-    height: 40px;
-    width: 90px;
-    margin-top: 10px;
-    margin-left: 10px;
-    border: none;
-}
-
 #div_general_V_annonces{
     display: flex;
     height: 170px;

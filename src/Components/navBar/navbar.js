@@ -122,7 +122,7 @@ function NavBar() {
                 </div>
                 <div className='nav'>
                     <div className='div_creerAnnonce'>
-                        <button className='creerAnnonce'>
+                        <button className='creerAnnonce' onClick={goConnexion} >
                             <span class="addAnnonce">
                                 <i class="logo_annonce fa-regular fa-file-lines"></i>
                             </span>
@@ -140,7 +140,7 @@ function NavBar() {
                                 <div  id={"arriere_plan_annonces_appuyé"}>
                                     Annonces <i className="flecheAnnonces fa-solid fa-angle-down"></i>
                                 </div>
-                                <button onClick={goAnnonces}>Les annonces </button>
+                                <button onClick={goConnexion}>Les annonces </button>
                             </div>
                         </button>
                     </div>

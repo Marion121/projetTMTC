@@ -78,7 +78,7 @@ function Inscription() {
                 <NavBar />
             </div>
             <div className='reste'>
-                <div className="container_form_inscription">
+                <div className="container_form_inscription ">
                 <h1>Inscription </h1>
                     <form className='form_inscription' method="POST" onSubmit={handleSubmit}>
                     
@@ -86,68 +86,68 @@ function Inscription() {
                             <tr>
                                 <td>
                                     <label>E-mail</label>
-                                    <input className="Input" type="email" placeholder="Entrer votre e-mail" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required></input>
+                                    <input className="contour_bleu" type="email" placeholder="Entrer votre e-mail" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required></input>
                                 </td>
                                 <td>
                                     <label>Date de naissance</label>
-                                    <input className="Input" type="date" placeholder="Entrer votre date de naissance" name="dateBirth"  value={dateBirth} onChange={(e) => setDateBirth(e.target.value)} required></input>
+                                    <input className="contour_bleu" type="date" placeholder="Entrer votre date de naissance" name="dateBirth"  value={dateBirth} onChange={(e) => setDateBirth(e.target.value)} required></input>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <label>Nom</label>
-                                    <input className="Input" type="text" placeholder="Entrer votre nom" name="nom" value={nom} onChange={(e) => setNom(e.target.value)} required></input>
+                                    <input className="contour_bleu" type="text" placeholder="Entrer votre nom" name="nom" value={nom} onChange={(e) => setNom(e.target.value)} required></input>
                                 </td>
                                 <td>
                                     <label>Prenom</label>
-                                    <input className="Input" type="text" placeholder="Entrer votre prenom" name="prenom" value={prenom} onChange={(e) => setPrenom(e.target.value)} required></input>
+                                    <input className="contour_bleu" type="text" placeholder="Entrer votre prenom" name="prenom" value={prenom} onChange={(e) => setPrenom(e.target.value)} required></input>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <label>Mot de passe</label>
-                                    <input className="Input" type="password" placeholder="Entrer le mot de passe"  name="password" value={password} onChange={(e) => setPassword(e.target.value)} required></input>
+                                    <input className="contour_bleu" type="password" placeholder="Entrer le mot de passe"  name="password" value={password} onChange={(e) => setPassword(e.target.value)} required></input>
                                 </td>
                                 <td>
                                     <label>Confirmation de mot de passe</label>
-                                    <input className="Input" type="password" placeholder="Confirmer votre mot de passe" name="passwordConfirm" pattern={password} required></input>
+                                    <input className="contour_bleu" type="password" placeholder="Confirmer votre mot de passe" name="passwordConfirm" pattern={password} required></input>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <label>Adresse</label>
-                                    <input className="Input" type="text" placeholder="Entrer votre adresse" name="adress" value={adresse} onChange={(e) => setAdresse(e.target.value)} required></input>
+                                    <input className="contour_bleu" type="text" placeholder="Entrer votre adresse" name="adress" value={adresse} onChange={(e) => setAdresse(e.target.value)} required></input>
                                 </td>
                                 <td>
                                     <label>Ville</label>
-                                    <input className="Input" type="text" placeholder="Entrer votre ville" name="ville" value={ville} onChange={(e) => setVille(e.target.value)} required></input>
+                                    <input className="contour_bleu" type="text" placeholder="Entrer votre ville" name="ville" value={ville} onChange={(e) => setVille(e.target.value)} required></input>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <label>Pays</label>
-                                    <input className="Input" type="text" placeholder="Entrer votre pays" name="pays" value={pays} onChange={(e) => setPays(e.target.value)} required></input>
+                                    <input className="contour_bleu" type="text" placeholder="Entrer votre pays" name="pays" value={pays} onChange={(e) => setPays(e.target.value)} required></input>
                                 </td>
                                 <td>
                                     <label>Numéros de téléhone</label>
-                                    <input className="Input" type="tel" placeholder="Entrer votre numéros de téléphone" name="phoneNumber" value={telephone} onChange={(e) => setTelephone(e.target.value)} required></input>
+                                    <input className="contour_bleu" type="tel" placeholder="Entrer votre numéros de téléphone" name="phoneNumber" value={telephone} onChange={(e) => setTelephone(e.target.value)} required></input>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <label>Pièce d'identité</label>
-                                    <input className="Input" type="file" name="CI" required></input>
+                                    <input className="contour_bleu" type="file" name="CI" required></input>
                                 </td>
 
                                 <td>
                                     <label>Photo</label>
-                                    <input className="Input" type="file" name="Image"></input>
+                                    <input className="contour_bleu" type="file" name="Image"></input>
                                 </td>
                             </tr>
                             <tfoot>
                                 <tr>
                                     <td className="submitBouton" colspan="2">
-                                        <input type="submit" id='submit' value='LOGIN'></input>
+                                        <input className={"boutonOK"} type="submit" id='submit' value='LOGIN'></input>
                                     </td>
                                 </tr>
                             </tfoot>

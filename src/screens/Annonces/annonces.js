@@ -104,15 +104,11 @@ function Annonces() {
                 <div className={"titre_Recherche"} id={"depart"}><i className="fa-solid fa-magnifying-glass"></i>
                     <input className={"input_recherche"} type={"text"} placeholder={"Chercher des mots clés"}></input>
                 </div>
-                <select name="combobox" id="voyage-select" className={"b_type_voyage"} >
-                    <option value="allez simple"> Allez simple</option>
-                    <option value="allez retour"> Allez retour</option>
-                </select>
-                <div className={"titre_depart"} id={"depart"}><span classeName={"p_titre"}> Départ : </span>
+                <div className={"titre_depart"} id={"depart"}><span classeName={"p_titre"}> Lieu de prise <br/> en charge : </span>
                     <input className={"input_départ"} type={"text"} placeholder={"Votre ville, Pays"}></input>
                 </div>
 
-                <div className={"titre_arrive"}><span classeName={"p_titre"}> Arrivée :</span>
+                <div className={"titre_arrive"}><span classeName={"p_titre"}> Lieu de <br/> depots :</span>
                     <input className={"input_arrivé"} type={"text"} placeholder={"Madrid, Espagne"}></input>
                 </div>
                 <button className={"boutonChercher"} >
@@ -180,3 +176,11 @@ function Annonces() {
 }
 
 export default Annonces;
+
+/*
+                <select name="combobox" id="voyage-select" className={"b_type_voyage"} >
+                    <option value="allez simple"> Allez simple</option>
+                    <option value="allez retour"> Allez retour</option>
+                </select>
+
+ */

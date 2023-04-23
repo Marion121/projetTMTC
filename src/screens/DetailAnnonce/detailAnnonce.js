@@ -3,11 +3,17 @@ import "./detailAnnonce.css";
 import "../css_general.css";
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function DetailAnnonce() {
     const utilisateur = JSON.parse(localStorage.getItem("User"));
     const [annonce, setAnnonce] = useState([]);
     const { id } = useParams();
+    let navigate = useNavigate();
+
+    function goProfil() {
+        navigate('/Profil')
+    }
 
     useEffect(() => {
         async function fetchDetails() {
@@ -35,7 +41,7 @@ function DetailAnnonce() {
                     <div id='divNomDate'>
                         <div id='divNom'>
                             <span id='spanImage'><img className="photoProfil photoDetailAnnonce" src={utilisateur.photo} alt='Schémas' /></span>
-                            <span id='spanNom'>Murielle Lecher</span>
+                            <span id='spanNom' onClick={goProfil}>Murielle Lecher</span>
                         </div>
                         <div id='divDate'>
                             Il y a 3 jours
