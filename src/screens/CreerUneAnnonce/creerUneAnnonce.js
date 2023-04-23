@@ -42,7 +42,7 @@ function CreerUneAnnonce() {
         };
 
         reader.readAsDataURL(file)
-        console.log();
+        console.log(file);
     };
 
     function goCreerAnnonce2() {
@@ -163,7 +163,7 @@ function CreerUneAnnonce() {
                         <textarea id='textareaDescription' className="contour_bleu" rows="5" cols="41.5" placeholder="Je souhaite aquérir un croissant français de..." value={description} name="villeMivraison" onChange={handleChangeDescription} required></textarea>
                     </div>
                     <button className='boutonPrecedent' onClick={goAnnonces}>Precedent</button>
-                    <input type="submit" className='boutonSuivant btn_orange' onClick={saveDataCreationAnnonce} value="Suivant"></input>
+                    <input type="submit" className='boutonSuivantAnnonce btn_orange' value="Suivant"></input>
                     </form>
                 </div>
                 <div id='avancement3'>

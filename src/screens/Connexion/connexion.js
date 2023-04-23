@@ -13,41 +13,42 @@ function Connexion() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const setUser = useAppStore((state) => state.setUser);
+    //const [user, setUsers] = useState("");
     const User = useAppStore((state) => state.User);
     var myHeaders = new Headers();
-    var myInit = { method: 'GET',
-               headers: myHeaders,
-               mode: 'no-cors',
-               cache: 'default' };
+    var myInit = {
+        method: 'GET',
+        headers: myHeaders,
+        mode: 'no-cors',
+        cache: 'default'
+    };
 
     let handleSubmit = async (e) => {
         e.preventDefault();
-        let res = await fetch(`http://localhost:8080/api/user/connexion?email=${email}&password=${password}` )
-            .then(response => response.json())
-            .then(data => {
-                setUser({
-                    Email: data.email,
-                    Nom: data.nom,
-                    Prenom: data.prenom,
-                    DateNaissance: data.dateNaissance,
-                    Ville: data.ville,
-                    Pays: data.pays,
-                    CoordonneesBancaires: "1234 1234 1234 1234",
-                    photo: data.photo,
-                    adresse: data.adresse,
-                    telephone: data.telephone,
-                    ci: data.ci,
-                })
-                localStorage.setItem("User", JSON.stringify(User));
-                navigate('/Annonces');
-            }
-            )
-            .catch(error => console.error(error));
-            const utilisateur = JSON.parse(localStorage.getItem("User"));
-            console.log(utilisateur);
-            utilisateur.Pays = "ESPAGNE";
-            console.log(utilisateur.Pays);
-            
+        let res = await fetch(`http://localhost:8080/api/user/connexion?email=${email}&password=${password}`);
+        const jsonData = await res.json();
+        console.log(jsonData);
+        let user = {
+            Email: jsonData.email,
+            Nom: jsonData.nom,
+            Prenom: jsonData.prenom,
+            DateNaissance: jsonData.dateNaissance,
+            Ville: jsonData.ville,
+            Pays: jsonData.pays,
+            CoordonneesBancaires: "1234 1234 1234 1234",
+            photo: jsonData.photo,
+            adresse: jsonData.adresse,
+            telephone: jsonData.telephone,
+            ci: jsonData.ci,
+        };
+        console.log(user);
+        //let newUser = JSON.parse(user);
+        localStorage.setItem("User", JSON.stringify(jsonData));
+        navigate('/Annonces');
+        const utilisateur = JSON.parse(localStorage.getItem("User"));
+        console.log(utilisateur);
+        //utilisateur.Pays = "ESPAGNE";
+        // console.log(utilisateur.Pays);
     };
 
     return (

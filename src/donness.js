@@ -26,8 +26,9 @@ export const useAppStore = create((set) => ({
         description: "",
         prixAchats: "",
         devise: "€",
-        besoinAcheteur: false,
-        besoinVoyageur: false,
+        degreImportance: "Normal",
+        besoinAcheteur: true,
+        besoinVoyageur: true,
     },
     setCreationAnnonce: (newAnnonce) => set({ CreationAnnonce: newAnnonce }),
     updateTest: (newTest) => set({ test: newTest })
