@@ -29,11 +29,19 @@ function Photo_annonces(props){
 
     const handlePopup = () => {
         setIsOpen(!isOpen);
+        setIsChecked(false);
+        setClickedAcheteur(false);
+        setClickedVoyageur(false);
+        setprix(0);
     }
 
     const handlePopupValidate = () => {
         // sauvegarder les choix retenu
         setIsOpen(!isOpen);
+        setIsChecked(false);
+        setClickedAcheteur(false);
+        setClickedVoyageur(false);
+        setprix(0);
     }
 
     function handleClickAcheteur(){

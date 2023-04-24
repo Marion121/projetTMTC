@@ -4,9 +4,6 @@ button{
     border-radius: 4px;
 }
 
-
-
-
 /*zone du milieu*/
 .zone2 {
     background: url("/public/images/avion.png") no-repeat;
@@ -47,16 +44,21 @@ button{
 .point{
     color: #da7f23;
     font-size: 50% ;
+    width: 30px;
 }
 
 .sloganBleuCiel{
+    width: 30%;
     font-size: 90%;
     color: #58b4d4;
+    text-align: center;
 }
 
 .sloganBleuMarine{
+    width: 30%;
     font-size: 90%;
     color : #23445c;
+    text-align: center;
 }
 /* zone connexion / inscription */
 .inscription_connecter{

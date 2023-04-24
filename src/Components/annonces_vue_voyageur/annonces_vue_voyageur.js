@@ -9,21 +9,17 @@ import { useState } from 'react';
 
 
 function Annonces_vu_voyageur(props) {
-    const [detail, setDetail] = useState(false);
-    const id = props.id;
 
     let navigate = useNavigate();
 
-    function goDetails() {
-        navigate(`/detailsAnnonce/${id}`, {state: {id: id}});
-    }
+
 
     return (
-        <div className='annonces_div_general' onClick={goDetails}>
+        <div className='annonces_div_general' >
             <div id={"div_autour_photo_1"}>
                 <Photo_annonces taille={"boutons_photo"} titre={props.titre} lVente={props.lVente} lAchat={props.lAchat} prix1={props.prix1} prixV={props.prixV} coutTot={props.coutTot} />
             </div>
-            <Description_annonces titre={props.titre} lVente={props.lVente} lAchat={props.lAchat} description={props.description} profil={props.profil}  ></Description_annonces>
+            <Description_annonces id={props.id} titre={props.titre} lVente={props.lVente} lAchat={props.lAchat} description={props.description} profil={props.profil}  ></Description_annonces>
             <Prix_annonces typeContrepartie={props.typeContrepartie} prix1={props.prix1} prixV={props.prixV} coutTot={props.coutTot}  ></Prix_annonces>
         </div>
     );

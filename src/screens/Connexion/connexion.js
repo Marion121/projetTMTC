@@ -8,6 +8,7 @@ import { français } from '../../langues/français'
 import { anglais } from '../../langues/anglais'
 
 
+
 function Connexion() {
     const setIsConnecte = useAppStore((state) => (state.setIsConnecte));
     let navigate = useNavigate();
@@ -25,6 +26,7 @@ function Connexion() {
         cache: 'default'
     };
 
+
     const [langue, setLangue] = useState(français);
 
     useEffect( () => {
@@ -33,6 +35,10 @@ function Connexion() {
 
     function goAnnonces(){
         navigate('/Annonces');
+    }
+
+    function goInscription() {
+        navigate('/Inscription');
     }
 
     let handleSubmit = async (e) => {
@@ -80,10 +86,11 @@ function Connexion() {
                     <label>{langue.CONNEXION.mdp}</label>
                     <input className="Input contour_bleu" type="password" placeholder={langue.CONNEXION.mdpPH} autoComplete="current-password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required></input>
 
-                    <input className="connexion" type="submit" value='LOGIN'></input>
-                </form>
+                    <input className="connexion boutonOK" type="submit" id={"bouton_valider_co"}  value='LOGIN'></input>
 
+                </form>
             </div>
+            <button className={"boutonOK"} id={"inscription_de_co"} onClick={goInscription}> S' inscrire </button>
         </div>
     );
 }

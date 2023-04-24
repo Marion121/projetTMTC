@@ -1,0 +1,63 @@
+.div_body{
+    margin-top: 70px;
+    display : flex;
+}
+
+#profil_{
+    width: 400px;
+    height: 1000px;
+    margin-left: 50px;
+    margin-top: 50px;
+}
+
+.photoProfil{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: solid ;
+}
+
+#div_nom_{
+    margin-left: 10px;
+}
+
+.text_prenom{
+    font-size: x-large;
+}
+
+.text_caracteristique{
+    line-height: 5px;
+    font-size: large;
+}
+
+#profil_photo_nom{
+    display: flex;
+    width: 380px;
+    height: 100px;
+    margin-bottom: 40px;
+}
+
+#envoyer_msg{
+    display: flex;
+    padding-top: 13px;
+    padding-left: 13px;
+    color: #1e4f6e;
+    background-color: white;
+    font-size: large;
+    border-radius: 40px;
+    height: 70px;
+    width: 170px;
+    margin-top: 40px;
+    border: solid #c0bfbf;
+}
+
+#div_text_bouton{
+    margin-left: 10px;
+    text-align: left;
+}
+
+#annonce_{
+    width: 700px;
+    height: 1000px;
+    margin-top: 20px;
+}

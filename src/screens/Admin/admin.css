@@ -1,0 +1,19 @@
+.div_body{
+    margin-top: 70px;
+    display : flex;
+}
+
+.div_validationCarte{
+    margin-top: 10px;
+    margin-left: 20px;
+    width: 650px;
+}
+
+.div_validationAnnonce{
+    margin-top: 10px;
+    margin-left: 60px;
+    padding-left: 40px;
+    width: 700px;
+    border-left: solid;
+
+}

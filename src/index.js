@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import Admin from './screens/Admin/admin';
 import Accueil from './screens/Accueil/accueil.js';
 import reportWebVitals from './reportWebVitals';
 import Profil from './screens/Profil/profil';
@@ -17,6 +18,7 @@ import CreerUneAnnonce3 from './screens/CreerUneAnnonce/3creerUneAnnonce';
 
 import MesAnnonces from './screens/MesAnnonces/mesAnnonces.js'
 import DetailAnnonce from './screens/DetailAnnonce/detailAnnonce';
+import ProfilAutre from "./screens/Profil_autre/profil_autre";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -27,7 +29,9 @@ root.render(
                 <Route path='/Connexion' element={<Connexion />} />
                 <Route path='/Inscription' element={<Inscription />} />
                 <Route path='/Annonces' element={<Annonces />} />
+                <Route path='/Admin' element={<Admin />} />
                 <Route path='/monProfil' element={<Profil />} />
+                <Route path='/Profil' element={<ProfilAutre />} />
                 <Route path='/mesAchatsEtVoyages' element={<MesAchatsEtVoyages />} />
                 <Route path='/creerUneAnnonce' element={<CreerUneAnnonce />} />
                 <Route path='/creerUneAnnonce2' element={<CreerUneAnnonce2 />} />
