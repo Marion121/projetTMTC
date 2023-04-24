@@ -4,14 +4,21 @@ import Photo_annonces from '../components_annonces/photo_annonces.js';
 import { useState, useEffect } from 'react';
 import { français } from '../../langues/français'
 import { anglais } from '../../langues/anglais'
+import {useNavigate} from "react-router-dom";
+
 
 function Annonces_urgentes(props) {
-
+    let navigate = useNavigate();
     const [langue, setLangue] = useState(français);
+    const id = props.id;
 
     useEffect( () => {
         setLangue(anglais);
     })
+
+    function goDetails() {
+        navigate(`/detailsAnnonce/${id}`, {state: {id: id}});
+    }
 
     return (
         <div className='annonces_u_div_general'>
@@ -24,7 +31,7 @@ function Annonces_urgentes(props) {
                 </div>
             </div>
             <div id={"div_description"}>
-                <p id={'titre'}><strong>{props.titre}</strong></p>
+                <p id={'titre'} onClick={goDetails}><strong>{props.titre}</strong></p>
                 <br/>
                 <p className={'text_lieu_urgente'}><i className="fa-solid fa-bag-shopping"></i> {props.lVente}</p>
                 <p className={'text_lieu_urgente'}><i className="fa-solid fa-plane-departure"></i> {props.lAchat}</p>

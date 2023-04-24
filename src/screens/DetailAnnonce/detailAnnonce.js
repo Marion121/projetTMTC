@@ -10,28 +10,33 @@ import { useNavigate } from 'react-router-dom';
 
 function DetailAnnonce() {
     const utilisateur = JSON.parse(localStorage.getItem("User"));
-    const [annonce, setAnnonce] = useState([]);
-    const { id } = useParams();
     const [langue, setLangue] = useState(français);
+    let [annonce, setAnnonce] = useState([]);
+    let [userAnnonce, setUserAnnonce] = useState([]);
+    const { id } = useParams();
+    const idUserAnnonce = userAnnonce.id;
 
-    //const idUtilisateur = props.id;
     let navigate = useNavigate();
 
     function goProfil() {
-        //navigate(`/Profil${idUtilisateur}`, {state: {idUtilisateur: idUtilisateur}});
-        navigate('/Profil');
+        navigate(`/Profil/${idUserAnnonce}`, {state: {idUserAnnonce: idUserAnnonce}});
+
+        //navigate('/Profil');
     }
 
     useEffect(() => {
-        async function fetchDetails() {
+        console.log("oee");
+        async function Details() {
             const response = await fetch(`http://localhost:8080/api/annonce?id=${id}`);
             const data = await response.json();
             console.log(data);
             setAnnonce(data);
+            setUserAnnonce(data.user);
             console.log(annonce);
+            console.log(userAnnonce);
         }
+        Details();
         setLangue(anglais);
-        fetchDetails();
     }, []);
 
 
@@ -47,8 +52,8 @@ function DetailAnnonce() {
                     </div>
                     <div id='divNomDate'>
                         <div id='divNom'>
-                            <span id='spanImage'><img className="photoProfil photoDetailAnnonce" src={utilisateur.photo} alt='Schémas' /></span>
-                            <span id='spanNom' onClick={goProfil}>Murielle Lecher</span>
+                            <span id='spanImageDetail'><img className="photoProfil photoDetailAnnonce" src={userAnnonce.photo} alt='Schémas' /></span>
+                            <span id='spanNom' onClick={goProfil}> {userAnnonce.prenom} {userAnnonce.nom}</span>
                         </div>
                         <div id='divDate'>
                             Il y a 3 jours
@@ -57,7 +62,7 @@ function DetailAnnonce() {
                 </div>
                 <div id='divInfosOffre'>
                     <div id='divImage'>
-                        <img id='imageProduit' src="../../images/ordi.png" alt='photoProduit' />
+                        <img id='imageProduit' src={annonce.image} alt='photoProduit' />
                     </div>
                     <div id='divPrixDescription'>
                         <div id='divPrixDetail'>
@@ -70,13 +75,13 @@ function DetailAnnonce() {
                                 <p className={"text_prix_detailAnnonce"}><strong>80€</strong></p>
                             </div>
                             <div id='divContrepartie3' className='div_contrepartie_detailAnnonce'>
-                                <p className={"text_contrepartie_detailAnnonce"}><strong>{langue.COMPONENT_ANNONCE.coutProduit}</strong> <br />
-                                    <strong>{annonce.prix}</strong></p>
+                                <p className={"text_contrepartie_detailAnnonce"}><strong>{langue.COMPONENT_ANNONCE.coutProduit} </strong> <br />
+                                    <strong>{annonce.prix} {annonce.devise}</strong></p>
                             </div>
 
                         </div>
                         <div id='divDescription'>
-                            <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. </p>
+                            <p>{annonce.description}</p>
                         </div>
                     </div>
                 </div>

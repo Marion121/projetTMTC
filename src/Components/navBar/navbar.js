@@ -11,7 +11,6 @@ function NavBar() {
     const [langue, setLangue] = useState(français);
 
     useEffect( () => {
-        
         setLangue(anglais);
     })
 
@@ -85,16 +84,16 @@ function NavBar() {
                     </div>
                     <div className='div_annonces'>
                         <button className='annonces persone_co'  onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
-                            <span id={"arriere_plan_annonces"}>Annonces <i
+                            <span id={"arriere_plan_annonces"}>{langue.NAVBAR.annonces} <i
                                 className="flecheAnnonces fa-solid fa-angle-down"></i>
                             </span>
                             <div  className="dropdown-content-1">
                                 <div id={"arriere_plan_annonces_appuyé"}>
                                     {langue.NAVBAR.annonces} <i className="flecheAnnonces fa-solid fa-angle-down"></i>
                                 </div>
-                                <p onClick={goMesAnnonces}>Mes annonces </p>
-                                <p onClick={goMesAchats}>Mes achats </p>
-                                <p onClick={goAnnonces}>Les annonces </p>
+                                <p onClick={goMesAnnonces}>{langue.NAVBAR.mesAnnonces} </p>
+                                <p onClick={goMesAchats}>{langue.NAVBAR.mesAchats} </p>
+                                <p onClick={goAnnonces}>{langue.NAVBAR.lesAnnonces} </p>
                             </div>
                         </button>
                     </div>
@@ -103,8 +102,8 @@ function NavBar() {
                             <span className="arriere_plan_profil fondConnecte"><img className="PhotoProfilNavBar" src={utilisateur.photo} alt='Schémas' /></span>
                             <i className="flecheProfil fa-solid fa-angle-down"></i>
                             <div className="dropdown-content">
-                                <button onClick={goProfil}>Mon profil</button>
-                                <button onClick={goAccueil}>Se déconnecter</button>
+                                <button onClick={goProfil}>{langue.NAVBAR.profil}</button>
+                                <button onClick={goAccueil}>{langue.NAVBAR.deconnecter}</button>
                             </div>
                         </button>
                     </div>

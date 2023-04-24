@@ -1,14 +1,21 @@
 import './description_annonces.css';
-import {useNavigate} from "react-router-dom";
-import {useState} from "react";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 function Description_annonces(props) {
     let navigate = useNavigate();
     const id = props.id;
 
-    function goDetails() {
-        navigate(`/detailsAnnonce/${id}`, {state: {id: id}});
+    async function goDetails() {
+        console.log("oee");
+        const response = await fetch(`http://localhost:8080/api/annonce?id=${id}`);
+        const data = await response.json();
+        console.log(data);
+        //setAnnonce(data);
+        //console.log(annonce);
+        navigate(`/detailsAnnonce/${id}`, { state: { id: id } });
     }
+
 
     return (
         <div className={'div_description'}>

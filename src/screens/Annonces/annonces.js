@@ -4,13 +4,10 @@ import NavBar from '../../Components/navBar/navbar'
 import Annonces_vu_voyageur from "../../Components/annonces_vue_voyageur/annonces_vue_voyageur";
 import Annonces_urgentes from "../../Components/annonces_urgentes/annonces_urgentes";
 import { useState, useEffect } from 'react';
-<<<<<<< HEAD
 import { useNavigate } from 'react-router-dom'
 import { français } from '../../langues/français'
 import { anglais } from '../../langues/anglais'
-=======
 
->>>>>>> 18de26d5f82855648bb4f0969b1ee6b1dfb1864a
 
 function Annonces() {
     const utilisateur = JSON.parse(localStorage.getItem("User"));
@@ -55,7 +52,6 @@ function Annonces() {
     { key: 3, titre: "annonces3", lVente: "Paris, France", lAchat: "Madrid, Espagne", description: "super ordi topito", profil: "Leo Comte", typeContrepartie: "div_contrepartie_2", Prix1: "40,00 €", PrixV: "60,00 €", coutTot: "3670,00 €" },
     { key: 4, titre: "annonces4", lVente: "Paris, France", lAchat: "Madrid, Espagne", description: "super ordi topito", profil: "Leo Comte", typeContrepartie: "div_contrepartie", Prix1: "40,00 €", PrixV: "60,00 €", coutTot: "3670,00 €" }]
     /*
-<<<<<<< HEAD
         useEffect(() => {
             async function fetchRecherche() {
                 let res = fetch(`http://localhost:8080/api/annonce/all?limit=5&offset=0`);
@@ -68,31 +64,9 @@ function Annonces() {
         }, []);*/
 
 
-
-    useEffect(() => {
-        async function fetchRecherche() {
-            const response = fetch(`http://localhost:8080/api/annonce/recherche`, {
-=======
-        if (document.readyState === 'complete') {
-            let res = fetch(`http://localhost:8080/api/annonce/recherche` ,{
-                method: "POST",
-                headers: {    
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*' },
-                body: JSON.stringify({
-                        devise : "€",
-                    }),
-                });
-
-
-            console.log("here we are");
-        }*/
-
-   /* useEffect(() => {
+   useEffect(() => {
         async function fetchDetails() {
             const response = await fetch(`http://localhost:8080/api/annonce/recherche`, {
->>>>>>> 18de26d5f82855648bb4f0969b1ee6b1dfb1864a
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',
@@ -107,14 +81,10 @@ function Annonces() {
             console.log(data);
             setDataAnnonces(data);
             console.log(dataAnnonces);
+            //console.log(us)
         }
-<<<<<<< HEAD
-        fetchRecherche();
-    }, []);
-=======
         fetchDetails();
-    }, []);*/
->>>>>>> 18de26d5f82855648bb4f0969b1ee6b1dfb1864a
+    }, []);
 
     return (
         <div className='page'>
@@ -132,7 +102,6 @@ function Annonces() {
                 <p className="text">{langue.ANNONCES.textEntete_1}</p>
                 <p className="text">{langue.ANNONCES.textEntete_2}</p>
             </div>
-<<<<<<< HEAD
             <div className={"div_recherche"}>
                 <span className={"titre_Recherche"} id={"depart"}><i className="fa-solid fa-magnifying-glass"></i>
                     <input className={"input_recherche"} type={"text"} placeholder={langue.ANNONCES.motsCles}></input>
@@ -153,26 +122,6 @@ function Annonces() {
             <div className={"div_annonces_produit"}>
                 <div className={"div_affiner_recherhce"}>
                     <p className={"titre_recherche_gauche"}><strong>{langue.ANNONCES.produit}</strong></p>
-=======
-            <div className="div_recherche ">
-                <div className="contour_bleu conteneur_input_annonces" ><i className="fa-solid fa-magnifying-glass"></i>
-                    <input className="input_recherche input_annonces" type={"text"} placeholder={"Chercher des mots clés"}></input>
-                </div>
-                <div className="titre_depart contour_bleu conteneur_input_annonces" ><span classeName={"p_titre"}> Lieu de prise <br/> en charge : </span>
-                    <input className="input_départ input_annonces" type={"text"} placeholder={"Votre ville, Pays"}></input>
-                </div>
-
-                <div className="titre_arrive contour_bleu conteneur_input_annonces"><span classeName={"p_titre"}> Lieu de <br/> depots :</span>
-                    <input className="input_arrivé input_annonces" type={"text"} placeholder={"Madrid, Espagne"}></input>
-                </div>
-                <button className="boutonOK" id={"boutonChercher"} >
-                    Chercher
-                </button>
-            </div>
-            <div className="div_annonces_produit">
-                <div className="div_affiner_recherhce">
-                    <p className="titre_recherche_gauche"><strong>Produit</strong></p>
->>>>>>> 18de26d5f82855648bb4f0969b1ee6b1dfb1864a
                     <input type="checkbox" className={"checkbox_input"} id="Electronique" />
                     <label htmlFor="Electronique">{langue.ANNONCES.electronique}</label>
                     <br />
@@ -182,27 +131,15 @@ function Annonces() {
                     <input type="checkbox" className={"checkbox_input"} id="Liquide" />
                     <label htmlFor="Liquide">{langue.ANNONCES.liquide}</label>
                     <br />
-<<<<<<< HEAD
                     <p className={"titre_recherche_gauche"}><strong>{langue.ANNONCES.typeAnnonce}</strong></p>
-=======
-                    <p className="titre_recherche_gauche"><strong>Type d'annonce</strong></p>
->>>>>>> 18de26d5f82855648bb4f0969b1ee6b1dfb1864a
                     <input type="checkbox" className={"checkbox_input"} id="Achat" checked={achat} onChange={handleAchatChange} />
                     <label htmlFor="Achat">{langue.ANNONCES.achat}</label>
                     <br />
-<<<<<<< HEAD
                     <input type="checkbox" className={"checkbox_input"} id="Voyage" checked={voyage} onChange={handleVoyageChange} />
                     <label htmlFor="Voyage">{langue.ANNONCES.voyage}</label>
                     <br />
                     <p className={"titre_recherche_gauche"}><strong></strong></p>
                     <table className={"table_recherche"}>
-=======
-                    <input type="checkbox" className="checkbox_input" id="Voyage" checked={voyage} onChange={handleVoyageChange} />
-                    <label htmlFor="Voyage">Voyage</label>
-                    <br />
-                    <p className="titre_recherche_gauche"><strong>Rétribution</strong></p>
-                    <table className="table_recherche">
->>>>>>> 18de26d5f82855648bb4f0969b1ee6b1dfb1864a
                         <tr>
                             <td>
                                 Min
@@ -220,13 +157,8 @@ function Annonces() {
                             </td>
                         </tr>
                     </table>
-<<<<<<< HEAD
                     <p className={"titre_recherche_gauche"}><strong>{langue.ANNONCES.devise}</strong></p>
                     <input type="radio" className={"checkbox_input"} id="Euros" name='devise' value="euro" onChange={handleDeviseChange} />
-=======
-                    <p className="titre_recherche_gauche"><strong>Devise</strong></p>
-                    <input type="radio" className="checkbox_input" id="Euros" name='devise' value="euro" onChange={handleDeviseChange} />
->>>>>>> 18de26d5f82855648bb4f0969b1ee6b1dfb1864a
                     <label htmlFor="Euros">Euros</label>
                     <br />
                     <input type="radio" className="checkbox_input" id="USD" name='devise' value="usd" onChange={handleDeviseChange} />
@@ -236,15 +168,11 @@ function Annonces() {
                 <div className="div_annonces_lamda">
                     {data.map(dataprop => <Annonces_vu_voyageur id={dataprop.key} titre={dataprop.titre} lVente={dataprop.lVente} lAchat={dataprop.lAchat} description={dataprop.description} profil={dataprop.profil} typeContrepartie={dataprop.typeContrepartie} prix1={dataprop.Prix1} prixV={dataprop.PrixV} coutTot={dataprop.coutTot} ></Annonces_vu_voyageur>)}
                 </div>
-<<<<<<< HEAD
                 <div className={"div_annonces_urgentes"}>
                     <h4 id={"titre_A_urgentes"}>{langue.ANNONCES.annoncesUrg}</h4>
-=======
-                <div className="div_annonces_urgentes">
-                    <h4 id={"titre_A_urgentes"}>Annonces urgentes</h4>
->>>>>>> 18de26d5f82855648bb4f0969b1ee6b1dfb1864a
+
                     <div id={"div_annonces_u_border"}>
-                        {data.map(dataprop => <Annonces_urgentes profil={dataprop.profil} titre={dataprop.titre} lVente={dataprop.lVente} lAchat={dataprop.lAchat} prixV={dataprop.PrixV} ></Annonces_urgentes>)}
+                        {data.map(dataprop => <Annonces_urgentes id={dataprop.key} profil={dataprop.profil}  titre={dataprop.titre} lVente={dataprop.lVente} lAchat={dataprop.lAchat} prixV={dataprop.PrixV} ></Annonces_urgentes>)}
                     </div>
                 </div>
             </div>

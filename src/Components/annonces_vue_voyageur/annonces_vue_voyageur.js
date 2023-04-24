@@ -11,9 +11,7 @@ import { useState } from 'react';
 function Annonces_vu_voyageur(props) {
 
     let navigate = useNavigate();
-
-
-
+    
     return (
         <div className='annonces_div_general' >
             <div id={"div_autour_photo_1"}>

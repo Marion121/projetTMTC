@@ -10,7 +10,12 @@ export const anglais = {
     },
     NAVBAR: {
         creer: "Create an ad",
-        annonces: "Ads"
+        annonces: "Ads",
+        mesAnnonces: "My ads",
+        mesAchats: "My purchases",
+        lesAnnonces: "The ads",
+        profil: "My profil",
+        deconnecter: "Disconnect"
     },
     CONNEXION:{
         connexion: "Connection",

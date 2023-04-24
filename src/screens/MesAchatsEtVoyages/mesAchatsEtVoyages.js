@@ -3,6 +3,8 @@ import './mesAchatsEtVoyages.css'
 import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import AchatsVoyages from "../../Components/achats_voyages/Achats_Voyages.js";
+import { français } from '../../langues/français'
+import { anglais } from '../../langues/anglais'
 
 function MesAchatsEtVoyages() {
 

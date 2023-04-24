@@ -11,7 +11,12 @@ export const français = {
     },
     NAVBAR: {
         creer: "Creer une annonce",
-        annonces: "Annonces"
+        annonces: "Annonces",
+        mesAnnonces: "Mes annonces",
+        mesAchats: "Mes achats",
+        lesAnnonces: "Les Annonces",
+        profil: "Mon profil",
+        deconnecter: "Se déconnecter"
     },
     CONNEXION:{
         connexion: "Connexion",

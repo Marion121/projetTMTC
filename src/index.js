@@ -31,7 +31,7 @@ root.render(
                 <Route path='/Annonces' element={<Annonces />} />
                 <Route path='/Admin' element={<Admin />} />
                 <Route path='/monProfil' element={<Profil />} />
-                <Route path='/Profil' element={<ProfilAutre />} />
+                <Route path='/Profil/:id' element={<ProfilAutre />} />
                 <Route path='/mesAchatsEtVoyages' element={<MesAchatsEtVoyages />} />
                 <Route path='/creerUneAnnonce' element={<CreerUneAnnonce />} />
                 <Route path='/creerUneAnnonce2' element={<CreerUneAnnonce2 />} />
