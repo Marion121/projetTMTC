@@ -9,7 +9,6 @@
     color: #ebebeb;
     padding-left: 10px ;
 }
-
 .text{
     line-height: 2px;
 }
@@ -22,95 +21,30 @@
     padding-left: 20px;
 }
 
-.b_type_voyage{
-    color: #FF8802;
-    height: 42px;
-    width: 145px;
-    padding: 10px ;
+#boutonChercher{
+    margin-top: 30px;
     margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 20px;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    box-shadow: 0 0 10px 0 #63B7E7, 0 2px 2px 0 #63B7E7;
-    border-radius: 5px;
-    background: white;
+}
+
+.conteneur_input_annonces{
+    color: #FF8802;
+    margin-top: 25px;
+    margin-left: 30px;
+    padding-top: 5px;
+    height: 57px;
+    width: 300px;
+    min-width: 300px;
+    padding-left: 10px;
+    display: flex;
 }
 
 .p_titre{
     margin-top: 3px;
 }
 
-.boutonChercher{
-    background-color: #FF8802;
-    color: white;
-    font-size: large;
-    border-radius: 30px;
-    display: inline-block;
-    height: 40px;
-    width: 90px;
-    margin-top: 30px;
-    margin-left: 20px;
-    border: none;
-}
 
-.titre_Recherche{
-    color: #FF8802;
-    margin-top: 20px;
-    padding-top: 10px;
-    height: 57px;
-    width: 300px;
-    padding-left: 10px;
-    display: flex;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    box-shadow: 2px 0 10px 0 #63B7E7, 0 2px 2px 0 #63B7E7;
-    margin-right: 30px;
-}
-.titre_depart{
-    color: #FF8802;
-    height: 57px;
-    width: 275px;
-    margin-top: 20px;
-    padding-top: 5px;
-    padding-left: 7px;
-    display: flex;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    box-shadow: 0 0 10px 0 #63B7E7, 0 2px 2px 0 #63B7E7;
-    border-right: none;
-}
-
-.titre_arrive{
-    color: #FF8802;
-    height: 57px;
-    width: 275px;
-    margin-top: 20px;
-    padding-top: 5px;
-    padding-left: 5px;
-    display: flex;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-    box-shadow: 2px 0 10px 0 #63B7E7, 0 2px 2px 0 #63B7E7;
-    border-right: none;
-}
-
-#depart {
-    border-radius:  5px 0px 0px 5px;
-}
-
-/* input bar de recherche */
-
-.input_recherche{
-    width: 240px;
-    border-radius: 0px 0px 0px 0px;
-    margin-left: 15px;
-    margin-top: 0px;
-    box-shadow: none;
-    border: none;
-}
-.input_départ {
+/* input bar de recherche  */
+.input_annonces{
     width: 150px;
     border-radius: 0px 0px 0px 0px;
     box-shadow: none;
@@ -119,45 +53,14 @@
     margin-top: 0px;
 }
 
-.input_arrivé {
-    width: 150px;
-    border-radius: 0px 0px 0px 0px;
-    box-shadow: none;
+.div_recherche .input_annonces:focus{
     border: none;
-    margin-left: 15px;
-    margin-top: 0px;
-}
-
-.div_recherche .input_recherche:focus{
     outline: none;
     box-shadow: none;
     margin-left: 15px;
+    margin-top: 10px;
 }
 
-/* input sélectionné */
-
-.div_recherche .b_type_voyage:focus{
-    outline: none;
-    padding: 10px ;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 35px;
-    display: inline-block;
-}
-
-.div_recherche .input_arrivé:focus{
-    outline: none;
-    box-shadow: none;
-    margin-left: 15px;
-    margin-top: 0px;
-}
-
-.div_recherche .input_départ:focus{
-    outline: none;
-    box-shadow: none;
-    margin-left: 15px;
-    margin-top: 0px;
-}
 /* PARTIE : reste de la page */
 .div_annonces_produit{
     min-width: 620px;
@@ -180,7 +83,6 @@
 .table_recherche td{
     height: 15px;
 }
-
 .input_number{
     width: 40px;
     border-radius: 5px;

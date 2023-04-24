@@ -1,9 +1,18 @@
 import './description_annonces.css';
+import {useNavigate} from "react-router-dom";
+import {useState} from "react";
 
 function Description_annonces(props) {
+    let navigate = useNavigate();
+    const id = props.id;
+
+    function goDetails() {
+        navigate(`/detailsAnnonce/${id}`, {state: {id: id}});
+    }
+
     return (
         <div className={'div_description'}>
-            <p id={'titre'}><strong>{props.titre}</strong></p>
+            <p id={'titre'} onClick={goDetails} ><strong>{props.titre}</strong></p>
             <p className={'text_lieu'}><i className="fa-solid fa-bag-shopping"></i> {props.lVente}</p>
             <p className={'text_lieu'}><i className="fa-solid fa-plane-departure"></i> {props.lAchat}</p>
             <p id={'description'}>{props.description} </p>

@@ -22,11 +22,11 @@ function Prix_annonces(props) {
 
     return (
         <div className={'div_prix'} >
-            <div className={'div_contrepartie'} div_1_cache>
+            <div className={'div_contrepartie'}>
                 <p className={"text_contrepartie"}>Contrepartie <i className="fa-solid fa-bag-shopping"></i></p>
                 <p className={"text_prix"}>{props.prix1}</p>
             </div>
-            <div className={'div_contrepartie'} div_2_cache>
+            <div className={'div_contrepartie'}>
                 <p className={"text_contrepartie"}>Contrepartie <i className="fa-solid fa-plane-departure"></i></p>
                 <p className={"text_prix"}>{props.prixV}</p>
             </div>

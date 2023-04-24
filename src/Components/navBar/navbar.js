@@ -70,10 +70,10 @@ function NavBar() {
                 <div className='nav'>
                     <div className='div_creerAnnonce'>
                         <button className='creerAnnonce' onClick={goCreerAnnonce}>
-                            <span class="addAnnonce">
-                                <i class="logo_annonce fa-regular fa-file-lines"></i>
+                            <span className="addAnnonce">
+                                <i className="logo_annonce fa-regular fa-file-lines"></i>
                             </span>
-                            <span class="text_add_annonce">
+                            <span className="text_add_annonce">
                                 Creer une annonce
                             </span>
                         </button>
@@ -87,17 +87,17 @@ function NavBar() {
                                 <div id={"arriere_plan_annonces_appuyé"}>
                                     Annonces <i className="flecheAnnonces fa-solid fa-angle-down"></i>
                                 </div>
-                                <button onClick={goMesAnnonces}>Mes annonces </button>
-                                <button onClick={goMesAchats}>Mes achats </button>
-                                <button onClick={goAnnonces}>Les annonces </button>
+                                <p onClick={goMesAnnonces}>Mes annonces </p>
+                                <p onClick={goMesAchats}>Mes achats </p>
+                                <p onClick={goAnnonces}>Les annonces </p>
                             </div>
                         </button>
                     </div>
                     <div className='div_profil'>
                         <button className='profil'>
-                            <span class="arriere_plan_profil fondConnecte"><img className="PhotoProfilNavBar" src={utilisateur.photo} alt='Schémas' /></span>
-                            <i class="flecheProfil fa-solid fa-angle-down"></i>
-                            <div class="dropdown-content">
+                            <span className="arriere_plan_profil fondConnecte"><img className="PhotoProfilNavBar" src={utilisateur.photo} alt='Schémas' /></span>
+                            <i className="flecheProfil fa-solid fa-angle-down"></i>
+                            <div className="dropdown-content">
                                 <button onClick={goProfil}>Mon profil</button>
                                 <button onClick={goAccueil}>Se déconnecter</button>
                             </div>
@@ -105,7 +105,7 @@ function NavBar() {
                     </div>
                     <div className='div_mail'>
                         <button className='message' onClick={goAdmin}>
-                            <i class="logo_message fa-regular fa-envelope"></i>
+                            <i className="logo_message fa-regular fa-envelope"></i>
                         </button>
                     </div>
                 </div>
@@ -123,10 +123,10 @@ function NavBar() {
                 <div className='nav'>
                     <div className='div_creerAnnonce'>
                         <button className='creerAnnonce' onClick={goConnexion} >
-                            <span class="addAnnonce">
-                                <i class="logo_annonce fa-regular fa-file-lines"></i>
+                            <span className="addAnnonce">
+                                <i className="logo_annonce fa-regular fa-file-lines"></i>
                             </span>
-                            <span class="text_add_annonce">
+                            <span className="text_add_annonce">
                                 Creer une annonce
                             </span>
                         </button>
@@ -146,16 +146,16 @@ function NavBar() {
                     </div>
                     <div className='div_profil'>
                         <button className='profil' style={style} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                            <span class="arriere_plan_profil"><i class="logo_profil fa-regular fa-circle-user"></i></span>
-                            <i class="flecheProfil fa-solid fa-angle-down"></i>
-                            <div class="dropdown-content">
+                            <span className="arriere_plan_profil"><i className="logo_profil fa-regular fa-circle-user"></i></span>
+                            <i className="flecheProfil fa-solid fa-angle-down"></i>
+                            <div className="dropdown-content">
                                 <button onClick={goConnexion}>Se connecter</button>
                             </div>
                         </button>
                     </div>
                     <div className='div_mail'>
                         <button className='message'>
-                            <i class="logo_message fa-regular fa-envelope"></i>
+                            <i className="logo_message fa-regular fa-envelope"></i>
                         </button>
                     </div>
                 </div>

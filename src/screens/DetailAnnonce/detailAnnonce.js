@@ -9,10 +9,12 @@ function DetailAnnonce() {
     const utilisateur = JSON.parse(localStorage.getItem("User"));
     const [annonce, setAnnonce] = useState([]);
     const { id } = useParams();
+    //const idUtilisateur = props.id;
     let navigate = useNavigate();
 
     function goProfil() {
-        navigate('/Profil')
+        //navigate(`/Profil${idUtilisateur}`, {state: {idUtilisateur: idUtilisateur}});
+        navigate('/Profil');
     }
 
     useEffect(() => {
