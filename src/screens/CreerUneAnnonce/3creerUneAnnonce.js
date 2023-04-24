@@ -1,16 +1,31 @@
 import NavBar from '../../Components/navBar/navbar';
 import './3creerUneAnnonce.css'
 import '../css_general.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppStore } from '../../donness';
 import AvancementCreationAnnonce from '../../Components/AvancementCreationAnnonce/avancementCreationAnnonce';
+import { français } from '../../langues/français'
+import { anglais } from '../../langues/anglais'
 
 function CreerUneAnnonce3() {
     const CreationAnnonce = useAppStore((state) => state.CreationAnnonce);
     const setCreationAnnonce = useAppStore((state) => state.setCreationAnnonce)
     const User = useAppStore((state) => state.User);
     const [message, setMessage] = useState("");
+    const [langue, setLangue] = useState(français);
+
+
+    useEffect( () => {
+        console.log(localStorage.getItem("Langue"));
+        if(localStorage.getItem("Langue") == "anglais"){
+            setLangue(anglais);
+        }else{
+            setLangue(français);
+        }
+        //setLangue(anglais);
+        console.log("ok");
+    })
 
     const navigate = useNavigate();
 
@@ -85,20 +100,20 @@ function CreerUneAnnonce3() {
                 <NavBar />
             </div>
             <div id='wrapperPageCreationAnnonce3'>
-                <h1>Récapitulatif de votre annonce</h1>
+                <h1>{langue.CREER_ANNONCE_3.titrePage}</h1>
 
                 <div id='divPremierePartieRecapitulatif'>
                     <div id='divTitreDestination'>
                         <div id='divTitreAnnonce'>
-                            <h3>Titre de l'annonce</h3>
+                            <h3>{langue.CREER_ANNONCE_3.titreAnnonce}</h3>
                             <p>{CreationAnnonce.titre}</p>
                         </div>
                         <div id='divPaysAchat'>
-                            <h3>Pays d'achat</h3>
+                            <h3>{langue.CREER_ANNONCE_3.paysAchat}</h3>
                             <p>{CreationAnnonce.paysDepart}</p>
                         </div>
                         <div id='divVilleLivraison'>
-                            <h3>Ville de livraison</h3>
+                            <h3>{langue.CREER_ANNONCE_3.villeLivraison}</h3>
                             <p>{CreationAnnonce.villeArrivee}</p>
                         </div>
                     </div>
@@ -107,38 +122,38 @@ function CreerUneAnnonce3() {
                             <img className='imageAnonce' src={CreationAnnonce.photo} alt="image" name='imageAnnonce' />
                         </div>
                         <div id='divPrixAnnonce'>
-                            <h3>Prix du produit</h3>
+                            <h3>{langue.CREER_ANNONCE_3.prixProduit}</h3>
                             <p>{CreationAnnonce.prixAchats} {CreationAnnonce.devise}</p>
                         </div>
                     </div>
                 </div>
                 <div id='divDescription'>
-                    <h3>Description</h3>
+                    <h3>{langue.CREER_ANNONCE_3.description}</h3>
                     <p>{CreationAnnonce.description}</p>
                 </div>
                 <div id='divCommission'>
                     <div id='divCommissionAcheteur'>
-                        <h3>Commission de l'acheteur</h3>
+                        <h3>{langue.CREER_ANNONCE_3.commissionA}</h3>
 
                     </div>
                     <div id='divCommissionVoyageur'>
-                        <h3>Commission du voyageur</h3>
+                        <h3>{langue.CREER_ANNONCE_3.commissionV}</h3>
 
                     </div>
                     <div id='divCommissionBWOB'>
-                        <h3>Commission de BWob</h3>
+                        <h3>{langue.CREER_ANNONCE_3.commissionBwob}</h3>
 
                     </div>
                 </div>
                 <div id='divPrixTotal'>
-                    <h3>Prix total</h3>
+                    <h3>{langue.CREER_ANNONCE_3.prixTot}</h3>
                 </div>
                 <div id='divNote'>
-                    Cette somme sera à régler ...
+                    {langue.CREER_ANNONCE_3.texte}
                 </div>
 
-                <button className='boutonPrecedent' onClick={goCreerAnnonce2}>Precedent</button>
-                <input type="submit" className='boutonSuivantAnnonce btn_orange' value="Valider" onClick={finaliserCreationAnnonce}></input>
+                <button className='boutonPrecedent' onClick={goCreerAnnonce2}>{langue.CREER_ANNONCE_G.precedent}</button>
+                <input type="submit" className='boutonSuivantAnnonce btn_orange' value={langue.CREER_ANNONCE_G.suivant} onClick={finaliserCreationAnnonce}></input>
             </div>
             <div id='avancement'>
                 <AvancementCreationAnnonce etatAvancement={3} />

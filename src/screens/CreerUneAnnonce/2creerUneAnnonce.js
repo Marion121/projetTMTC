@@ -1,10 +1,12 @@
 import NavBar from '../../Components/navBar/navbar';
 import './2creerUneAnnonce.css'
 import '../css_general.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppStore } from '../../donness';
 import AvancementCreationAnnonce from '../../Components/AvancementCreationAnnonce/avancementCreationAnnonce';
+import { français } from '../../langues/français'
+import { anglais } from '../../langues/anglais'
 
 function CreerUneAnnonce2() {
     const CreationAnnonce = useAppStore((state) => state.CreationAnnonce);
@@ -17,7 +19,18 @@ function CreerUneAnnonce2() {
     const [devise, setDevise] = useState(CreationAnnonce.devise);
     const [clickedAcheteur, setClickedAcheteur] = useState(CreationAnnonce.besoinAcheteur);
     const [clickedVoyageur, setClickedVoyageur] = useState(CreationAnnonce.besoinVoyageur);
+    const [langue, setLangue] = useState(français);
 
+    useEffect( () => {
+        console.log(localStorage.getItem("Langue"));
+        if(localStorage.getItem("Langue") == "anglais"){
+            setLangue(anglais);
+        }else{
+            setLangue(français);
+        }
+        //setLangue(anglais);
+        console.log("ok");
+    })
 
     function goCreerAnnonce3() {
         navigate('/creerUneAnnonce3');
@@ -83,30 +96,30 @@ function CreerUneAnnonce2() {
 
             <div id='wrapperPageCreationAnnonce2'>
                 <form method='POST' onSubmit={saveDataCreationAnnonce}>
-                    <h1>Prix et acheminement du produit</h1>
+                    <h1>{langue.CREER_ANNONCE_2.titre}</h1>
                     <div id='sousWrapperPageCreationAnnonce2'>
                         <div id='divPrixDevise'>
                             <div id='divPrix'>
-                                <label>Prix d'achat du produit</label><br />
+                                <label>{langue.CREER_ANNONCE_2.prix}</label><br />
                                 <input className="contour_bleu" type="text" placeholder="8888.88" name="prixAchats" value={prix} onChange={handleChangePrix} required></input>
                             </div>
                             <div id='divDevise'>
-                                <label>Devise</label><br />
+                                <label>{langue.CREER_ANNONCE_2.devise}</label><br />
                                 <select className='contour_bleu' value={devise} onChange={handleChangeDevise} >
                                     <option>€</option>
                                     <option>$</option>
                                 </select>
                             </div>
                             <div id='divDegImportance'>
-                                <label>Degrés d'importance</label><br />
+                                <label>{langue.CREER_ANNONCE_2.degImportance}</label><br />
                                 <select className='contour_bleu' onChange={handleChangeDegImportance} >
-                                    <option>Normal</option>
-                                    <option>Urgent</option>
+                                    <option>{langue.CREER_ANNONCE_2.degImportanceN}</option>
+                                    <option>{langue.CREER_ANNONCE_2.degImportanceU}</option>
                                 </select>
                             </div>
                         </div>
                         <div id='acheminementProduit'>
-                            <label>Acheminement du produit <span>(cliquez ici pour selectionner)</span></label>
+                            <label>{langue.CREER_ANNONCE_2.acheminement} <span>({langue.CREER_ANNONCE_2.cliquerIci})</span></label>
 
                             <div id='divAcheteur' className={`${clickedAcheteur ? 'divClicked' : ''} contour_bleu`} onClick={handleClickAcheteur}>
                                 <div className='divImageGauche'>
@@ -114,7 +127,7 @@ function CreerUneAnnonce2() {
                                 </div>
                                 <div className='divDetail'>
                                     <div className='divTextDetail'>
-                                        J'ai besoin d'un acheteur :
+                                        {langue.CREER_ANNONCE_2.acheteur}
                                     </div>
                                     <div className='divPaysDetail'>
                                         Allemagne, Europe
@@ -122,7 +135,7 @@ function CreerUneAnnonce2() {
                                 </div>
                                 <div className='divContrepartie'>
                                     <div className='divTextContrepartie'>
-                                        Contrepartie à votre charge :
+                                        {langue.CREER_ANNONCE_2.contrepartie}
                                     </div>
                                     <div className='divPrixContrepartie'>
                                         45€
@@ -135,7 +148,7 @@ function CreerUneAnnonce2() {
                                 </div>
                                 <div className='divDetail'>
                                     <div className='divTextDetail'>
-                                        J'ai besoin d'un voyageur :
+                                        {langue.CREER_ANNONCE_2.voyageur}
                                     </div>
                                     <div className='divPaysDetail2'>
                                         <p id="PpaysDepart">Allemagne, Europe</p>
@@ -145,7 +158,7 @@ function CreerUneAnnonce2() {
                                 </div>
                                 <div className='divContrepartie'>
                                     <div className='divTextContrepartie'>
-                                        Contrepartie à votre charge :
+                                        {langue.CREER_ANNONCE_2.contrepartie}
                                     </div>
                                     <div className='divPrixContrepartie'>
                                         45€
@@ -154,8 +167,8 @@ function CreerUneAnnonce2() {
                             </div>
                         </div>
                     </div>
-                    <button className='boutonPrecedent' onClick={goCreerAnnonce}>Precedent</button>
-                    <input type="submit" className='boutonSuivantAnnonce btn_orange' value="Suivant"></input>
+                    <button className='boutonPrecedent' onClick={goCreerAnnonce}>{langue.CREER_ANNONCE_G.precedent}</button>
+                    <input type="submit" className='boutonSuivantAnnonce btn_orange' value={langue.CREER_ANNONCE_G.suivant}></input>
 
                 </form>
             </div>

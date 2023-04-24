@@ -3,7 +3,9 @@ import './connexion.css'
 import '../css_general.css'
 import { useNavigate } from 'react-router-dom';
 import { useAppStore } from "../../donness";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { français } from '../../langues/français'
+import { anglais } from '../../langues/anglais'
 
 
 function Connexion() {
@@ -22,6 +24,16 @@ function Connexion() {
         mode: 'no-cors',
         cache: 'default'
     };
+
+    const [langue, setLangue] = useState(français);
+
+    useEffect( () => {
+        setLangue(anglais);
+    })
+
+    function goAnnonces(){
+        navigate('/Annonces');
+    }
 
     let handleSubmit = async (e) => {
         e.preventDefault();
@@ -44,9 +56,11 @@ function Connexion() {
         console.log(user);
         //let newUser = JSON.parse(user);
         localStorage.setItem("User", JSON.stringify(jsonData));
+        localStorage.setItem("Langue", "anglais");
         navigate('/Annonces');
         const utilisateur = JSON.parse(localStorage.getItem("User"));
         console.log(utilisateur);
+        console.log(localStorage.getItem("Langue"));
         //utilisateur.Pays = "ESPAGNE";
         // console.log(utilisateur.Pays);
     };
@@ -58,15 +72,15 @@ function Connexion() {
             </div>
             <div className="container_form">
                 <form id="formConnexion" method="GET" onSubmit={handleSubmit}>
-                    <h1>Connexion</h1>
+                    <h1>{langue.CONNEXION.connexion}</h1>
 
-                    <label>E-mail</label>
-                    <input className="Input" type="email" placeholder="Entrer votre e-mail" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required></input>
+                    <label>{langue.CONNEXION.email}</label>
+                    <input className="Input contour_bleu" type="email" placeholder={langue.CONNEXION.emailPH} name="email" value={email} onChange={(e) => setEmail(e.target.value)} required></input>
 
-                    <label>Mot de passe</label>
-                    <input className="Input" type="password" placeholder="Entrer le mot de passe" autoComplete="current-password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required></input>
+                    <label>{langue.CONNEXION.mdp}</label>
+                    <input className="Input contour_bleu" type="password" placeholder={langue.CONNEXION.mdpPH} autoComplete="current-password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required></input>
 
-                    <input type="submit" value='LOGIN'></input>
+                    <input className="connexion" type="submit" value='LOGIN'></input>
                 </form>
 
             </div>

@@ -1,11 +1,20 @@
 import './produit_mon_annonce.css'
 import Photo_annonces from '../components_annonces/photo_annonces.js'
 import { useAppStore } from '../../donness.js'
+import { useState, useEffect } from 'react';
+import { français } from '../../langues/français'
+import { anglais } from '../../langues/anglais'
 
 function Produit_mon_annonce(prop) {
     const nom = useAppStore((state) => state.User.Nom);
     const prenom = useAppStore((state) => state.User.Prenom);
     const photo = useAppStore((state) => state.User.photo);
+    const [langue, setLangue] = useState(français);
+
+    useEffect( () => {
+        setLangue(anglais);
+    })
+    
     if(prop.typeProfil =="mesAnnonces"){
         return (
             <div className="produit_container">

@@ -1,8 +1,18 @@
 
 import './annonces_urgentes.css';
 import Photo_annonces from '../components_annonces/photo_annonces.js';
+import { useState, useEffect } from 'react';
+import { français } from '../../langues/français'
+import { anglais } from '../../langues/anglais'
 
 function Annonces_urgentes(props) {
+
+    const [langue, setLangue] = useState(français);
+
+    useEffect( () => {
+        setLangue(anglais);
+    })
+
     return (
         <div className='annonces_u_div_general'>
             <div id={"colone_droite"}>
@@ -19,7 +29,7 @@ function Annonces_urgentes(props) {
                 <p className={'text_lieu_urgente'}><i className="fa-solid fa-bag-shopping"></i> {props.lVente}</p>
                 <p className={'text_lieu_urgente'}><i className="fa-solid fa-plane-departure"></i> {props.lAchat}</p>
                 <div id={'div_cout_urgent'}>
-                    <p className={"text_contrepartie_urgente"}>Contrepartie <i className="fa-solid fa-plane-departure"></i></p>
+                    <p className={"text_contrepartie_urgente"}>{langue.COMPONENT_ANNONCE.contrepartie} <i className="fa-solid fa-plane-departure"></i></p>
                     <p className={"text_prix_urgente"}>{props.prixV}</p>
                 </div>
             </div>

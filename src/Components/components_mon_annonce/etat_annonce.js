@@ -1,4 +1,7 @@
 import './etat_annonce.css'
+import { useState, useEffect } from 'react';
+import { français } from '../../langues/français'
+import { anglais } from '../../langues/anglais'
 
 
 const Swal = require('sweetalert2')
@@ -12,28 +15,32 @@ function Etat_annonce(props) {
     const totalCom = comAcheteur + comBwob +  comVoyageur;
     const totalDiffere= 1278 ;
     const total =  totalCom + totalDiffere ;
+    const [langue, setLangue] = useState(français);
 
+    useEffect( () => {
+        setLangue(anglais);
+    })
 
     if (props.typeEtat == "manqueVoyageur") {
         return (
             <div className="actions">
-                <h4 className={"titre_element_annonces"}>Etat</h4>
+                <h4 className={"titre_element_annonces"}>{langue.MES_ANNONCES.etat}</h4>
                 <br/>
-                <p id={"text_manque_voyageur"}><strong>En attente d'un voyageur et d'un acheteur... </strong></p>
+                <p id={"text_manque_voyageur"}><strong>{langue.MES_ANNONCES.attenteVoyageurAcheteur}</strong></p>
             </div>
         );
     } else if (props.typeEtat == "manquePayement") {
         return (
             <div className="actions">
                 <h4 className={"titre_element_annonces"}>Etat</h4>
-                <p id={"text_attente_payement"}><strong>En attente du payement...</strong></p>
-                <p id={"text_payement"}><strong>Mode de payement</strong></p>
+                <p id={"text_attente_payement"}><strong>{langue.MES_ANNONCES.attentePayement}</strong></p>
+                <p id={"text_payement"}><strong>{langue.MES_ANNONCES.modePayement}</strong></p>
                 <div id={"div_bouton_payement"}>
                     <button className={"bouton_payement"} id="myBtn" onClick={()=>{payement()}}><i
-                        className="fa-regular fa-credit-card"></i> Par carte
+                        className="fa-regular fa-credit-card"></i> {langue.MES_ANNONCES.modeCarte}
                     </button>
                     <button className={"bouton_payement"}>
-                        <i className="fa-solid fa-money-bill-1-wave"></i> En espéces
+                        <i className="fa-solid fa-money-bill-1-wave"></i> {langue.MES_ANNONCES.modeEspece}
                     </button>
                 </div>
             </div>
@@ -41,24 +48,24 @@ function Etat_annonce(props) {
     } else if (props.typeEtat == "acheminement") {
         return (
             <div className="actions">
-                <h4 className={"titre_element_annonces"}>Etat</h4>
+                <h4 className={"titre_element_annonces"}>{langue.MES_ANNONCES.etat}</h4>
                 <div className={"div_ligne"}>
                     <button className={"bouton_valide"}>
                         <i className="fa-solid fa-check"></i>
                     </button>
-                    <p className='text_option'>Produit acheté </p>
+                    <p className='text_option'>{langue.MES_ANNONCES.produitAchete} </p>
                 </div>
                 <div className={"div_ligne"}>
                     <button className={"bouton_3pt"}>
                         <strong>...</strong>
                     </button>
-                    <p className='text_option'><strong>En cours d'acheminement</strong></p>
+                    <p className='text_option'><strong>{langue.MES_ANNONCES.enCours}</strong></p>
                 </div>
                 <div className={"div_ligne"}>
                     <button className={"bouton_vide"}>
 
                     </button>
-                    <p className='text_option'> Livré </p>
+                    <p className='text_option'> {langue.MES_ANNONCES.livré} </p>
                 </div>
             </div>
         );

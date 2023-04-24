@@ -75,7 +75,7 @@
     padding-left: 10px;
 }
 
-#divPrix{
+#divPrixDetail{
     height: 94px;
     width: 100%;
     min-width: 460px;
@@ -191,7 +191,6 @@
 
 #divAstuce{
     margin-top: 0px;
-    height: 120px;
     width: 30%;
     min-width: 250px;
     border-radius: 12px;
@@ -208,7 +207,6 @@
 }
 
 #divTextAstuce{
-    height: 60px;
     padding-top: 5px;
 }
 

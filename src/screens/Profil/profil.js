@@ -2,18 +2,18 @@ import './profil.css'
 import '../css_general.css'
 import NavBar from '../../Components/navBar/navbar'
 import {useAppStore} from '../../donness.js'
-
+import { français } from '../../langues/français'
+import { anglais } from '../../langues/anglais'
+import { useEffect, useState } from 'react'
 
 
 function Profil() {
-    const test = useAppStore((state) => state.test);
-    const Nom = useAppStore((state) => state.User.Nom);
-    const Mail = useAppStore((state) => state.User.Email);
-    const Pays = useAppStore((state) => state.User.Pays);
-    const CoordonnéesBancaires = useAppStore((state) => state.User.CoordonnéesBancaires);
-    const photo = useAppStore((state) => state.User.photo);
     const utilisateur = JSON.parse(localStorage.getItem("User"));
+    const [langue, setLangue] = useState(français);
 
+    useEffect( () => {
+        setLangue(anglais);
+    })
 
     if (document.readyState === 'complete') {
         console.log(utilisateur.Nom);
@@ -44,28 +44,28 @@ function Profil() {
                             <Bmodif isActive={false} name="text_nom_prenom" type_I='text'></Bmodif>
                         </div>
                         <div className="tot_gangne">
-                            <p className="tot_text">Total gangé : </p>
+                            <p className="tot_text"> {langue.PROFIL.total}</p>
                             <p className="tot_valeur">532,00 €</p>
                         </div>
                     </div>
                 </div>
                 <div className="block_info_modif">
-                        <h3>Mail</h3>
+                        <h3>{langue.PROFIL.mail}</h3>
                         <span className="info" id={"text_mail"}>{utilisateur.email}</span>
                         <span id={"B_text_mail"}>
                             <Bmodif  isActive={true} name="text_mail" type_I='email'></Bmodif>
                         </span>
-                        <h3>Date de naissance</h3>
+                        <h3>{langue.PROFIL.dateNaissance}</h3>
                         <span className="info" id={"text_date"}>2001-08-08</span>
                         <span id={"B_text_date"}>
                             <Bmodif  isActive={true} name="text_date" type_I='date'></Bmodif>
                         </span>
-                        <h3>Pays de résidence</h3>
+                        <h3>{langue.PROFIL.pays}</h3>
                         <span className="info" id={"Pays"}>{utilisateur.pays} </span>
                         <span id={"B_Pays"}>
                             <Bmodif  isActive={true} name="Pays" type_I='text'></Bmodif>
                         </span>
-                        <h3>Coordonées banquaires</h3>
+                        <h3>{langue.PROFIL.CoordoneesBanque}</h3>
                         <span className="info" id={"text_cb"}>{utilisateur.CoordonneesBancaires}</span>
                         <span id={"B_text_cb"}>
                             <Bmodif className={"b_modif_info"} isActive={true} name="text_cb" type_I='text'></Bmodif>

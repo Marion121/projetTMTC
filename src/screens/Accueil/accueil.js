@@ -2,10 +2,18 @@ import './accueil.css'
 import '../css_general.css'
 import NavBar from '../../Components/navBar/navbar'
 import {useNavigate} from 'react-router-dom'
+import { français } from '../../langues/français'
+import { anglais } from '../../langues/anglais'
+import { useState, useEffect } from 'react';
+
 
 
 function Accueil() {
+    const [langue, setLangue] = useState(français);
 
+    useEffect( () => {
+        setLangue(anglais);
+    })
     let navigate = useNavigate();
 
     function goConnexion() {
@@ -32,11 +40,11 @@ function Accueil() {
                         <table className='tab_slogan'>
                             <tbody>
                                 <tr>
-                                    <td className="sloganBleuCiel"> Achetez</td>
+                                    <td className="sloganBleuCiel"> {langue.ACCUEIL.achetez}</td>
                                     <td className="point"><i className="fa-solid fa-circle"></i></td>
-                                    <td className="sloganBleuCiel"> Voyagez</td>
+                                    <td className="sloganBleuCiel"> {langue.ACCUEIL.voyagez}</td>
                                     <td className="point"><i className="fa-solid fa-circle"></i></td>
-                                    <td className="sloganBleuMarine"> Recevez</td>
+                                    <td className="sloganBleuMarine"> {langue.ACCUEIL.recevez}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -47,12 +55,12 @@ function Accueil() {
                                 <tr>
                                     <td className={"boutonInscriptionPosition"}>
                                         <button className='inscription' onClick={goInscription}>
-                                            Inscription
+                                            {langue.ACCUEIL.inscription}
                                         </button>
                                     </td>
                                     <td className={"seConnecterPosition"}>
                                         <button className='seConnecter' onClick={goConnexion}>
-                                            Se connecter
+                                            {langue.ACCUEIL.connexion}
                                         </button>
                                     </td>
                                 </tr>
@@ -63,7 +71,7 @@ function Accueil() {
             </div>
             <div className='zone3'>
                 <div>
-                    Texte
+                    {langue.ACCUEIL.texte}
                 </div>
                 <img className="ImageBas" src='/../../images/schemaAccueil.jpeg' alt='Schémas'/>
             </div>

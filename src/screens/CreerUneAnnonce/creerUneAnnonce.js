@@ -1,10 +1,12 @@
   import NavBar from '../../Components/navBar/navbar';
 import './creerUneAnnonce.css'
 import '../css_general.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppStore } from '../../donness';
 import AvancementCreationAnnonce from '../../Components/AvancementCreationAnnonce/avancementCreationAnnonce';
+import { français } from '../../langues/français'
+import { anglais } from '../../langues/anglais'
 
 function CreerUneAnnonce() {
     const navigate = useNavigate();
@@ -20,6 +22,21 @@ function CreerUneAnnonce() {
     const [description, setDescritpion] = useState(CreationAnnonce.description);
     const [poids, setPoids] = useState(CreationAnnonce.poids);
     const [titre, setTitre] = useState(CreationAnnonce.titre);
+
+    const [langue, setLangue] = useState(français);
+
+    useEffect( () => {
+        //const utilisateur = JSON.parse(localStorage.getItem("User"));
+        //localStorage.setItem('Langue', JSON.stringify('anglais'));
+       /* console.log(JSON.parse(localStorage.getItem("Langue")));
+        if(JSON.parse(localStorage.getItem("Langue")) == "anglais"){
+            setLangue(anglais);
+        }else{
+            setLangue(français);
+        }*/
+        setLangue(anglais);
+        console.log("ok");
+    })
 
     const handleDragOver = (event) => {
         event.preventDefault();
@@ -111,16 +128,16 @@ function CreerUneAnnonce() {
                 <div id='wrapperFormCreationAnnonce1'>
                     <form method='POST' onSubmit={saveDataCreationAnnonce}>
                     <div className='lieuAchatReception'>
-                        <h1>Lieu d'achat et de Réception</h1>
+                        <h1>{langue.CREER_ANNONCE_1.titreDetail}</h1>
                         <table>
                             <tr>
                                 <td>
-                                    <label><i class="logoGauche fa-sharp fa-solid fa-plane-departure"></i>Pays de votre produit</label><br />
-                                    <input className="Input" type="text" placeholder="Allemagne,Europe" name="paysProduit" value={paysDepart} onChange={handleChangePays} required></input>
+                                    <label><i class="logoGauche fa-sharp fa-solid fa-plane-departure"></i>{langue.CREER_ANNONCE_1.paysAnnonce}</label><br />
+                                    <input className="Input contour_bleu" type="text" placeholder="Allemagne,Europe" name="paysProduit" value={paysDepart} onChange={handleChangePays} required></input>
                                 </td>
                                 <td>
-                                    <label><i class="logoGauche fa-sharp fa-solid fa-plane-departure"></i>Ville de livraison de votre produit</label><br />
-                                    <input className="Input" type="text" placeholder="Montréal, Canada, Amérique du Nord" name="villeLivraison" value={villeArrivee} onChange={handleChangeVille} required></input>
+                                    <label><i class="logoGauche fa-sharp fa-solid fa-plane-departure"></i>{langue.CREER_ANNONCE_1.villeArrivee}</label><br />
+                                    <input className="Input contour_bleu" type="text" placeholder="Montréal, Canada, Amérique du Nord" name="villeLivraison" value={villeArrivee} onChange={handleChangeVille} required></input>
                                 </td>
                             </tr>
                         </table>
@@ -129,15 +146,15 @@ function CreerUneAnnonce() {
 
                     </div>
                     <div className='detailsDuProduit'>
-                        <h1>Détails du produit</h1>
+                        <h1>{langue.CREER_ANNONCE_1.titreDetail}</h1>
 
                         <div id='sousDivDetailsDuProduit'>
 
                             <div className='divZoneImage'>
                                 <div>
-                                    <label htmlFor='dropZone'>Photo de votre produit</label><br />
+                                    <label htmlFor='dropZone'>{langue.CREER_ANNONCE_1.photoProduit}</label><br />
                                     <div id="drop-zone" className={`${dragOver ? 'drag-over' : ''} contour_bleu`} name='dropZone' onDragOver={handleDragOver} onDragLeave={handleDragLeave} onDrop={handleDrop}>
-                                        Glisser ici
+                                        {langue.CREER_ANNONCE_1.glisser}
                                     </div>
                                 </div>
 
@@ -148,22 +165,22 @@ function CreerUneAnnonce() {
                             </div>
 
                             <div id='divPoidEtTitre'>
-                                <label>Poid du produit</label><br />
+                                <label>{langue.CREER_ANNONCE_1.poid}</label><br />
                                 <select name='poids' id='choixPoid' className='contour_bleu' value={poids} onChange={handleChangePoids}>
                                     <option>Moins de 1kg</option>
                                     <option>Entre 1kg et 5kg</option>
                                     <option>Plus de 5kg</option>
                                 </select><br />
 
-                                <label>Titre de l'annonce</label><br />
-                                <input className="Input" type="text" placeholder="Croissant français" name="titreAnnonce" value={titre} onChange={handleChangeTitre} required></input><br />
+                                <label>{langue.CREER_ANNONCE_1.titreAnnonce}</label><br />
+                                <input className="Input contour_bleu" type="text" placeholder="Croissant français" name="titreAnnonce" value={titre} onChange={handleChangeTitre} required></input><br />
                             </div>
                         </div>
-                        <label id='labelDescription'>Description</label><br />
+                        <label id='labelDescription'>{langue.CREER_ANNONCE_1.description}</label><br />
                         <textarea id='textareaDescription' className="contour_bleu" rows="5" cols="41.5" placeholder="Je souhaite aquérir un croissant français de..." value={description} name="villeMivraison" onChange={handleChangeDescription} required></textarea>
                     </div>
-                    <button className='boutonPrecedent' onClick={goAnnonces}>Precedent</button>
-                    <input type="submit" className='boutonSuivantAnnonce btn_orange' value="Suivant"></input>
+                    <button className='boutonPrecedent' onClick={goAnnonces}>{langue.CREER_ANNONCE_G.precedent}</button>
+                    <input type="submit" className='boutonSuivantAnnonce btn_orange' value={langue.CREER_ANNONCE_G.suivant}></input>
                     </form>
                 </div>
                 <div id='avancement3'>

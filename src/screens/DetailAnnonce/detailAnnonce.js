@@ -3,11 +3,14 @@ import "./detailAnnonce.css";
 import "../css_general.css";
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { français } from '../../langues/français'
+import { anglais } from '../../langues/anglais'
 
 function DetailAnnonce() {
     const utilisateur = JSON.parse(localStorage.getItem("User"));
     const [annonce, setAnnonce] = useState([]);
     const { id } = useParams();
+    const [langue, setLangue] = useState(français);
 
     useEffect(() => {
         async function fetchDetails() {
@@ -17,7 +20,7 @@ function DetailAnnonce() {
             setAnnonce(data);
             console.log(annonce);
         }
-
+        setLangue(anglais);
         fetchDetails();
     }, []);
 
@@ -47,17 +50,17 @@ function DetailAnnonce() {
                         <img id='imageProduit' src="../../images/ordi.png" alt='photoProduit' />
                     </div>
                     <div id='divPrixDescription'>
-                        <div id='divPrix'>
+                        <div id='divPrixDetail'>
                             <div id='divContrepartie1' className='div_contrepartie_detailAnnonce'>
-                                <p className={"text_contrepartie_detailAnnonce"}>Contrepartie <i className="fa-solid fa-bag-shopping"></i></p>
+                                <p className={"text_contrepartie_detailAnnonce"}>{langue.COMPONENT_ANNONCE.contrepartie} <i className="fa-solid fa-bag-shopping"></i></p>
                                 <p className={"text_prix_detailAnnonce"}><strong>60€</strong></p>
                             </div>
                             <div id='divContrepartie2' className='div_contrepartie_detailAnnonce'>
-                                <p className={"text_contrepartie_detailAnnonce"}>Contrepartie <i className="fa-solid fa-plane-departure"></i></p>
+                                <p className={"text_contrepartie_detailAnnonce"}>{langue.COMPONENT_ANNONCE.contrepartie} <i className="fa-solid fa-plane-departure"></i></p>
                                 <p className={"text_prix_detailAnnonce"}><strong>80€</strong></p>
                             </div>
                             <div id='divContrepartie3' className='div_contrepartie_detailAnnonce'>
-                                <p className={"text_contrepartie_detailAnnonce"}><strong>Coût du produit</strong> <br />
+                                <p className={"text_contrepartie_detailAnnonce"}><strong>{langue.COMPONENT_ANNONCE.coutProduit}</strong> <br />
                                     <strong>{annonce.prix}</strong></p>
                             </div>
 
@@ -69,21 +72,21 @@ function DetailAnnonce() {
                 </div>
                 <div id='divAction'>
                     <div id='divAcheterLivre' className='bordure'>
-                        <span><i className="fa-solid fa-plane-departure logoGauche"></i><i className="fa-solid fa-bag-shopping logoDroite"></i><span>Je peux acheter et livrer le produit</span></span>
+                        <span><i className="fa-solid fa-plane-departure logoGauche"></i><i className="fa-solid fa-bag-shopping logoDroite"></i><span>{langue.DETAIL_ANNONCE.acheterLivrer}</span></span>
                     </div>
                     <div id='divAcheter' className='bordure'>
-                        <span><i className="fa-solid fa-bag-shopping logoGauche"></i>Je peux acheter</span>
+                        <span><i className="fa-solid fa-bag-shopping logoGauche"></i>{langue.DETAIL_ANNONCE.acheter}</span>
                     </div>
                     <div id='divLivrer' className='bordure'>
-                        <span><i className="fa-solid fa-plane-departure logoGauche"></i>Je peux livrer</span>
+                        <span><i className="fa-solid fa-plane-departure logoGauche"></i>{langue.DETAIL_ANNONCE.livrer}</span>
                     </div>
                 </div>
                 <div id='divAstuce'>
                     <div id='divTitreAstuce'>
-                        <strong>Astuce Bwob</strong>
+                        <strong>{langue.DETAIL_ANNONCE.titreAstuce}</strong>
                     </div>
                     <div id='divTextAstuce'>
-                        <span>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.  </span>
+                        <span> {langue.DETAIL_ANNONCE.descriptionAstuce} </span>
                     </div>
                 </div>
             </div>

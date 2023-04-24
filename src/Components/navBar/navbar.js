@@ -2,12 +2,18 @@
 import './navbar.css'
 import { useNavigate } from 'react-router-dom';
 import { useAppStore } from '../../donness.js'
-import { useState } from 'react';
+import { français } from '../../langues/français'
+import { anglais } from '../../langues/anglais'
+import { useState, useEffect } from 'react'
 
 function NavBar() {
     const utilisateur = JSON.parse(localStorage.getItem("User"));
-    const isConnecte = useAppStore((state) => state.isConnecte);
-    const setIsConnecte = useAppStore((state) => state.setIsConnecte)
+    const [langue, setLangue] = useState(français);
+
+    useEffect( () => {
+        
+        setLangue(anglais);
+    })
 
     let navigate = useNavigate();
 
@@ -29,7 +35,6 @@ function NavBar() {
     function goAccueil() {
         localStorage.removeItem('User');
         console.log(localStorage.getItem("User"));
-        setIsConnecte(false);
         navigate('/');
     }
 
@@ -70,7 +75,7 @@ function NavBar() {
                                 <i class="logo_annonce fa-regular fa-file-lines"></i>
                             </span>
                             <span class="text_add_annonce">
-                                Creer une annonce
+                                {langue.NAVBAR.creer}
                             </span>
                         </button>
                     </div>
@@ -81,7 +86,7 @@ function NavBar() {
                             </span>
                             <div  className="dropdown-content-1">
                                 <div id={"arriere_plan_annonces_appuyé"}>
-                                    Annonces <i className="flecheAnnonces fa-solid fa-angle-down"></i>
+                                    {langue.NAVBAR.annonces} <i className="flecheAnnonces fa-solid fa-angle-down"></i>
                                 </div>
                                 <button onClick={goMesAnnonces}>Mes annonces </button>
                                 <button onClick={goMesAchats}>Mes achats </button>
@@ -123,7 +128,7 @@ function NavBar() {
                                 <i class="logo_annonce fa-regular fa-file-lines"></i>
                             </span>
                             <span class="text_add_annonce">
-                                Creer une annonce
+                                {langue.NAVBAR.creer}
                             </span>
                         </button>
                     </div>

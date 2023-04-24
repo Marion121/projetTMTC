@@ -1,9 +1,18 @@
 import './contrepartie.css'
+import { useState, useEffect } from 'react';
+import { français } from '../../langues/français'
+import { anglais } from '../../langues/anglais'
 
 function Contrepartie() {
+    const [langue, setLangue] = useState(français);
+
+    useEffect( () => {
+        setLangue(anglais);
+    })
+
     return (
         <div className="contrepartie">
-            <h3>Ma contrepartie</h3>
+            <h3>{langue.MES_ACHATS_VOYAGES.contrepartie}</h3>
             <div id='pratique'>
                 <div className={"div_boutton_text"}>
                     <button className={"bouton_logo_c"} > <i className="logo1 fa-solid fa-bag-shopping"></i>

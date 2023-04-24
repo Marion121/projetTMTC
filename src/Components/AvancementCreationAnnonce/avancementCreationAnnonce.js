@@ -1,18 +1,26 @@
 import './avancementCreationAnnonce.css'
+import { useState, useEffect } from 'react';
+import { français } from '../../langues/français'
+import { anglais } from '../../langues/anglais'
 
 function AvancementCreationAnnonce(props){
+    const [langue, setLangue] = useState(français);
+
+    useEffect( () => {
+        setLangue(anglais);
+    })
 
     if(props.etatAvancement==1){
         return(
             <div className='wrapperGeneralAvancement'>
                 <div id='etape1' className='wrapperAvancement'>
-                    <button className='buttonAvancement troisPoints'><strong>...</strong></button><h2>Detail du Produit</h2>
+                    <button className='buttonAvancement troisPoints'><strong>...</strong></button><h2>{langue.CREER_ANNONCE_G.detailProduit}</h2>
                 </div>
                 <div id='etape2' className='wrapperAvancement'>
-                    <button className='buttonAvancement'></button><h2>Prix d'acheminement du Produit</h2>
+                    <button className='buttonAvancement'></button><h2>{langue.CREER_ANNONCE_G.prixProduit}</h2>
                 </div>
                 <div id='etape3' className='wrapperAvancement'>
-                    <button className='buttonAvancement'></button><h2>Recapitulatif de votre annonce</h2>
+                    <button className='buttonAvancement'></button><h2>{langue.CREER_ANNONCE_G.recapitulatif}</h2>
                 </div>
             </div>
         );

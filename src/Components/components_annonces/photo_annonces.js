@@ -2,6 +2,9 @@ import './photo_annonces.css';
 import React, {useState} from "react";
 import 'reactjs-popup/dist/index.css';
 import Popup1 from "./popup";
+import { useEffect } from 'react';
+import { français } from '../../langues/français'
+import { anglais } from '../../langues/anglais'
 
 const Swal = require('sweetalert2')
 
@@ -13,6 +16,12 @@ function Photo_annonces(props){
     const prixAcheteur = 45 ;
     const prixvoyageur = 45 ;
     const [isChecked, setIsChecked] = useState(false);
+
+    const [langue, setLangue] = useState(français);
+
+    useEffect( () => {
+        setLangue(anglais);
+    })
 
     const handleCheckboxChange = () => {
         setIsChecked(!isChecked);
@@ -50,11 +59,11 @@ function Photo_annonces(props){
 
         return (
             <div className={'div_photo'}>
-                <button className={props.taille}>Achat</button>
+                <button className={props.taille}>{langue.COMPONENT_ANNONCE.achat}</button>
                 <input
                     className={props.taille}
                     type="button"
-                    value="Voyage"
+                    value={langue.COMPONENT_ANNONCE.voyage}
                     onClick={handlePopup}
                 />
                 {isOpen && <Popup1
