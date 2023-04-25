@@ -24,6 +24,22 @@ export const anglais = {
         mdp: "Password",
         mdpPH: "Enter your password"
     },
+    INSCRIPTION: {
+        inscription: "Registration",
+        email: "Email",
+        dateNaissance: "Date of birth",
+        nom: "Name",
+        prenom: "First name",
+        mdp: "Password",
+        mdpConfirmation: "Confirm your password",
+        adresse: "Adress",
+        ville: "City",
+        pays: "Country",
+        numTel: "Phone number",
+        ci: "ID card",
+        photo: "Photo",
+        inscrire: "Register"
+    },
     ANNONCES: {
         bonjour: "Hello", 
         textEntete_1: "Find below all the ads posted !",
@@ -35,7 +51,7 @@ export const anglais = {
         comestible: "Edible",
         liquide: "Liquid",
         typeAnnonce: "Type of ad",
-        achat: "Purchase",
+        achat: "Buy",
         voyage: "Travel", 
         retribution: "Retribution",
         devise: "Currency",
@@ -50,7 +66,7 @@ export const anglais = {
         livrer: "I can deliver"
     },
     COMPONENT_ANNONCE:{
-        achat: "Purchase",
+        achat: "Buy",
         voyage: "Travel",
         contrepartie: "Consideration",
         coutProduit: "Product cost"
@@ -82,7 +98,8 @@ export const anglais = {
         contrepartie: "My consideration",
         actionAttente: "Pending actions",
         actionAcheter: "Buy the product",
-        actionLivraison: "In progress"
+        actionLivraison: "In progress",
+        titre: "My purchases and travels"
     },
     CREER_ANNONCE_G:{
         precedent: "Previous",
@@ -100,7 +117,10 @@ export const anglais = {
         glisser: "Drag and drop here",
         poid: "Product weight",
         titreAnnonce: "Ad title",
-        description: "Description"
+        description: "Description",
+        poids1: "Less than 1kg",
+        poids2: "Between 1kg and 5kg",
+        poids3: "More than 5kg"
     },
     CREER_ANNONCE_2:{
         titre: "Price and delivery of the product",
@@ -120,12 +140,67 @@ export const anglais = {
         titreAnnonce: "Title of the ad",
         paysAchat: "Country of purchase",
         villeLivraison: "Delivery city",
-        prixProduit: "Porduct price",
+        prixProduit: "Product price",
         description: "Description",
         commissionA: "Buyer's fee",
         commissionV: "Traveler's fee",
         commissionBwob: "Bwob fee",
         prixTot: "Total price",
         texte: "This amount will be paid ..."
+    },
+    ADMIN: {
+        ciValider: "ID cards to be validated :",
+        annoncesValider: "Ads to be validated :",
+        dateNaissance: "Date of birth : ",
+        valider: "Confirm",
+        refuser: "Refuse"
+    },
+    POFIL_AUTRE: {
+        achat: "purchases",
+        voyages: "travels",
+        annoncesPostees: "posted ads",
+        envoyerMessage: "Send a message",
+        annonces: "Ads"
+    },
+    POP_UP_INSCRIPTION:{
+        titre: "Sign up for an ad",
+        acheminementProduit: "Product routing",
+        cliquerIci: "click here to select",
+        acheteur: "I can be a buyer",
+        voyageur: "I can be a traveler",
+        coutProduit: "Product cost:", 
+        rembourser: "You will be refunded once the product has been delivered.",
+        contrepartie: "Consideration you will receive:",
+        total: "Total",
+        contreparties: "the rewards you will receive",
+        condition: "Accept the general conditions of use",
+        valider: "Validate",
+        annuler: "Cancel"
+    },
+    POP_UP_PAYEMENT_1:{
+        titre:"Payment of your ad",
+        detailsModalites: "Details of payment modalities",
+        commissionA: "Buyer's commission",
+        remboursementA: "Buyer's refund",
+        carte: "By card",
+        espece: "In cash",
+        especeImpossibleA: "Cash payment impossible, you will not meet the buyer",
+        especeImpossibleBwob: "Cash payment not possible regarding the BWoB commission",
+        commissionV: "Traveler's commission",
+        commissionBwob: "BWoB commission",
+        payement:"Proceed to payment",
+        annuler: "Cancel"
+    },
+    POP_UP_PAYEMENT_2:{
+        titre:"Paying for your ad",
+        numCarte: "Card number",
+        dateExpi: "Deadline",
+        cvv: "CVV",
+        donnesPerso: "Your personal data will be used to complete your order, as well as for all other purposes described in your security policy",
+        montantRegler: "Amount to be paid",
+        montantDiffere: "Amount deferred",
+        coutProduit: "Cost of your product",
+        total: "Total to be paid :",
+        payer: "Pay"
     }
 };

@@ -35,6 +35,22 @@ function Photo_annonces(props){
         setprix(0);
     }
 
+    const handlePopupAcheteur = () => {
+        setIsOpen(!isOpen);
+        setIsChecked(false);
+        setClickedAcheteur(true);
+        setClickedVoyageur(false);
+        setprix(prixAcheteur);
+    }
+
+    const handlePopupVoyageur = () => {
+        setIsOpen(!isOpen);
+        setIsChecked(false);
+        setClickedAcheteur(false);
+        setClickedVoyageur(true);
+        setprix(prixvoyageur);
+    }
+
     const handlePopupValidate = () => {
         // sauvegarder les choix retenu
         setIsOpen(!isOpen);
@@ -62,30 +78,32 @@ function Photo_annonces(props){
         }
     }
 
-
-
-
         return (
             <div className={'div_photo'}>
-                <button className={props.taille}>{langue.COMPONENT_ANNONCE.achat}</button>
+                <input
+                    className={props.taille}
+                    type="button"
+                    value={langue.COMPONENT_ANNONCE.achat}
+                    onClick={handlePopupAcheteur}
+                />
                 <input
                     className={props.taille}
                     type="button"
                     value={langue.COMPONENT_ANNONCE.voyage}
-                    onClick={handlePopup}
+                    onClick={handlePopupVoyageur}
                 />
                 {isOpen && <Popup1
                     content={<>
                         <div id={"général"}>
                             <div className="div_entete">
-                                <b>S'inscrire à une annonces</b>
+                                <b>{langue.POP_UP_INSCRIPTION.titre}</b>
                             </div>
                             <div id="acheminementProduit1">
                                 <label id="titreproduit"><strong>Titre produit</strong></label>
                                 <br></br>
                                 <label id="texteAcheminement">
-                                    <strong> Acheminement du produit
-                                        <span id="texteparenthése">(cliquez ici pour selectionner)</span>
+                                    <strong> {langue.POP_UP_INSCRIPTION.acheminementProduit}
+                                        <span id="texteparenthése">({langue.POP_UP_INSCRIPTION.cliquerIci})</span>
                                     </strong>
                                 </label>
                                 <div id="divAcheteur1" className={`${clickedAcheteur ? 'divClicked' : ''} contour_bleu`} onClick={handleClickAcheteur}>
@@ -93,17 +111,16 @@ function Photo_annonces(props){
                                         <i className="logoImageGauche1 fa-solid fa-bag-shopping"></i>
                                     </div>
                                     <div className="divTextDetail">
-                                        <p>Je peux être un acheteur</p>
+                                        <p>{langue.POP_UP_INSCRIPTION.acheteur}</p>
                                         <p className="divtextBig"><strong>Allemagne, Europe </strong></p>
                                     </div>
                                     <div className="divCoutProduit">
-                                        <p><strong>Coût du produit: </strong></p>
+                                        <p><strong>{langue.POP_UP_INSCRIPTION.coutProduit} </strong></p>
                                         <p className="divtextBig"><strong> 1330,00€ </strong></p>
-                                        <p id="text_Indication_Rembourssement">vous serez remboursé losque le produit
-                                            aura éié livré. </p>
+                                        <p id="text_Indication_Rembourssement">{langue.POP_UP_INSCRIPTION.rembourser} </p>
                                     </div>
                                     <div className="divContrepartie1">
-                                        <p className="divTextContrepartie">Contrepartie que vous recevrez :</p>
+                                        <p className="divTextContrepartie">{langue.POP_UP_INSCRIPTION.contrepartie}</p>
                                         <p className="divtextBig prixC"><strong> {prixAcheteur}€ </strong></p>
                                     </div>
                                 </div>
@@ -113,7 +130,7 @@ function Photo_annonces(props){
                                     </div>
                                     <div id="divDetailV">
                                         <div id="textVoyageur" className="divTextDetail">
-                                            Je peux être un voyageur
+                                            {langue.POP_UP_INSCRIPTION.voyageur}
                                         </div>
                                         <div className="divVoyage">
                                             <div className="divtextBig" id="divPaysDepat">
@@ -128,15 +145,15 @@ function Photo_annonces(props){
                                         </div>
                                     </div>
                                     <div className="divContrepartie1">
-                                        <p className="divTextContrepartie">Contrepartie que vous recevrez :</p>
+                                        <p className="divTextContrepartie">{langue.POP_UP_INSCRIPTION.contrepartie}</p>
                                         <p className="divtextBig prixC"><strong> {prixvoyageur}€</strong></p>
                                     </div>
                                 </div>
                             </div>
                             <div className="divTot">
                                 <div id="divTotText">
-                                    <p className="textBig"><strong>Total </strong></p>
-                                    <p className="textTot"><strong> des contreparties que vous recevez </strong></p>
+                                    <p className="textBig"><strong>{langue.POP_UP_INSCRIPTION.total} </strong></p>
+                                    <p className="textTot"><strong> {langue.POP_UP_INSCRIPTION.contreparties} </strong></p>
                                 </div>
                                 <div id="divTotPrix">
                                     <p className="divtextBig prixTot"><strong>{prix}€</strong></p>
@@ -148,7 +165,7 @@ function Photo_annonces(props){
                                 ) : (
                                     <i className="fa-regular fa-circle" alt="Unchecked" ></i>
                                 )}
-                                <span><strong> accepter les conditions général d'utilisation</strong></span>
+                                <span><strong> {langue.POP_UP_INSCRIPTION.condition}</strong></span>
                             </div>
                         </div>
 

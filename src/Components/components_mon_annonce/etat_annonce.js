@@ -32,7 +32,7 @@ function Etat_annonce(props) {
     } else if (props.typeEtat == "manquePayement") {
         return (
             <div className="actions">
-                <h4 className={"titre_element_annonces"}>Etat</h4>
+                <h4 className={"titre_element_annonces"}>{langue.MES_ANNONCES.etat}</h4>
                 <p id={"text_attente_payement"}><strong>{langue.MES_ANNONCES.attentePayement}</strong></p>
                 <p id={"text_payement"}><strong>{langue.MES_ANNONCES.modePayement}</strong></p>
                 <div id={"div_bouton_payement"}>
@@ -99,36 +99,36 @@ function Etat_annonce(props) {
 
         Swal.fire({
             html:
-                '<div class="div_entete"><b>Payement de votre annonce</b></div>' +
+                `<div class="div_entete"><b>${langue.POP_UP_PAYEMENT_1.titre}</b></div>` +
                 '<div class="conteur_general_pop_up">' +
-                '<b id="text_detail">Détail des modalité de payement</b> ' +
+                `<b id="text_detail">${langue.POP_UP_PAYEMENT_1.detailsModalites}</b> ` +
                 '<div id="div_1" class="conteur_pop_up">' +
-                '<p class="texte">Commission de l\'acheteur</p>' +
+                `<p class="texte">${langue.POP_UP_PAYEMENT_1.commissionA}</p>` +
                 `<p class="prix"><strong>${comAcheteur}  €</strong></p>` +
-                '<p class="texte">Remboursement de l\'acheteur</p>' +
+                `<p class="texte">${langue.POP_UP_PAYEMENT_1.remboursementA}</p>` +
                 `<p class="prix"><strong>${coutProduit} €</strong></p>` +
                 '<ul class ="liste">' +
-                '<li> <input type="checkbox"> Par carte bancaire </input></li>' +
-                '<li class="messagre_grisé"> <i class="fa-solid fa-square"></i> En especes</li>' +
+                `<li> <input type="checkbox"> ${langue.POP_UP_PAYEMENT_1.carte} </input></li>` +
+                `<li class="messagre_grisé"> <i class="fa-solid fa-square"></i> ${langue.POP_UP_PAYEMENT_1.espece} </li>` +
                 '</ul>' +
-                '<p class="texte_info">Paiment en espèces impossible, vous ne serez pas amené à croiser l\'acheteur</p>' +
+                `<p class="texte_info">${langue.POP_UP_PAYEMENT_1.especeImpossibleA}</p>` +
                 '</div>' +
                 '<div id="div_2" class="conteur_pop_up">' +
-                '<p class="texte">Commission du voyageur</p>' +
+                `<p class="texte">${langue.POP_UP_PAYEMENT_1.commissionV}</p>` +
                 `<p class="prix"><strong>${comVoyageur} €</strong></p>` +
                 '<ul class ="liste">' +
-                '<li> <input type="radio" name="myRadioGroup"> Par carte bancaire</input> </li>' +
-                '<li > <input type="radio" name="myRadioGroup"> En especes</input> </li>' +
+                `<li> <input type="radio" name="myRadioGroup"> ${langue.POP_UP_PAYEMENT_1.carte}</input> </li>` +
+                `<li > <input type="radio" name="myRadioGroup"> ${langue.POP_UP_PAYEMENT_1.espece}</input> </li>` +
                 '</ul>' +
                 '</div>' +
                 '<div id="div_3" class="conteur_pop_up">' +
-                '<p class="texte">Commission de BWoB</p>' +
+                `<p class="texte">${langue.POP_UP_PAYEMENT_1.commissionBwob}</p>` +
                 `<p class="prix"><strong>${comBwob} €</strong></p>` +
                 '<ul class ="liste">' +
-                '<li> <input type="checkbox"> Par carte bancaire </input></li>' +
-                '<li class="messagre_grisé"> <i class="fa-solid fa-square"></i> En especes</li>' +
+                `<li> <input type="checkbox"> ${langue.POP_UP_PAYEMENT_1.commissionBwob} </input></li>` +
+                `<li class="messagre_grisé"> <i class="fa-solid fa-square"></i> ${langue.POP_UP_PAYEMENT_1.carte} </li>` +
                 '</ul>' +
-                '<p class="texte_info">Paiment en espèces impossible, concernant la comission BWoB</p>' +
+                `<p class="texte_info"> ${langue.POP_UP_PAYEMENT_1.especeImpossibleBwob} </p>` +
                 '</div>' +
                 '</div>',
             customClass: 'swal-wide',
@@ -137,57 +137,56 @@ function Etat_annonce(props) {
             color: '#0f0f10',
             showCloseButton: true,
             showCancelButton: true,
-            cancelButtonText: 'Annuler',
+            cancelButtonText: `${langue.POP_UP_PAYEMENT_1.annuler}`,
             confirmButtonColor: '#f59446',
-            confirmButtonText: 'Procéder au payement',
+            confirmButtonText: `${langue.POP_UP_PAYEMENT_1.payement}`,
             cancelButtonAriaLabel: 'Thumbs down',
 
         }).then((result) => {
             if (result.isConfirmed) {
                 Swal.fire({
-                    html: '<div class="div_entete"><b>Payement de votre annonce</b></div>' +
+                    html: `<div class="div_entete"><b>${langue.POP_UP_PAYEMENT_2.titre}</b></div>` +
                         '<div class="conteur_general_pop_up">' +
                         '<div id="conteur_pop_up_CB">' +
-                        '<p class="texte_CB">Numero de carte</p>' +
+                        `<p class="texte_CB">${langue.POP_UP_PAYEMENT_2.numCarte}</p>` +
                         '<input id="input_nbr_cb" class="input i_CB" type="text" placeholder="1234 5678 9012 3456"> </input>' +
                         '<div id="div_input_CB">' +
                         '<div id="div_CB_date">' +
-                        '<p id="text_date" class="texte_CB">Date d\'expiration </p>' +
+                        `<p id="text_date" class="texte_CB"> ${langue.POP_UP_PAYEMENT_2.dateExpi} </p>` +
                         '<input id="input_date"  class="input i_CB" type="text" placeholder="MM/AA"></input>' +
                         '</div>' +
                         '<div id="div_CB_CVV">' +
-                        '<p id="text_CVV" class="texte_CB">CVV</p>' +
+                        `<p id="text_CVV" class="texte_CB"> ${langue.POP_UP_PAYEMENT_2.cvv} </p>` +
                         '<input id="input_CVV" class="input i_CB" type="text" placeholder="123"></input>' +
                         '</div>' +
                         '</div>' +
-                        '<p id="description_en_gris">Vous données personelles seront utilisé pour réaliser votre commande, ' +
-                        'ainsi que pour toutes les autres éléments décrit dans votre politique de sécurité </p>' +
+                        `<p id="description_en_gris"> ${langue.POP_UP_PAYEMENT_2.donnesPerso} </p>` +
                         '</div>' +
                         '<div id="conteur_recap_CB">' +
-                        '<p class="grand_titre"><strong>Montant a régler</strong></p>' +
+                        `<p class="grand_titre"><strong> ${langue.POP_UP_PAYEMENT_2.montantRegler} </strong></p>` +
                         '<div class="div_ligne_prix">' +
-                        '<span class="span_text">Commission de l\'acheteur</span>' +
+                        `<span class="span_text"> ${langue.POP_UP_PAYEMENT_1.commissionA} </span>` +
                         `<span class="span_prix">${comAcheteur} €</span>` +
                         '</div>' +
                         '<div class="div_ligne_prix">' +
-                        '<span class="span_text">Commission de BWob</span>' +
+                        `<span class="span_text"> ${langue.POP_UP_PAYEMENT_1.commissionBwob} </span>` +
                         `<span class="span_prix">${comBwob} €</span>` +
                         '</div>' +
                         '<div class="div_ligne_prix">' +
-                        '<span class="span_text">Commission du voyageur</span>' +
+                        `<span class="span_text"> ${langue.POP_UP_PAYEMENT_1.commissionV} </span>` +
                         `<span class="span_prix">${comVoyageur} €</span>` +
                         '</div>' +
-                        '<p class="grand_titre"><strong>Montant prélevé en différé <i class="fa-regular fa-circle-question"></i></strong></p>' +
+                        `<p class="grand_titre"><strong> ${langue.POP_UP_PAYEMENT_2.montantDiffere} <i class="fa-regular fa-circle-question"></i></strong></p>` +
                         '<div id="souligner" class="div_ligne_prix">' +
-                        '<span class="span_text">Coût de votre produit</span>' +
+                        `<span class="span_text"> ${langue.POP_UP_PAYEMENT_2.coutProduit} </span>` +
                         `<span class="span_prix">${coutProduit} €</span>` +
                         '</div>' +
                         '<div class="div_ligne_prix_fin">' +
-                        '<span class="span_text_small"><strong>Total a régler : </strong></span>' +
+                        `<span class="span_text_small"><strong> ${langue.POP_UP_PAYEMENT_2.total} </strong></span>` +
                         `<span class="span_prix_big">${totalCom} €</span>` +
                         '</div>' +
                         '<div class="div_ligne_prix_fin">' +
-                        '<span class="span_text_small"><strong>Montant prélevé en différé : </strong></span>' +
+                        `<span class="span_text_small"><strong> ${langue.POP_UP_PAYEMENT_2.montantDiffere} </strong></span>` +
                         `<span class="span_prix_big">${totalDiffere} €</span>` +
                         '</div>' +
                         '</div>' +
@@ -199,7 +198,7 @@ function Etat_annonce(props) {
                     showCloseButton: true,
                     showConfirmButton: true,
                     confirmButtonColor: '#32c570',
-                    confirmButtonText: `<strong>Payer ${total} €</strong>`,
+                    confirmButtonText: `<strong>${langue.POP_UP_PAYEMENT_2.payer} ${total} €</strong>`,
                     confirmButtonmarginbottom : '10px'
                 })
             }

@@ -25,6 +25,22 @@ export const français = {
         mdp: "Mot de passe",
         mdpPH: "Entrer le mot de passe"
     },
+    INSCRIPTION: {
+        inscription: "Inscription",
+        email: "E-mail",
+        dateNaissance: "Date de naissance",
+        nom: "Nom",
+        prenom: "Prenom",
+        mdp: "Mot de passe",
+        mdpConfirmation: "Confirmation du mot de passe",
+        adresse: "Adresse",
+        ville: "Ville",
+        pays: "Pays",
+        numTel: "Numéros de téléphone",
+        ci: "Pièce d'identité",
+        photo: "Photo",
+        inscrire: "S'inscrire"
+    },
     PROFIL: {
         total: "Total gagné",
         mail: "Email",
@@ -83,7 +99,8 @@ export const français = {
         contrepartie: "Ma contrepartie",
         actionAttente: "Actions en attente",
         actionAcheter: "Acheter le produit",
-        actionLivraison: "En cours de livraison"
+        actionLivraison: "En cours de livraison",
+        titre: "Mes achats et voyages"
     },
     CREER_ANNONCE_G:{
         precedent: "Precedent",
@@ -101,7 +118,10 @@ export const français = {
         glisser: "Gisser ici",
         poid: "Poids du produit",
         titreAnnonce: "Titre de l'annonce",
-        description: "Description"
+        description: "Description",
+        poids1: "Moins de 1kg",
+        poids2: "Entre 1kg et 5kg",
+        poids3: "Plus de 5kg"
     },
     CREER_ANNONCE_2:{
         titre: "Prix et acheminement du produit",
@@ -128,5 +148,60 @@ export const français = {
         commissionBwob: "Commission de BWob",
         prixTot: "Prix total",
         texte: "Cette somme sera à régler ..."
+    },
+    ADMIN: {
+        ciValider: "Cartes d'identité à valider :",
+        annoncesValider: "Annonces à valider",
+        dateNaissance: "Date de naissance : ",
+        valider: "Valider",
+        refuser: "Refuser"
+    },
+    POFIL_AUTRE: {
+        achat: "achats",
+        voyages: "voyages",
+        annoncesPostees: "annonces postées",
+        envoyerMessage: "Envoyer un message",
+        annonces: "Annonces"
+    },
+    POP_UP_INSCRIPTION:{
+        titre: "S'inscrire à une annonce",
+        acheminementProduit: "Acheminement du produit",
+        cliquerIci: "cliquez ici pour selectionner",
+        acheteur: "Je peux être un acheteur",
+        voyageur: "Je peux être un voyageur",
+        coutProduit: "Coût du produit:", 
+        rembourser: "Vous serez remboursé lorsque le produit aura été livré.",
+        contrepartie: "Contrepartie que vous recevrez:",
+        total: "Total",
+        contreparties: "des contreparties que vous recevrez",
+        condition: "Accepter les conditions générales d'utilisation",
+        valider: "Valider",
+        annuler: "Annuler"
+    },
+    POP_UP_PAYEMENT_1:{
+        titre:"Payement de votre annonce",
+        detailsModalites: "Détail des modalité de payement",
+        commissionA: "Commission de l'acheteur",
+        remboursementA: "Remboursement de l\'acheteur",
+        carte: "Par carte bancaire",
+        espece: "En especes",
+        especeImpossibleA: "Paiment en espèces impossible, vous ne serez pas amené à croiser l'acheteur",
+        especeImpossibleBwob: "Paiment en espèces impossible concernant la comission BWoB",
+        commissionV: "Commission du voyageur",
+        commissionBwob: "Commission de BWoB",
+        payement:"Procéder au payement",
+        annuler: "Annuler"
+    },
+    POP_UP_PAYEMENT_2:{
+        titre:"Payement de votre annonce",
+        numCarte: "Numero de carte",
+        dateExpi: "Date d'expiration",
+        cvv: "CVV",
+        donnesPerso: "Vos données personelles seront utilisées pour réaliser votre commande, ainsi que pour tous les autres éléments décrits dans votre politique de sécurité",
+        montantRegler: "Montant a régler",
+        montantDiffere: "Montant prélevé en différé",
+        coutProduit: "Coût de votre produit",
+        total: "Total a régler :",
+        payer: "Payer"
     }
 };

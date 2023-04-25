@@ -6,6 +6,11 @@
     background: url("/public/images/ordi.png") no-repeat;
     background-size: 100%;
 }
+
+.div_photo input:hover{
+    cursor: pointer;
+}
+
 .boutons_photo{
     background-color: #FF8802;
     color: white;

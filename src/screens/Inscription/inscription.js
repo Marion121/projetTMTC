@@ -1,7 +1,7 @@
 import NavBar from '../../Components/navBar/navbar';
 import './inscription.css'
 import '../css_general.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppStore } from '../../donness';
 import { français } from '../../langues/français'
@@ -21,6 +21,19 @@ function Inscription() {
     const [pays, setPays] = useState("");
     const [telephone, setTelephone] = useState("");
     const [message, setMessage] = useState("");
+    const [langue, setLangue] = useState(français);
+
+
+    useEffect( () => {
+        console.log(localStorage.getItem("Langue"));
+        if(localStorage.getItem("Langue") == "anglais"){
+            setLangue(anglais);
+        }else{
+            setLangue(français);
+        }
+        //setLangue(anglais);
+        console.log("ok");
+    })
 
     function goAnnonces() {
         console.log(dateBirth);
@@ -81,75 +94,75 @@ function Inscription() {
             </div>
             <div className='reste'>
                 <div className="container_form_inscription ">
-                <h1>Inscription </h1>
+                <h1>{langue.INSCRIPTION.inscription} </h1>
                     <form className='form_inscription' method="POST" onSubmit={handleSubmit}>
                     
                         <table>
                             <tr>
                                 <td>
-                                    <label>E-mail</label>
+                                    <label>{langue.INSCRIPTION.email}</label>
                                     <input className="Input contour_bleu" type="email" placeholder="Entrer votre e-mail" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required></input>
                                 </td>
                                 <td>
-                                    <label>Date de naissance</label>
+                                    <label>{langue.INSCRIPTION.dateNaissance}</label>
                                     <input className="contour_bleu" type="date" placeholder="Entrer votre date de naissance" name="dateBirth"  value={dateBirth} onChange={(e) => setDateBirth(e.target.value)} required></input>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <label>Nom</label>
+                                    <label>{langue.INSCRIPTION.nom}</label>
                                     <input className="contour_bleu" type="text" placeholder="Entrer votre nom" name="nom" value={nom} onChange={(e) => setNom(e.target.value)} required></input>
                                 </td>
                                 <td>
-                                    <label>Prenom</label>
+                                    <label>{langue.INSCRIPTION.prenom}</label>
                                     <input className="contour_bleu" type="text" placeholder="Entrer votre prenom" name="prenom" value={prenom} onChange={(e) => setPrenom(e.target.value)} required></input>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <label>Mot de passe</label>
+                                    <label>{langue.INSCRIPTION.mdp}</label>
                                     <input className="contour_bleu" type="password" placeholder="Entrer le mot de passe"  name="password" value={password} onChange={(e) => setPassword(e.target.value)} required></input>
                                 </td>
                                 <td>
-                                    <label>Confirmation de mot de passe</label>
+                                    <label>{langue.INSCRIPTION.mdpConfirmation}</label>
                                     <input className="contour_bleu" type="password" placeholder="Confirmer votre mot de passe" name="passwordConfirm" pattern={password} required></input>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <label>Adresse</label>
+                                    <label>{langue.INSCRIPTION.adresse}</label>
                                     <input className="contour_bleu" type="text" placeholder="Entrer votre adresse" name="adress" value={adresse} onChange={(e) => setAdresse(e.target.value)} required></input>
                                 </td>
                                 <td>
-                                    <label>Ville</label>
+                                    <label>{langue.INSCRIPTION.ville}</label>
                                     <input className="contour_bleu" type="text" placeholder="Entrer votre ville" name="ville" value={ville} onChange={(e) => setVille(e.target.value)} required></input>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <label>Pays</label>
+                                    <label>{langue.INSCRIPTION.pays}</label>
                                     <input className="Input contour_bleu" type="text" placeholder="Entrer votre pays" name="pays" value={pays} onChange={(e) => setPays(e.target.value)} required></input>
                                 </td>
                                 <td>
-                                    <label>Numéros de téléhone</label>
+                                    <label>{langue.INSCRIPTION.numTel}</label>
                                     <input className="Input contour_bleu" type="tel" placeholder="Entrer votre numéros de téléphone" name="phoneNumber" value={telephone} onChange={(e) => setTelephone(e.target.value)} required></input>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
-                                    <label>Pièce d'identité</label>
+                                    <label>{langue.INSCRIPTION.ci}</label>
                                     <input className="contour_bleu" type="file" name="CI" required></input>
                                 </td>
 
                                 <td>
-                                    <label>Photo</label>
+                                    <label>{langue.INSCRIPTION.photo}</label>
                                     <input className="contour_bleu" type="file" name="Image"></input>
                                 </td>
                             </tr>
                             <tfoot>
                                 <tr>
                                     <td className="submitBouton" colspan="2">
-                                        <input className='connexion' type="submit" id='submit' value='INSCRIPTION'></input>
+                                        <input className='connexion' type="submit" id='submit' value={langue.INSCRIPTION.inscrire}></input>
                                     </td>
                                 </tr>
                             </tfoot>
