@@ -22,17 +22,14 @@ function Inscription() {
     const [telephone, setTelephone] = useState("");
     const [message, setMessage] = useState("");
     const [langue, setLangue] = useState(français);
-
+    //const [hash, ]
 
     useEffect( () => {
-        console.log(localStorage.getItem("Langue"));
         if(localStorage.getItem("Langue") == "anglais"){
             setLangue(anglais);
         }else{
             setLangue(français);
         }
-        //setLangue(anglais);
-        console.log("ok");
     })
 
     function goAnnonces() {
@@ -41,10 +38,27 @@ function Inscription() {
         navigate('/Annonces');
     }
 
+    const getSHA256Hash = async (input) => {
+        const textAsBuffer = new TextEncoder().encode(input);
+        const hashBuffer = await window.crypto.subtle.digest("SHA-256", textAsBuffer);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const hash = hashArray
+          .map((item) => item.toString(16).padStart(2, "0"))
+          .join("");
+        console.log(typeof hash)
+        return hash;
+    };
+
     let handleSubmit = async (e) => {
         e.preventDefault();
-        //useEffect()
-        console.log(dateBirth.type);
+        const textAsBuffer = new TextEncoder().encode(password);
+        const hashBuffer = await window.crypto.subtle.digest("SHA-256", textAsBuffer);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const hash = hashArray
+          .map((item) => item.toString(16).padStart(2, "0"))
+          .join("");
+        console.log(hash)
+        //setPassword(getSHA256Hash);
         try {
             let res = await fetch("http://localhost:8080/api/user", {
                 method: "POST",
@@ -57,13 +71,14 @@ function Inscription() {
                     dateBirth: dateBirth,
                     nom: nom,
                     prenom : prenom,
-                    password : password,
+                    password : hash,
                     adresse : adresse,
                     ville : ville,
                     pays : pays,
                     telephone: telephone,
                     codePostal: 92220,
-                    photo : '../../ImagesUser/profilUserLeo.jpg'
+                    photo : '../../ImagesUser/profilUserJean.jpg',
+                    verifier: false
                 }),
             });
             let resJson = await res.json();

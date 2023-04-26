@@ -10,14 +10,11 @@ function Valide_annonces(props) {
     const [langue, setLangue] = useState(français);
 
     useEffect( () => {
-        console.log(localStorage.getItem("Langue"));
         if(localStorage.getItem("Langue") == "anglais"){
             setLangue(anglais);
         }else{
             setLangue(français);
         }
-        //setLangue(anglais);
-        console.log("ok");
     })
 
     function valider(event) {

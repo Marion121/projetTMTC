@@ -74,7 +74,7 @@ function Annonces() {
                 body: JSON.stringify({
                     offset: 0,
                     limit: 10,
-                    typeImportance: "classic"
+                    typeImportance: "Normal"
                 })
             });
             const data = await response.json();

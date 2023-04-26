@@ -9,21 +9,26 @@ import { français } from '../../langues/français'
 import { anglais } from '../../langues/anglais'
 
 function Admin() {
-
+    const [userNonValide, setUserNonValide]= useState([]);
     const [dataAnnonceRecup, setDataAnnonces] = useState([]);
 
     const [langue, setLangue] = useState(français);
 
     useEffect( () => {
-        console.log(localStorage.getItem("Langue"));
+        async function getNonValideUser() {
+            const response = await fetch(`http://localhost:8080/api/user/invalide?limit=10&offset=0`);
+            const dataUser = await response.json();
+            console.log(dataUser);
+            setUserNonValide(dataUser);
+        }
+        getNonValideUser();
         if(localStorage.getItem("Langue") == "anglais"){
             setLangue(anglais);
         }else{
             setLangue(français);
         }
-        //setLangue(anglais);
-        console.log("ok");
-    })
+        
+    }, []);
 
     const data = [{key:1 , nom:"Comte", prenom : "Leo",dateN :"01/05/2001", idFace : "valise_avion.pnf", idDos : "valise_ouverte.png", valider : "en_attente"},
         {key:2 , nom:"Flamain", prenom : "Vincent",dateN :"01/05/2001", idFace : "valise_avion.pnf", idDos : "valise_ouverte.png", valider : "en_attente"},

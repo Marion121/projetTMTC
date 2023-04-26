@@ -1,28 +1,43 @@
 import './profil.css'
 import '../css_general.css'
 import NavBar from '../../Components/navBar/navbar'
-import {useAppStore} from '../../donness.js'
+import { useAppStore } from '../../donness.js'
 import { français } from '../../langues/français'
 import { anglais } from '../../langues/anglais'
 import { useEffect, useState } from 'react'
 
 
 function Profil() {
-    const utilisateur = JSON.parse(localStorage.getItem("User"));
     const [langue, setLangue] = useState(français);
+    let [utilisateur, setUtilisateur] = useState(JSON.parse(localStorage.getItem("User")));
+    const [nom, setNom] = useState(utilisateur.nom);
+    const [pays, setPays] = useState(utilisateur.pays);
+    
+/*
+    window.onpopstate = (event) => {
+        console.log("on revient en arrière");
+    };
 
-    useEffect( () => {
+    useEffect(() => {
+        console.log(document.getElementById("text_mail").value);
         setLangue(anglais);
-    })
+        const handleBeforeUnload = (event) => {
+            event.preventDefault();
+            //localStorage.setItem("User", JSON.stringify(jsonData));
+            console.log(document.getElementById("text_mail").value);
+        };
 
-    if (document.readyState === 'complete') {
-        console.log(utilisateur.Nom);
-    }
+        window.addEventListener('beforeunload', handleBeforeUnload);
+
+        return () => {
+            window.removeEventListener('beforeunload', handleBeforeUnload);
+        };
+    })*/
 
     return (
         <div className='page'>
             <div className='zone_navBar'>
-                <NavBar/>
+                <NavBar />
             </div>
             <div className="block_general">
                 <button className={"Bretour"}>
@@ -35,7 +50,7 @@ function Profil() {
                 <div className="block_photo_nom_tot">
 
                     <div className="photo_nom">
-                        <img className="PhotoProfil" src={utilisateur.photo} alt='Schémas'/>
+                        <img className="PhotoProfil" src={utilisateur.photo} alt='Schémas' />
                         <div className="b_modif_photo">
                             <Bmodif isActive={false} name="image" type_I='image'></Bmodif>
                         </div>
@@ -50,26 +65,26 @@ function Profil() {
                     </div>
                 </div>
                 <div className="block_info_modif">
-                        <h3>{langue.PROFIL.mail}</h3>
-                        <span className="info" id={"text_mail"}>{utilisateur.email}</span>
-                        <span id={"B_text_mail"}>
-                            <Bmodif  isActive={true} name="text_mail" type_I='email'></Bmodif>
-                        </span>
-                        <h3>{langue.PROFIL.dateNaissance}</h3>
-                        <span className="info" id={"text_date"}>2001-08-08</span>
-                        <span id={"B_text_date"}>
-                            <Bmodif  isActive={true} name="text_date" type_I='date'></Bmodif>
-                        </span>
-                        <h3>{langue.PROFIL.pays}</h3>
-                        <span className="info" id={"Pays"}>{utilisateur.pays} </span>
-                        <span id={"B_Pays"}>
-                            <Bmodif  isActive={true} name="Pays" type_I='text'></Bmodif>
-                        </span>
-                        <h3>{langue.PROFIL.CoordoneesBanque}</h3>
-                        <span className="info" id={"text_cb"}>{utilisateur.CoordonneesBancaires}</span>
-                        <span id={"B_text_cb"}>
-                            <Bmodif className={"b_modif_info"} isActive={true} name="text_cb" type_I='text'></Bmodif>
-                        </span>
+                    <h3>{langue.PROFIL.mail}</h3>
+                    <span className="info" id={"text_mail"}>{utilisateur.email}</span>
+                    <span id={"B_text_mail"}>
+                        <Bmodif isActive={true} name="text_mail" type_I='email'></Bmodif>
+                    </span>
+                    <h3>{langue.PROFIL.dateNaissance}</h3>
+                    <span className="info" id={"text_date"}>2001-08-08</span>
+                    <span id={"B_text_date"}>
+                        <Bmodif isActive={true} name="text_date" type_I='date'></Bmodif>
+                    </span>
+                    <h3>{langue.PROFIL.pays}</h3>
+                    <span className="info" id={"Pays"}>{utilisateur.pays} </span>
+                    <span id={"B_Pays"}>
+                        <Bmodif isActive={true} name="Pays" type_I='text'></Bmodif>
+                    </span>
+                    <h3>{langue.PROFIL.CoordoneesBanque}</h3>
+                    <span className="info" id={"text_cb"}>{utilisateur.CoordonneesBancaires}</span>
+                    <span id={"B_text_cb"}>
+                        <Bmodif className={"b_modif_info"} isActive={true} name="text_cb" type_I='text'></Bmodif>
+                    </span>
                 </div>
             </div>
         </div>
@@ -78,8 +93,8 @@ function Profil() {
 
 
 function Bmodif(props) {
-    const utilisateur = JSON.parse(localStorage.getItem("User"));
     const updateTest = useAppStore((state) => state.updateTest);
+    let [utilisateur, setUtilisateur] = useState(JSON.parse(localStorage.getItem("User")));
 
     let valeur;
     let nomIDSpan = "B_" + props.name;
@@ -128,7 +143,7 @@ function Bmodif(props) {
                 <i className="fa-solid fa-pen-to-square"></i>
             </button>
             <button className={nomClasse} id={nomIDBV} onClick={valider} hidden={true}>
-            <i className="fa-sharp fa-solid fa-check"></i>
+                <i className="fa-sharp fa-solid fa-check"></i>
             </button>
             <button className={nomClasse} id={nomIDBR} onClick={retour} hidden={true}>
                 <i className="fa-sharp fa-solid fa-rotate-right"></i>
