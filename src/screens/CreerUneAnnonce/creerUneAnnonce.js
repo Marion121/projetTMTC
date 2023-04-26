@@ -167,9 +167,9 @@ function CreerUneAnnonce() {
                             <div id='divPoidEtTitre'>
                                 <label>{langue.CREER_ANNONCE_1.poid}</label><br />
                                 <select name='poids' id='choixPoid' className='contour_bleu' value={poids} onChange={handleChangePoids}>
-                                    <option>Moins de 1kg</option>
-                                    <option>Entre 1kg et 5kg</option>
-                                    <option>Plus de 5kg</option>
+                                    <option>{langue.CREER_ANNONCE_1.poids1}</option>
+                                    <option>{langue.CREER_ANNONCE_1.poids2}</option>
+                                    <option>{langue.CREER_ANNONCE_1.poids3}</option>
                                 </select><br />
 
                                 <label>{langue.CREER_ANNONCE_1.titreAnnonce}</label><br />

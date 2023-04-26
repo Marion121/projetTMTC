@@ -7,33 +7,21 @@ import { useState, useEffect } from "react";
 import { français } from '../../langues/français'
 import { anglais } from '../../langues/anglais'
 
-
+const Swal = require('sweetalert2')
 
 function Connexion() {
-    const setIsConnecte = useAppStore((state) => (state.setIsConnecte));
     let navigate = useNavigate();
-    const [message, setMessage] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const setUser = useAppStore((state) => state.setUser);
-    //const [user, setUsers] = useState("");
-    const User = useAppStore((state) => state.User);
-    var myHeaders = new Headers();
-    var myInit = {
-        method: 'GET',
-        headers: myHeaders,
-        mode: 'no-cors',
-        cache: 'default'
-    };
-
+    const [mdpRate, setMdpRate] = useState(false);
 
     const [langue, setLangue] = useState(français);
 
-    useEffect( () => {
+    useEffect(() => {
         setLangue(anglais);
     })
 
-    function goAnnonces(){
+    function goAnnonces() {
         navigate('/Annonces');
     }
 
@@ -43,32 +31,29 @@ function Connexion() {
 
     let handleSubmit = async (e) => {
         e.preventDefault();
-        let res = await fetch(`http://localhost:8080/api/user/connexion?email=${email}&password=${password}`);
-        const jsonData = await res.json();
-        console.log(jsonData);
-        let user = {
-            Email: jsonData.email,
-            Nom: jsonData.nom,
-            Prenom: jsonData.prenom,
-            DateNaissance: jsonData.dateNaissance,
-            Ville: jsonData.ville,
-            Pays: jsonData.pays,
-            CoordonneesBancaires: "1234 1234 1234 1234",
-            photo: jsonData.photo,
-            adresse: jsonData.adresse,
-            telephone: jsonData.telephone,
-            ci: jsonData.ci,
-        };
-        console.log(user);
-        //let newUser = JSON.parse(user);
-        localStorage.setItem("User", JSON.stringify(jsonData));
-        localStorage.setItem("Langue", "anglais");
-        navigate('/Annonces');
-        const utilisateur = JSON.parse(localStorage.getItem("User"));
-        console.log(utilisateur);
-        console.log(localStorage.getItem("Langue"));
-        //utilisateur.Pays = "ESPAGNE";
-        // console.log(utilisateur.Pays);
+        setMdpRate(false);
+        const textAsBuffer = new TextEncoder().encode(password);
+        const hashBuffer = await window.crypto.subtle.digest("SHA-256", textAsBuffer);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const hash = hashArray
+            .map((item) => item.toString(16).padStart(2, "0"))
+            .join("");
+        console.log(hash)
+        let res = await fetch(`http://localhost:8080/api/user/connexion?email=${email}&password=${hash}`);
+        if (res.status == 200) {
+            const jsonData = await res.json();
+            console.log(jsonData.verifier);
+            if (jsonData.verifier) {
+                localStorage.setItem("User", JSON.stringify(jsonData));
+                localStorage.setItem("Langue", "anglais");
+                navigate('/Annonces');
+            }else{
+                profilNonValid();
+            }
+        } else {
+            setMdpRate(true);
+        }
+
     };
 
     return (
@@ -84,14 +69,23 @@ function Connexion() {
                     <input className="Input contour_bleu" type="email" placeholder={langue.CONNEXION.emailPH} name="email" value={email} onChange={(e) => setEmail(e.target.value)} required></input>
 
                     <label>{langue.CONNEXION.mdp}</label>
-                    <input className="Input contour_bleu" type="password" placeholder={langue.CONNEXION.mdpPH} autoComplete="current-password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required></input>
+                    <input className={`${mdpRate ? 'mdpRate' : ''} Input contour_bleu`} type="password" placeholder={langue.CONNEXION.mdpPH} autoComplete="current-password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required></input>
 
-                    <input className="connexion boutonOK" type="submit" id={"bouton_valider_co"}  value='LOGIN'></input>
+                    <input className="connexion boutonOK" type="submit" id={"bouton_valider_co"} value='LOGIN'></input>
 
                 </form>
             </div>
-            <button className={"boutonOK"} id={"inscription_de_co"} onClick={goInscription}> S' inscrire </button>
         </div>
     );
+    function profilNonValid(){
+        Swal.fire({
+            title: "Impossible de se connecter",
+            text: "Votre profil n'a pas encore été validé",
+            icon: "error",
+            confirmButtonColor: '#0093FF',
+            confirmButtonText: 'OK'
+            
+          });
+    };
 }
 export default Connexion;

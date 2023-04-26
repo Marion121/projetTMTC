@@ -24,7 +24,7 @@ function Produit_mon_annonce(prop) {
                 <div id='description_achatsVoyages'>
                     <h3 id={"titre_profil"}>{prop.titre} </h3>
                     <div className='informationProduits'>
-                        <br/>
+                        < br />
                         <p className={'text_lieu'}><i className="logo_lieu_vente fa-solid fa-bag-shopping"></i> {prop.lVente} </p>
                         <p className={'text_lieu'}><i className="logo_achat fa-solid fa-plane-departure"></i> {prop.lAchat} </p>
                     </div>

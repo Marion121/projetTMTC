@@ -23,7 +23,7 @@ function Description_annonces(props) {
             <p className={'text_lieu'}><i className="fa-solid fa-bag-shopping"></i> {props.lVente}</p>
             <p className={'text_lieu'}><i className="fa-solid fa-plane-departure"></i> {props.lAchat}</p>
             <p id={'description'}>{props.description} </p>
-            <p id={'profil'}><strong>{props.profil}</strong></p>
+            <p id={'profil'}><strong>{props.prenom} {props.nom}</strong></p>
         </div>
     )
 }

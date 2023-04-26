@@ -31,6 +31,7 @@ function MesAnnonces() {
             console.log(mesAnnonces);
         }
         fetchMesAnnonces();
+        console.log(mesAnnonces);
     }, []);
 
     return (
@@ -40,7 +41,7 @@ function MesAnnonces() {
             </div>
             <div className="container_mes_achats">
                 <h1>{langue.MES_ANNONCES.titre}</h1>
-                {data.map(dataprop => <Mon_annonce titre={dataprop.titre} lVente={dataprop.lVente} lAchat={dataprop.lAchat} acheteur={dataprop.acheteur} transporteur={dataprop.transporteur} Prix1={dataprop.Prix1} PrixVol={dataprop.PrixVol} Prix3={dataprop.Prix3} PrixProduit={dataprop.PrixProduit} coutTot={dataprop.coutTot} etat={dataprop.etat} ></Mon_annonce>)}
+                {mesAnnonces.map(dataprop => <Mon_annonce titre={dataprop.titre}  lVente={dataprop.ville} lAchat={dataprop.pays.nom} PrixProduit={dataprop.prix} devise={dataprop.devise} etat="manqueVoyageur" ></Mon_annonce>)}
             </div>
         </div>
     );
