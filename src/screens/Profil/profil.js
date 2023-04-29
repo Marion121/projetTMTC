@@ -12,7 +12,7 @@ function Profil() {
     let [utilisateur, setUtilisateur] = useState(JSON.parse(localStorage.getItem("User")));
     const [nom, setNom] = useState(utilisateur.nom);
     const [pays, setPays] = useState(utilisateur.pays);
-    
+    const [mail, setMail] = useState();
 /*
     window.onpopstate = (event) => {
         console.log("on revient en arrière");
@@ -32,7 +32,21 @@ function Profil() {
         return () => {
             window.removeEventListener('beforeunload', handleBeforeUnload);
         };
-    })*/
+    }, [])*/
+
+    useEffect(() => {
+        console.log(utilisateur);
+        console.log(mail);
+    }, [])
+
+    function editMail(newMail) {
+        console.log(newMail);
+        setMail(newMail);
+        setUtilisateur({...utilisateur, email : newMail});
+        console.log(mail);
+        localStorage.setItem("User", JSON.stringify(utilisateur));
+        console.log(localStorage.getItem("User"));
+    }
 
     return (
         <div className='page'>
@@ -68,7 +82,7 @@ function Profil() {
                     <h3>{langue.PROFIL.mail}</h3>
                     <span className="info" id={"text_mail"}>{utilisateur.email}</span>
                     <span id={"B_text_mail"}>
-                        <Bmodif isActive={true} name="text_mail" type_I='email'></Bmodif>
+                        <Bmodif isActive={true} name="text_mail" type_I='email' editMail={editMail}></Bmodif>
                     </span>
                     <h3>{langue.PROFIL.dateNaissance}</h3>
                     <span className="info" id={"text_date"}>2001-08-08</span>
@@ -95,9 +109,13 @@ function Profil() {
 function Bmodif(props) {
     const updateTest = useAppStore((state) => state.updateTest);
     let [utilisateur, setUtilisateur] = useState(JSON.parse(localStorage.getItem("User")));
+<<<<<<< HEAD
     const [nom, setNom] = useState(utilisateur.nom);
     const [prenom, setPrenom] = useState(utilisateur.prenom);
 
+=======
+   // const [newMail, setNewMail] = useState("");
+>>>>>>> 5e5476d7734bbbdb2e6c3694838780aa84bc9b15
     let valeur;
     let nomrecup ;
     let prenomrecup;
@@ -109,6 +127,11 @@ function Bmodif(props) {
     if (props.isActive) {
         nomClasse += ' B_info'
     }
+
+    /*
+    function handleChangeMail(e) {
+        setNewMail(e.target.value);
+      }*/
 
     function modif() {
         if (props.isActive) {
@@ -136,6 +159,7 @@ function Bmodif(props) {
         const name = props.name;
         document.getElementById(nomID).style.display = "inline"
         document.getElementById(nomIDBV).style.display = "none"
+<<<<<<< HEAD
         document.getElementById(nomIDBR).style.display = "none"
         if(props.name == "text_nom_prenom"){
             nomrecup = document.getElementById("input_" + props.name +"1").value
@@ -149,6 +173,11 @@ function Bmodif(props) {
             valeur = document.getElementById("input_" + props.name).value
             document.getElementById(props.name).innerHTML = valeur;
         }
+=======
+        document.getElementById(nomIDBR).style.display = "none";
+        props.editMail(valeur);
+        console.log();
+>>>>>>> 5e5476d7734bbbdb2e6c3694838780aa84bc9b15
     }
 
     function retour() {
