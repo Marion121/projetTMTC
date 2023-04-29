@@ -109,13 +109,10 @@ function Profil() {
 function Bmodif(props) {
     const updateTest = useAppStore((state) => state.updateTest);
     let [utilisateur, setUtilisateur] = useState(JSON.parse(localStorage.getItem("User")));
-<<<<<<< HEAD
     const [nom, setNom] = useState(utilisateur.nom);
     const [prenom, setPrenom] = useState(utilisateur.prenom);
-
-=======
    // const [newMail, setNewMail] = useState("");
->>>>>>> 5e5476d7734bbbdb2e6c3694838780aa84bc9b15
+   //  5e5476d7734bbbdb2e6c3694838780aa84bc9b15
     let valeur;
     let nomrecup ;
     let prenomrecup;
@@ -159,7 +156,6 @@ function Bmodif(props) {
         const name = props.name;
         document.getElementById(nomID).style.display = "inline"
         document.getElementById(nomIDBV).style.display = "none"
-<<<<<<< HEAD
         document.getElementById(nomIDBR).style.display = "none"
         if(props.name == "text_nom_prenom"){
             nomrecup = document.getElementById("input_" + props.name +"1").value
@@ -172,12 +168,10 @@ function Bmodif(props) {
         }else {
             valeur = document.getElementById("input_" + props.name).value
             document.getElementById(props.name).innerHTML = valeur;
+            props.editMail(valeur);
+            console.log();
+            // 5e5476d7734bbbdb2e6c3694838780aa84bc9b15
         }
-=======
-        document.getElementById(nomIDBR).style.display = "none";
-        props.editMail(valeur);
-        console.log();
->>>>>>> 5e5476d7734bbbdb2e6c3694838780aa84bc9b15
     }
 
     function retour() {
