@@ -103,20 +103,15 @@ function Annonces() {
                 <p className="text">{langue.ANNONCES.textEntete_2}</p>
             </div>
             <div className={"div_recherche"}>
-                <span className={"titre_Recherche"} id={"depart"}><i className="fa-solid fa-magnifying-glass"></i>
-                    <input className={"input_recherche"} type={"text"} placeholder={langue.ANNONCES.motsCles}></input>
+                <span className={"conteneur_input_annonces contour_bleu"} id={"depart"}><i className="fa-solid fa-magnifying-glass"></i>
+                    <input className={"input_annonces"} type={"text"} placeholder={langue.ANNONCES.motsCles}></input>
                 </span>
-                <button className={"b_type_voyage"}>
-                    <i className="fa-sharp fa-solid fa-plane-up"></i>
-                    <span id={"span_bouton"}> Aller simple </span>
-                    <i className="fa-solid fa-angle-down"></i>
-                </button>
-                <span className={"titre_depart"} id={"depart"}> {langue.ANNONCES.depart}
-                    <input className={"input_départ"} type={"text"} placeholder={"Votre ville, Pays"}></input>
+                <span className={"conteneur_input_annonces contour_bleu"} id={"depart"}> {langue.ANNONCES.depart}
+                    <input className={"input_annonces"} type={"text"} placeholder={"Votre ville, Pays"}></input>
                 </span>
 
-                <span className={"titre_arrive"}> {langue.ANNONCES.arrivee}
-                    <input className={"input_arrivé"} type={"text"} placeholder={"Madrid, Espagne"}></input>
+                <span className={"conteneur_input_annonces contour_bleu"}> {langue.ANNONCES.arrivee}
+                    <input className={"input_annonces"} type={"text"} placeholder={"Madrid, Espagne"}></input>
                 </span>
             </div>
             <div className={"div_annonces_produit"}>
@@ -140,24 +135,26 @@ function Annonces() {
                     <br />
                     <p className={"titre_recherche_gauche"}><strong></strong></p>
                     <table className={"table_recherche"}>
-                        <tr>
-                            <td>
-                                Min
-                            </td>
-                            <td>
-                                Max
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input className="input_number" type={"number"} onChange={handleMinChange}></input>
-                            </td>
-                            <td>
-                                <input className="input_number" type={"number"} onChange={handleMaxChange}></input>
-                            </td>
-                        </tr>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Min
+                                </td>
+                                <td>
+                                    Max
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input className="input_number" type={"number"} onChange={handleMinChange}></input>
+                                </td>
+                                <td>
+                                    <input className="input_number" type={"number"} onChange={handleMaxChange}></input>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
-                    <p className={"titre_recherche_gauche"}><strong>{langue.ANNONCES.devise}</strong></p>
+                    <p className={"titre_recherche_gauche "}><strong>{langue.ANNONCES.devise}</strong></p>
                     <input type="radio" className={"checkbox_input"} id="Euros" name='devise' value="euro" onChange={handleDeviseChange} />
                     <label htmlFor="Euros">Euros</label>
                     <br />
@@ -187,5 +184,11 @@ export default Annonces;
                     <option value="allez simple"> Allez simple</option>
                     <option value="allez retour"> Allez retour</option>
                 </select>
+
+                <button className={"b_type_voyage"}>
+                    <i className="fa-sharp fa-solid fa-plane-up"></i>
+                    <span id={"span_bouton"}> Aller simple </span>
+                    <i className="fa-solid fa-angle-down"></i>
+                </button>
 
  */

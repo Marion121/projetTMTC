@@ -77,7 +77,7 @@ function NavBar() {
                             <span className="addAnnonce">
                                 <i className="logo_annonce fa-regular fa-file-lines"></i>
                             </span>
-                            <span class="text_add_annonce">
+                            <span className="text_add_annonce">
                                 {langue.NAVBAR.creer}
                             </span>
                         </button>
@@ -130,7 +130,7 @@ function NavBar() {
                             <span className="addAnnonce">
                                 <i className="logo_annonce fa-regular fa-file-lines"></i>
                             </span>
-                            <span class="text_add_annonce">
+                            <span className="text_add_annonce">
                                 {langue.NAVBAR.creer}
                             </span>
                         </button>
