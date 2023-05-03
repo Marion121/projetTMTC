@@ -13,6 +13,7 @@ function Profil() {
     const [nom, setNom] = useState(utilisateur.nom);
     const [pays, setPays] = useState(utilisateur.pays);
     const [mail, setMail] = useState();
+    var mailTest = "";
 /*
     window.onpopstate = (event) => {
         console.log("on revient en arrière");
@@ -36,14 +37,17 @@ function Profil() {
 
     useEffect(() => {
         console.log(utilisateur);
-        console.log(mail);
+        //console.log(mail);
     }, [])
 
     function editMail(newMail) {
         console.log(newMail);
-        setMail(newMail);
-        setUtilisateur({...utilisateur, email : newMail});
-        console.log(mail);
+        //setMail(newMail);
+        mailTest = newMail;
+        //setUtilisateur({...utilisateur, email : mailTest});
+        utilisateur = {...utilisateur, email : mailTest};
+        console.log("mail " ,mail);
+        console.log("mailTest ", mailTest);
         localStorage.setItem("User", JSON.stringify(utilisateur));
         console.log(localStorage.getItem("User"));
     }
@@ -147,7 +151,7 @@ function Bmodif(props) {
         document.getElementById(nomIDBV).style.display = "none"
         document.getElementById(nomIDBR).style.display = "none";
         props.editMail(valeur);
-        console.log();
+        console.log("fin valider");
     }
 
     function retour() {
