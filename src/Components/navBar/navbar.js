@@ -6,7 +6,7 @@ import { français } from '../../langues/français'
 import { anglais } from '../../langues/anglais'
 import { useState, useEffect } from 'react'
 
-function NavBar() {
+function NavBar(props) {
     const utilisateur = JSON.parse(localStorage.getItem("User"));
     const [langue, setLangue] = useState(français);
 
@@ -24,6 +24,7 @@ function NavBar() {
     }
 
     function goCreerAnnonce() {
+        props.save();
         navigate('/creerUneAnnonce');
     }
 
@@ -42,7 +43,7 @@ function NavBar() {
     }
 
     function goAnnonces() {
-
+        
         navigate('/annonces')
     }
 

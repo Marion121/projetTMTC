@@ -14,48 +14,63 @@ function Profil() {
     const [pays, setPays] = useState(utilisateur.pays);
     const [mail, setMail] = useState();
     var mailTest = "";
-/*
+
     window.onpopstate = (event) => {
         console.log("on revient en arrière");
+        save();
     };
 
-    useEffect(() => {
-        console.log(document.getElementById("text_mail").value);
-        setLangue(anglais);
-        const handleBeforeUnload = (event) => {
-            event.preventDefault();
-            //localStorage.setItem("User", JSON.stringify(jsonData));
-            console.log(document.getElementById("text_mail").value);
-        };
 
-        window.addEventListener('beforeunload', handleBeforeUnload);
-
-        return () => {
-            window.removeEventListener('beforeunload', handleBeforeUnload);
-        };
-    }, [])*/
-
-    useEffect(() => {
+    async function save(){
         console.log(utilisateur);
-        //console.log(mail);
-    }, [])
+        
+        let res = await fetch(`http://localhost:8080/api/user?id=${utilisateur.id}`, {
+                method: "PATCH",
+                headers: {    
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*' },
+                body: JSON.stringify(utilisateur)
+            });
+    }
 
     function editMail(newMail) {
-        console.log(newMail);
-        //setMail(newMail);
-        mailTest = newMail;
-        //setUtilisateur({...utilisateur, email : mailTest});
-        utilisateur = {...utilisateur, email : mailTest};
-        console.log("mail " ,mail);
-        console.log("mailTest ", mailTest);
+        utilisateur = {...utilisateur, email : newMail};
         localStorage.setItem("User", JSON.stringify(utilisateur));
         console.log(localStorage.getItem("User"));
+        save();
+    }
+
+    function editNomPrenom(newNom, newPrenom) {
+        console.log("newNom :",newNom);
+        console.log("newPrenom :",newPrenom);
+        utilisateur = {...utilisateur, nom : newNom, prenom:newPrenom};
+        console.log(utilisateur);
+        localStorage.setItem("User", JSON.stringify(utilisateur));
+        console.log(localStorage.getItem("User"));
+        save();
+    }
+
+    function editDateNaissance(newDate) {
+        console.log("NewDate", newDate);
+        utilisateur = {...utilisateur, dateNaissance : newDate};
+        console.log(utilisateur);
+        localStorage.setItem("User", JSON.stringify(utilisateur));
+        console.log(localStorage.getItem("User"));
+        save();
+    }
+
+    function editPays(newPays) {
+        utilisateur = {...utilisateur, pays : newPays};
+        localStorage.setItem("User", JSON.stringify(utilisateur));
+        console.log(localStorage.getItem("User"));
+        save();
     }
 
     return (
         <div className='page'>
             <div className='zone_navBar'>
-                <NavBar />
+                <NavBar save={save}/>
             </div>
             <div className="block_general">
                 <button className={"Bretour"}>
@@ -74,7 +89,7 @@ function Profil() {
                         </div>
                         <div className="nom_prenom">
                             <span id={"text_nom_prenom"}>{utilisateur.nom} {utilisateur.prenom}</span>
-                            <Bmodif isActive={false} name="text_nom_prenom" nom={utilisateur.nom} prenom={utilisateur.prenom} type_I='text'></Bmodif>
+                            <Bmodif isActive={false} name="text_nom_prenom" nom={utilisateur.nom} prenom={utilisateur.prenom} editNomPrenom={editNomPrenom} type_I='text'></Bmodif>
                         </div>
                         <div className="tot_gangne">
                             <p className="tot_text"> {langue.PROFIL.total}</p>
@@ -89,14 +104,14 @@ function Profil() {
                         <Bmodif isActive={true} name="text_mail" type_I='email' editMail={editMail}></Bmodif>
                     </span>
                     <h3>{langue.PROFIL.dateNaissance}</h3>
-                    <span className="info" id={"text_date"}>2001-08-08</span>
+                    <span className="info" id={"text_date"}>{utilisateur.dateNaissance}</span>
                     <span id={"B_text_date"}>
-                        <Bmodif isActive={true} name="text_date" type_I='date'></Bmodif>
+                        <Bmodif isActive={true} editDateNaissance={editDateNaissance} name="text_date" type_I='date'></Bmodif>
                     </span>
                     <h3>{langue.PROFIL.pays}</h3>
                     <span className="info" id={"Pays"}>{utilisateur.pays} </span>
                     <span id={"B_Pays"}>
-                        <Bmodif isActive={true} name="Pays" type_I='text'></Bmodif>
+                        <Bmodif isActive={true} editPays={editPays} name="Pays" type_I='text'></Bmodif>
                     </span>
                     <h3>{langue.PROFIL.CoordoneesBanque}</h3>
                     <span className="info" id={"text_cb"}>{utilisateur.CoordonneesBancaires}</span>
@@ -115,8 +130,8 @@ function Bmodif(props) {
     let [utilisateur, setUtilisateur] = useState(JSON.parse(localStorage.getItem("User")));
     const [nom, setNom] = useState(utilisateur.nom);
     const [prenom, setPrenom] = useState(utilisateur.prenom);
-   // const [newMail, setNewMail] = useState("");
-   //  5e5476d7734bbbdb2e6c3694838780aa84bc9b15
+   
+    
     let valeur;
     let nomrecup ;
     let prenomrecup;
@@ -129,16 +144,10 @@ function Bmodif(props) {
         nomClasse += ' B_info'
     }
 
-    /*
-    function handleChangeMail(e) {
-        setNewMail(e.target.value);
-      }*/
-
     function modif() {
         if (props.isActive) {
             nomClasse += ' B_info'
         }
-        console.log(props.name)
         valeur = document.getElementById(props.name).innerHTML
         document.getElementById(nomID).style.display = "none"
         document.getElementById(nomIDBV).style.display = "inline"
@@ -148,7 +157,6 @@ function Bmodif(props) {
             document.getElementById("input_" + props.name +"1").value = nom ;
             document.getElementById("input_" + props.name +"2").value = prenom;
         }else {
-            console.log(props.name)
             document.getElementById(props.name).innerHTML = "<input id='input_" + props.name + "'type=" + props.type_I + "  />";
             document.getElementById("input_" + props.name).value = valeur;
         }
@@ -160,20 +168,25 @@ function Bmodif(props) {
         const name = props.name;
         document.getElementById(nomID).style.display = "inline"
         document.getElementById(nomIDBR).style.display = "none"
+        document.getElementById(nomIDBV).style.display = "none"
         if(props.name == "text_nom_prenom"){
             nomrecup = document.getElementById("input_" + props.name +"1").value
             prenomrecup = document.getElementById("input_" + props.name +"2").value
-            setNom(nom)
-            setPrenom(prenom)
+            setNom(nomrecup)
+            setPrenom(prenomrecup)
             valeur = nomrecup + " " + prenomrecup;
             document.getElementById(props.name).innerHTML = valeur;
-
+            props.editNomPrenom(nomrecup, prenomrecup);
         }else {
             valeur = document.getElementById("input_" + props.name).value
             document.getElementById(props.name).innerHTML = valeur;
-            props.editMail(valeur);
-            console.log();
-            // 5e5476d7734bbbdb2e6c3694838780aa84bc9b15
+            if(props.name == "text_mail"){
+                props.editMail(valeur);
+            }else if(props.name == "text_date"){
+                props.editDateNaissance(valeur);
+            }else if(props.name == "Pays"){
+                props.editPays(valeur);
+            }
         }
     }
 
