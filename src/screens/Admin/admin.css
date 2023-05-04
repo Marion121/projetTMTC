@@ -1,19 +1,35 @@
-.div_body{
+#div_body_admin{
     margin-top: 70px;
-    display : flex;
 }
 
 .div_validationCarte{
-    margin-top: 10px;
-    margin-left: 20px;
-    width: 650px;
+    margin-left: 10px;
+    width: 590px;
+}
+
+#validation{
+    display: flex;
 }
 
 .div_validationAnnonce{
-    margin-top: 10px;
-    margin-left: 60px;
-    padding-left: 40px;
-    width: 700px;
+    margin-left: 20px;
+    padding-left: 20px;
+    width: 500px;
     border-left: solid;
+}
 
+.div_menu{
+    height: 60px;
+    display: flex;
+    padding-bottom: 10px;
+}
+
+.boutonMenu{
+    width: 400px;
+    margin: auto;
+}
+
+.boutonMenu:hover{
+    background-color: #ffbb6e;
+    color: white;
 }

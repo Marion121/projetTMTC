@@ -19,6 +19,7 @@ import CreerUneAnnonce3 from './screens/CreerUneAnnonce/3creerUneAnnonce';
 import MesAnnonces from './screens/MesAnnonces/mesAnnonces.js'
 import DetailAnnonce from './screens/DetailAnnonce/detailAnnonce';
 import ProfilAutre from "./screens/Profil_autre/profil_autre";
+import Admin_gestion_profil from "./screens/Admin_gestion_profil/admin_gestion_profil";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -30,6 +31,7 @@ root.render(
                 <Route path='/Inscription' element={<Inscription />} />
                 <Route path='/Annonces' element={<Annonces />} />
                 <Route path='/Admin' element={<Admin />} />
+                <Route path='/Admin_gestion_profil' element={<Admin_gestion_profil />} />
                 <Route path='/monProfil' element={<Profil />} />
                 <Route path='/Profil/:id' element={<ProfilAutre />} />
                 <Route path='/mesAchatsEtVoyages' element={<MesAchatsEtVoyages />} />

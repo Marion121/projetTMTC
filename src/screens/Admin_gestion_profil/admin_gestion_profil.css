@@ -1,0 +1,35 @@
+#div_body_admin_profil{
+    margin-top: 70px;
+}
+
+#div_profil_admin{
+    width: 380px;
+    margin-right: 30px;
+}
+
+#gestion_profil{
+    display: flex;
+    width: 820px;
+    margin: auto;
+    padding-top: 100px;
+}
+
+#div_autre_profil{
+    padding-left: 30px;
+    width: 410px;
+    border-left: solid ;
+}
+
+.addAdmin{
+    width: 300px;
+    margin-left: 50px;
+}
+
+.grand_titre_admin{
+    font-size: x-large;
+}
+
+.moyen_titre_admin{
+    font-size: large;
+    line-height: 2px;
+}

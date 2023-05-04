@@ -1,6 +1,7 @@
 /* partie prix */
 .div_prix{
     width: 17%;
+    min-width: 95px;
     border-left: dashed;
     padding-left: 8px;
 }

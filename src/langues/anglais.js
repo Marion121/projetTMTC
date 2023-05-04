@@ -149,11 +149,23 @@ export const anglais = {
         texte: "This amount will be paid ..."
     },
     ADMIN: {
+        menuValidation : "validation of ID cards and Ads",
+        menuGestionCompte : "admin account management",
         ciValider: "ID cards to be validated :",
         annoncesValider: "Ads to be validated :",
         dateNaissance: "Date of birth : ",
         valider: "Confirm",
         refuser: "Refuse"
+    },
+    ADMIN_GESTION_PROFIL: {
+        menuValidation :"validation of ID cards and Ads",
+        menuGestionCompte : "administrator account management",
+        profil : "Profil : ",
+        mail: "Email",
+        mdp: "password",
+        confirmMdp : "Confirm your password",
+        titreAutreAdmin :" management of other administrator : ",
+        boutonAjoutAdmin : "Add an administrator"
     },
     POFIL_AUTRE: {
         achat: "purchases",

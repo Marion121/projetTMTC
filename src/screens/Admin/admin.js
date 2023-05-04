@@ -5,14 +5,21 @@ import Valide_id from "../../Components/components_admin/valide_id";
 import Annonces_vu_voyageur from "../../Components/annonces_vue_voyageur/annonces_vue_voyageur";
 import Valide_annonces from "../../Components/components_admin/valide_annonces";
 import {useEffect, useState} from "react";
+import { useNavigate } from 'react-router-dom';
 import { français } from '../../langues/français'
 import { anglais } from '../../langues/anglais'
+import Admin_gestion_profil from "../Admin_gestion_profil/admin_gestion_profil";
 
 function Admin() {
     const [userNonValide, setUserNonValide]= useState([]);
     const [dataAnnonceRecup, setDataAnnonces] = useState([]);
-
     const [langue, setLangue] = useState(français);
+
+    let navigate = useNavigate();
+
+    function goAdmin_gestion_profil() {
+        navigate('/Admin_gestion_profil');
+    }
 
     useEffect( () => {
         async function getNonValideUser() {
@@ -56,15 +63,21 @@ function Admin() {
         <div className='zone_navBar'>
             <NavBar/>
         </div>
-        <div className='div_body' >
-            <div className='div_validationCarte' >
-                <p>{langue.ADMIN.ciValider}</p>
-                {data.map(dataprop => <Valide_id  nom={dataprop.nom} prenom={dataprop.prenom}  dateN={dataprop.dateN} idFace={dataprop.idFace} idDos={dataprop.idDos} valider={dataprop.valider}></Valide_id>)}
+        <div id="div_body_admin" >
+            <div className='div_menu'>
+                <button className={'boutonOK boutonMenu'} > {langue.ADMIN.menuValidation} </button>
+                <button className={'boutonRefuser boutonMenu '} onClick={goAdmin_gestion_profil}> {langue.ADMIN.menuGestionCompte} </button>
             </div>
-            <div  className='div_validationAnnonce'  >
-                <p>{langue.ADMIN.annoncesValider} </p>
-                <div id={"vue_annonce"}>
-                {dataAnnonce.map(dataAnnonceprop => <Valide_annonces id={dataAnnonceprop.key} titre={dataAnnonceprop.titre} lVente={dataAnnonceprop.lVente} lAchat={dataAnnonceprop.lAchat} description={dataAnnonceprop.description} profil={dataAnnonceprop.profil} typeContrepartie={dataAnnonceprop.typeContrepartie} prix1={dataAnnonceprop.Prix1} prixV={dataAnnonceprop.PrixV} coutTot={dataAnnonceprop.coutTot} valider={dataAnnonceprop.valider}></Valide_annonces>)}
+            <div id = "validation">
+                <div className='div_validationCarte' >
+                    <p>{langue.ADMIN.ciValider}</p>
+                    {data.map(dataprop => <Valide_id  nom={dataprop.nom} prenom={dataprop.prenom}  dateN={dataprop.dateN} idFace={dataprop.idFace} idDos={dataprop.idDos} valider={dataprop.valider}></Valide_id>)}
+                </div>
+                <div  className='div_validationAnnonce'  >
+                    <p>{langue.ADMIN.annoncesValider} </p>
+                    <div id={"vue_annonce"}>
+                    {dataAnnonce.map(dataAnnonceprop => <Valide_annonces id={dataAnnonceprop.key} titre={dataAnnonceprop.titre} lVente={dataAnnonceprop.lVente} lAchat={dataAnnonceprop.lAchat} description={dataAnnonceprop.description} profil={dataAnnonceprop.profil} typeContrepartie={dataAnnonceprop.typeContrepartie} prix1={dataAnnonceprop.Prix1} prixV={dataAnnonceprop.PrixV} coutTot={dataAnnonceprop.coutTot} valider={dataAnnonceprop.valider}></Valide_annonces>)}
+                    </div>
                 </div>
             </div>
         </div>

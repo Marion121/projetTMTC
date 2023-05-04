@@ -150,11 +150,23 @@ export const français = {
         texte: "Cette somme sera à régler ..."
     },
     ADMIN: {
+        menuValidation : "validation des carte d'indentité et des annonces",
+        menuGestionCompte : "gestion des comptes admin",
         ciValider: "Cartes d'identité à valider :",
         annoncesValider: "Annonces à valider",
         dateNaissance: "Date de naissance : ",
         valider: "Valider",
         refuser: "Refuser"
+    },
+    ADMIN_GESTION_PROFIL: {
+        menuValidation : "validation des carte d'indentité et des annonces",
+        menuGestionCompte : "gestion des comptes admin",
+        profil : "Profil : ",
+        mail: "Email",
+        mdp: "mot de passe ",
+        confirmMdp : "confirmer le mot de passe",
+        titreAutreAdmin :" gestion des autres admin : ",
+        boutonAjoutAdmin : "Ajouter un administrateur"
     },
     POFIL_AUTRE: {
         achat: "achats",
