@@ -85,7 +85,8 @@ function ProfilAutre() {
             </div>
             <div id={"annonce_"}>
                 <p><strong>{langue.POFIL_AUTRE.annonces}</strong></p>
-                {annoncesuser.map(dataprop => <Annonces_vu_voyageur id={dataprop.id} titre={dataprop.titre} lVente={dataprop.paysDepart.nom} lAchat={dataprop.villeArriver} description={dataprop.description} nom={visitedUser.nom} prenom={visitedUser.prenom} typeContrepartie={dataprop.typeContrepartie} prix1={dataprop.Prix1} prixV={dataprop.PrixV} coutTot={dataprop.coutTot} ></Annonces_vu_voyageur>)}
+                {annoncesuser.map(dataprop => <Annonces_vu_voyageur id={dataprop.id} titre={dataprop.titre} lVente={dataprop.paysArriver.nom} villeArriver={dataprop.villeArriver} lAchat={dataprop.paysDepart.nom} description={dataprop.description} profil={dataprop.profil} photo={dataprop.image} user={dataprop.user} nom={visitedUser.nom} prenom={visitedUser.prenom} typeContrepartie={dataprop.typeContrepartie} prix1={dataprop.Prix1} prixV={dataprop.PrixV} coutTot={dataprop.coutTot} ></Annonces_vu_voyageur>)}
+
             </div>
         </div>
     </div>)

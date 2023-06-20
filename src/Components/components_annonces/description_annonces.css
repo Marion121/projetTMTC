@@ -20,6 +20,24 @@
     color: #ff973c;
 }
 
+.photoDescriptionAnnonce{
+    margin-top: 6px;
+    margin-right: 4px;
+}
+
+#spanProfilUserAnnonce{
+    margin-bottom: 10px;
+    font-size: x-small;
+}
+
+#spanProfilUserAnnonce:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#spanProfilUserAnnonce:active{
+    color: #3A5984;
+}
 
 .text_lieu{
     line-height: 1px;

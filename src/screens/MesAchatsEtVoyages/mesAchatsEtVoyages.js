@@ -14,7 +14,19 @@ function MesAchatsEtVoyages() {
             setLangue(anglais);
         }else{
             setLangue(français);
-        }
+        }/*
+        useEffect(() => {
+            async function getOffreAcheteur(){
+                let response = await fetch(`http://localhost:8080/api/offre/acheteur/byUser?idAnnonce=${props.annonce.id}`)
+                try{
+                    const data = await response.json();
+                    setIsHidden(true);
+                }catch(e){
+                    setIsHidden(false);
+                }
+            }
+            <AchatsVoyages />
+            getOffreAcheteur()*/
     })
 
     return (
@@ -24,7 +36,7 @@ function MesAchatsEtVoyages() {
             </div>
             <div className="container_mes_achats">
                 <h1>{langue.MES_ACHATS_VOYAGES.titre}</h1>
-                <AchatsVoyages />
+                
             </div>
         </div>
 

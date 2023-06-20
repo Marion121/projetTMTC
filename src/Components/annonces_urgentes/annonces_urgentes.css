@@ -42,6 +42,26 @@
     margin-left: 25px;
 }
 
+#div_profilUrg{
+    margin-left: 6px;
+    margin-top: 3px;
+    margin-left: 3px;
+}
+
+#spanProfilUserAnnonceUrg{
+    margin-bottom: 10px;
+    font-size: x-small;
+}
+
+#spanProfilUserAnnonceUrg:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+#spanProfilUserAnnonceUrg:active{
+    color: #3A5984;
+}
+
 .text_lieu_urgente i{
     font-size: small;
     line-height: 10px;

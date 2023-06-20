@@ -16,6 +16,9 @@ function Description_annonces(props) {
         navigate(`/detailsAnnonce/${id}`, { state: { id: id } });
     }
 
+    function goProfil() {
+        navigate(`/Profil/${props.idUser}`, { state: { idUser: props.idUser } });
+    }
 
     return (
         <div className={'div_description'}>
@@ -23,7 +26,11 @@ function Description_annonces(props) {
             <p className={'text_lieu'}><i className="fa-solid fa-bag-shopping"></i> {props.lVente}</p>
             <p className={'text_lieu'}><i className="fa-solid fa-plane-departure"></i> {props.lAchat}, {props.villeArriver}</p>
             <p id={'description'}>{props.description} </p>
-            <p id={'profil'}><strong>{props.prenom} {props.nom}</strong></p>
+            <div id='divProfilUserAnnonce'>
+                <span id='spanImageDetail'><img className="photoProfil photoDescriptionAnnonce" src={props.photo} alt='Schémas' /></span>
+                <span id={'spanProfilUserAnnonce'} onClick={goProfil}><strong>{props.prenom} {props.nom}</strong></span>
+            </div>
+
         </div>
     )
 }

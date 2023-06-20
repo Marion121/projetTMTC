@@ -14,11 +14,13 @@ function Annonces() {
 
 
     const [dataAnnonces, setDataAnnonces] = useState([]);
+    const [dataAnnoncesUrgentes, setDataAnnoncesUrgentes] = useState([]);
     const [voyage, setVoyage] = useState(false);
     const [achat, setAchat] = useState(false);
     const [max, setMax] = useState();
     const [min, setMin] = useState();
     const [devise, setDevise] = useState();
+    const [filterKeyWords, setFilterKeyWords] = useState();
 
     const [langue, setLangue] = useState(français);
 
@@ -73,16 +75,21 @@ function Annonces() {
                 },
                 body: JSON.stringify({
                     offset: 0,
-                    limit: 10,
+                    limit: 100,
                 })
             });
             const data = await response.json();
             console.log(data);
-            setDataAnnonces(data);
-            console.log(dataAnnonces);
-            //console.log(us)
+            const annoncesUrg = data.filter(item => item.degreImportance === "Urgent");
+            console.log("urg : ", annoncesUrg)
+            setDataAnnoncesUrgentes(annoncesUrg)
+            console.log(data);
+            const annoncesNormal = data.filter(item => item.degreImportance === "Normal");
+            console.log("normal : ", annoncesNormal)
+            setDataAnnonces(annoncesNormal)
         }
         fetchDetails();
+
     }, []);
 
     return (
@@ -103,10 +110,10 @@ function Annonces() {
             </div>
             <div className={"div_recherche"}>
                 <span className={"conteneur_input_annonces contour_bleu"} id={"depart"}><i className="fa-solid fa-magnifying-glass"></i>
-                    <input className={"input_annonces"} type={"text"} placeholder={langue.ANNONCES.motsCles}></input>
+                    <input className={"input_annonces"} type={"text"} placeholder={langue.ANNONCES.motsCles} onChange={(e) => setFilterKeyWords(e.target.value)}></input>
                 </span>
                 <span className={"conteneur_input_annonces contour_bleu"} id={"depart"}> {langue.ANNONCES.depart}
-                    <input className={"input_annonces"} type={"text"} placeholder={"Votre ville, Pays"}></input>
+                    <input className={"input_annonces"} type={"text"} placeholder={"Votre ville, Pays"} ></input>
                 </span>
 
                 <span className={"conteneur_input_annonces contour_bleu"}> {langue.ANNONCES.arrivee}
@@ -162,13 +169,13 @@ function Annonces() {
                     <br />
                 </div>
                 <div className="div_annonces_lamda">
-                    {dataAnnonces.map(dataprop => <Annonces_vu_voyageur id={dataprop.id} titre={dataprop.titre} lVente={dataprop.paysArriver.nom} villeArriver={dataprop.villeArriver} lAchat={dataprop.paysDepart.nom} description={dataprop.description} profil={dataprop.profil} photo={dataprop.image} user={dataprop.user} typeContrepartie={dataprop.typeContrepartie} prix1={dataprop.Prix1} prixV={dataprop.PrixV} coutTot={dataprop.prix} ></Annonces_vu_voyageur>)}
+                    {dataAnnonces.map(dataprop => <Annonces_vu_voyageur id={dataprop.id} titre={dataprop.titre} lVente={dataprop.paysArriver.nom} villeArriver={dataprop.villeArriver} lAchat={dataprop.paysDepart.nom} description={dataprop.description} profil={dataprop.profil} photo={dataprop.image} user={dataprop.user} typeContrepartie={dataprop.typeContrepartie} prix1={dataprop.Prix1} prixV={dataprop.PrixV} coutTot={dataprop.prix} annonce={dataprop} ></Annonces_vu_voyageur>)}
                 </div>
                 <div className={"div_annonces_urgentes"}>
                     <h4 id={"titre_A_urgentes"}>{langue.ANNONCES.annoncesUrg}</h4>
 
                     <div id={"div_annonces_u_border"}>
-                        {data.map(dataprop => <Annonces_urgentes id={dataprop.key} profil={dataprop.profil} titre={dataprop.titre} lVente={dataprop.lVente} lAchat={dataprop.lAchat} prixV={dataprop.PrixV} ></Annonces_urgentes>)}
+                        {dataAnnoncesUrgentes.map(dataprop => <Annonces_urgentes id={dataprop.id} profil={dataprop.profil} titre={dataprop.titre} lVente={dataprop.paysArriver.nom} villeArriver={dataprop.villeArriver} lAchat={dataprop.paysDepart.nom} description={dataprop.description} prixV={dataprop.PrixV} photo={dataprop.image} user={dataprop.user} annonce={dataprop}></Annonces_urgentes>)}
                     </div>
                 </div>
             </div>
