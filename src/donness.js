@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { français } from './langues/français'
 
 export const useAppStore = create((set) => ({
     isConnecte: false,
@@ -18,7 +19,8 @@ export const useAppStore = create((set) => ({
     },
     setUser: (newUser) => set({ User: newUser }),
     CreationAnnonce: {
-        paysDepart: "",
+        paysDepart: {id : 1, nom : "Afghanistan"},
+        paysArriver: {id : 1, nom : "Afghanistan"},
         villeArrivee: "",
         photo: null,
         poids: 1,
@@ -29,6 +31,8 @@ export const useAppStore = create((set) => ({
         degreImportance: "Normal",
         besoinAcheteur: true,
         besoinVoyageur: true,
+        avancement: français.MES_ANNONCES.attenteVoyageurAcheteur,
+
     },
     setCreationAnnonce: (newAnnonce) => set({ CreationAnnonce: newAnnonce }),
     updateTest: (newTest) => set({ test: newTest })

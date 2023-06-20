@@ -71,14 +71,9 @@ function Admin() {
             <div id = "validation">
                 <div className='div_validationCarte' >
                     <p>{langue.ADMIN.ciValider}</p>
-                    {data.map(dataprop => <Valide_id  nom={dataprop.nom} prenom={dataprop.prenom}  dateN={dataprop.dateN} idFace={dataprop.idFace} idDos={dataprop.idDos} valider={dataprop.valider}></Valide_id>)}
+                    {userNonValide.map(dataprop => <Valide_id id={dataprop.id} nom={dataprop.nom} prenom={dataprop.prenom}  dateN={dataprop.dateN} idFace={dataprop.idFace} idDos={dataprop.idDos} valider={dataprop.valider}></Valide_id>)}
                 </div>
-                <div  className='div_validationAnnonce'  >
-                    <p>{langue.ADMIN.annoncesValider} </p>
-                    <div id={"vue_annonce"}>
-                    {dataAnnonce.map(dataAnnonceprop => <Valide_annonces id={dataAnnonceprop.key} titre={dataAnnonceprop.titre} lVente={dataAnnonceprop.lVente} lAchat={dataAnnonceprop.lAchat} description={dataAnnonceprop.description} profil={dataAnnonceprop.profil} typeContrepartie={dataAnnonceprop.typeContrepartie} prix1={dataAnnonceprop.Prix1} prixV={dataAnnonceprop.PrixV} coutTot={dataAnnonceprop.coutTot} valider={dataAnnonceprop.valider}></Valide_annonces>)}
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>)

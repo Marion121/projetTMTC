@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Admin from './screens/Admin/admin';
+import Admin from './screens/Admins/admin';
 import Accueil from './screens/Accueil/accueil.js';
 import reportWebVitals from './reportWebVitals';
 import Profil from './screens/Profil/profil';

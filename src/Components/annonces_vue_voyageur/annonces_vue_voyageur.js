@@ -15,9 +15,9 @@ function Annonces_vu_voyageur(props) {
     return (
         <div className='annonces_div_general' >
             <div id={"div_autour_photo_1"}>
-                <Photo_annonces taille={"boutons_photo"} titre={props.titre} lVente={props.lVente} lAchat={props.lAchat} prix1={props.prix1} prixV={props.prixV} coutTot={props.coutTot} />
+                <Photo_annonces taille={"boutons_photo"} imageURL={props.photo} titre={props.titre} lVente={props.lVente} lAchat={props.lAchat} prix1={props.prix1} prixV={props.prixV} coutTot={props.coutTot} />
             </div>
-            <Description_annonces id={props.id} titre={props.titre} lVente={props.lVente} lAchat={props.lAchat} description={props.description} nom={props.nom} prenom={props.prenom} ></Description_annonces>
+            <Description_annonces id={props.id} titre={props.titre} lVente={props.lVente} lAchat={props.lAchat} villeArriver={props.villeArriver} description={props.description} nom={props.user.nom} prenom={props.user.prenom} ></Description_annonces>
             <Prix_annonces typeContrepartie={props.typeContrepartie} prix1={props.prix1} prixV={props.prixV} coutTot={props.coutTot}  ></Prix_annonces>
         </div>
     );

@@ -41,12 +41,14 @@
 
 #divDevise{
     width: 30%;
-    margin-right: 30px;
+    margin-left: 10%;
 }
 
 #divPrix{
     width: 30%;
+    min-width: 230px;
 }
+
 #divDegImportance{
     width: 30%;
 }

@@ -110,7 +110,8 @@ export const anglais = {
     },
     CREER_ANNONCE_1: {
         titreLieu: "Place of Purchase and Reception",
-        paysAnnonce : "Your product's country",
+        paysAnnonceProduct : "Your product's country",
+        paysAnnonceDelivery: "Delivery country of your product",
         villeArrivee: "Delivery city of your product",
         titreDetail: "Product details",
         photoProduit: "Photo of your product", 

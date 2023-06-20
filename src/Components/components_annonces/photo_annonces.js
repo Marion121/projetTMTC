@@ -21,6 +21,7 @@ function Photo_annonces(props){
 
     useEffect( () => {
         setLangue(anglais);
+        console.log(props.imageURL);
     })
 
     const handleCheckboxChange = () => {
@@ -52,6 +53,9 @@ function Photo_annonces(props){
     }
 
     const handlePopupValidate = () => {
+        if(clickedAcheteur){
+            
+        }
         // sauvegarder les choix retenu
         setIsOpen(!isOpen);
         setIsChecked(false);
@@ -79,7 +83,7 @@ function Photo_annonces(props){
     }
 
         return (
-            <div className={'div_photo'}>
+            <div className={'div_photo'} style={{background: `url(${props.imageURL}) no-repeat` }}>
                 <input
                     className={props.taille}
                     type="button"

@@ -22,14 +22,13 @@ function CreerUneAnnonce2() {
     const [langue, setLangue] = useState(français);
 
     useEffect( () => {
-        console.log(localStorage.getItem("Langue"));
         if(localStorage.getItem("Langue") == "anglais"){
             setLangue(anglais);
         }else{
             setLangue(français);
         }
         //setLangue(anglais);
-        console.log("ok");
+        console.log("degImportance : " , degreImportance);
     })
 
     function goCreerAnnonce3() {
@@ -72,6 +71,7 @@ function CreerUneAnnonce2() {
     function saveDataCreationAnnonce() {
             setCreationAnnonce({
                 paysDepart: CreationAnnonce.paysDepart,
+                paysArriver: CreationAnnonce.paysArriver,
                 villeArrivee: CreationAnnonce.villeArrivee,
                 photo: CreationAnnonce.photo,
                 poids: CreationAnnonce.poids,
@@ -83,6 +83,7 @@ function CreerUneAnnonce2() {
                 besoinAcheteur: clickedAcheteur,
                 besoinVoyageur: clickedVoyageur,
             });
+            console.log(CreationAnnonce.degreImportance);
             goCreerAnnonce3();
     }
 
@@ -101,7 +102,7 @@ function CreerUneAnnonce2() {
                         <div id='divPrixDevise'>
                             <div id='divPrix'>
                                 <label>{langue.CREER_ANNONCE_2.prix}</label><br />
-                                <input className="contour_bleu" type="text" placeholder="8888.88" name="prixAchats" value={prix} onChange={handleChangePrix} required></input>
+                                <input className="contour_bleu" type="text" pattern="[0-9]*" placeholder="8888.88" name="prixAchats" value={prix} onChange={handleChangePrix} required></input>
                             </div>
                             <div id='divDevise'>
                                 <label>{langue.CREER_ANNONCE_2.devise}</label><br />
@@ -130,7 +131,7 @@ function CreerUneAnnonce2() {
                                         {langue.CREER_ANNONCE_2.acheteur}
                                     </div>
                                     <div className='divPaysDetail'>
-                                        Allemagne, Europe
+                                        {CreationAnnonce.paysDepart.nom}
                                     </div>
                                 </div>
                                 <div className='divContrepartie'>
@@ -151,9 +152,9 @@ function CreerUneAnnonce2() {
                                         {langue.CREER_ANNONCE_2.voyageur}
                                     </div>
                                     <div className='divPaysDetail2'>
-                                        <p id="PpaysDepart">Allemagne, Europe</p>
+                                        <p id="PpaysDepart">{CreationAnnonce.paysDepart.nom}</p>
                                         <i class="logo_fleche fa-solid fa-arrow-right"></i>
-                                        <p id="PpaysArrivee">Montréal, Canada, Amérique du nord</p>
+                                        <p id="PpaysArrivee">{CreationAnnonce.villeArrivee}, {CreationAnnonce.paysArriver.nom}</p>
                                     </div>
                                 </div>
                                 <div className='divContrepartie'>

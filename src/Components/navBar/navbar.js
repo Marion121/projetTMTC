@@ -24,7 +24,6 @@ function NavBar(props) {
     }
 
     function goCreerAnnonce() {
-        props.save();
         navigate('/creerUneAnnonce');
     }
 

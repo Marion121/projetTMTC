@@ -22,7 +22,7 @@ function Annonces() {
 
     const [langue, setLangue] = useState(français);
 
-    useEffect( () => {
+    useEffect(() => {
         setLangue(anglais);
     })
 
@@ -64,7 +64,7 @@ function Annonces() {
         }, []);*/
 
 
-   useEffect(() => {
+    useEffect(() => {
         async function fetchDetails() {
             const response = await fetch(`http://localhost:8080/api/annonce/recherche`, {
                 method: "POST",
@@ -74,7 +74,6 @@ function Annonces() {
                 body: JSON.stringify({
                     offset: 0,
                     limit: 10,
-                    typeImportance: "Normal"
                 })
             });
             const data = await response.json();
@@ -163,13 +162,13 @@ function Annonces() {
                     <br />
                 </div>
                 <div className="div_annonces_lamda">
-                    {data.map(dataprop => <Annonces_vu_voyageur id={dataprop.key} titre={dataprop.titre} lVente={dataprop.lVente} lAchat={dataprop.lAchat} description={dataprop.description} profil={dataprop.profil} typeContrepartie={dataprop.typeContrepartie} prix1={dataprop.Prix1} prixV={dataprop.PrixV} coutTot={dataprop.coutTot} ></Annonces_vu_voyageur>)}
+                    {dataAnnonces.map(dataprop => <Annonces_vu_voyageur id={dataprop.id} titre={dataprop.titre} lVente={dataprop.paysArriver.nom} villeArriver={dataprop.villeArriver} lAchat={dataprop.paysDepart.nom} description={dataprop.description} profil={dataprop.profil} photo={dataprop.image} user={dataprop.user} typeContrepartie={dataprop.typeContrepartie} prix1={dataprop.Prix1} prixV={dataprop.PrixV} coutTot={dataprop.prix} ></Annonces_vu_voyageur>)}
                 </div>
                 <div className={"div_annonces_urgentes"}>
                     <h4 id={"titre_A_urgentes"}>{langue.ANNONCES.annoncesUrg}</h4>
 
                     <div id={"div_annonces_u_border"}>
-                        {data.map(dataprop => <Annonces_urgentes id={dataprop.key} profil={dataprop.profil}  titre={dataprop.titre} lVente={dataprop.lVente} lAchat={dataprop.lAchat} prixV={dataprop.PrixV} ></Annonces_urgentes>)}
+                        {data.map(dataprop => <Annonces_urgentes id={dataprop.key} profil={dataprop.profil} titre={dataprop.titre} lVente={dataprop.lVente} lAchat={dataprop.lAchat} prixV={dataprop.PrixV} ></Annonces_urgentes>)}
                     </div>
                 </div>
             </div>

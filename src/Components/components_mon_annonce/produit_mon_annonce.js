@@ -19,7 +19,7 @@ function Produit_mon_annonce(prop) {
         return (
             <div className="produit_container">
                 <div id='div_autour_photo'>
-                    <Photo_annonces taille="boutons_photo" style="border : solid;" />
+                    <Photo_annonces imageURL={prop.imageURL} taille="boutons_photo" style="border : solid;" />
                 </div>
                 <div id='description_achatsVoyages'>
                     <h3 id={"titre_profil"}>{prop.titre} </h3>

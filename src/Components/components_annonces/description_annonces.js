@@ -21,7 +21,7 @@ function Description_annonces(props) {
         <div className={'div_description'}>
             <p id={'titre'} onClick={goDetails} ><strong>{props.titre}</strong></p>
             <p className={'text_lieu'}><i className="fa-solid fa-bag-shopping"></i> {props.lVente}</p>
-            <p className={'text_lieu'}><i className="fa-solid fa-plane-departure"></i> {props.lAchat}</p>
+            <p className={'text_lieu'}><i className="fa-solid fa-plane-departure"></i> {props.lAchat}, {props.villeArriver}</p>
             <p id={'description'}>{props.description} </p>
             <p id={'profil'}><strong>{props.prenom} {props.nom}</strong></p>
         </div>

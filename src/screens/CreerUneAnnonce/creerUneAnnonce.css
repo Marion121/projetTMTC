@@ -1,7 +1,5 @@
 #wrapperPageCreationAnnonce1{
     display: flex;
-    
-
 }
 
 #wrapperPageCreationAnnonce1 label{
@@ -40,14 +38,30 @@
 }
 
 .lieuAchatReception label{
-    margin-left: 15px;
+    border:  black;
 }
-
+/*
 .lieuAchatReception input{
     margin-left: 40px;
     width: 70%;
     margin-top: 14px;
+}*/
+
+#tdChoixPaysDepart{
+    width: 26%;
 }
+#tdChoixPaysLivraison{
+    width: 34%;
+}
+#tdVilleArrivee{
+    width: 28%;
+}
+
+.lieuAchatReception select, .lieuAchatReception input{
+    width: 95%;
+}
+
+
 
 .detailsDuProduit label, .detailsDuProduit input, .detailsDuProduit select{
     margin-left: 20px;
@@ -59,21 +73,26 @@
 
 .logoGauche{
     margin-right: 10px;
+    margin-left: 0;
 }
 
 .detailsDuProduit input:focus{
     margin:  12px 0 12px 20px;
 }
-
+/*
 .lieuAchatReception input:focus{
     margin:  12px 0 12px 40px;
+}*/
+
+.lieuAchatReception select:focus{
+    outline: none;
 }
 
-select{
+.detailsDuProduit select{
     width: 80%;
 }
 
-select:focus{
+.detailsDuProduit select:focus{
     outline: none;
     box-shadow: 0 0 15px 0 #559cc6, 0 2px 2px 0 #559cc6;
     margin:  12px 0 12px 20px;
@@ -142,6 +161,19 @@ select:focus{
 
 #avancement3{
     min-width: 250px;
+    width: 325px;
+}
+
+#LeCanva{
+    height: 120px;
+    width: 120px;
+    padding: 0;
+
+}
+
+/*
+#avancement3{
+    min-width: 250px;
     position: absolute;
     right: 0;
-}
+}*/

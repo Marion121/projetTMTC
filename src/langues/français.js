@@ -111,7 +111,8 @@ export const français = {
     },
     CREER_ANNONCE_1: {
         titreLieu: "Lieu d'achat et de Réception",
-        paysAnnonce : "Pays de votre produit",
+        paysAnnonceProduct : "Pays de votre produit",
+        paysAnnonceDelivery: "Pays de livraison",
         villeArrivee: "Ville de livraison de votre produit",
         titreDetail: "Détails du produit",
         photoProduit: "Photo de votre produit", 

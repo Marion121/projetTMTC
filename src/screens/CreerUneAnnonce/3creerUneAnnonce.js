@@ -16,11 +16,11 @@ function CreerUneAnnonce3() {
     const [langue, setLangue] = useState(français);
 
 
-    useEffect( () => {
+    useEffect(() => {
         console.log(localStorage.getItem("Langue"));
-        if(localStorage.getItem("Langue") == "anglais"){
+        if (localStorage.getItem("Langue") == "anglais") {
             setLangue(anglais);
-        }else{
+        } else {
             setLangue(français);
         }
         //setLangue(anglais);
@@ -34,50 +34,60 @@ function CreerUneAnnonce3() {
     }
 
     let finaliserCreationAnnonce = async (e) => {
+        console.log("depar", CreationAnnonce.paysDepart);
+        console.log("arrive", CreationAnnonce.paysArriver);
+        console.log(CreationAnnonce.photo.length);
         const annoncesEnvoyee = {
             description: CreationAnnonce.description,
             devise: CreationAnnonce.devise,
-            image: "CreationAnnonce.photo",
-            ville : CreationAnnonce.villeArrivee,
-            pays : {
-                id : 1,
-                nom : CreationAnnonce.paysDepart
+            image: CreationAnnonce.photo,
+            villeArriver: CreationAnnonce.villeArrivee,
+            paysDepart: {
+                id: CreationAnnonce.paysDepart.id,
+                nom: CreationAnnonce.paysDepart.nom
             },
-            ville : CreationAnnonce.villeArrivee,
-            user : JSON.parse(localStorage.getItem("User")),
-            titre : CreationAnnonce.titre,
-            prix : parseInt(CreationAnnonce.prixAchats),
-            poids : 3,
-            categorie : "categorie", // ??
-            codePostal : "92220", //sert a rien
-            degreImportance : "1",  // ??
-            typeLivraison : (CreationAnnonce.clickedVoyageur) ? "main propre" : "poste", // voyageur = main propre, sinon poste
-            validite : true,
-            id : "",
-            date : ""
+            paysArriver: {
+                id: CreationAnnonce.paysArriver.id,
+                nom: CreationAnnonce.paysArriver.nom
+            },
+            user: JSON.parse(localStorage.getItem("User")),
+            titre: CreationAnnonce.titre,
+            prix: parseInt(CreationAnnonce.prixAchats),
+            poids: 3,
+            categorie: "categorie", // ??
+            codePostal: "", //sert a rien
+            degreImportance: CreationAnnonce.degreImportance,  // ??
+            typeLivraison: (CreationAnnonce.clickedVoyageur) ? "main propre" : "poste", // voyageur = main propre, sinon poste
+            validite: true,
+            id: "",
+            date: "2",
+            avancement: "2",
         };
         console.log(annoncesEnvoyee);
         e.preventDefault();
         try {
             let res = await fetch("http://localhost:8080/api/annonce", {
                 method: "POST",
-                headers: {    
+                headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*' },
+                    'Access-Control-Allow-Origin': '*'
+                },
                 body: JSON.stringify(annoncesEnvoyee),
             });
             let resJson = await res.json();
-            if (res.OK) {
+            if (res.status === 200) {
                 setCreationAnnonce({
-                    paysDepart: "",
+                    paysDepart: { id: 1, nom: "Afghanistan" },
+                    paysArriver: { id: 1, nom: "Afghanistan" },
                     villeArrivee: "",
                     photo: null,
                     poids: "",
                     titre: "",
                     description: "",
                     prixAchats: "",
-                    devise: "",
+                    devise: "€",
+                    degreImportance: "Normal",
                     besoinAcheteur: false,
                     besoinVoyageur: false,
                 });
@@ -86,13 +96,12 @@ function CreerUneAnnonce3() {
             } else {
                 setMessage("Some error occured");
             }
-            console.log(message);
         } catch (err) {
             console.log(err);
         }
     };
 
-    
+
 
     return (
         <div className='pageCreeruneAnnonce3'>
@@ -110,7 +119,7 @@ function CreerUneAnnonce3() {
                         </div>
                         <div id='divPaysAchat'>
                             <h3>{langue.CREER_ANNONCE_3.paysAchat}</h3>
-                            <p>{CreationAnnonce.paysDepart}</p>
+                            <p>{CreationAnnonce.paysDepart.nom}</p>
                         </div>
                         <div id='divVilleLivraison'>
                             <h3>{langue.CREER_ANNONCE_3.villeLivraison}</h3>

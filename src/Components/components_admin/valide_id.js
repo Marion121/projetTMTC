@@ -1,43 +1,52 @@
 import './valide_id.css';
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import { français } from '../../langues/français';
 import { anglais } from '../../langues/anglais';
 
 function Valide_id(props) {
 
-    const [validation, setvalidation] =  useState(props.valider);
+    const [validation, setvalidation] = useState(props.valider);
     const [langue, setLangue] = useState(français);
 
-    useEffect( () => {
-        if(localStorage.getItem("Langue") == "anglais"){
+    useEffect(() => {
+        if (localStorage.getItem("Langue") == "anglais") {
             setLangue(anglais);
-        }else{
+        } else {
             setLangue(français);
         }
     })
 
-    function valider(event) {
-        setvalidation( "valider");
+    async function valider(event) {
+        console.log("ha")
+        const response = await fetch(`http://localhost:8080/api/user/verifier?id=${props.id}`, {
+            method: "PATCH",
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH',
+                'mode': 'no-cors',
+                'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+            }
+        });
+        
     }
 
     function refuser(event) {
         setvalidation("refuser");
     }
 
-    if(validation === "en_attente"){
     return (
         <div className={'div_general'}>
             <p id={'titre'}><strong>{props.nom} {props.prenom}</strong>  </p>
             <p>{langue.ADMIN.dateNaissance} {props.dateN}</p>
             <div className={'div_img'} >
-                <img className={'img_id'} src='/../../images/valise_fermé.png' alt='idDos'/>
-                <img className={'img_id'} src='/../../images/valise_avion.png' alt='idDos'/>
+                <img className={'img_id'} src='/../../images/valise_fermé.png' alt='idDos' />
+                <img className={'img_id'} src='/../../images/valise_avion.png' alt='idDos' />
             </div>
             <div>
                 <button className={'boutonOK'} onClick={valider}> {langue.ADMIN.valider} </button>
                 <button className={'boutonRefuser'} onClick={refuser}> {langue.ADMIN.refuser} </button>
             </div>
         </div>
-    )}
+    )
 }
 export default Valide_id;

@@ -14,6 +14,8 @@ function ProfilAutre() {
     const utilisateur = JSON.parse(localStorage.getItem("User"));
     const { id } = useParams(); 
     const [langue, setLangue] = useState(français);
+    const [nbAchat, setNbAchat] = useState();
+    const [nbVoyages, setNbVoyages] = useState();
 
     const data = [{ key: 1, titre: "Ordi", lVente: "Paris, France", lAchat: "Lisbone, Portugal", description: "super ordi topito", profil: "Leo Comte", Prix1: "34,00 €", PrixV: "48,00 €", coutTot: "1526,00 €", etat: "manqueVoyageur" },
         { key: 2, titre: "tablette", lVente: "Madrid, Espagne", lAchat: "Londre, Angleterre", description: "super ordi topito", profil: "Leo Comte", Prix1: "44,00 €", PrixV: "38,00 €", coutTot: "1526,00 €", etat: "manquePayement" },
@@ -22,7 +24,6 @@ function ProfilAutre() {
 
     useEffect(() => {
         async function getVisitedUser() {
-            console.log(utilisateur.id);
             const response = await fetch(`http://localhost:8080/api/user?id=${id}`);
             const dataUser = await response.json();
             console.log(dataUser);
@@ -35,8 +36,22 @@ function ProfilAutre() {
             console.log(dataAnnonce);
             setAnnoncesUser(dataAnnonce);
         }
+        async function getNbAchats() {
+            const response = await fetch(`http://localhost:8080/api/offre/acheteur/stat?id=${id}`);
+            const nbAchat = await response.json();
+            console.log(nbAchat);
+            setNbAchat(nbAchat);
+        }
+        async function getNbVoyages() {
+            const response = await fetch(`http://localhost:8080/api/offre/voyageur/stat?id=${id}`);
+            const nbVoyages = await response.json();
+            console.log(nbVoyages);
+            setNbVoyages(nbVoyages);
+        }
         fetchAnnoncesProfil();
         getVisitedUser();
+        getNbAchats();
+        getNbVoyages();
         if(localStorage.getItem("Langue") == "anglais"){
             setLangue(anglais);
         }else{
@@ -60,8 +75,8 @@ function ProfilAutre() {
                     </div>
                 </div>
                 <div>
-                    <p className={'text_caracteristique'}> 34 {langue.POFIL_AUTRE.achat} | 41 {langue.POFIL_AUTRE.voyages} </p>
-                    <p className={'text_caracteristique'}>35 {langue.POFIL_AUTRE.annoncesPostees} </p>
+                    <p className={'text_caracteristique'}> {nbAchat} {langue.POFIL_AUTRE.achat} | {nbVoyages} {langue.POFIL_AUTRE.voyages} </p>
+                    <p className={'text_caracteristique'}>{annoncesuser.length} {langue.POFIL_AUTRE.annoncesPostees} </p>
                     <button id={'envoyer_msg'} >
                         <div> <i className="logo_message fa-regular fa-envelope"></i> </div>
                         <div id={'div_text_bouton'}> <strong>{langue.POFIL_AUTRE.envoyerMessage}</strong> </div>
@@ -70,7 +85,7 @@ function ProfilAutre() {
             </div>
             <div id={"annonce_"}>
                 <p><strong>{langue.POFIL_AUTRE.annonces}</strong></p>
-                {annoncesuser.map(dataprop => <Annonces_vu_voyageur id={dataprop.id} titre={dataprop.titre} lVente={dataprop.pays.nom} lAchat={dataprop.ville} description={dataprop.description} nom={visitedUser.nom} prenom={visitedUser.prenom} typeContrepartie={dataprop.typeContrepartie} prix1={dataprop.Prix1} prixV={dataprop.PrixV} coutTot={dataprop.coutTot} ></Annonces_vu_voyageur>)}
+                {annoncesuser.map(dataprop => <Annonces_vu_voyageur id={dataprop.id} titre={dataprop.titre} lVente={dataprop.paysDepart.nom} lAchat={dataprop.villeArriver} description={dataprop.description} nom={visitedUser.nom} prenom={visitedUser.prenom} typeContrepartie={dataprop.typeContrepartie} prix1={dataprop.Prix1} prixV={dataprop.PrixV} coutTot={dataprop.coutTot} ></Annonces_vu_voyageur>)}
             </div>
         </div>
     </div>)

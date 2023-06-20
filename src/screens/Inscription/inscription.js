@@ -34,8 +34,9 @@ function Inscription() {
 
     function goAnnonces() {
         console.log(dateBirth);
-        setIsConnecte(true);
-        navigate('/Annonces');
+        console.log(typeof dateBirth);
+        var date = new Date(dateBirth);
+        console.log(typeof date);
     }
 
     const getSHA256Hash = async (input) => {
@@ -59,6 +60,9 @@ function Inscription() {
           .join("");
         console.log(hash)
         //setPassword(getSHA256Hash);
+        var date = new Date(dateBirth);
+        var formattedDate = date.toISOString();
+        console.log(typeof formattedDate);
         try {
             let res = await fetch("http://localhost:8080/api/user", {
                 method: "POST",
@@ -68,7 +72,7 @@ function Inscription() {
                     'Access-Control-Allow-Origin': '*' },
                 body: JSON.stringify({
                     email: email,
-                    dateBirth: dateBirth,
+                    dateBirth: formattedDate,
                     nom: nom,
                     prenom : prenom,
                     password : hash,
