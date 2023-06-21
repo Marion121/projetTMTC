@@ -20,12 +20,18 @@ function Annonces() {
     const [max, setMax] = useState();
     const [min, setMin] = useState();
     const [devise, setDevise] = useState();
+    const [msgBienvenue, setmsgBienvenue] = useState();
     const [filterKeyWords, setFilterKeyWords] = useState();
 
     const [langue, setLangue] = useState(français);
 
     useEffect(() => {
         setLangue(anglais);
+        if(utilisateur==null){
+            setmsgBienvenue(langue.ANNONCES.textBienvenue)
+        }else{
+            setmsgBienvenue(utilisateur.prenom +" " +utilisateur.nom)
+        }
     })
 
     function handleVoyageChange(event) {
@@ -99,7 +105,7 @@ function Annonces() {
             </div>
             <div className="div_photo_nom">
 
-                <h1> {langue.ANNONCES.bonjour}  {utilisateur.prenom} {utilisateur.nom}</h1>
+                <h1> {langue.ANNONCES.bonjour} {msgBienvenue} </h1>
                 <br />
                 <br />
                 <br />

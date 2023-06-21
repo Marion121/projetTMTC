@@ -85,7 +85,7 @@
 
 .annonces:hover{
     height: 70px;
-    width: 150px;
+    width: 125px;
     background-color: #fcfcfc;
     border-radius: 10px 10px 10px 10px;
     padding-left: 0;
@@ -104,7 +104,6 @@
 
 .annonces:hover .flecheAnnonces{
     transform: rotate(180deg);
-    color: black;
 }
 .arriere_plan_annonces_appuyé{
     margin-bottom: 30px;
@@ -139,11 +138,22 @@
 /* BOUTON profil */
 .div_profil{
     padding-left: 15px;
-    padding-top: 10px;
+    padding-top: 15px;
     height: 58px;
     width:  130px;
     position: absolute;
     right: 60px;
+}
+
+.dropdown-content p {
+    text-align: left;
+    color:black;
+    border: none;
+    text-decoration: none;
+    background: white;
+    margin-bottom: 1px;
+    height: 17px;
+    width: 100%;
 }
 
 .profil{

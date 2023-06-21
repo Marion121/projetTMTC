@@ -49,7 +49,8 @@ export const français = {
         CoordoneesBanque: "Coordonées bancaires"
     },
     ANNONCES: {
-        bonjour: "Bonjour", 
+        bonjour: "Bonjour",
+        textBienvenue : "Connectez vous !",
         textEntete_1: "Retrouvez si dessous l'ensemble des annonces postées !",
         textEntete_2: "Postulez si vous avez de la place dans votre valise ! ",
         depart: "Depart :",

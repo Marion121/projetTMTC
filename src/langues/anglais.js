@@ -41,7 +41,8 @@ export const anglais = {
         inscrire: "Register"
     },
     ANNONCES: {
-        bonjour: "Hello", 
+        bonjour: "Hello",
+        textBienvenue : "Connect!",
         textEntete_1: "Find below all the ads posted !",
         textEntete_2: "Apply if you have some space in your suitcase!",
         depart: "Start :",

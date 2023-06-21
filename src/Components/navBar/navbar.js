@@ -42,7 +42,6 @@ function NavBar(props) {
     }
 
     function goAnnonces() {
-        
         navigate('/annonces')
     }
 
@@ -102,8 +101,8 @@ function NavBar(props) {
                             <span className="arriere_plan_profil fondConnecte"><img className="PhotoProfilNavBar" src={utilisateur.photo} alt='Schémas' /></span>
                             <i className="flecheProfil fa-solid fa-angle-down"></i>
                             <div className="dropdown-content">
-                                <button onClick={goProfil}>{langue.NAVBAR.profil}</button>
-                                <button onClick={goAccueil}>{langue.NAVBAR.deconnecter}</button>
+                                <p onClick={goProfil}>{langue.NAVBAR.profil}</p>
+                                <p onClick={goAccueil}>{langue.NAVBAR.deconnecter}</p>
                             </div>
                         </button>
                     </div>
@@ -137,14 +136,14 @@ function NavBar(props) {
                     </div>
                     <div className='div_annonces'>
                         <button className='annonces'  onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} >
-                            <span id={"arriere_plan_annonces"}>Annonces <i
+                            <span id={"arriere_plan_annonces"}>{langue.NAVBAR.annonces} <i
                                 className="flecheAnnonces fa-solid fa-angle-down"></i>
                             </span>
                             <div  className="dropdown-content-1">
                                 <div  id={"arriere_plan_annonces_appuyé"}>
-                                    Annonces <i className="flecheAnnonces fa-solid fa-angle-down"></i>
+                                    {langue.NAVBAR.annonces} <i className="flecheAnnonces fa-solid fa-angle-down"></i>
                                 </div>
-                                <button onClick={goConnexion}>Les annonces </button>
+                                <p onClick={goAnnonces}>{langue.NAVBAR.lesAnnonces} </p>
                             </div>
                         </button>
                     </div>
@@ -153,7 +152,7 @@ function NavBar(props) {
                             <span className="arriere_plan_profil"><i className="logo_profil fa-regular fa-circle-user"></i></span>
                             <i className="flecheProfil fa-solid fa-angle-down"></i>
                             <div className="dropdown-content">
-                                <button onClick={goConnexion}>Se connecter</button>
+                                <p onClick={goConnexion}>Se connecter</p>
                             </div>
                         </button>
                     </div>
