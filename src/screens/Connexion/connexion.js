@@ -38,8 +38,11 @@ function Connexion() {
         const hash = hashArray
             .map((item) => item.toString(16).padStart(2, "0"))
             .join("");
+        console.log("ici : ")
         console.log(hash)
         let res = await fetch(`http://localhost:8080/api/user/connexion?email=${email}&password=${hash}`);
+        console.log("la : ")
+        console.log(`http://localhost:8080/api/user/connexion?email=${email}&password=${hash}`)
         if (res.status == 200) {
             const jsonData = await res.json();
             console.log(jsonData.verifier);

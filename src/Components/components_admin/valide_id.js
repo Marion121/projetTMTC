@@ -1,5 +1,6 @@
 import './valide_id.css';
 import { useState, useEffect } from "react";
+import moment from 'moment';
 import { français } from '../../langues/français';
 import { anglais } from '../../langues/anglais';
 
@@ -27,7 +28,9 @@ function Valide_id(props) {
                 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
             }
         });
-        
+
+
+
     }
 
     function refuser(event) {
@@ -36,11 +39,11 @@ function Valide_id(props) {
 
     return (
         <div className={'div_general'}>
-            <p id={'titre'}><strong>{props.nom} {props.prenom}</strong>  </p>
+            <p id={'titre'}><strong>{props.nom} {props.prenom} </strong>  </p>
             <p>{langue.ADMIN.dateNaissance} {props.dateN}</p>
             <div className={'div_img'} >
-                <img className={'img_id'} src='/../../images/valise_fermé.png' alt='idDos' />
-                <img className={'img_id'} src='/../../images/valise_avion.png' alt='idDos' />
+                <img className={'img_id'} src={props.idFace} alt='idFace' />
+                <img className={'img_id'} src={props.idDos} alt='idDos' />
             </div>
             <div>
                 <button className={'boutonOK'} onClick={valider}> {langue.ADMIN.valider} </button>
