@@ -9,7 +9,7 @@ import {useAppStore} from "../../donness";
 
 function Admin_gestion_profil() {
     const [langue, setLangue] = useState(français);
-    let [utilisateur, setUtilisateur] = useState(JSON.parse(localStorage.getItem("User")));
+    let [admin, setAdmin] = useState(JSON.parse(localStorage.getItem("Admin")));
     let navigate = useNavigate();
 
     function goAdmin() {
@@ -17,10 +17,22 @@ function Admin_gestion_profil() {
     }
 
     function editMail(newMail) {
-        utilisateur = {...utilisateur, email : newMail};
-        localStorage.setItem("User", JSON.stringify(utilisateur));
-        console.log(localStorage.getItem("User"));
-        //save();
+        admin = {...admin, email : newMail};
+        localStorage.setItem("Admin", JSON.stringify(admin));
+        console.log(localStorage.getItem("Admin"));
+        save();
+    }
+
+    async function save(){
+
+        let res = await fetch(`http://localhost:8080/api/user?id=${admin.id}`, {
+            method: "PATCH",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*' },
+            body: JSON.stringify(admin)
+        });
     }
 
     useEffect( () => {
@@ -42,7 +54,7 @@ function Admin_gestion_profil() {
                 <div id={"div_profil_admin"}>
                     <p className={"grand_titre_admin"}>{langue.ADMIN_GESTION_PROFIL.profil}</p>
                     <h4 className={"moyen_titre_admin"}>{langue.ADMIN_GESTION_PROFIL.mail}</h4>
-                    <span className="info" id={"text_mail"}>{utilisateur.email}</span>
+                    <span className="info" id={"text_mail"}>{admin.email}</span>
                     <span id={"B_text_email"}>
                             <Bmodif isActive={true} name="text_mail" type_I='email' editMail={editMail}></Bmodif>
                         </span>

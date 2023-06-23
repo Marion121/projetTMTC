@@ -50,6 +50,8 @@ function Connexion() {
         if (res.status == 200) {
             const jsonData = await res.json();
             console.log(jsonData);
+            localStorage.setItem("Admin", JSON.stringify(jsonData));
+            localStorage.setItem("Langue", "anglais");
                 navigate('/Admin');
         } else {
             setMdpRate(true);
