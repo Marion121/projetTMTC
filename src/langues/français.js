@@ -20,6 +20,7 @@ export const français = {
     },
     CONNEXION:{
         connexion: "Connexion",
+        connexion_ad: "Connection Admin",
         email: "Email",
         emailPH: "Entrer votre e-mail",
         mdp: "Mot de passe",

@@ -73,13 +73,7 @@ function Profil() {
                 <NavBar save={save}/>
             </div>
             <div className="block_general">
-                <button className={"Bretour"}>
-                    <span className="fontRetour">
-                        <i className=" fa-solid fa-chevron-left"></i>
-                    </span>
 
-                    Retour
-                </button>
                 <div className="block_photo_nom_tot">
 
                     <div className="photo_nom">

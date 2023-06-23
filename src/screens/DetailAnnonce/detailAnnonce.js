@@ -147,18 +147,18 @@ function DetailAnnonce() {
                 </div>
                 <div id='divAction'>
                     <div id='divAcheterLivre' className='bordure'>
-                        <span><i className="fa-solid fa-plane-departure logoGauche"></i><i className="fa-solid fa-bag-shopping logoDroite"></i><span>{langue.DETAIL_ANNONCE.acheterLivrer}</span></span>
+                        <span> <i className="fa-solid fa-plane-departure logoGauche"></i><i className="fa-solid fa-bag-shopping logoDroite"></i><span>{langue.DETAIL_ANNONCE.acheterLivrer}</span></span>
                     </div>
                     <div id='divAcheter' className='bordure'>
-                        <span onClick={handlePopupAcheteur} ><i className="fa-solid fa-bag-shopping logoGauche"></i>{langue.DETAIL_ANNONCE.acheter}</span>
+                        <span onClick={handlePopupAcheteur} > <i className="fa-solid fa-bag-shopping logoGauche"></i>{langue.DETAIL_ANNONCE.acheter}</span>
                     </div>
                     <div id='divLivrer' className='bordure'>
-                        <span onClick={handlePopupVoyageur} ><i className="fa-solid fa-plane-departure logoGauche"></i>{langue.DETAIL_ANNONCE.livrer}</span>
+                        <span onClick={handlePopupVoyageur} > <i className="fa-solid fa-plane-departure logoGauche"></i>{langue.DETAIL_ANNONCE.livrer}</span>
                     </div>
                 </div>
                 <div id='divAstuce'>
                     <div id='divTitreAstuce'>
-                        <strong>{langue.DETAIL_ANNONCE.titreAstuce}</strong>
+                        <strong> {langue.DETAIL_ANNONCE.titreAstuce}</strong>
                     </div>
                     <div id='divTextAstuce'>
                         <span> {langue.DETAIL_ANNONCE.descriptionAstuce} </span>
@@ -218,14 +218,14 @@ function DetailAnnonce() {
                                             </div>
                                         </div>
                                         <div className="divContrepartie1">
-                                            <p className="divTextContrepartie">{langue.POP_UP_INSCRIPTION.contrepartie}</p>
+                                            <p className="divTextContrepartie"> {langue.POP_UP_INSCRIPTION.contrepartie}</p>
                                             <p className="divtextBig prixC"><strong> {prixvoyageur}€</strong></p>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="divTot">
                                     <div id="divTotText">
-                                        <p className="textBig"><strong>{langue.POP_UP_INSCRIPTION.total} </strong></p>
+                                        <p className="textBig"><strong> {langue.POP_UP_INSCRIPTION.total} </strong></p>
                                         <p className="textTot"><strong> {langue.POP_UP_INSCRIPTION.contreparties} </strong></p>
                                     </div>
                                     <div id="divTotPrix">

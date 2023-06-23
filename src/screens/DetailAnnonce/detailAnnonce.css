@@ -178,6 +178,7 @@
 #divAcheter, #divLivrer{
     width: 25%;
     margin-left: 16px;
+    padding-left: 10px;
     min-width: 180px;
 }
 

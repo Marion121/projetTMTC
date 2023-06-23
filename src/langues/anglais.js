@@ -19,6 +19,7 @@ export const anglais = {
     },
     CONNEXION:{
         connexion: "Connection",
+        connexion_ad: "Connection Admin",
         email: "Email",
         emailPH: "Enter your email",
         mdp: "Password",

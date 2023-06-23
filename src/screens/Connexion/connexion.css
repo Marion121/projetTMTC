@@ -8,12 +8,21 @@
     height: 40%;
     margin: auto;
     position: relative;
-    top: 200px;
+    top: 100px;
     display: block;
 }
 
 #formConnexion {
-    margin-top: 110px;
+    margin-top: 0px;
+    width: 90%;
+    padding: 5%;
+    border: 1px solid #f1f1f1;
+    background: #fff;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+#formConnexion_admin {
+    margin-top: 0px;
     width: 90%;
     padding: 5%;
     border: 1px solid #f1f1f1;
@@ -22,13 +31,32 @@
 }
 
 .container_form h1 {
-    width: 38%;
+    width: 45%;
+    margin: auto;
+    padding-bottom: 10px;
+}
+
+#formConnexion_admin h1 {
+    width: 80%;
     margin: auto;
     padding-bottom: 10px;
 }
 
 .container_form input{
     width: 100%;
+}
+
+.zone_admin{
+    width: 30px;
+    height: 30px;
+    margin-left: 20px;
+    margin-top: 75px;
+    margin-bottom: 0px;
+}
+
+.icon_admin{
+    color: #58b4d4;
+    font-size: x-large;
 }
 
 #inscription_de_co{

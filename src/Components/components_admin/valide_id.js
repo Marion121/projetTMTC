@@ -21,22 +21,31 @@ function Valide_id(props) {
         console.log("ha")
         const response = await fetch(`http://localhost:8080/api/user/verifier?id=${props.id}`, {
             method: "PATCH",
-            headers: {
+            /*headers: {
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH',
                 'mode': 'no-cors',
                 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
-            }
+            }*/
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                offset: 0,
+                limit: 100,
+            })
         });
-
-
-
+        const data = await response.json();
+        console.log(data);
+        setvalidation("validé");
     }
 
     function refuser(event) {
         setvalidation("refuser");
     }
-
+    if(validation == "validé" ){
+        return (<p> validé ! </p>)
+    }else{
     return (
         <div className={'div_general'}>
             <p id={'titre'}><strong>{props.nom} {props.prenom} </strong>  </p>
@@ -50,6 +59,6 @@ function Valide_id(props) {
                 <button className={'boutonRefuser'} onClick={refuser}> {langue.ADMIN.refuser} </button>
             </div>
         </div>
-    )
+    )}
 }
 export default Valide_id;
