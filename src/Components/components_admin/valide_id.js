@@ -1,6 +1,6 @@
 import './valide_id.css';
 import { useState, useEffect } from "react";
-import moment from 'moment';
+//import moment from 'moment';
 import { français } from '../../langues/français';
 import { anglais } from '../../langues/anglais';
 

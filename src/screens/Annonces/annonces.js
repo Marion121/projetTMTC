@@ -22,17 +22,10 @@ function Annonces() {
     const [devise, setDevise] = useState();
     const [msgBienvenue, setmsgBienvenue] = useState();
     const [filterKeyWords, setFilterKeyWords] = useState();
-
+    const [paysArriver, setPaysArriver] = useState(null);
+    const [paysDepart, setPaysDepart] = useState(null);
     const [langue, setLangue] = useState(français);
 
-    useEffect(() => {
-        setLangue(anglais);
-        if(utilisateur==null){
-            setmsgBienvenue(langue.ANNONCES.textBienvenue)
-        }else{
-            setmsgBienvenue(utilisateur.prenom +" " +utilisateur.nom)
-        }
-    })
 
     function handleVoyageChange(event) {
         setVoyage(event.target.checked);
@@ -54,46 +47,72 @@ function Annonces() {
         setDevise(e.target.value);
     }
 
+    function handlePaysArriverChange(e) {
+        if (e.target.value == "") {
+            setPaysArriver(null);
+        } else {
+            setPaysArriver(e.target.value)
+        }
+        console.log(paysArriver)
+    }
 
-    const data = [{ key: 1, titre: "annonces1", lVente: "Paris, France", lAchat: "Madrid, Espagne", description: "super ordi topito", profil: "Leo Comte", typeContrepartie: "div_contrepartie", Prix1: "40,00 €", PrixV: "60,00 €", coutTot: "3670,00 €" },
-    { key: 2, titre: "annonces2", lVente: "Paris, France", lAchat: "Madrid, Espagne", description: "super ordi topito", profil: "Leo Comte", typeContrepartie: "div_contrepartie_1", Prix1: "40,00 €", PrixV: "60,00 €", coutTot: "3670,00 €" },
-    { key: 3, titre: "annonces3", lVente: "Paris, France", lAchat: "Madrid, Espagne", description: "super ordi topito", profil: "Leo Comte", typeContrepartie: "div_contrepartie_2", Prix1: "40,00 €", PrixV: "60,00 €", coutTot: "3670,00 €" },
-    { key: 4, titre: "annonces4", lVente: "Paris, France", lAchat: "Madrid, Espagne", description: "super ordi topito", profil: "Leo Comte", typeContrepartie: "div_contrepartie", Prix1: "40,00 €", PrixV: "60,00 €", coutTot: "3670,00 €" }]
-    /*
-        useEffect(() => {
-            async function fetchRecherche() {
-                let res = fetch(`http://localhost:8080/api/annonce/all?limit=5&offset=0`);
-                const data = await res.json();
-                console.log(data);
-                setDataAnnonces(data);
-                console.log(dataAnnonces);
-            } 
-            fetchRecherche();
-        }, []);*/
+    function handlePaysDepartChange(e) {
+        if (e.target.value == "") {
+            setPaysDepart(null);
+        } else {
+            setPaysDepart(e.target.value)
+        }
+        console.log(paysDepart)
+    }
 
 
-    useEffect(() => {
-        async function fetchDetails() {
-            const response = await fetch(`http://localhost:8080/api/annonce/recherche`, {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
+    async function fetchDetails() {
+        console.log("filterKeyWords ", filterKeyWords)
+        console.log("devise : " , devise)
+        const response = await fetch(`http://localhost:8080/api/annonce/recherche`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: filterKeyWords ?
+                JSON.stringify({
                     offset: 0,
                     limit: 100,
+                    desc: filterKeyWords,
+                    paysArriver: paysArriver,
+                    paysDepart: paysDepart,
+                    prixMax: max, 
+                    prixMin: min
                 })
-            });
-            const data = await response.json();
-            console.log(data);
-            const annoncesUrg = data.filter(item => item.degreImportance === "Urgent");
-            console.log("urg : ", annoncesUrg)
-            setDataAnnoncesUrgentes(annoncesUrg)
-            console.log(data);
-            const annoncesNormal = data.filter(item => item.degreImportance === "Normal");
-            console.log("normal : ", annoncesNormal)
-            setDataAnnonces(annoncesNormal)
+                : JSON.stringify({
+                    offset: 0,
+                    limit: 100,
+                    paysArriver: paysArriver,
+                    paysDepart: paysDepart,
+                    prixMax : max,
+                    prixMin: min,
+                })
+        });
+        const data = await response.json();
+        console.log(data);
+        const annoncesUrg = data.filter(item => item.degreImportance === "Urgent");
+        console.log("urg : ", annoncesUrg)
+        setDataAnnoncesUrgentes(annoncesUrg)
+        console.log(data);
+        const annoncesNormal = data.filter(item => item.degreImportance === "Normal");
+        console.log("normal : ", annoncesNormal)
+        setDataAnnonces(annoncesNormal)
+    }
+
+    useEffect(() => {
+        setLangue(anglais);
+        if (utilisateur == null) {
+            setmsgBienvenue(langue.ANNONCES.textBienvenue)
+        } else {
+            setmsgBienvenue(utilisateur.prenom + " " + utilisateur.nom)
         }
+        console.log(filterKeyWords);
+
         fetchDetails();
 
     }, []);
@@ -119,25 +138,19 @@ function Annonces() {
                     <input className={"input_annonces"} type={"text"} placeholder={langue.ANNONCES.motsCles} onChange={(e) => setFilterKeyWords(e.target.value)}></input>
                 </span>
                 <span className={"conteneur_input_annonces contour_bleu"} id={"depart"}> {langue.ANNONCES.depart}
-                    <input className={"input_annonces"} type={"text"} placeholder={"Votre ville, Pays"} ></input>
+                    <input className={"input_annonces"} type={"text"} placeholder={"Votre ville, Pays"} onChange={handlePaysDepartChange}></input>
                 </span>
 
                 <span className={"conteneur_input_annonces contour_bleu"}> {langue.ANNONCES.arrivee}
-                    <input className={"input_annonces"} type={"text"} placeholder={"Madrid, Espagne"}></input>
+                    <input className={"input_annonces"} type={"text"} placeholder={"Madrid, Espagne"} onChange={handlePaysArriverChange}></input>
                 </span>
+
+
+                <button className={"button_submit_annonces btn_orange"} onClick={fetchDetails} > <strong>Soumettre filtres</strong>  </button>
+
             </div>
             <div className={"div_annonces_produit"}>
                 <div className={"div_affiner_recherhce"}>
-                    <p className={"titre_recherche_gauche"}><strong>{langue.ANNONCES.produit}</strong></p>
-                    <input type="checkbox" className={"checkbox_input"} id="Electronique" />
-                    <label htmlFor="Electronique">{langue.ANNONCES.electronique}</label>
-                    <br />
-                    <input type="checkbox" className={"checkbox_input"} id="Comestible" />
-                    <label htmlFor="Comestible">{langue.ANNONCES.comestible}</label>
-                    <br />
-                    <input type="checkbox" className={"checkbox_input"} id="Liquide" />
-                    <label htmlFor="Liquide">{langue.ANNONCES.liquide}</label>
-                    <br />
                     <p className={"titre_recherche_gauche"}><strong>{langue.ANNONCES.typeAnnonce}</strong></p>
                     <input type="checkbox" className={"checkbox_input"} id="Achat" checked={achat} onChange={handleAchatChange} />
                     <label htmlFor="Achat">{langue.ANNONCES.achat}</label>
@@ -167,21 +180,21 @@ function Annonces() {
                         </tbody>
                     </table>
                     <p className={"titre_recherche_gauche "}><strong>{langue.ANNONCES.devise}</strong></p>
-                    <input type="radio" className={"checkbox_input"} id="Euros" name='devise' value="euro" onChange={handleDeviseChange} />
+                    <input type="checkbox" className={"checkbox_input"} id="Euros" name='devise' value="euro" onChange={handleDeviseChange} />
                     <label htmlFor="Euros">Euros</label>
                     <br />
-                    <input type="radio" className="checkbox_input" id="USD" name='devise' value="usd" onChange={handleDeviseChange} />
+                    <input type="checkbox" className="checkbox_input" id="USD" name='devise' value="usd" onChange={handleDeviseChange} />
                     <label htmlFor="USD">USD</label>
                     <br />
                 </div>
                 <div className="div_annonces_lamda">
-                    {dataAnnonces.map(dataprop => <Annonces_vu_voyageur id={dataprop.id} titre={dataprop.titre} lVente={dataprop.paysArriver.nom} villeArriver={dataprop.villeArriver} lAchat={dataprop.paysDepart.nom} description={dataprop.description} profil={dataprop.profil} photo={dataprop.image} user={dataprop.user} typeContrepartie={dataprop.typeContrepartie} prix1={dataprop.Prix1} prixV={dataprop.PrixV} coutTot={dataprop.prix} annonce={dataprop} ></Annonces_vu_voyageur>)}
+                    {dataAnnonces.map(dataprop => <Annonces_vu_voyageur id={dataprop.id} titre={dataprop.titre} lVente={dataprop.paysArriver.nom} villeArriver={dataprop.villeArriver} lAchat={dataprop.paysDepart.nom} description={dataprop.description} profil={dataprop.profil} photo={dataprop.image} user={dataprop.user} typeContrepartie={dataprop.typeContrepartie} coutTot={dataprop.prix} annonce={dataprop} devise={dataprop.devise} ></Annonces_vu_voyageur>)}
                 </div>
                 <div className={"div_annonces_urgentes"}>
                     <h4 id={"titre_A_urgentes"}>{langue.ANNONCES.annoncesUrg}</h4>
 
                     <div id={"div_annonces_u_border"}>
-                        {dataAnnoncesUrgentes.map(dataprop => <Annonces_urgentes id={dataprop.id} profil={dataprop.profil} titre={dataprop.titre} lVente={dataprop.paysArriver.nom} villeArriver={dataprop.villeArriver} lAchat={dataprop.paysDepart.nom} description={dataprop.description} prixV={dataprop.PrixV} photo={dataprop.image} user={dataprop.user} annonce={dataprop}></Annonces_urgentes>)}
+                        {dataAnnoncesUrgentes.map(dataprop => <Annonces_urgentes id={dataprop.id} profil={dataprop.profil} titre={dataprop.titre} lVente={dataprop.paysArriver.nom} villeArriver={dataprop.villeArriver} lAchat={dataprop.paysDepart.nom} description={dataprop.description} photo={dataprop.image} user={dataprop.user} annonce={dataprop} devise={dataprop.devise} ></Annonces_urgentes>)}
                     </div>
                 </div>
             </div>

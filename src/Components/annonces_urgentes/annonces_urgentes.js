@@ -42,7 +42,7 @@ function Annonces_urgentes(props) {
                 <p className={'text_lieu_urgente'}><i className="fa-solid fa-plane-departure"></i> {props.lAchat}</p>
                 <div id={'div_cout_urgent'}>
                     <p className={"text_contrepartie_urgente"}>{langue.COMPONENT_ANNONCE.contrepartie} <i className="fa-solid fa-plane-departure"></i></p>
-                    <p className={"text_prix_urgente"}>{props.prixV}</p>
+                    <p className={"text_prix_urgente"}>{props.annonce.prix*0.1 + 1} {props.annonce.devise}</p>
                 </div>
             </div>
         </div>
