@@ -29,9 +29,18 @@ function Photo_annonces(props) {
             }catch(e){
                 setIsHidden(false);
             }
-            
         }
         getOffreAcheteur()
+        async function getOffreVoyageur(){
+            let response = await fetch(`http://localhost:8080/api/offre/voyageur/annonce?idAnnonce=${props.annonce.id}`)
+            try{
+                const data = await response.json();
+                setIsHidden(true);
+            }catch(e){
+                setIsHidden(false);
+            }
+        }
+        getOffreVoyageur();
     })
 
     const handleCheckboxChange = () => {
@@ -75,7 +84,7 @@ function Photo_annonces(props) {
             });
             const acheteur = await responseAcheteur.json();
             console.log("Acheteur", acheteur)
-            const responseOffreAcheteur = await fetch(`http://localhost:8080/api/offre/acheteur`, {
+            const responseOffreAcheteur = await fetch(`http://localhost:8080/api/offre/acheteur?id=2`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',

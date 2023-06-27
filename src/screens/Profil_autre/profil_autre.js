@@ -28,7 +28,6 @@ function ProfilAutre() {
             const dataUser = await response.json();
             console.log(dataUser);
             setVisitedUser(dataUser);
-
         }
         async function fetchAnnoncesProfil() {
             const response = await fetch(`http://localhost:8080/api/annonce/user?idUser=${id}`);
@@ -85,7 +84,7 @@ function ProfilAutre() {
             </div>
             <div id={"annonce_"}>
                 <p><strong>{langue.POFIL_AUTRE.annonces}</strong></p>
-                {annoncesuser.map(dataprop => <Annonces_vu_voyageur id={dataprop.id} titre={dataprop.titre} lVente={dataprop.paysArriver.nom} villeArriver={dataprop.villeArriver} lAchat={dataprop.paysDepart.nom} description={dataprop.description} profil={dataprop.profil} photo={dataprop.image} user={dataprop.user} nom={visitedUser.nom} prenom={visitedUser.prenom} typeContrepartie={dataprop.typeContrepartie} prix1={dataprop.Prix1} prixV={dataprop.PrixV} coutTot={dataprop.coutTot} ></Annonces_vu_voyageur>)}
+                {annoncesuser.map(dataprop => <Annonces_vu_voyageur id={dataprop.id} titre={dataprop.titre} lVente={dataprop.paysArriver.nom} villeArriver={dataprop.villeArriver} lAchat={dataprop.paysDepart.nom} description={dataprop.description} profil={dataprop.profil} photo={dataprop.image} user={dataprop.user} nom={visitedUser.nom} prenom={visitedUser.prenom} typeContrepartie={dataprop.typeContrepartie} coutTot={dataprop.prix} annonce={dataprop}></Annonces_vu_voyageur>)}
 
             </div>
         </div>

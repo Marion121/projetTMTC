@@ -128,11 +128,11 @@ function DetailAnnonce() {
                         <div id='divPrixDetail'>
                             <div id='divContrepartie1' className='div_contrepartie_detailAnnonce'>
                                 <p className={"text_contrepartie_detailAnnonce"}>{langue.COMPONENT_ANNONCE.contrepartie} <i className="fa-solid fa-bag-shopping"></i></p>
-                                <p className={"text_prix_detailAnnonce"}><strong>60€</strong></p>
+                                <p className={"text_prix_detailAnnonce"}><strong>{annonce.prix*0.06+1} {annonce.devise}</strong></p>
                             </div>
                             <div id='divContrepartie2' className='div_contrepartie_detailAnnonce'>
                                 <p className={"text_contrepartie_detailAnnonce"}>{langue.COMPONENT_ANNONCE.contrepartie} <i className="fa-solid fa-plane-departure"></i></p>
-                                <p className={"text_prix_detailAnnonce"}><strong>80€</strong></p>
+                                <p className={"text_prix_detailAnnonce"}><strong>{annonce.prix*0.1+1} {annonce.devise}</strong></p>
                             </div>
                             <div id='divContrepartie3' className='div_contrepartie_detailAnnonce'>
                                 <p className={"text_contrepartie_detailAnnonce"}><strong>{langue.COMPONENT_ANNONCE.coutProduit} </strong> <br />
