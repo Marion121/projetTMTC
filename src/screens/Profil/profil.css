@@ -47,6 +47,12 @@
     margin-left: 100px;
 }
 
+#canvaProfil{
+    border-radius: 100%;
+    border: solid black;
+    height: 130px;
+    width: 130px;
+}
 
 /* sous partie : nom */
 .nom_prenom{

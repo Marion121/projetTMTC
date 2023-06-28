@@ -87,7 +87,7 @@ export const anglais = {
         detailsPrix: "Price details",
         total: "Total",
         etat: "State",
-        attenteVoyageurAcheteur: "Waiting for a traveler and a buyer...",
+        attenteVoyageurAcheteur: "Waiting for a traveler and/or a buyer...",
         attenteAcheteur: "Waiting for a buyer...",
         attenteVoyageur: "Waiting for a traveler...",
         attentePayement: "Waiting for payment...",
@@ -103,7 +103,8 @@ export const anglais = {
         actionAttente: "Pending actions",
         actionAcheter: "Buy the product",
         actionLivraison: "In progress",
-        titre: "My purchases and travels"
+        titre1: "My purchases",
+        titre2: "My travels"
     },
     CREER_ANNONCE_G:{
         precedent: "Previous",

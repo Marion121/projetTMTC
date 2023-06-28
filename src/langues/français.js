@@ -88,7 +88,7 @@ export const français = {
         detailsPrix: "Détails du prix",
         total: "Total",
         etat: "Etat",
-        attenteVoyageurAcheteur: "En attente d'un voyageur et d'un acheteur...",
+        attenteVoyageurAcheteur: "En attente d'un voyageur et/ou d'un acheteur...",
         attenteAcheteur: "En attente d'un acheteur...",
         attenteVoyageur: "En attente d'un voyageur...",
         attentePayement: "En attente du payement...",
@@ -104,7 +104,8 @@ export const français = {
         actionAttente: "Actions en attente",
         actionAcheter: "Acheter le produit",
         actionLivraison: "En cours de livraison",
-        titre: "Mes achats et voyages"
+        titre1: "Mes achats",
+        titre2: "Mes voyages"
     },
     CREER_ANNONCE_G:{
         precedent: "Precedent",

@@ -8,26 +8,32 @@ import { anglais } from '../../langues/anglais'
 
 function MesAchatsEtVoyages() {
     const [langue, setLangue] = useState(français);
+    const [achats, setAchats] = useState([]);
+    const [voyages, setVoyages] = useState([]);
+    const utilisateur = JSON.parse(localStorage.getItem("User"));
 
-    useEffect( () => {
-        if(localStorage.getItem("Langue") == "anglais"){
+
+    useEffect(() => {
+        if (localStorage.getItem("Langue") == "anglais") {
             setLangue(anglais);
-        }else{
+        } else {
             setLangue(français);
-        }/*
-        useEffect(() => {
-            async function getOffreAcheteur(){
-                let response = await fetch(`http://localhost:8080/api/offre/acheteur/byUser?idAnnonce=${props.annonce.id}`)
-                try{
-                    const data = await response.json();
-                    setIsHidden(true);
-                }catch(e){
-                    setIsHidden(false);
-                }
-            }
-            <AchatsVoyages />
-            getOffreAcheteur()*/
-    })
+        }
+        async function getAchats() {
+            let response = await fetch(`http://localhost:8080/api/offre/acheteur/byUser?id=${utilisateur.id}`)
+            const data = await response.json();
+            setAchats(data);
+        }
+        getAchats();
+        async function getVoyages() {
+            let response = await fetch(`http://localhost:8080/api/offre/voyageur/byUser?id=${utilisateur.id}`)
+            const data = await response.json();
+            console.log(data)
+            setVoyages(data);
+        }
+        getVoyages();
+    }, [])
+
 
     return (
         <div className="page_mes_achats">
@@ -35,8 +41,10 @@ function MesAchatsEtVoyages() {
                 <NavBar />
             </div>
             <div className="container_mes_achats">
-                <h1>{langue.MES_ACHATS_VOYAGES.titre}</h1>
-                
+                <h1>{langue.MES_ACHATS_VOYAGES.titre1}</h1>
+                {achats.map(dataprop => <AchatsVoyages titre={dataprop.annonce.titre} user={dataprop.acheteur.user} annonce={dataprop.annonce} prix={dataprop.prix} devise={dataprop.devise} imageURL={dataprop.annonce.image} etat="manqueVoyageur" ></AchatsVoyages>)}
+                <h1>{langue.MES_ACHATS_VOYAGES.titre2}</h1>
+                {voyages.map(dataprop => <AchatsVoyages titre={dataprop.annonce.titre} user={dataprop.voyageur.user} annonce={dataprop.annonce} prix={dataprop.prix} devise={dataprop.devise} imageURL={dataprop.annonce.image} etat="manqueVoyageur" ></AchatsVoyages>)}
             </div>
         </div>
 
