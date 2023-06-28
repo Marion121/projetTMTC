@@ -107,7 +107,7 @@ function NavBar(props) {
                         </button>
                     </div>
                     <div className='div_mail'>
-                        <button className='message' onClick={goAdmin}>
+                        <button className='message'>
                             <i className="logo_message fa-regular fa-envelope"></i>
                         </button>
                     </div>

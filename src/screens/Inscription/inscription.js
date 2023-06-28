@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAppStore } from '../../donness';
 import { français } from '../../langues/français'
 import { anglais } from '../../langues/anglais'
+import moment from "moment";
 
 function Inscription() {
     const [password, setPassword] = useState("");
@@ -60,9 +61,13 @@ function Inscription() {
           .join("");
         console.log(hash)
         //setPassword(getSHA256Hash);
-        var date = new Date(dateBirth);
-        var formattedDate = date.toISOString();
-        console.log(typeof formattedDate);
+        console.log("date v0",dateBirth);
+
+        //var formattedDate = date.toISOString();
+        var formattedDate = moment(dateBirth).format('YYYY/MM/DD')
+        console.log("date v3", formattedDate);
+        var date = new Date(formattedDate);
+        console.log("date v1",date);
         try {
             let res = await fetch("http://localhost:8080/api/user", {
                 method: "POST",
@@ -72,7 +77,7 @@ function Inscription() {
                     'Access-Control-Allow-Origin': '*' },
                 body: JSON.stringify({
                     email: email,
-                    dateBirth: formattedDate,
+                    dateNaissance: date,
                     nom: nom,
                     prenom : prenom,
                     password : hash,

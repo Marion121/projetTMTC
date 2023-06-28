@@ -21,18 +21,22 @@ function Valide_id(props) {
         console.log("ha")
         const response = await fetch(`http://localhost:8080/api/user/verifier?id=${props.id}`, {
             method: "PATCH",
-            /*headers: {
+           headers: {
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, PATCH',
                 'mode': 'no-cors',
                 'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
-            }*/
+            }, /*
             headers: {
                 'Content-Type': 'application/json',
             },
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*' },*/
             body: JSON.stringify({
-                offset: 0,
-                limit: 100,
+             /*   offset: 0,
+                limit: 100,*/
             })
         });
         const data = await response.json();
