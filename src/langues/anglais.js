@@ -37,9 +37,11 @@ export const anglais = {
         ville: "City",
         pays: "Country",
         numTel: "Phone number",
-        ci: "ID card",
+        ciF: "ID card front",
+        ciB: "ID card back",
         photo: "Photo",
-        inscrire: "Register"
+        inscrire: "Register",
+        popup: "All image fields must be completed"
     },
     ANNONCES: {
         bonjour: "Hello",

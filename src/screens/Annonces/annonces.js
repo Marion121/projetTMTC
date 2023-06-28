@@ -204,16 +204,3 @@ function Annonces() {
 
 export default Annonces;
 
-/*
-                <select name="combobox" id="voyage-select" className={"b_type_voyage"} >
-                    <option value="allez simple"> Allez simple</option>
-                    <option value="allez retour"> Allez retour</option>
-                </select>
-
-                <button className={"b_type_voyage"}>
-                    <i className="fa-sharp fa-solid fa-plane-up"></i>
-                    <span id={"span_bouton"}> Aller simple </span>
-                    <i className="fa-solid fa-angle-down"></i>
-                </button>
-
- */

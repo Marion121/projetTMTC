@@ -38,9 +38,11 @@ export const français = {
         ville: "Ville",
         pays: "Pays",
         numTel: "Numéros de téléphone",
-        ci: "Pièce d'identité",
+        ciF: "Pièce d'identité face",
+        ciB: "Pièce d'identité dos",
         photo: "Photo",
-        inscrire: "S'inscrire"
+        inscrire: "S'inscrire",
+        popup: "Tout les champs images doivent etre remplis"
     },
     PROFIL: {
         total: "Total gagné",

@@ -68,15 +68,9 @@ function CreerUneAnnonce() {
 
         const file = event.dataTransfer.files[0];
         const reader = new FileReader();
-
-        //const buffer = file.arrayBuffer();
-        // each entry of array should contain 8 bits
-        //const bytes = new Uint8Array(buffer);
-        //console.log(bytes);
         reader.onload = function(event) {
             images.src = reader.result;
             console.log("chargé");
-            
         };
         console.log("src :", images.src)
 
@@ -88,10 +82,7 @@ function CreerUneAnnonce() {
             console.log("toDataUrl", url);
             setDataUrl(url);
         }
-
-        
         reader.readAsDataURL(file)
-
     };
 
     function goCreerAnnonce2() {
@@ -223,11 +214,6 @@ function CreerUneAnnonce() {
                                     <div className='divImageDeposee contour_bleu'>
                                         <canvas id="LeCanva" ref={canvasRef} ></canvas>
                                     </div><br />
-
-                                    
-
-
-
                                 </div>
 
                                 <div id='divPoidEtTitre'>

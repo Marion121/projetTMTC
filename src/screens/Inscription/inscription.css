@@ -6,6 +6,24 @@
 
 }
 
+#drop-zone2, #drop-zone3, #drop-zone4{
+    height: 120px;
+    width: 120px;
+    padding: 20px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+#LeCanva2,#LeCanva3,#LeCanva4 {
+    height: 120px;
+    width: 120px;
+    padding: 0;
+
+}
+
 .container_form_inscription h1{
     margin-left: 135px;
 }

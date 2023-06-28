@@ -142,8 +142,7 @@ function Connexion() {
 
     function profilNonValid(){
         Swal.fire({
-            title: "Impossible de se connecter",
-            text: "Votre profil n'a pas encore été validé",
+            title: "Impossible de se connecter, Votre profil n'a pas encore été validé",
             icon: "error",
             confirmButtonColor: '#0093FF',
             confirmButtonText: 'OK'
