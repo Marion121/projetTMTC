@@ -16,31 +16,50 @@ function Photo_annonces(props) {
     const prixAcheteur = 45;
     const prixvoyageur = 45;
     const [isChecked, setIsChecked] = useState(false);
-    const [isHidden, setIsHidden] = useState(false);
+    const [isHiddenAchat, setIsHiddenAchat] = useState(false);
+    const [isHiddenVoyage, setIsHiddenVoyage] = useState(false);
 
     const [langue, setLangue] = useState(français);
 
+    async function modif() {
+        let newAnnonce = { ...props.annonce, validite: true }
+        console.log("on est LAAA ", newAnnonce)
+        const res = await fetch(`https://localhost:8080/api/annonce?id=${props.annonce.id}`, {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+            body: JSON.stringify(newAnnonce),
+        })
+    }
+
     useEffect(() => {
-        async function getOffreAcheteur(){
+        async function getOffreAcheteur() {
             let response = await fetch(`http://localhost:8080/api/offre/acheteur/annonce?idAnnonce=${props.annonce.id}`)
-            try{
+            try {
                 const data = await response.json();
-                setIsHidden(true);
-            }catch(e){
-                setIsHidden(false);
+                setIsHiddenAchat(true);
+            } catch (e) {
+                setIsHiddenAchat(false);
             }
         }
         getOffreAcheteur()
-        async function getOffreVoyageur(){
+        async function getOffreVoyageur() {
             let response = await fetch(`http://localhost:8080/api/offre/voyageur/annonce?idAnnonce=${props.annonce.id}`)
-            try{
+            try {
                 const data = await response.json();
-                setIsHidden(true);
-            }catch(e){
-                setIsHidden(false);
+                setIsHiddenVoyage(true);
+            } catch (e) {
+                setIsHiddenVoyage(false);
             }
         }
         getOffreVoyageur();
+        if (isHiddenAchat && isHiddenVoyage) {
+            modif();
+
+        }
     })
 
     const handleCheckboxChange = () => {
@@ -97,7 +116,8 @@ function Photo_annonces(props) {
                     annonce: props.annonce
                 })
             });
-        } else if (clickedVoyageur) {
+        }
+        if (clickedVoyageur) {
             const responseVoyageur = await fetch(`http://localhost:8080/api/voyageur`, {
                 method: "POST",
                 headers: {
@@ -156,14 +176,17 @@ function Photo_annonces(props) {
                 value={langue.COMPONENT_ANNONCE.achat}
                 onClick={handlePopupAcheteur}
                 style={{
-                    display: isHidden ? 'none' : '',
-                  }}
+                    display: isHiddenAchat ? 'none' : '',
+                }}
             />
             <input
                 className={props.taille}
                 type="button"
                 value={langue.COMPONENT_ANNONCE.voyage}
                 onClick={handlePopupVoyageur}
+                style={{
+                    display: isHiddenVoyage ? 'none' : '',
+                }}
             />
             {isOpen && <Popup1
                 content={<>
