@@ -1,16 +1,25 @@
 import NavBar from "../../Components/navBar/navbar";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {français} from "../../langues/français";
 import { anglais } from '../../langues/anglais';
 import '../css_general.css'
 import './admin_gestion_profil.css'
 import {useNavigate} from "react-router-dom";
 import {useAppStore} from "../../donness";
+import Popup1 from "../../Components/components_annonces/popup";
+import moment from "moment/moment";
 
 function Admin_gestion_profil() {
     const [langue, setLangue] = useState(français);
+    const [isOpen, setIsOpen] = useState(false);
+    const [isChecked, setIsChecked] = useState(false);
     let [admin, setAdmin] = useState(JSON.parse(localStorage.getItem("Admin")));
     let navigate = useNavigate();
+    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const [nom, setNom] = useState("");
+    const [prenom, setPrenom] = useState("");
+    const [message, setMessage] = useState("");
 
     function goAdmin() {
         navigate('/Admin');
@@ -21,6 +30,53 @@ function Admin_gestion_profil() {
         localStorage.setItem("Admin", JSON.stringify(admin));
         console.log(localStorage.getItem("Admin"));
         save();
+    }
+
+    const handlePopup = () => {
+        setIsOpen(!isOpen);
+        setIsChecked(false);
+    }
+
+    let handlePopupValidate = async (e) => {
+        e.preventDefault();
+        const textAsBuffer = new TextEncoder().encode(password);
+        const hashBuffer = await window.crypto.subtle.digest("SHA-256", textAsBuffer);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const hash = hashArray
+            .map((item) => item.toString(16).padStart(2, "0"))
+            .join("");
+        console.log(hash)
+            try {
+                let res = await fetch("http://localhost:8080/api/admin", {
+                    method: "POST",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*'
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        nom: nom,
+                        prenom: prenom,
+                        password: hash,
+                    }),
+                });
+                let resJson = await res.json();
+                if (res.status === 200) {
+                    setEmail("");
+                    setNom("");
+                    setPrenom("");
+                    setPassword("");
+                    setMessage("User created successfully");
+                } else {
+                    setMessage("Some error occured");
+                }
+            } catch (err) {
+                console.log(err);
+            }
+        setIsOpen(!isOpen);
+        setIsChecked(false);
+
     }
 
     async function save(){
@@ -66,9 +122,51 @@ function Admin_gestion_profil() {
                 </div>
                 <div id={"div_autre_profil"}>
                    <p className={"grand_titre_admin"}>{langue.ADMIN_GESTION_PROFIL.titreAutreAdmin}</p>
-                    <button className={'boutonOK addAdmin'} > {langue.ADMIN_GESTION_PROFIL.boutonAjoutAdmin} </button>
+                    <button className={'boutonOK addAdmin'} onClick={handlePopup} > {langue.ADMIN_GESTION_PROFIL.boutonAjoutAdmin}  </button>
+
                 </div>
             </div>
+
+            {isOpen && <Popup1
+                content={<>
+                    <div id={"général"}>
+                        <table>
+                            <tr>
+                                <td>
+                                    <h4>{langue.ADMIN_GESTION_PROFIL.addAdmin}</h4>
+                                </td>
+                                <td>
+                                    <label>{langue.INSCRIPTION.email}</label> <br></br>
+                                    <input className="Input contour_bleu" type="email" placeholder="Entrer votre e-mail" name="email" value={email} onChange={(e) => setEmail(e.target.value)} required></input>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>{langue.INSCRIPTION.nom}</label> <br></br>
+                                    <input className="contour_bleu" type="text" placeholder="Entrer votre nom" name="nom" value={nom} onChange={(e) => setNom(e.target.value)} required></input>
+                                </td>
+                                <td>
+                                    <label>{langue.INSCRIPTION.prenom}</label>
+                                    <input className="contour_bleu" type="text" placeholder="Entrer votre prenom" name="prenom" value={prenom} onChange={(e) => setPrenom(e.target.value)} required></input>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label>{langue.INSCRIPTION.mdp}</label>
+                                    <input className="contour_bleu" type="password" placeholder="Entrer le mot de passe"  name="password" value={password} onChange={(e) => setPassword(e.target.value)} required></input>
+                                </td>
+                                <td>
+                                    <label>{langue.INSCRIPTION.mdpConfirmation}</label>
+                                    <input className="contour_bleu" type="password" placeholder="Confirmer votre mot de passe" name="passwordConfirm" pattern={password} required></input>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </>}
+                handleClose={handlePopup}
+                handleValidate={handlePopupValidate}
+            />}
         </div>
         )
 }

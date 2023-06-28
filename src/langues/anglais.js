@@ -171,6 +171,7 @@ export const anglais = {
         mdp: "password",
         confirmMdp : "Confirm your password",
         titreAutreAdmin :" management of other administrator : ",
+        addAdmin: "enter the new admin information",
         boutonAjoutAdmin : "Add an administrator"
     },
     POFIL_AUTRE: {

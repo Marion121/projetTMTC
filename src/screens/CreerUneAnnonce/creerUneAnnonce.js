@@ -16,6 +16,7 @@ function CreerUneAnnonce() {
     const CreationAnnonce = useAppStore((state) => state.CreationAnnonce);
 
     var images = new Image();
+    const [Canva, setCanva] = useState(false);
 
     const [file, setFile] = useState();
     const [dragOver, setDragOver] = useState(false);
@@ -32,14 +33,6 @@ function CreerUneAnnonce() {
     const [langue, setLangue] = useState(français);
 
     useEffect(() => {
-        //const utilisateur = JSON.parse(localStorage.getItem("User"));
-        //localStorage.setItem('Langue', JSON.stringify('anglais'));
-        /* console.log(JSON.parse(localStorage.getItem("Langue")));
-         if(JSON.parse(localStorage.getItem("Langue")) == "anglais"){
-             setLangue(anglais);
-         }else{
-             setLangue(français);
-         }*/
         async function getPays() {
             const response = await fetch(`http://localhost:8080/api/pays/all`);
             const dataPays = await response.json();
@@ -81,6 +74,10 @@ function CreerUneAnnonce() {
             const url = canvas.toDataURL('image/png');
             console.log("toDataUrl", url);
             setDataUrl(url);
+            setCanva(true)
+            var  canvasManquant = document.getElementById("drop-zone");
+            canvasManquant.style.borderColor = "#63B7E7";
+            canvasManquant.style.boxShadow = "0 0 10px #63B7E7";
         }
         reader.readAsDataURL(file)
     };
@@ -97,10 +94,11 @@ function CreerUneAnnonce() {
     }
 
     function handleChangePaysLivraison(e) {
+        console.log("on rentre ici ?");
         const selectedId = parseInt(e.target.value);
         const pays = listPays.find((obj) => obj.id === selectedId);
         setPaysLivraison(pays);
-        console.log(paysLivraison);
+       // console.log(paysLivraison);
     }
 
     function handleChangeVille(e) {
@@ -120,21 +118,27 @@ function CreerUneAnnonce() {
     }
 
     function saveDataCreationAnnonce() {
-        setCreationAnnonce({
-            paysDepart: paysDepart,
-            paysArriver: paysLivraison,
-            villeArrivee: villeArrivee,
-            photo: dataUrl,
-            poids: poids,
-            titre: titre,
-            description: description,
-            prixAchats: CreationAnnonce.prixAchats,
-            degreImportance : CreationAnnonce.degreImportance,
-            devise: CreationAnnonce.devise,
-            besoinAcheteur: CreationAnnonce.besoinAcheteur,
-            besoinVoyageur: CreationAnnonce.besoinVoyageur,
-        });
-        goCreerAnnonce2();
+        /*if(!Canva){
+            var  canvasManquant = document.getElementById("drop-zone");
+            canvasManquant.style.borderColor = "red";
+            canvasManquant.style.boxShadow = "0 0 10px red";
+        }else{*/
+            setCreationAnnonce({
+                paysDepart: paysDepart,
+                paysArriver: paysLivraison,
+                villeArrivee: villeArrivee,
+                photo: dataUrl,
+                poids: poids,
+                titre: titre,
+                description: description,
+                prixAchats: CreationAnnonce.prixAchats,
+                degreImportance : CreationAnnonce.degreImportance,
+                devise: CreationAnnonce.devise,
+                besoinAcheteur: CreationAnnonce.besoinAcheteur,
+                besoinVoyageur: CreationAnnonce.besoinVoyageur,
+            });
+            goCreerAnnonce2();
+       // }
     }
 
     function goAnnonces() {
@@ -232,7 +236,7 @@ function CreerUneAnnonce() {
                             <textarea id='textareaDescription' className="contour_bleu" rows="5" cols="41.5" placeholder="Je souhaite aquérir un croissant français de..." value={description} name="villeMivraison" onChange={handleChangeDescription} required></textarea>
                         </div>
                         <button className='boutonPrecedent' onClick={goAnnonces}>{langue.CREER_ANNONCE_G.precedent}</button>
-                        <input type="submit" className='boutonSuivantAnnonce btn_orange' value={langue.CREER_ANNONCE_G.suivant}></input>
+                        <button className='boutonSuivantAnnonce btn_orange' onClick={saveDataCreationAnnonce}>{langue.CREER_ANNONCE_G.suivant}</button>
                     </form>
                 </div>
                 <div id='avancement3'>
@@ -246,3 +250,6 @@ function CreerUneAnnonce() {
 }
 
 export default CreerUneAnnonce;
+
+//<input type="submit" className='boutonSuivantAnnonce btn_orange' value={langue.CREER_ANNONCE_G.suivant}></input>
+//
