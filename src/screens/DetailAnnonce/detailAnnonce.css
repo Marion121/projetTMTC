@@ -211,6 +211,9 @@
     padding-top: 5px;
 }
 
+#divAction span:hover {
+    cursor: pointer;
+}
 
 .photoDetailAnnonce{
     margin-top: 3px;

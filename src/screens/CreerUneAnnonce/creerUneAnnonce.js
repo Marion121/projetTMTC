@@ -69,20 +69,16 @@ function CreerUneAnnonce() {
         const file = event.dataTransfer.files[0];
         const reader = new FileReader();
 
-        //const buffer = file.arrayBuffer();
-        // each entry of array should contain 8 bits
-        //const bytes = new Uint8Array(buffer);
-        //console.log(bytes);
+        
         reader.onload = function(event) {
             images.src = reader.result;
             console.log("chargé");
-            
         };
         console.log("src :", images.src)
 
         images.onload = function () {
             console.log("entré");
-            ctx.drawImage(images, 0, 0);
+            ctx.drawImage(images, 0, 0,canvas.width, canvas.height);
             console.log(file);
             const url = canvas.toDataURL('image/png');
             console.log("toDataUrl", url);

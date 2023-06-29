@@ -88,8 +88,8 @@ function CreerUneAnnonce3() {
                     prixAchats: "",
                     devise: "€",
                     degreImportance: "Normal",
-                    besoinAcheteur: false,
-                    besoinVoyageur: false,
+                    besoinAcheteur: true,
+                    besoinVoyageur: true,
                 });
                 setMessage("User created successfully");
                 navigate('/Annonces');

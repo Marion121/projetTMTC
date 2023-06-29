@@ -10,6 +10,7 @@ function MesAnnonces(prop) {
 
     const [acheteur, setAcheteur] = useState();
     const [voyageur, setVoyageur] = useState();
+    const [etat, setEtat] = useState("manqueVoyageur");
 
     useEffect(()=>{
         console.log(prop.annonce.user)
@@ -37,13 +38,24 @@ function MesAnnonces(prop) {
             
         }
         getVoyageur();
+        modifEtat();
     }, [])
+
+    function modifEtat(){
+        console.log("acheteur : ", acheteur)
+        console.log("voyageur : ", voyageur)
+        if(voyageur == "" || acheteur == ""){
+            setEtat("manqueVoyageur")
+        }else {
+            setEtat("acheminement");
+        }
+    }
 
     return (
         <div id="div_global_annonces" className={"annonces_div_general"}>
             <Produit_mon_annonce typeProfil={"mesAnnonces"} titre={prop.titre} annonce={prop.annonce} paysArriver={prop.paysArriver} paysDepart={prop.paysDepart}  villeArriver={prop.villeArriver} acheteur={acheteur} imageURL={prop.imageURL} transporteur={voyageur} />
             <Detail_prix PrixProduit={prop.PrixProduit} devise={prop.devise} />
-            <Etat_annonce typeEtat ={prop.etat}/>
+            <Etat_annonce typeEtat ={etat} />
         </div>
     );
 }

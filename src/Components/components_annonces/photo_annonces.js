@@ -22,17 +22,19 @@ function Photo_annonces(props) {
     const [langue, setLangue] = useState(français);
 
     async function modif() {
-        let newAnnonce = { ...props.annonce, validite: true }
-        console.log("on est LAAA ", newAnnonce)
-        const res = await fetch(`https://localhost:8080/api/annonce?id=${props.annonce.id}`, {
-            method: 'PUT',
+        //let newAnnonce = { ...props.annonce,  }
+        //console.log("on est LAAA ", newAnnonce)
+        const res = await fetch(`https://localhost:8080/api/annonce/modif?id=${props.annonce.id}`, {
+            method: 'PATCH',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*'
             },
-            body: JSON.stringify(newAnnonce),
+            body: JSON.stringify({validite: false}),
         })
+        const rep = await res.json();
+        console.log(rep)
     }
 
     useEffect(() => {
@@ -58,7 +60,6 @@ function Photo_annonces(props) {
         getOffreVoyageur();
         if (isHiddenAchat && isHiddenVoyage) {
             modif();
-
         }
     })
 
@@ -103,7 +104,7 @@ function Photo_annonces(props) {
             });
             const acheteur = await responseAcheteur.json();
             console.log("Acheteur", acheteur)
-            const responseOffreAcheteur = await fetch(`http://localhost:8080/api/offre/acheteur?id=2`, {
+            const responseOffreAcheteur = await fetch(`http://localhost:8080/api/offre/acheteur`, {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json',

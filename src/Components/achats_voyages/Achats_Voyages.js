@@ -8,6 +8,8 @@ function AchatsVoyages(props) {
 
     const [acheteur, setAcheteur] = useState();
     const [voyageur, setVoyageur] = useState();
+    const [acheteurID, setAcheteurID] = useState();
+    const [voyageurID, setVoyageurID] = useState();
 
     useEffect(()=>{
         console.log(props.annonce.user)
@@ -17,6 +19,7 @@ function AchatsVoyages(props) {
                 const data = await response.json();
                 console.log(data.acheteur.user)
                 setAcheteur(data.acheteur.user.prenom + " " + data.acheteur.user.nom);
+                setAcheteurID(data.acheteur.user.id)
             }catch(e){
                 setAcheteur("");
             }
@@ -29,6 +32,7 @@ function AchatsVoyages(props) {
                 const data = await response.json();
                 console.log(data.voyageur.user)
                 setVoyageur(data.voyageur.user.prenom + " " + data.voyageur.user.nom);
+                setVoyageurID(data.voyageur.user.id)
             }catch(e){
                 setVoyageur("");
             }
@@ -40,7 +44,7 @@ function AchatsVoyages(props) {
     return (
         <div className="achatVoyages annonces_div_general">
             <Produit_mon_annonce imageURL={props.annonce.image} annonce={props.annonce} acheteur={acheteur} voyageur={voyageur} typeProfil={"achatVoyage"} />
-            <Contrepartie prix={props.annonce.prix} devise={props.annonce.devise}/>
+            <Contrepartie prix={props.annonce.prix} devise={props.annonce.devise} acheteurID={acheteurID} voyageurID={voyageurID}/>
             <Actions />
         </div>
     );

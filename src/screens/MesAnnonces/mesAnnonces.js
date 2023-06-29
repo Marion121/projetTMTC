@@ -37,7 +37,7 @@ function MesAnnonces() {
             </div>
             <div className="container_mes_achats">
                 <h1>{langue.MES_ANNONCES.titre}</h1>
-                {mesAnnonces.map(dataprop => <Mon_annonce titre={dataprop.titre} paysArriver={dataprop.paysArriver} paysDepart={dataprop.paysDepart}  villeArriver={dataprop.villeArriver}  PrixProduit={dataprop.prix} devise={dataprop.devise} imageURL={dataprop.image} annonce={dataprop} etat="manqueVoyageur" ></Mon_annonce>)}
+                {mesAnnonces.map(dataprop => <Mon_annonce titre={dataprop.titre} paysArriver={dataprop.paysArriver} paysDepart={dataprop.paysDepart}  villeArriver={dataprop.villeArriver}  PrixProduit={dataprop.prix} devise={dataprop.devise} imageURL={dataprop.image} annonce={dataprop} ></Mon_annonce>)}
             </div>
         </div>
     );

@@ -69,7 +69,7 @@ function Profil() {
 
         images.onload = function () {
             console.log("entré");
-            ctx.drawImage(images, 0, 0);
+            ctx.drawImage(images, 0, 0,canvas.width, canvas.height);
             console.log(file);
             const url = canvas.toDataURL('image/png');
             console.log("toDataUrl", url);
