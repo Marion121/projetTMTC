@@ -1,17 +1,30 @@
 import NavBar from '../../Components/navBar/navbar';
 import './inscription.css'
 import '../css_general.css'
-import { useState, useEffect } from 'react';
+import React, {useState, useEffect, useRef} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppStore } from '../../donness';
 import { français } from '../../langues/français'
 import { anglais } from '../../langues/anglais'
 import moment from "moment";
+import Swal from "sweetalert2";
 
 function Inscription() {
     const [password, setPassword] = useState("");
     const setIsConnecte = useAppStore((state)=>(state.setIsConnecte));
-    
+    const canvasRef = useRef(null);
+    var images = new Image();
+
+    const [dragOver, setDragOver] = useState(false);
+    const [dataUrl, setDataUrl] = useState();
+    const [dataUrlCIF, setDataUrlCIF] = useState();
+    const [dataUrlCIB, setDataUrlCIB] = useState();
+    const [dataUrlPP, setDataUrlPP] = useState();
+
+    const [Canva2, setCanva2] = useState(false);
+    const [Canva3, setCanva3] = useState(false);
+    const [Canva4, setCanva4] = useState(false);
+
     let navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [dateBirth, setDateBirth] = useState("");
@@ -33,12 +46,77 @@ function Inscription() {
         }
     })
 
+    function imageArempir(){
+        Swal.fire({
+            title: "Missing infromation",
+            icon: "error",
+            confirmButtonColor: '#0093FF',
+            confirmButtonText: 'OK'
+
+        });
+    };
+
+
     function goAnnonces() {
         console.log(dateBirth);
         console.log(typeof dateBirth);
         var date = new Date(dateBirth);
         console.log(typeof date);
     }
+
+    const handleDragOver = (event) => {
+        event.preventDefault();
+        setDragOver(true);
+    };
+
+    const handleDragLeave = (event) => {
+        event.preventDefault();
+        setDragOver(false);
+    };
+
+    const handleDrop = (nomCanvas ,event) => {
+        event.preventDefault();
+        setDragOver(false);
+        const canvas = document.getElementById(nomCanvas);
+        const ctx = canvas.getContext('2d');
+
+        const file = event.dataTransfer.files[0];
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            images.src = reader.result;
+            console.log("chargé");
+        };
+        console.log("src :", images.src)
+
+        images.onload = function () {
+            console.log("entré");
+            ctx.drawImage(images, 0, 0);
+            console.log(file);
+            const url = canvas.toDataURL('image/png');
+            console.log("toDataUrl", url);
+            setDataUrl(url);
+            if(nomCanvas=="LeCanva2"){
+                setDataUrlCIF(url)
+                setCanva2(true)
+                var  canvasManquant3 = document.getElementById("drop-zone2");
+                canvasManquant3.style.borderColor = "#63B7E7";
+                canvasManquant3.style.boxShadow = "0 0 10px #63B7E7";
+            }else if(nomCanvas=="LeCanva3") {
+                setDataUrlPP(url)
+                setCanva3(true)
+                var  canvasManquant3 = document.getElementById("drop-zone3");
+                canvasManquant3.style.borderColor = "#63B7E7";
+                canvasManquant3.style.boxShadow = "0 0 10px #63B7E7";
+            } else if(nomCanvas=="LeCanva4"){
+                setDataUrlCIB(url)
+                setCanva4(true)
+                var  canvasManquant3 = document.getElementById("drop-zone4");
+                canvasManquant3.style.borderColor = "#63B7E7";
+                canvasManquant3.style.boxShadow = "0 0 10px #63B7E7";
+            }
+        }
+        reader.readAsDataURL(file)
+    };
 
     const getSHA256Hash = async (input) => {
         const textAsBuffer = new TextEncoder().encode(input);
@@ -61,54 +139,74 @@ function Inscription() {
           .join("");
         console.log(hash)
         //setPassword(getSHA256Hash);
-        console.log("date v0",dateBirth);
-
-        //var formattedDate = date.toISOString();
         var formattedDate = moment(dateBirth).format('YYYY/MM/DD')
-        console.log("date v3", formattedDate);
         var date = new Date(formattedDate);
-        console.log("date v1",date);
-        try {
-            let res = await fetch("http://localhost:8080/api/user", {
-                method: "POST",
-                headers: {    
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*' },
-                body: JSON.stringify({
-                    email: email,
-                    dateNaissance: date,
-                    nom: nom,
-                    prenom : prenom,
-                    password : hash,
-                    adresse : adresse,
-                    ville : ville,
-                    pays : pays,
-                    telephone: telephone,
-                    codePostal: 92220,
-                    photo : '../../ImagesUser/profilUserJean.jpg',
-                    verifier: false
-                }),
-            });
-            let resJson = await res.json();
-            if (res.status === 200) {
-                setEmail("");
-                setDateBirth("");
-                setNom("");
-                setPrenom("");
-                setPassword("");
-                setAdresse("");
-                setPays("");
-                setTelephone("");
-                setMessage("User created successfully");
-                navigate('/');
-            } else {
-                setMessage("Some error occured");
+        if (Canva2 & Canva3 & Canva4 ) {
+            try {
+                let res = await fetch("http://localhost:8080/api/user", {
+                    method: "POST",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*'
+                    },
+                    body: JSON.stringify({
+                        email: email,
+                        dateNaissance: date,
+                        nom: nom,
+                        prenom: prenom,
+                        password: hash,
+                        adresse: adresse,
+                        ville: ville,
+                        pays: pays,
+                        telephone: telephone,
+                        codePostal: 92220,
+                        ci: dataUrlCIF,
+                        jd: dataUrlCIB,
+                        photo: dataUrlPP,
+                        verifier: false
+                    }),
+                });
+                let resJson = await res.json();
+                if (res.status === 200) {
+                    setEmail("");
+                    setDateBirth("");
+                    setNom("");
+                    setPrenom("");
+                    setPassword("");
+                    setAdresse("");
+                    setPays("");
+                    setTelephone("");
+                    setMessage("User created successfully");
+                    navigate('/');
+                } else {
+                    setMessage("Some error occured");
+                }
+            } catch (err) {
+                console.log(err);
             }
-        } catch (err) {
-            console.log(err);
+        }else{
+            console.log("Canva2 ", Canva2)
+            console.log("Canva3 ", Canva3)
+            console.log("Canva4 ", Canva4)
+            if(!Canva2){
+                var  canvasManquant2 = document.getElementById("drop-zone2");
+                canvasManquant2.style.borderColor = "red";
+                canvasManquant2.style.boxShadow = "0 0 10px red";
+            }
+            if(!Canva3){
+                var  canvasManquant3 = document.getElementById("drop-zone3");
+                canvasManquant3.style.borderColor = "red";
+                canvasManquant3.style.boxShadow = "0 0 10px red";
+            }
+            if(!Canva4){
+                var canvasManquant4 = document.getElementById("drop-zone4");
+                canvasManquant4.style.borderColor = "red";
+                canvasManquant4.style.boxShadow = "0 0 10px red";
+            }
+            imageArempir();
         }
-        
+
     };
 
     return (
@@ -174,13 +272,45 @@ function Inscription() {
                             </tr>
                             <tr>
                                 <td>
-                                    <label>{langue.INSCRIPTION.ci}</label>
-                                    <input className="contour_bleu" type="file" name="CI" required></input>
+                                    <div className='divZoneImage'>
+                                        <div>
+                                            <label htmlFor='dropZone'>{langue.INSCRIPTION.ciF}</label><br />
+                                            <div id="drop-zone2" className={`${dragOver ? 'drag-over' : ''} contour_bleu`} name='dropZone' onDragOver={handleDragOver} onDragLeave={handleDragLeave} onDrop={(event) => handleDrop("LeCanva2", event)}>
+                                                {langue.CREER_ANNONCE_1.glisser}
+                                            </div>
+                                        </div>
+
+                                        <div className='divImageDeposee contour_bleu'>
+                                            <canvas id="LeCanva2" ref={canvasRef} ></canvas>
+                                        </div>
+                                    </div>
+                                    <div className='divZoneImage'>
+                                        <div>
+                                            <label htmlFor='dropZone'>{langue.INSCRIPTION.ciB}</label><br />
+                                            <div id="drop-zone4" className={`${dragOver ? 'drag-over' : ''} contour_bleu`} name='dropZone' onDragOver={handleDragOver} onDragLeave={handleDragLeave} onDrop={(event) => handleDrop("LeCanva4", event)}>
+                                                {langue.CREER_ANNONCE_1.glisser}
+                                            </div>
+                                        </div>
+
+                                        <div className='divImageDeposee contour_bleu'>
+                                            <canvas id="LeCanva4" ref={canvasRef} ></canvas>
+                                        </div>
+                                    </div>
                                 </td>
 
                                 <td>
-                                    <label>{langue.INSCRIPTION.photo}</label>
-                                    <input className="contour_bleu" type="file" name="Image"></input>
+                                    <div className='divZoneImage'>
+                                        <div>
+                                            <label htmlFor='dropZone'>{langue.INSCRIPTION.photo}</label><br />
+                                            <div id="drop-zone3" className={`${dragOver ? 'drag-over' : ''} contour_bleu`} name='dropZone' onDragOver={handleDragOver} onDragLeave={handleDragLeave} onDrop={(event) => handleDrop("LeCanva3", event)}>
+                                                {langue.CREER_ANNONCE_1.glisser}
+                                            </div>
+                                        </div>
+
+                                        <div className='divImageDeposee contour_bleu'>
+                                            <canvas id="LeCanva3" ref={canvasRef} ></canvas>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                             <tfoot>
@@ -197,6 +327,8 @@ function Inscription() {
 
         </div>
     );
+
+
 }
 
 export default Inscription;

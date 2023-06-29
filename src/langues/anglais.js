@@ -37,9 +37,11 @@ export const anglais = {
         ville: "City",
         pays: "Country",
         numTel: "Phone number",
-        ci: "ID card",
+        ciF: "ID card front",
+        ciB: "ID card back",
         photo: "Photo",
-        inscrire: "Register"
+        inscrire: "Register",
+        popup: "All image fields must be completed"
     },
     ANNONCES: {
         bonjour: "Hello",
@@ -65,7 +67,11 @@ export const anglais = {
         titreAstuce: "Bwob tip",
         acheterLivrer: "I can buy and deliver the product",
         acheter: "I can buy",
-        livrer: "I can deliver"
+        livrer: "I can deliver",
+        debutDate: "",
+        finDate: " days ago",
+        aujourdhui: "today"
+
     },
     COMPONENT_ANNONCE:{
         achat: "Buy",
@@ -167,8 +173,11 @@ export const anglais = {
         profil : "Profil : ",
         mail: "Email",
         mdp: "password",
+        nom: "Last name ",
+        penom: "First name ",
         confirmMdp : "Confirm your password",
         titreAutreAdmin :" management of other administrator : ",
+        addAdmin: "enter the new admin information",
         boutonAjoutAdmin : "Add an administrator"
     },
     POFIL_AUTRE: {

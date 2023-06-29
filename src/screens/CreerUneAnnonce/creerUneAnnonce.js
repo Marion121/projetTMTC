@@ -16,6 +16,7 @@ function CreerUneAnnonce() {
     const CreationAnnonce = useAppStore((state) => state.CreationAnnonce);
 
     var images = new Image();
+    const [Canva, setCanva] = useState(false);
 
     const [file, setFile] = useState();
     const [dragOver, setDragOver] = useState(false);
@@ -32,14 +33,6 @@ function CreerUneAnnonce() {
     const [langue, setLangue] = useState(français);
 
     useEffect(() => {
-        //const utilisateur = JSON.parse(localStorage.getItem("User"));
-        //localStorage.setItem('Langue', JSON.stringify('anglais'));
-        /* console.log(JSON.parse(localStorage.getItem("Langue")));
-         if(JSON.parse(localStorage.getItem("Langue")) == "anglais"){
-             setLangue(anglais);
-         }else{
-             setLangue(français);
-         }*/
         async function getPays() {
             const response = await fetch(`http://localhost:8080/api/pays/all`);
             const dataPays = await response.json();
@@ -68,8 +61,11 @@ function CreerUneAnnonce() {
 
         const file = event.dataTransfer.files[0];
         const reader = new FileReader();
+<<<<<<< HEAD
 
         
+=======
+>>>>>>> c206c38eda8f1247c43ba5daa233eca0e5f36676
         reader.onload = function(event) {
             images.src = reader.result;
             console.log("chargé");
@@ -83,11 +79,12 @@ function CreerUneAnnonce() {
             const url = canvas.toDataURL('image/png');
             console.log("toDataUrl", url);
             setDataUrl(url);
+            setCanva(true)
+            var  canvasManquant = document.getElementById("drop-zone");
+            canvasManquant.style.borderColor = "#63B7E7";
+            canvasManquant.style.boxShadow = "0 0 10px #63B7E7";
         }
-
-        
         reader.readAsDataURL(file)
-
     };
 
     function goCreerAnnonce2() {
@@ -102,10 +99,11 @@ function CreerUneAnnonce() {
     }
 
     function handleChangePaysLivraison(e) {
+        console.log("on rentre ici ?");
         const selectedId = parseInt(e.target.value);
         const pays = listPays.find((obj) => obj.id === selectedId);
         setPaysLivraison(pays);
-        console.log(paysLivraison);
+       // console.log(paysLivraison);
     }
 
     function handleChangeVille(e) {
@@ -125,21 +123,29 @@ function CreerUneAnnonce() {
     }
 
     function saveDataCreationAnnonce() {
-        setCreationAnnonce({
-            paysDepart: paysDepart,
-            paysArriver: paysLivraison,
-            villeArrivee: villeArrivee,
-            photo: dataUrl,
-            poids: poids,
-            titre: titre,
-            description: description,
-            prixAchats: CreationAnnonce.prixAchats,
-            degreImportance : CreationAnnonce.degreImportance,
-            devise: CreationAnnonce.devise,
-            besoinAcheteur: CreationAnnonce.besoinAcheteur,
-            besoinVoyageur: CreationAnnonce.besoinVoyageur,
-        });
-        goCreerAnnonce2();
+        /*if(!Canva){
+            var  canvasManquant = document.getElementById("drop-zone");
+            canvasManquant.style.borderColor = "red";
+            canvasManquant.style.boxShadow = "0 0 10px red";
+        }else{*/
+            goCreerAnnonce2();
+            setCreationAnnonce({
+                paysDepart: paysDepart,
+                paysArriver: paysLivraison,
+                villeArrivee: villeArrivee,
+                photo: dataUrl,
+                poids: poids,
+                titre: titre,
+                description: description,
+                prixAchats: CreationAnnonce.prixAchats,
+                degreImportance : CreationAnnonce.degreImportance,
+                devise: CreationAnnonce.devise,
+                besoinAcheteur: CreationAnnonce.besoinAcheteur,
+                besoinVoyageur: CreationAnnonce.besoinVoyageur,
+            });
+       // }
+
+
     }
 
     function goAnnonces() {
@@ -199,9 +205,6 @@ function CreerUneAnnonce() {
                                     </td>
                                 </tr>
                             </table>
-
-
-
                         </div>
                         <div className='detailsDuProduit'>
                             <h1>{langue.CREER_ANNONCE_1.titreDetail}</h1>
@@ -215,15 +218,9 @@ function CreerUneAnnonce() {
                                             {langue.CREER_ANNONCE_1.glisser}
                                         </div>
                                     </div>
-
                                     <div className='divImageDeposee contour_bleu'>
                                         <canvas id="LeCanva" ref={canvasRef} ></canvas>
                                     </div><br />
-
-                                    
-
-
-
                                 </div>
 
                                 <div id='divPoidEtTitre'>
@@ -243,7 +240,7 @@ function CreerUneAnnonce() {
                         </div>
                         <button className='boutonPrecedent' onClick={goAnnonces}>{langue.CREER_ANNONCE_G.precedent}</button>
                         <input type="submit" className='boutonSuivantAnnonce btn_orange' value={langue.CREER_ANNONCE_G.suivant}></input>
-                    </form>
+                     </form>
                 </div>
                 <div id='avancement3'>
                     <AvancementCreationAnnonce etatAvancement={1} />
@@ -256,3 +253,8 @@ function CreerUneAnnonce() {
 }
 
 export default CreerUneAnnonce;
+
+//<input type="submit" className='boutonSuivantAnnonce btn_orange' value={langue.CREER_ANNONCE_G.suivant}></input>
+//<button className='boutonSuivantAnnonce btn_orange' onClick={saveDataCreationAnnonce}>{langue.CREER_ANNONCE_G.suivant}</button>
+
+//

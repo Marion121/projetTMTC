@@ -38,9 +38,11 @@ export const français = {
         ville: "Ville",
         pays: "Pays",
         numTel: "Numéros de téléphone",
-        ci: "Pièce d'identité",
+        ciF: "Pièce d'identité face",
+        ciB: "Pièce d'identité dos",
         photo: "Photo",
-        inscrire: "S'inscrire"
+        inscrire: "S'inscrire",
+        popup: "Tout les champs images doivent etre remplis"
     },
     PROFIL: {
         total: "Total gagné",
@@ -73,7 +75,10 @@ export const français = {
         titreAstuce: "Astuce Bwob",
         acheterLivrer: "Je peux acheter et livrer le produit",
         acheter: "Je peux acheter",
-        livrer: "Je peux livrer"
+        livrer: "Je peux livrer",
+        debutDate: "il y a ",
+        finDate: " jours",
+        aujourdhui: "aujourd'hui"
     },
     COMPONENT_ANNONCE:{
         achat: "Achat",
@@ -168,8 +173,11 @@ export const français = {
         profil : "Profil : ",
         mail: "Email",
         mdp: "mot de passe ",
+        nom: "Nom ",
+        penom: "prenom ",
         confirmMdp : "confirmer le mot de passe",
         titreAutreAdmin :" gestion des autres admin : ",
+        addAdmin: "rentrez les informations du nouvel admin",
         boutonAjoutAdmin : "Ajouter un administrateur"
     },
     POFIL_AUTRE: {
