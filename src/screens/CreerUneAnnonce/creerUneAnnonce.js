@@ -61,11 +61,7 @@ function CreerUneAnnonce() {
 
         const file = event.dataTransfer.files[0];
         const reader = new FileReader();
-<<<<<<< HEAD
-
         
-=======
->>>>>>> c206c38eda8f1247c43ba5daa233eca0e5f36676
         reader.onload = function(event) {
             images.src = reader.result;
             console.log("chargé");

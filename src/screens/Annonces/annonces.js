@@ -23,7 +23,7 @@ function Annonces() {
     const [msgBienvenue, setmsgBienvenue] = useState();
     const [filterKeyWords, setFilterKeyWords] = useState();
     const [paysArriver, setPaysArriver] = useState(null);
-    const [paysDepart, setPaysDepart] = useState(null);
+    const [villeArriver, setVilleArriver] = useState(null);
     const [langue, setLangue] = useState(français);
 
 
@@ -56,13 +56,13 @@ function Annonces() {
         console.log(paysArriver)
     }
 
-    function handlePaysDepartChange(e) {
+    function handleVilleArriverChange(e) {
         if (e.target.value == "") {
-            setPaysDepart(null);
+            setVilleArriver(null);
         } else {
-            setPaysDepart(e.target.value)
+            setVilleArriver(e.target.value)
         }
-        console.log(paysDepart)
+        console.log(villeArriver)
     }
 
 
@@ -80,7 +80,7 @@ function Annonces() {
                     limit: 100,
                     desc: filterKeyWords,
                     paysArriver: paysArriver,
-                    paysDepart: paysDepart,
+                    villeArriver: villeArriver,
                     prixMax: max, 
                     prixMin: min
                 })
@@ -88,7 +88,7 @@ function Annonces() {
                     offset: 0,
                     limit: 100,
                     paysArriver: paysArriver,
-                    paysDepart: paysDepart,
+                    villeArriver: villeArriver,
                     prixMax : max,
                     prixMin: min,
                 })
@@ -137,8 +137,8 @@ function Annonces() {
                 <span className={"conteneur_input_annonces contour_bleu"} id={"depart"}><i className="fa-solid fa-magnifying-glass"></i>
                     <input className={"input_annonces"} type={"text"} placeholder={langue.ANNONCES.motsCles} onChange={(e) => setFilterKeyWords(e.target.value)}></input>
                 </span>
-                <span className={"conteneur_input_annonces contour_bleu"} id={"depart"}> {langue.ANNONCES.depart}
-                    <input className={"input_annonces"} type={"text"} placeholder={"Votre ville, Pays"} onChange={handlePaysDepartChange}></input>
+                <span className={"conteneur_input_annonces contour_bleu"} id={"depart"}> {langue.ANNONCES.villeArrivee}
+                    <input className={"input_annonces"} type={"text"} placeholder={"Votre ville d'arrivée"} onChange={handleVilleArriverChange}></input>
                 </span>
 
                 <span className={"conteneur_input_annonces contour_bleu"}> {langue.ANNONCES.arrivee}
