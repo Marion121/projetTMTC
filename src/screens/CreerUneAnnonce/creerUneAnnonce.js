@@ -123,6 +123,7 @@ function CreerUneAnnonce() {
             canvasManquant.style.borderColor = "red";
             canvasManquant.style.boxShadow = "0 0 10px red";
         }else{*/
+            goCreerAnnonce2();
             setCreationAnnonce({
                 paysDepart: paysDepart,
                 paysArriver: paysLivraison,
@@ -137,8 +138,9 @@ function CreerUneAnnonce() {
                 besoinAcheteur: CreationAnnonce.besoinAcheteur,
                 besoinVoyageur: CreationAnnonce.besoinVoyageur,
             });
-            goCreerAnnonce2();
        // }
+
+
     }
 
     function goAnnonces() {
@@ -198,9 +200,6 @@ function CreerUneAnnonce() {
                                     </td>
                                 </tr>
                             </table>
-
-
-
                         </div>
                         <div className='detailsDuProduit'>
                             <h1>{langue.CREER_ANNONCE_1.titreDetail}</h1>
@@ -214,7 +213,6 @@ function CreerUneAnnonce() {
                                             {langue.CREER_ANNONCE_1.glisser}
                                         </div>
                                     </div>
-
                                     <div className='divImageDeposee contour_bleu'>
                                         <canvas id="LeCanva" ref={canvasRef} ></canvas>
                                     </div><br />
@@ -236,8 +234,8 @@ function CreerUneAnnonce() {
                             <textarea id='textareaDescription' className="contour_bleu" rows="5" cols="41.5" placeholder="Je souhaite aquérir un croissant français de..." value={description} name="villeMivraison" onChange={handleChangeDescription} required></textarea>
                         </div>
                         <button className='boutonPrecedent' onClick={goAnnonces}>{langue.CREER_ANNONCE_G.precedent}</button>
-                        <button className='boutonSuivantAnnonce btn_orange' onClick={saveDataCreationAnnonce}>{langue.CREER_ANNONCE_G.suivant}</button>
-                    </form>
+                        <input type="submit" className='boutonSuivantAnnonce btn_orange' value={langue.CREER_ANNONCE_G.suivant}></input>
+                     </form>
                 </div>
                 <div id='avancement3'>
                     <AvancementCreationAnnonce etatAvancement={1} />
@@ -252,4 +250,6 @@ function CreerUneAnnonce() {
 export default CreerUneAnnonce;
 
 //<input type="submit" className='boutonSuivantAnnonce btn_orange' value={langue.CREER_ANNONCE_G.suivant}></input>
+//<button className='boutonSuivantAnnonce btn_orange' onClick={saveDataCreationAnnonce}>{langue.CREER_ANNONCE_G.suivant}</button>
+
 //

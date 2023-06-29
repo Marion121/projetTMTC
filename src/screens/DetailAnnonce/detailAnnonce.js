@@ -7,12 +7,14 @@ import { français } from '../../langues/français'
 import { anglais } from '../../langues/anglais'
 import { useNavigate } from 'react-router-dom';
 import Popup1 from "../../Components/components_annonces/popup";
+import moment from "moment";
 
 
 function DetailAnnonce() {
     const [isOpen, setIsOpen] = useState(false);
     const [clickedAcheteur, setClickedAcheteur] =  useState(false);
     const [clickedVoyageur, setClickedVoyageur] =  useState(false);
+    const [nbrJour, setnbrJour] =  useState("");
     const [prix, setprix] = useState(0);
     const prixAcheteur = 45 ;
     const prixvoyageur = 45 ;
@@ -85,6 +87,28 @@ function DetailAnnonce() {
         }
     }
 
+    function calculDate(){
+        var dateCreation = annonce.date
+        console.log("date crea", dateCreation)
+        //var dateCreaFormatt = moment(annonce.date).format('DD/MM/YYYY')
+        var dateAujourdhui = new Date();
+        console.log("date today", dateAujourdhui)
+        //var dateAujourdhuiFormatt = moment(dateAujourdhui).format('DD/MM/YYYY')
+        var differenceMs = dateAujourdhui -dateCreation  ;
+
+        console.log(differenceMs)
+        var differenceJours = Math.floor(differenceMs / (1000 * 60 * 60 * 24));
+        console.log(differenceJours)
+        if(1< differenceJours <8){
+            setnbrJour(langue.DETAIL_ANNONCE.debutDate + differenceJours + langue.DETAIL_ANNONCE.finDate)
+        }else if(7< differenceJours){
+            setnbrJour(moment(annonce.date).format('DD/MM/YYYY'))
+        }else{
+            setnbrJour(langue.DETAIL_ANNONCE.aujourdhui)
+        }
+
+    }
+
     useEffect(() => {
         async function Details() {
             const response = await fetch(`http://localhost:8080/api/annonce?id=${id}`);
@@ -94,10 +118,27 @@ function DetailAnnonce() {
             setUserAnnonce(data.user);
             console.log(annonce);
             console.log(userAnnonce);
+
+            setLangue(anglais);
+
+            var dateCreation = data.date
+            console.log("date crea", dateCreation)
+            var dateAujourdhui = new Date();
+            console.log("date today", dateAujourdhui)
+            var differenceMs = dateAujourdhui -dateCreation  ;
+
+            console.log(differenceMs)
+            var differenceJours = Math.floor(differenceMs / (1000 * 60 * 60 * 24));
+            console.log(differenceJours)
+            if (differenceJours == 0){
+                setnbrJour(langue.DETAIL_ANNONCE.aujourdhui)
+            }else if(1<differenceJours<8){
+                setnbrJour(langue.DETAIL_ANNONCE.debutDate + differenceJours + langue.DETAIL_ANNONCE.finDate)
+            }
         }
         Details();
-        setLangue(anglais);
     }, []);
+
 
 
     return (
@@ -116,7 +157,7 @@ function DetailAnnonce() {
                             <span id='spanNom' onClick={goProfil}> {userAnnonce.prenom} {userAnnonce.nom}</span>
                         </div>
                         <div id='divDate'>
-                            Il y a 3 jours
+                            {nbrJour}
                         </div>
                     </div>
                 </div>

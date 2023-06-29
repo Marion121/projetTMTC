@@ -67,7 +67,11 @@ export const anglais = {
         titreAstuce: "Bwob tip",
         acheterLivrer: "I can buy and deliver the product",
         acheter: "I can buy",
-        livrer: "I can deliver"
+        livrer: "I can deliver",
+        debutDate: "",
+        finDate: " days ago",
+        aujourdhui: "today"
+
     },
     COMPONENT_ANNONCE:{
         achat: "Buy",
@@ -169,6 +173,8 @@ export const anglais = {
         profil : "Profil : ",
         mail: "Email",
         mdp: "password",
+        nom: "Last name ",
+        penom: "First name ",
         confirmMdp : "Confirm your password",
         titreAutreAdmin :" management of other administrator : ",
         addAdmin: "enter the new admin information",

@@ -25,8 +25,49 @@ function Admin_gestion_profil() {
         navigate('/Admin');
     }
 
+    window.onpopstate = (event) => {
+        console.log("on revient en arrière");
+        save();
+    };
+
+    async function save() {
+        console.log(admin);
+
+        let res = await fetch(`http://localhost:8080/api/admin?id=${admin.id}`, {
+            method: "PATCH",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+            body: JSON.stringify(admin)
+        });
+    }
+
     function editMail(newMail) {
         admin = {...admin, email : newMail};
+        localStorage.setItem("Admin", JSON.stringify(admin));
+        console.log(localStorage.getItem("Admin"));
+        save();
+    }
+
+    function editNom(newNom) {
+        admin = {...admin, nom : newNom};
+        localStorage.setItem("Admin", JSON.stringify(admin));
+        console.log(localStorage.getItem("Admin"));
+        save();
+    }
+
+    function editPrenom(newPrenom) {
+        admin = {...admin, prenom : newPrenom};
+        localStorage.setItem("Admin", JSON.stringify(admin));
+        console.log(localStorage.getItem("Admin"));
+        save();
+    }
+
+    function editMdp(newMdp) {
+        console.log("mdp :", newMdp);
+        admin = {...admin, password : newMdp};
         localStorage.setItem("Admin", JSON.stringify(admin));
         console.log(localStorage.getItem("Admin"));
         save();
@@ -79,18 +120,6 @@ function Admin_gestion_profil() {
 
     }
 
-    async function save(){
-
-        let res = await fetch(`http://localhost:8080/api/user?id=${admin.id}`, {
-            method: "PATCH",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*' },
-            body: JSON.stringify(admin)
-        });
-    }
-
     useEffect( () => {
         setLangue(anglais);
     })
@@ -114,11 +143,16 @@ function Admin_gestion_profil() {
                     <span id={"B_text_email"}>
                             <Bmodif isActive={true} name="text_mail" type_I='email' editMail={editMail}></Bmodif>
                         </span>
-                    <h4 className={"moyen_titre_admin"}>{langue.ADMIN_GESTION_PROFIL.mdp}</h4>
-                    <span className="info" id={"text_mdp"}>******</span>
-                    <span id={"B_text_mdp"}>
-                            <Bmodif isActive={true} name="text_mdp" type_I='password'></Bmodif>
-                        </span>
+                    <h4 className={"moyen_titre_admin"}>{langue.ADMIN_GESTION_PROFIL.nom}</h4>
+                    <span className="info" id={"text_nom"}>{admin.nom}</span>
+                    <span id={"B_text_nom"}>
+                            <Bmodif isActive={true} name="text_nom"  editNom={editNom}></Bmodif>
+                    </span>
+                    <h4 className={"moyen_titre_admin"}>{langue.INSCRIPTION.prenom}</h4>
+                    <span className="info" id={"text_prenom"}>{admin.prenom}</span>
+                    <span id={"B_text_prenom"}>
+                            <Bmodif isActive={true} name="text_prenom"  editPrenom={editPrenom}></Bmodif>
+                    </span>
                 </div>
                 <div id={"div_autre_profil"}>
                    <p className={"grand_titre_admin"}>{langue.ADMIN_GESTION_PROFIL.titreAutreAdmin}</p>
@@ -196,19 +230,16 @@ function Bmodif(props) {
         document.getElementById(nomID).style.display = "none"
         document.getElementById(nomIDBV).style.display = "inline"
         document.getElementById(nomIDBR).style.display = "inline"
-        if(props.name =="text_mdp"){
-            valeur = "";
-            document.getElementById("text_mdp").innerHTML = "<input id='input_" + props.name + "1'type= 'password'  /> <p></p> <input id='input_" + props.name + "2'type= 'password'  />" ;
-        }else{
-            valeur = document.getElementById(props.name).innerHTML
-            document.getElementById(props.name).innerHTML = "<input id='input_" + props.name + "'type=" + props.type_I + "  />";
-            document.getElementById("input_" + props.name).value = valeur;
-        }
+
+        valeur = document.getElementById(props.name).innerHTML
+        document.getElementById(props.name).innerHTML = "<input id='input_" + props.name + "'type=" + props.type_I + "  />";
+        document.getElementById("input_" + props.name).value = valeur;
+
     }
 
-    function valider() {
+    async function valider() {
         if(props.name =="text_mdp") {
-            valeur = "*****";
+            valeur = "***";
         }else {
             valeur = document.getElementById("input_" + props.name).value;
         }
@@ -218,7 +249,31 @@ function Bmodif(props) {
         document.getElementById(props.name).innerHTML = valeur;
         if(props.name == "text_mail"){
             props.editMail(valeur);
+        }if(props.name == "text_nom"){
+            props.editNom(valeur);
+        }if(props.name == "text_prenom") {
+            props.editPrenom(valeur);
         }
+        /*}if(props.name=="text_mdp"){
+            var valeur1 = document.getElementById("text_mdp").value;
+            console.log(valeur1)
+            var valeur2 = document.getElementById("text_mdp2").value;
+            console.log(valeur2)
+            //var valeur2 = document.getElementById("input_text_mdp2").value;
+           //if(valeur1 = valeur2){
+            console.log("before hash", valeur1)
+            const textAsBuffer = new TextEncoder().encode(valeur1);
+            const hashBuffer = await window.crypto.subtle.digest("SHA-256", textAsBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hash = hashArray
+            console.log("hash", hash)
+            props.editMdp(hash)
+           /* }else{
+                var entrerMdpDif = document.getElementById("input_" + props.name + "2")
+                entrerMdpDif.style.borderColor = "red";
+                entrerMdpDif.style.boxShadow = "0 0 10px red";
+            }
+        }*/
     }
 
     function retour() {
@@ -229,6 +284,7 @@ function Bmodif(props) {
         document.getElementById(nomID).style.display = "inline"
         document.getElementById(nomIDBV).style.display = "none"
         document.getElementById(nomIDBR).style.display = "none"
+        document.getElementById("text_mdp2").innerHTML = "";
     }
 
     return (
