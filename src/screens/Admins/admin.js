@@ -30,12 +30,13 @@ function Admin() {
             setUserNonValide(dataUser);
         }
         getNonValideUser();
-
+/*
         if(localStorage.getItem("Langue") == "anglais"){
             setLangue(anglais);
         }else{
             setLangue(français);
-        }
+        }*/
+        setLangue(français);
         
     }, []);
 

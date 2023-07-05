@@ -55,7 +55,7 @@ function MesAnnonces(prop) {
         <div id="div_global_annonces" className={"annonces_div_general"}>
             <Produit_mon_annonce typeProfil={"mesAnnonces"} titre={prop.titre} annonce={prop.annonce} paysArriver={prop.paysArriver} paysDepart={prop.paysDepart}  villeArriver={prop.villeArriver} acheteur={acheteur} imageURL={prop.imageURL} transporteur={voyageur} />
             <Detail_prix PrixProduit={prop.PrixProduit} devise={prop.devise} />
-            <Etat_annonce typeEtat ={etat} />
+            <Etat_annonce typeEtat ={"manqueVoyageur"} />
         </div>
     );
 }

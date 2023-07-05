@@ -40,7 +40,7 @@ function CreerUneAnnonce() {
             setListPays(dataPays);
         }
         getPays();
-        setLangue(anglais);
+        setLangue(français);
     }, [])
 
     const handleDragOver = (event) => {
@@ -118,13 +118,18 @@ function CreerUneAnnonce() {
         setDescritpion(e.target.value);
     }
 
-    function saveDataCreationAnnonce() {
-        /*if(!Canva){
+    function saveDataCreationAnnonce(event) {
+        event.preventDefault()
+        console.log("villeArrivee : " , villeArrivee)
+        console.log("!villeArrivee : " , !villeArrivee)
+
+        if(!Canva || !villeArrivee || !titre || !description){
+            console.log("c'est PAS bon")
             var  canvasManquant = document.getElementById("drop-zone");
             canvasManquant.style.borderColor = "red";
             canvasManquant.style.boxShadow = "0 0 10px red";
-        }else{*/
-            goCreerAnnonce2();
+        }else{
+            console.log("c'est bon")
             setCreationAnnonce({
                 paysDepart: paysDepart,
                 paysArriver: paysLivraison,
@@ -139,9 +144,8 @@ function CreerUneAnnonce() {
                 besoinAcheteur: CreationAnnonce.besoinAcheteur,
                 besoinVoyageur: CreationAnnonce.besoinVoyageur,
             });
-       // }
-
-
+            goCreerAnnonce2();
+        }
     }
 
     function goAnnonces() {
@@ -170,7 +174,7 @@ function CreerUneAnnonce() {
             </div>
             <div id='wrapperPageCreationAnnonce1'>
                 <div id='wrapperFormCreationAnnonce1'>
-                    <form method='POST' onSubmit={saveDataCreationAnnonce}>
+                   
                         <div className='lieuAchatReception'>
                             <h1>{langue.CREER_ANNONCE_1.titreDetail}</h1>
                             <table>
@@ -235,8 +239,7 @@ function CreerUneAnnonce() {
                             <textarea id='textareaDescription' className="contour_bleu" rows="5" cols="41.5" placeholder="Je souhaite aquérir un croissant français de..." value={description} name="villeMivraison" onChange={handleChangeDescription} required></textarea>
                         </div>
                         <button className='boutonPrecedent' onClick={goAnnonces}>{langue.CREER_ANNONCE_G.precedent}</button>
-                        <input type="submit" className='boutonSuivantAnnonce btn_orange' value={langue.CREER_ANNONCE_G.suivant}></input>
-                     </form>
+                        <button className='boutonSuivantAnnonce btn_orange' onClick={saveDataCreationAnnonce}>{langue.CREER_ANNONCE_G.suivant}</button>                    
                 </div>
                 <div id='avancement3'>
                     <AvancementCreationAnnonce etatAvancement={1} />

@@ -139,7 +139,7 @@ function CreerUneAnnonce2() {
                                         {langue.CREER_ANNONCE_2.contrepartie}
                                     </div>
                                     <div className='divPrixContrepartie'>
-                                        45€
+                                        {(prix*0.06+1).toFixed(2)} {devise}
                                     </div>
                                 </div>
                             </div>
@@ -162,7 +162,7 @@ function CreerUneAnnonce2() {
                                         {langue.CREER_ANNONCE_2.contrepartie}
                                     </div>
                                     <div className='divPrixContrepartie'>
-                                        45€
+                                        {(prix*0.1+1).toFixed(2)} {devise}
                                     </div>
                                 </div>
                             </div>

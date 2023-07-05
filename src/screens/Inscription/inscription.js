@@ -39,11 +39,7 @@ function Inscription() {
     //const [hash, ]
 
     useEffect( () => {
-        if(localStorage.getItem("Langue") == "anglais"){
-            setLangue(anglais);
-        }else{
-            setLangue(français);
-        }
+        setLangue(français);
     })
 
     function imageArempir(){
@@ -90,7 +86,7 @@ function Inscription() {
 
         images.onload = function () {
             console.log("entré");
-            ctx.drawImage(images, 0, 0);
+            ctx.drawImage(images, 0, 0,canvas.width, canvas.height );
             console.log(file);
             const url = canvas.toDataURL('image/png');
             console.log("toDataUrl", url);

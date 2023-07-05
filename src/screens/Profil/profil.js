@@ -157,10 +157,7 @@ function Profil() {
                             <span id={"text_nom_prenom"}>{utilisateur.nom} {utilisateur.prenom}</span>
                             <Bmodif isActive={false} name="text_nom_prenom" nom={utilisateur.nom} prenom={utilisateur.prenom} editNomPrenom={editNomPrenom} type_I='text'></Bmodif>
                         </div>
-                        <div className="tot_gangne">
-                            <p className="tot_text"> {langue.PROFIL.total}</p>
-                            <p className="tot_valeur">532,00 €</p>
-                        </div>
+                        
                     </div>
                 </div>
                 <div className="block_info_modif">

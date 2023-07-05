@@ -18,7 +18,7 @@ function Connexion() {
     const [langue, setLangue] = useState(français);
 
     useEffect(() => {
-        setLangue(anglais);
+        setLangue(français);
     })
 
     function goAnnonces() {
@@ -51,7 +51,7 @@ function Connexion() {
             const jsonData = await res.json();
             console.log(jsonData);
             localStorage.setItem("Admin", JSON.stringify(jsonData));
-            localStorage.setItem("Langue", "anglais");
+            localStorage.setItem("Langue", "français");
                 navigate('/Admin');
         } else {
             setMdpRate(true);

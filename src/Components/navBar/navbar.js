@@ -11,7 +11,7 @@ function NavBar(props) {
     const [langue, setLangue] = useState(français);
 
     useEffect( () => {
-        setLangue(anglais);
+        setLangue(français);
     })
 
     let navigate = useNavigate();

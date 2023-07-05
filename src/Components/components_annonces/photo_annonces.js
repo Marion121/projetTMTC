@@ -196,7 +196,7 @@ function Photo_annonces(props) {
                             <b>{langue.POP_UP_INSCRIPTION.titre}</b>
                         </div>
                         <div id="acheminementProduit1">
-                            <label id="titreproduit"><strong>Titre produit</strong></label>
+                            <label id="titreproduit"><strong> {props.annonce.titre}</strong></label>
                             <br></br>
                             <label id="texteAcheminement">
                                 <strong> {langue.POP_UP_INSCRIPTION.acheminementProduit}
@@ -209,16 +209,16 @@ function Photo_annonces(props) {
                                 </div>
                                 <div className="divTextDetail">
                                     <p>{langue.POP_UP_INSCRIPTION.acheteur}</p>
-                                    <p className="divtextBig"><strong>Allemagne, Europe </strong></p>
+                                    <p className="divtextBig"><strong> {props.annonce.paysDepart.nom} </strong></p>
                                 </div>
                                 <div className="divCoutProduit">
                                     <p><strong>{langue.POP_UP_INSCRIPTION.coutProduit} </strong></p>
-                                    <p className="divtextBig"><strong> 1330,00€ </strong></p>
+                                    <p className="divtextBig"><strong> {props.annonce.prix} {props.annonce.devise} </strong></p>
                                     <p id="text_Indication_Rembourssement">{langue.POP_UP_INSCRIPTION.rembourser} </p>
                                 </div>
                                 <div className="divContrepartie1">
                                     <p className="divTextContrepartie">{langue.POP_UP_INSCRIPTION.contrepartie}</p>
-                                    <p className="divtextBig prixC"><strong> {prixAcheteur}€ </strong></p>
+                                    <p className="divtextBig prixC"><strong> {props.annonce.prix*0.06+1} {props.annonce.devise} </strong></p>
                                 </div>
                             </div>
                             <div id="divVoyageur1" className={`${clickedVoyageur ? 'divClicked' : ''} contour_bleu`} onClick={handleClickVoyageur}>
@@ -231,19 +231,19 @@ function Photo_annonces(props) {
                                     </div>
                                     <div className="divVoyage">
                                         <div className="divtextBig" id="divPaysDepat">
-                                            <strong> Allemagne, Europe</strong>
+                                            <strong> {props.annonce.paysDepart.nom}</strong>
                                         </div>
                                         <div id="divfleche" className="divtextBig">
                                             <i className="logo_fleche fa-solid fa-arrow-right"></i>
                                         </div>
                                         <div className="divtextBig" id="divPaysArrive">
-                                            <strong>Montréal, Canada, Amérique du nord</strong>
+                                            <strong> {props.annonce.villeArriver}, {props.annonce.paysArriver.nom}</strong>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="divContrepartie1">
                                     <p className="divTextContrepartie">{langue.POP_UP_INSCRIPTION.contrepartie}</p>
-                                    <p className="divtextBig prixC"><strong> {prixvoyageur}€</strong></p>
+                                    <p className="divtextBig prixC"><strong> {props.annonce.prix*0.1+1} {props.annonce.devise} </strong></p>
                                 </div>
                             </div>
                         </div>
@@ -253,7 +253,7 @@ function Photo_annonces(props) {
                                 <p className="textTot"><strong> {langue.POP_UP_INSCRIPTION.contreparties} </strong></p>
                             </div>
                             <div id="divTotPrix">
-                                <p className="divtextBig prixTot"><strong>{prix}€</strong></p>
+                                <p className="divtextBig prixTot"><strong> {(props.annonce.prix*0.1+1) + (props.annonce.prix*0.06+1)} {props.annonce.devise}</strong></p>
                             </div>
                         </div>
                         <div className="divRadioBouton1" onClick={handleCheckboxChange}>

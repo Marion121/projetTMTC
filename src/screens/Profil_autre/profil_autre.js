@@ -74,7 +74,7 @@ function ProfilAutre() {
                     </div>
                 </div>
                 <div>
-                    <p className={'text_caracteristique'}> {nbAchat} {langue.POFIL_AUTRE.achat} | {nbVoyages} {langue.POFIL_AUTRE.voyages} </p>
+                    <p className={'text_caracteristique'}> 1 {langue.POFIL_AUTRE.achat} | {nbVoyages} {langue.POFIL_AUTRE.voyages} </p>
                     <p className={'text_caracteristique'}>{annoncesuser.length} {langue.POFIL_AUTRE.annoncesPostees} </p>
                     <button id={'envoyer_msg'} >
                         <div> <i className="logo_message fa-regular fa-envelope"></i> </div>

@@ -121,7 +121,7 @@ function Admin_gestion_profil() {
     }
 
     useEffect( () => {
-        setLangue(anglais);
+        setLangue(français);
     })
 
     return(

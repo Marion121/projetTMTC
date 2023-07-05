@@ -68,7 +68,7 @@ function Annonces() {
 
     async function fetchDetails() {
         console.log("filterKeyWords ", filterKeyWords)
-        console.log("devise : " , devise)
+        console.log("devise : ", devise)
         const response = await fetch(`http://localhost:8080/api/annonce/recherche`, {
             method: "POST",
             headers: {
@@ -81,7 +81,7 @@ function Annonces() {
                     desc: filterKeyWords,
                     paysArriver: paysArriver,
                     villeArriver: villeArriver,
-                    prixMax: max, 
+                    prixMax: max,
                     prixMin: min
                 })
                 : JSON.stringify({
@@ -89,7 +89,7 @@ function Annonces() {
                     limit: 100,
                     paysArriver: paysArriver,
                     villeArriver: villeArriver,
-                    prixMax : max,
+                    prixMax: max,
                     prixMin: min,
                 })
         });
@@ -105,7 +105,7 @@ function Annonces() {
     }
 
     useEffect(() => {
-        setLangue(anglais);
+        setLangue(français);
         if (utilisateur == null) {
             setmsgBienvenue(langue.ANNONCES.textBienvenue)
         } else {
@@ -152,12 +152,7 @@ function Annonces() {
             <div className={"div_annonces_produit"}>
                 <div className={"div_affiner_recherhce"}>
                     <p className={"titre_recherche_gauche"}><strong>{langue.ANNONCES.typeAnnonce}</strong></p>
-                    <input type="checkbox" className={"checkbox_input"} id="Achat" checked={achat} onChange={handleAchatChange} />
-                    <label htmlFor="Achat">{langue.ANNONCES.achat}</label>
-                    <br />
-                    <input type="checkbox" className={"checkbox_input"} id="Voyage" checked={voyage} onChange={handleVoyageChange} />
-                    <label htmlFor="Voyage">{langue.ANNONCES.voyage}</label>
-                    <br />
+                    
                     <p className={"titre_recherche_gauche"}><strong></strong></p>
                     <table className={"table_recherche"}>
                         <tbody>
@@ -179,13 +174,7 @@ function Annonces() {
                             </tr>
                         </tbody>
                     </table>
-                    <p className={"titre_recherche_gauche "}><strong>{langue.ANNONCES.devise}</strong></p>
-                    <input type="checkbox" className={"checkbox_input"} id="Euros" name='devise' value="euro" onChange={handleDeviseChange} />
-                    <label htmlFor="Euros">Euros</label>
-                    <br />
-                    <input type="checkbox" className="checkbox_input" id="USD" name='devise' value="usd" onChange={handleDeviseChange} />
-                    <label htmlFor="USD">USD</label>
-                    <br />
+
                 </div>
                 <div className="div_annonces_lamda">
                     {dataAnnonces.map(dataprop => <Annonces_vu_voyageur id={dataprop.id} titre={dataprop.titre} lVente={dataprop.paysArriver.nom} villeArriver={dataprop.villeArriver} lAchat={dataprop.paysDepart.nom} description={dataprop.description} profil={dataprop.profil} photo={dataprop.image} user={dataprop.user} typeContrepartie={dataprop.typeContrepartie} coutTot={dataprop.prix} annonce={dataprop} devise={dataprop.devise} ></Annonces_vu_voyageur>)}
@@ -204,3 +193,13 @@ function Annonces() {
 
 export default Annonces;
 
+/*
+<p className={"titre_recherche_gauche "}><strong>{langue.ANNONCES.devise}</strong></p>
+                    <input type="checkbox" className={"checkbox_input"} id="Euros" name='devise' value="euro" onChange={handleDeviseChange} />
+                    <label htmlFor="Euros">Euros</label>
+                    <br />
+                    <input type="checkbox" className="checkbox_input" id="USD" name='devise' value="usd" onChange={handleDeviseChange} />
+                    <label htmlFor="USD">USD</label>
+                    <br />
+
+                    */

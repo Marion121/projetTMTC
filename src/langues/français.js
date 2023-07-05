@@ -38,8 +38,8 @@ export const français = {
         ville: "Ville",
         pays: "Pays",
         numTel: "Numéros de téléphone",
-        ciF: "Pièce d'identité face",
-        ciB: "Pièce d'identité dos",
+        ciF: "Pièce d'identité 1",
+        ciB: "Pièce d'identité 2",
         photo: "Photo",
         inscrire: "S'inscrire",
         popup: "Tout les champs images doivent etre remplis"
@@ -56,18 +56,18 @@ export const français = {
         textBienvenue : "Connectez vous !",
         textEntete_1: "Retrouvez si dessous l'ensemble des annonces postées !",
         textEntete_2: "Postulez si vous avez de la place dans votre valise ! ",
-        villeArrivee: "Ville d'arrivée :",
-        arrivee: "Pays d'arrivée :",
+        villeArrivee: "Ville d'arrivée ",
+        arrivee: "Pays d'arrivée ",
         produit: "Produit",
         electronique: "Electronique",
         comestible: "Comestible",
         liquide: "Liquide",
-        typeAnnonce: "Type d'annonce",
+        typeAnnonce: "Prix",
         achat: "Achat",
         voyage: "Voyage", 
         retribution: "Retribution",
         devise: "Devise",
-        annoncesUrg: "Annonces Urgentes",
+        annoncesUrg: "Urgents",
         motsCles: "Chercher des mots clés"
     },
     DETAIL_ANNONCE: {
@@ -177,7 +177,7 @@ export const français = {
         penom: "prenom ",
         confirmMdp : "confirmer le mot de passe",
         titreAutreAdmin :" gestion des autres admin : ",
-        addAdmin: "rentrez les informations du nouvel admin",
+        addAdmin: "Rentrez les informations du nouvel admin",
         boutonAjoutAdmin : "Ajouter un administrateur"
     },
     POFIL_AUTRE: {

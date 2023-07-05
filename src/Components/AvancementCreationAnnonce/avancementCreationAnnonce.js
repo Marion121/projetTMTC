@@ -7,7 +7,7 @@ function AvancementCreationAnnonce(props){
     const [langue, setLangue] = useState(français);
 
     useEffect( () => {
-        setLangue(anglais);
+        setLangue(français);
     })
 
     if(props.etatAvancement==1){

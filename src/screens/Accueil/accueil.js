@@ -12,7 +12,7 @@ function Accueil() {
     const [langue, setLangue] = useState(français);
 
     useEffect( () => {
-        setLangue(anglais);
+        setLangue(français);
     })
     let navigate = useNavigate();
 
@@ -70,9 +70,6 @@ function Accueil() {
                 </div>
             </div>
             <div className='zone3'>
-                <div>
-                    {langue.ACCUEIL.texte}
-                </div>
                 <img className="ImageBas" src='/../../images/schemaAccueil.jpeg' alt='Schémas'/>
             </div>
         </div>

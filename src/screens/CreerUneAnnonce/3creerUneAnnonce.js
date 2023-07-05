@@ -18,12 +18,12 @@ function CreerUneAnnonce3() {
 
     useEffect(() => {
         console.log(localStorage.getItem("Langue"));
-        if (localStorage.getItem("Langue") == "anglais") {
+       /* if (localStorage.getItem("Langue") == "anglais") {
             setLangue(anglais);
         } else {
             setLangue(français);
-        }
-        //setLangue(anglais);
+        }*/
+        setLangue(français);
         console.log("ok");
     })
 
@@ -143,19 +143,20 @@ function CreerUneAnnonce3() {
                 <div id='divCommission'>
                     <div id='divCommissionAcheteur'>
                         <h3>{langue.CREER_ANNONCE_3.commissionA}</h3>
-
+                        {CreationAnnonce.prixAchats*0.06+1} {CreationAnnonce.devise}
                     </div>
                     <div id='divCommissionVoyageur'>
                         <h3>{langue.CREER_ANNONCE_3.commissionV}</h3>
-
+                        {CreationAnnonce.prixAchats*0.1+1} {CreationAnnonce.devise}
                     </div>
                     <div id='divCommissionBWOB'>
                         <h3>{langue.CREER_ANNONCE_3.commissionBwob}</h3>
-
+                        {CreationAnnonce.prixAchats*0.08+1} {CreationAnnonce.devise}
                     </div>
                 </div>
                 <div id='divPrixTotal'>
                     <h3>{langue.CREER_ANNONCE_3.prixTot}</h3>
+                    {parseFloat((CreationAnnonce.prixAchats*0.08+1) + (CreationAnnonce.prixAchats*0.1+1) + (CreationAnnonce.prixAchats*0.06+1) +  CreationAnnonce.prixAchats).toFixed(2)  } {CreationAnnonce.devise}
                 </div>
                 <div id='divNote'>
                     {langue.CREER_ANNONCE_3.texte}
