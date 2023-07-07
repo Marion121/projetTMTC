@@ -21,8 +21,9 @@
 
 /* PARTIE :  espace photo & nom & gain tot */
 .block_photo_nom_tot{
-    width: 60%;
-    min-width: 590px;
+    padding-top: 40px;
+    width: 470px;
+    min-width: 470px;
     height: 150px;
     margin: auto;
     display: flex;
@@ -60,6 +61,7 @@
     margin-left: 15px;
     width: 250px;
     font-weight: bold;
+    font-size: x-large
 }
 
 /* sous partie : somme total gangé*/
@@ -89,10 +91,16 @@
 
 /* PARTIE :  information personelle */
 .block_info_modif{
+    padding-top: 20px;
     width: 470px ;
     margin: auto;
+    position: relative;
 }
 
+#B_text_mail, #B_text_date, #B_Pays , #B_text_cb  {
+    position: absolute;
+    right: 140px;
+}
 
 h3{
     font-size: large;
@@ -103,6 +111,7 @@ h3{
     font-size: x-large;
     font-weight: normal;
     margin-right: 15px;
+
 }
 
 /* BOUTON MODIFIER*/

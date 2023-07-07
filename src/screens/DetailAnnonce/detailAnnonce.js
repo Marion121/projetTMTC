@@ -209,7 +209,7 @@ function DetailAnnonce() {
             console.log(annonce);
             console.log(userAnnonce);
 
-            setLangue(anglais);
+           
 
             var dateCreation = data.date
             console.log("date crea", dateCreation)
@@ -227,7 +227,7 @@ function DetailAnnonce() {
             }
         }
         Details();
-        setLangue(anglais);
+        setLangue(français);
         async function getOffreAcheteur() {
             let response = await fetch(`http://localhost:8080/api/offre/acheteur/annonce?idAnnonce=${id}`)
             try {
@@ -347,7 +347,7 @@ function DetailAnnonce() {
                                 </div>
                                 <div className="divContrepartie1">
                                     <p className="divTextContrepartie">{langue.POP_UP_INSCRIPTION.contrepartie}</p>
-                                    <p className="divtextBig prixC"><strong> {prixAcheteur}€ </strong></p>
+                                    <p className="divtextBig prixC"><strong> {annonce.prix* 0.06 + 1} {annonce.devise} </strong></p>
                                 </div>
                             </div>
                             <div id="divVoyageur1" className={`${clickedVoyageur ? 'divClicked' : ''} contour_bleu`} onClick={handleClickVoyageur}>
@@ -372,7 +372,7 @@ function DetailAnnonce() {
                                 </div>
                                 <div className="divContrepartie1">
                                     <p className="divTextContrepartie"> {langue.POP_UP_INSCRIPTION.contrepartie}</p>
-                                    <p className="divtextBig prixC"><strong> {prixvoyageur}€</strong></p>
+                                    <p className="divtextBig prixC"><strong> {annonce.prix* 0.1 + 1} {annonce.devise}</strong></p>
                                 </div>
                             </div>
                         </div>
@@ -382,7 +382,7 @@ function DetailAnnonce() {
                                 <p className="textTot"><strong> {langue.POP_UP_INSCRIPTION.contreparties} </strong></p>
                             </div>
                             <div id="divTotPrix">
-                                <p className="divtextBig prixTot"><strong>{prix}€</strong></p>
+                                <p className="divtextBig prixTot"><strong> {(annonce.prix* 0.1 + 1) + (annonce.prix* 0.06 + 1) } {annonce.devise}</strong></p>
                             </div>
                         </div>
                         <div className="divRadioBouton1" onClick={handleCheckboxChange}>

@@ -13,7 +13,7 @@ function MesAnnonces() {
     const [langue, setLangue] = useState(français);
 
     useEffect( () => {
-        setLangue(anglais);
+        setLangue(français);
     })
 
     

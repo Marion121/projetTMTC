@@ -10,7 +10,7 @@ function Detail_prix(prop) {
     const prixTOT = prop.PrixProduit + parseFloat((prop.PrixProduit*0.1 +1).toFixed(2)) + parseFloat((prop.PrixProduit*0.06 +1).toFixed(2)) + parseFloat((prop.PrixProduit*0.08 +1).toFixed(2))
 
     useEffect( () => {
-        setLangue(anglais);
+        setLangue(français);
         console.log(typeof (prop.PrixProduit*0.1 +1).toFixed(2))
     })
 

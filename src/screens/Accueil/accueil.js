@@ -70,6 +70,7 @@ function Accueil() {
                 </div>
             </div>
             <div className='zone3'>
+                <p id="textAccueil">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tincidunt egestas sollicitudin.</p>
                 <img className="ImageBas" src='/../../images/schemaAccueil.jpeg' alt='Schémas'/>
             </div>
         </div>

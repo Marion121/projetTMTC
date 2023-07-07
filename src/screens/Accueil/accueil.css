@@ -9,9 +9,9 @@ button{
     background: url("/public/images/avion.png") no-repeat;
     background-size: 100%;
     margin-top: 70px;
-    height: 65vh;
+    height: 450px;
     min-width: 857px;
-    min-height: 500px;
+    min-height: 400px;
     display: flex;
 }
 .block {
@@ -111,11 +111,14 @@ button{
 .ImageBas{
     min-height: 70px;
     min-width: 20px;
-    width: 100%;
-    height: 80%;
+    width: 40%;
+    height: 50%;
     max-width: 800px;
     max-height: 200px;
     margin: auto;
 }
 
-
+#textAccueil{
+    font-size: x-large;
+    font-weight: bold;
+}

@@ -13,7 +13,7 @@ function Produit_mon_annonce(prop) {
 
 
     useEffect( () => {
-        setLangue(anglais);
+        setLangue(français);
     })
     
     if(prop.typeProfil =="mesAnnonces"){

@@ -35,7 +35,24 @@ function ProfilAutre() {
             console.log(dataAnnonce);
             setAnnoncesUser(dataAnnonce);
         }
-        async function getNbAchats() {
+        async function getAchats() {
+            let response = await fetch(`http://localhost:8080/api/offre/acheteur/byUser?id=${id}`)
+            const data = await response.json();
+            const nbAchat = data.length
+            console.log("achats : " , nbAchat);
+            setNbAchat(nbAchat);
+        }
+        getAchats();
+        async function getVoyages() {
+            let response = await fetch(`http://localhost:8080/api/offre/voyageur/byUser?id=${id}`)
+            const data = await response.json();
+            console.log(data)
+            const nbVoyages = data.length
+            console.log("voyages : " , nbVoyages);
+            setNbVoyages(nbVoyages);
+        }
+        getVoyages();
+        /*async function getNbAchats() {
             const response = await fetch(`http://localhost:8080/api/offre/acheteur/stat?id=${id}`);
             const nbAchat = await response.json();
             console.log(nbAchat);
@@ -46,16 +63,17 @@ function ProfilAutre() {
             const nbVoyages = await response.json();
             console.log(nbVoyages);
             setNbVoyages(nbVoyages);
-        }
+        }*/
         fetchAnnoncesProfil();
         getVisitedUser();
-        getNbAchats();
-        getNbVoyages();
-        if(localStorage.getItem("Langue") == "anglais"){
+        /*getNbAchats();
+        getNbVoyages();*/
+        /*if(localStorage.getItem("Langue") == "anglais"){
             setLangue(anglais);
         }else{
             setLangue(français);
-        }
+        }*/
+        setLangue(français);
         console.log(visitedUser);
         console.log(annoncesuser);
     }, []);
@@ -74,7 +92,7 @@ function ProfilAutre() {
                     </div>
                 </div>
                 <div>
-                    <p className={'text_caracteristique'}> 1 {langue.POFIL_AUTRE.achat} | {nbVoyages} {langue.POFIL_AUTRE.voyages} </p>
+                    <p className={'text_caracteristique'}> {nbAchat} {langue.POFIL_AUTRE.achat} | {nbVoyages} {langue.POFIL_AUTRE.voyages} </p>
                     <p className={'text_caracteristique'}>{annoncesuser.length} {langue.POFIL_AUTRE.annoncesPostees} </p>
                     <button id={'envoyer_msg'} >
                         <div> <i className="logo_message fa-regular fa-envelope"></i> </div>
