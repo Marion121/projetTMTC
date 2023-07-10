@@ -114,7 +114,7 @@ export const français = {
         precedent: "Precedent",
         suivant: "Suivant",
         detailProduit: "Detail du produit",
-        prixProduit: "Prix d'acheminement du produit",
+        prixProduit: "Prix d'acheminement",
         recapitulatif: "Recapitulatif de votre annonce"
     },
     CREER_ANNONCE_1: {

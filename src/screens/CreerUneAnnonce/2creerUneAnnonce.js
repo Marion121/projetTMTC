@@ -122,7 +122,7 @@ function CreerUneAnnonce2() {
                         <div id='acheminementProduit'>
                             <label>{langue.CREER_ANNONCE_2.acheminement} <span>({langue.CREER_ANNONCE_2.cliquerIci})</span></label>
 
-                            <div id='divAcheteur' className={`${clickedAcheteur ? 'divClicked' : ''} contour_bleu`} onClick={handleClickAcheteur}>
+                            <div id='divAcheteur' className={`contour_bleu`} onClick={handleClickAcheteur}>
                                 <div className='divImageGauche'>
                                     <i class="logoImageGauche1 fa-solid fa-bag-shopping"></i>
                                 </div>
@@ -143,7 +143,7 @@ function CreerUneAnnonce2() {
                                     </div>
                                 </div>
                             </div>
-                            <div id='divVoyageur' className={`${clickedVoyageur ? 'divClicked' : ''} contour_bleu`} onClick={handleClickVoyageur}>
+                            <div id='divVoyageur' className={`contour_bleu`} onClick={handleClickVoyageur}>
                                 <div className='divImageGauche'>
                                     <i class="logoImageGauche2 fa-solid fa-plane-up"></i>
                                 </div>

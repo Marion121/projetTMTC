@@ -114,7 +114,7 @@ export const anglais = {
         precedent: "Previous",
         suivant: "Next",
         detailProduit: "Product details",
-        prixProduit: "Product delivery price",
+        prixProduit: "Delivery price",
         recapitulatif: "Summary of your ad"
     },
     CREER_ANNONCE_1: {

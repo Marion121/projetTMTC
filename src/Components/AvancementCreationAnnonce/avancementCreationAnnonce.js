@@ -17,7 +17,7 @@ function AvancementCreationAnnonce(props) {
                     <button className='buttonAvancement troisPoints'><strong>...</strong></button><span><h2>{langue.CREER_ANNONCE_G.detailProduit}</h2></span>
                 </div>
                 <div id='etape2' className='wrapperAvancement'>
-                    <button className='buttonAvancement'></button><h2>{langue.CREER_ANNONCE_G.prixProduit}</h2>
+                    <button className='buttonAvancement'></button><span><h2>{langue.CREER_ANNONCE_G.prixProduit}</h2></span>
                 </div>
                 <div id='etape3' className='wrapperAvancement'>
                     <button className='buttonAvancement'></button><h2>{langue.CREER_ANNONCE_G.recapitulatif}</h2>
@@ -29,13 +29,13 @@ function AvancementCreationAnnonce(props) {
         return (
             <div className='wrapperGeneralAvancement'>
                 <div id='etape1' className='wrapperAvancement'>
-                    <h2><i class="logoAvancementGood logoCheck fa-solid fa-circle-check"></i>Detail du Produit</h2>
+                    <h2><i class="logoAvancementGood logoCheck fa-solid fa-circle-check"></i>{langue.CREER_ANNONCE_G.detailProduit}</h2>
                 </div>
                 <div id='etape2' className='wrapperAvancement'>
-                    <button className='buttonAvancement troisPoints'><strong>...</strong></button><h2>Prix d'acheminement du Produit</h2>
+                    <button className='buttonAvancement troisPoints'><strong>...</strong></button><span><h2>{langue.CREER_ANNONCE_G.prixProduit}</h2></span>
                 </div>
                 <div id='etape3' className='wrapperAvancement'>
-                    <button className='buttonAvancement'></button><h2>Recapitulatif de votre annonce</h2>
+                    <button className='buttonAvancement'></button><h2>{langue.CREER_ANNONCE_G.recapitulatif}</h2>
                 </div>
             </div>
         );
@@ -44,13 +44,13 @@ function AvancementCreationAnnonce(props) {
         return (
             <div className='wrapperGeneralAvancement'>
                 <div id='etape1' className='wrapperAvancement'>
-                    <h2><i class="logoAvancementGood logoCheck fa-solid fa-circle-check"></i>Detail du Produit</h2>
+                    <h2><i class="logoAvancementGood logoCheck fa-solid fa-circle-check"></i>{langue.CREER_ANNONCE_G.detailProduit}</h2>
                 </div>
                 <div id='etape2' className='wrapperAvancement'>
-                <button className='buttonAvancement'><i class="logoAvancementGood logoCheck fa-solid fa-circle-check"></i></button><h2>Prix d'acheminement du Produit</h2>
+                    <h2><span><i class="logoAvancementGood logoCheck fa-solid fa-circle-check"></i></span><span>{langue.CREER_ANNONCE_G.prixProduit}</span></h2>
                 </div>
                 <div id='etape3' className='wrapperAvancement'>
-                    <button className='buttonAvancement'></button><h2>Recapitulatif de votre annonce</h2>
+                    <button className='buttonAvancement troisPoints'><strong>...</strong></button><h2>{langue.CREER_ANNONCE_G.recapitulatif}</h2>
                 </div>
             </div>
         );
