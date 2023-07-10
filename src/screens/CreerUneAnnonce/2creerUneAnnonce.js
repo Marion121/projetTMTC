@@ -22,12 +22,12 @@ function CreerUneAnnonce2() {
     const [langue, setLangue] = useState(français);
 
     useEffect( () => {
-        if(localStorage.getItem("Langue") == "anglais"){
+        /*if(localStorage.getItem("Langue") == "anglais"){
             setLangue(anglais);
         }else{
             setLangue(français);
-        }
-        //setLangue(anglais);
+        }*/
+        setLangue(français);
         console.log("degImportance : " , degreImportance);
     })
 
